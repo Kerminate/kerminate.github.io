@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="技术帖," />
+  <meta name="keywords" content="算法," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="坑点 使用vue的ui框架时，比如element,iview等，需要给组件绑定原生事件，可以在事件后加.native。例如element的input组件绑定键盘事件可以这么写@keyup.enter.native=”add” 详见vue的官方教程  面试题 不用循环生成100长度都为1的数组,详见es6  123new Array(100).fill(1)Array.from(&amp;#123;leng">
-<meta name="keywords" content="技术帖">
+<meta name="description" content="最近在复习刷一些算法题，做到了排序题，就顺便整理下数据结构中的八大排序算法。">
+<meta name="keywords" content="算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="项目中遇到过的问题">
-<meta property="og:url" content="http://yoursite.com/2018/01/03/项目中遇到过的问题/index.html">
+<meta property="og:title" content="详解数据结构八大排序算法">
+<meta property="og:url" content="http://yoursite.com/2018/01/29/详解数据结构八大排序算法/index.html">
 <meta property="og:site_name" content="Blog | Kerminate">
-<meta property="og:description" content="坑点 使用vue的ui框架时，比如element,iview等，需要给组件绑定原生事件，可以在事件后加.native。例如element的input组件绑定键盘事件可以这么写@keyup.enter.native=”add” 详见vue的官方教程  面试题 不用循环生成100长度都为1的数组,详见es6  123new Array(100).fill(1)Array.from(&amp;#123;leng">
+<meta property="og:description" content="最近在复习刷一些算法题，做到了排序题，就顺便整理下数据结构中的八大排序算法。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-29T04:31:53.516Z">
+<meta property="og:updated_time" content="2018-01-29T10:42:09.761Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="项目中遇到过的问题">
-<meta name="twitter:description" content="坑点 使用vue的ui框架时，比如element,iview等，需要给组件绑定原生事件，可以在事件后加.native。例如element的input组件绑定键盘事件可以这么写@keyup.enter.native=”add” 详见vue的官方教程  面试题 不用循环生成100长度都为1的数组,详见es6  123new Array(100).fill(1)Array.from(&amp;#123;leng">
+<meta name="twitter:title" content="详解数据结构八大排序算法">
+<meta name="twitter:description" content="最近在复习刷一些算法题，做到了排序题，就顺便整理下数据结构中的八大排序算法。">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/01/03/项目中遇到过的问题/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/29/详解数据结构八大排序算法/"/>
 
 
 
 
 
-  <title>项目中遇到过的问题 | Blog | Kerminate</title>
+  <title>详解数据结构八大排序算法 | Blog | Kerminate</title>
   
 
 
@@ -243,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/03/项目中遇到过的问题/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/29/详解数据结构八大排序算法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kerminate">
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">项目中遇到过的问题</h1>
+          <h1 class="post-title" itemprop="name headline">详解数据结构八大排序算法</h1>
         
 
         <div class="post-meta">
@@ -272,8 +272,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-03T17:42:08+08:00">
-                2018-01-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-29T17:30:28+08:00">
+                2018-01-29
               </time>
             
 
@@ -291,9 +291,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/01/03/项目中遇到过的问题/#comments" itemprop="discussionUrl">
+                <a href="/2018/01/29/详解数据结构八大排序算法/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/01/03/项目中遇到过的问题/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/01/29/详解数据结构八大排序算法/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -321,15 +321,10 @@
       
 
       
-        <h2 id="坑点"><a href="#坑点" class="headerlink" title="坑点"></a>坑点</h2><ul>
-<li>使用vue的ui框架时，比如element,iview等，需要给组件绑定原生事件，可以在事件后加.native。例如element的input组件绑定键盘事件可以这么写@keyup.enter.native=”add” 详见<a href="https://cn.vuejs.org/v2/guide/components.html#%E7%BB%99%E7%BB%84%E4%BB%B6%E7%BB%91%E5%AE%9A%E5%8E%9F%E7%94%9F%E4%BA%8B%E4%BB%B6" target="_blank" rel="noopener">vue的官方教程</a></li>
-</ul>
-<h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h2><ul>
-<li>不用循环生成100长度都为1的数组,详见<a href="http://es6.ruanyifeng.com/#docs/array#Array-from" target="_blank" rel="noopener">es6</a></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">new Array(100).fill(1)</span><br><span class="line">Array.from(&#123;length: 1&#125;, () =&gt; 1)</span><br><span class="line">Array.from(&#123;length: 1&#125;).map(() =&gt; 1)</span><br></pre></td></tr></table></figure>
-<h2 id="webpack中css预处理器的配置"><a href="#webpack中css预处理器的配置" class="headerlink" title="webpack中css预处理器的配置"></a>webpack中css预处理器的配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sass: cnpm install node-sass sass-loader --save-dev</span><br><span class="line">less: cnpm install less less-loader --save-dev</span><br><span class="line">stylus: cnpm install stylus stylus-loader --save-dev</span><br></pre></td></tr></table></figure>
-<h2 id="使用node和chrome调试"><a href="#使用node和chrome调试" class="headerlink" title="使用node和chrome调试"></a>使用node和chrome调试</h2><p>进入到项目当前文件，比如要调试 d/Leetcode/045/main.js 文件，git bash进入到 d/Leetcode/045/, 输入命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node --inspect-brk main</span><br></pre></td></tr></table></figure></p>
+        <p>最近在复习刷一些算法题，做到了排序题，就顺便整理下数据结构中的八大排序算法。<br><a id="more"></a></p>
+<h2 id="1-直接插入排序"><a href="#1-直接插入排序" class="headerlink" title="1.直接插入排序"></a>1.直接插入排序</h2><p>思路：每次将一个待排序的元素按大小插入到前面已经排过序的序列中的合适位置，直到数据全部插入为止。<br>时间复杂度：O(n^2)<br>空间复杂度：O(1)<br>稳定性：稳定<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">void insert_sort (int arr[], int n) &#123;</span><br><span class="line">    // 从小到大排序</span><br><span class="line">    for (int i = 1; i &lt; n; i++) &#123;</span><br><span class="line">        int temp = arr[i];</span><br><span class="line">        for (int j = i - 1; j &gt;= 0 &amp;&amp; arr[j] &gt; temp; j--) &#123;</span><br><span class="line">            // 待插入元素小于已有的，就将已有的向后挪，直到元素大于插入元素或已经到达序列最前端</span><br><span class="line">            arr[j + 1] = arr[j];</span><br><span class="line">        &#125;</span><br><span class="line">        arr[j + 1] = temp;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-冒泡排序"><a href="#2-冒泡排序" class="headerlink" title="2.冒泡排序"></a>2.冒泡排序</h2><p>思路：从数组开头进行遍历，元素两两比较，若位置不对，即交换位置。<br>时间复杂度：O(n^2)<br>空间复杂度：O(1)<br>稳定性：稳定<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">void bubble_sort (int arr[], int n) &#123;</span><br><span class="line">    // 从小到大排序,一共排序n次，每次找到剩下最小的数提到前面</span><br><span class="line">    for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">        for (int j = 0; j &lt; n - 1 - i; j++) &#123;</span><br><span class="line">            if (a[j] &gt; a[j + 1]) &#123;</span><br><span class="line">                int temp = a[j];</span><br><span class="line">                a[j] = a[j + 1];</span><br><span class="line">                a[j + 1] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-快速排序"><a href="#3-快速排序" class="headerlink" title="3.快速排序"></a>3.快速排序</h2><p>思路：对冒泡排序的改进，通过一趟排序将数据分为2份，其中一部分所有数据都比另一部分的要小，然后按此方法再对两列数据进行快排，递归进行。<br>时间复杂度：O(nlogn),最坏情况为O(n^2)<br>空间复杂度：O(1)<br>稳定性：不稳定<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">void quick_sort (int arr[], int left, int right) &#123;</span><br><span class="line">    if (left &lt; right) &#123;</span><br><span class="line">        // 用数组的第一个记录作为枢轴</span><br><span class="line">        int pivot = arr[left];</span><br><span class="line">        int low = left;</span><br><span class="line">        int high = right;</span><br><span class="line">        while (low &lt; high) &#123;</span><br><span class="line">            while (low &lt; high &amp;&amp; arr[high] &gt;= pivot) &#123;</span><br><span class="line">                high--;</span><br><span class="line">            &#125;</span><br><span class="line">            arr[low] = arr[high];</span><br><span class="line">            while (low &lt; high &amp;&amp; arr[low] &lt;= pivot) &#123;</span><br><span class="line">                low++;</span><br><span class="line">            &#125;</span><br><span class="line">            arr[high] = arr[low];</span><br><span class="line">        &#125;</span><br><span class="line">        arr[low] = pivot;</span><br><span class="line">        quick_sort(arr, left, low - 1);</span><br><span class="line">        quick_sort(arr, low + 1, right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -347,7 +342,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/技术帖/" rel="tag"># 技术帖</a>
+            <a href="/tags/算法/" rel="tag"># 算法</a>
           
         </div>
       
@@ -360,8 +355,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/05/浅谈成为程序猿的心路历程/" rel="next" title="浅谈成为程序猿的心路历程">
-                <i class="fa fa-chevron-left"></i> 浅谈成为程序猿的心路历程
+              <a href="/2018/01/27/前端笔试基础题/" rel="next" title="前端笔试基础题">
+                <i class="fa fa-chevron-left"></i> 前端笔试基础题
               </a>
             
           </div>
@@ -369,10 +364,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/26/js交换变量的几种方法/" rel="prev" title="js交换变量的几种方法">
-                js交换变量的几种方法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -555,7 +546,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#坑点"><span class="nav-number">1.</span> <span class="nav-text">坑点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面试题"><span class="nav-number">2.</span> <span class="nav-text">面试题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack中css预处理器的配置"><span class="nav-number">3.</span> <span class="nav-text">webpack中css预处理器的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用node和chrome调试"><span class="nav-number">4.</span> <span class="nav-text">使用node和chrome调试</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-直接插入排序"><span class="nav-number">1.</span> <span class="nav-text">1.直接插入排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-冒泡排序"><span class="nav-number">2.</span> <span class="nav-text">2.冒泡排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-快速排序"><span class="nav-number">3.</span> <span class="nav-text">3.快速排序</span></a></li></ol></div>
             
 
           </div>
@@ -725,9 +716,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2018/01/03/项目中遇到过的问题/';
-          this.page.identifier = '2018/01/03/项目中遇到过的问题/';
-          this.page.title = '项目中遇到过的问题';
+          this.page.url = 'http://yoursite.com/2018/01/29/详解数据结构八大排序算法/';
+          this.page.identifier = '2018/01/29/详解数据结构八大排序算法/';
+          this.page.title = '详解数据结构八大排序算法';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://Kerminate.disqus.com/embed.js';
