@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Blog | Kerminate">
 <meta property="og:description" content="坑点 使用vue的ui框架时，比如element,iview等，需要给组件绑定原生事件，可以在事件后加.native。例如element的input组件绑定键盘事件可以这么写@keyup.enter.native=”add” 详见vue的官方教程  面试题 不用循环生成100长度都为1的数组,详见es6  123new Array(100).fill(1)Array.from(&amp;#123;leng">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-29T02:52:49.892Z">
+<meta property="og:updated_time" content="2018-01-29T04:31:53.516Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="项目中遇到过的问题">
 <meta name="twitter:description" content="坑点 使用vue的ui框架时，比如element,iview等，需要给组件绑定原生事件，可以在事件后加.native。例如element的input组件绑定键盘事件可以这么写@keyup.enter.native=”add” 详见vue的官方教程  面试题 不用循环生成100长度都为1的数组,详见es6  123new Array(100).fill(1)Array.from(&amp;#123;leng">
@@ -329,10 +329,7 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">new Array(100).fill(1)</span><br><span class="line">Array.from(&#123;length: 1&#125;, () =&gt; 1)</span><br><span class="line">Array.from(&#123;length: 1&#125;).map(() =&gt; 1)</span><br></pre></td></tr></table></figure>
 <h2 id="webpack中css预处理器的配置"><a href="#webpack中css预处理器的配置" class="headerlink" title="webpack中css预处理器的配置"></a>webpack中css预处理器的配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sass: cnpm install node-sass sass-loader --save-dev</span><br><span class="line">less: cnpm install less less-loader --save-dev</span><br><span class="line">stylus: cnpm install stylus stylus-loader --save-dev</span><br></pre></td></tr></table></figure>
-<h2 id="使用node和chrome调试"><a href="#使用node和chrome调试" class="headerlink" title="使用node和chrome调试"></a>使用node和chrome调试</h2><ul>
-<li>进入到项目当前文件，比如要调试 d/Leetcode/045/main.js 文件，git bash进入到 d/Leetcode/045/, 输入命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node --inspect-brk main</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
+<h2 id="使用node和chrome调试"><a href="#使用node和chrome调试" class="headerlink" title="使用node和chrome调试"></a>使用node和chrome调试</h2><p>进入到项目当前文件，比如要调试 d/Leetcode/045/main.js 文件，git bash进入到 d/Leetcode/045/, 输入命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node --inspect-brk main</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
