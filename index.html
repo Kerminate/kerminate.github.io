@@ -482,7 +482,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  528
+                  821
                 </span>
               
 
@@ -498,7 +498,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  3
                 </span>
               
             </div>
@@ -549,6 +549,25 @@
 </ul>
 </li>
 </ul>
+<ul>
+<li><strong>事件对象的 clientX, offsetX, screenX, pageX 有什么区别？</strong></li>
+</ul>
+<ol>
+<li>event.clientX、event.clientY: 鼠标相对于浏览器窗口可视区域的X, Y坐标（窗口坐标），可视区域不包括工具栏和滚动条。</li>
+<li>event.pageX、event.pageY: 鼠标相对于整个页面的X/Y坐标。注意，整个页面的意思就是你整个网页的全部，比如说网页很宽很长，宽2000px，高3000px，那pageX, pageY的最大值就是它们了。<strong>特别说明：IE不支持！</strong></li>
+<li>screenX、screenY: 鼠标相对于用户显示器屏幕左上角的X, Y坐标。</li>
+<li>event.offsetX、event.offsetY: 鼠标相对于事件父容器（srcElement）的X, Y坐标。<strong>特别说明：只有IE支持！</strong></li>
+</ol>
+<ul>
+<li><strong>HTTP 状态码的主要类型有哪些？</strong></li>
+</ul>
+<ol>
+<li>1xx消息——请求已被服务器接收，继续处理</li>
+<li>2xx成功——请求已成功被服务器接收、理解、并接受</li>
+<li>3xx重定向——需要后续操作才能完成这一请求</li>
+<li>4xx请求错误——请求含有词法错误或者无法被执行</li>
+<li>5xx服务器错误——服务器在处理某个正确请求时发生错误</li>
+</ol>
 
           
         
