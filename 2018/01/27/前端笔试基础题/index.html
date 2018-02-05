@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Blog | Kerminate">
 <meta property="og:description" content="只要 协议、域名、端口 有任何一个不同, 都被当作是 不同 的域。 onBlur: 当 失去 输入焦点后产生该事件 onFocus: 当 输入 获得焦点后，产生该文件 onchange: 当文字值改变时，产生该事件 onselect: 当文字加亮后，产生该事件 onClick: 当组件被点击时产生的事件 DOCTYPE不存在或格式不正确会导致文档以 混杂模式 呈现 call() 方法和 appl">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-04T12:27:57.404Z">
+<meta property="og:updated_time" content="2018-02-05T07:03:42.150Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端笔试基础题">
 <meta name="twitter:description" content="只要 协议、域名、端口 有任何一个不同, 都被当作是 不同 的域。 onBlur: 当 失去 输入焦点后产生该事件 onFocus: 当 输入 获得焦点后，产生该文件 onchange: 当文字值改变时，产生该事件 onselect: 当文字加亮后，产生该事件 onClick: 当组件被点击时产生的事件 DOCTYPE不存在或格式不正确会导致文档以 混杂模式 呈现 call() 方法和 appl">
@@ -315,7 +315,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  821
+                  897
                 </span>
               
 
@@ -398,6 +398,14 @@
 <li>3xx重定向——需要后续操作才能完成这一请求</li>
 <li>4xx请求错误——请求含有词法错误或者无法被执行</li>
 <li>5xx服务器错误——服务器在处理某个正确请求时发生错误</li>
+</ol>
+<ul>
+<li><strong>new 操作符到底做了什么</strong></li>
+</ul>
+<ol>
+<li>new操作符为我们创建一个新的空对象，然后this变量指向该对象</li>
+<li>空对象的原型执行函数的原型</li>
+<li>改变构造函数内部的this的指向<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;&#125;</span><br><span class="line">obj.__proto__ = fn.prototype</span><br><span class="line">fn.call(obj)</span><br></pre></td></tr></table></figure></li>
 </ol>
 
       
