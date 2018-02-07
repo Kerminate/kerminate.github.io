@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="只要 协议、域名、端口 有任何一个不同, 都被当作是 不同 的域。 onBlur: 当 失去 输入焦点后产生该事件 onFocus: 当 输入 获得焦点后，产生该文件 onchange: 当文字值改变时，产生该事件 onselect: 当文字加亮后，产生该事件 onClick: 当组件被点击时产生的事件 DOCTYPE不存在或格式不正确会导致文档以 混杂模式 呈现 call() 方法和 appl">
+<meta name="description" content="最近在复习前端知识时，将遇到的一些前端基础整理一下。">
 <meta name="keywords" content="前端">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端笔试基础题">
 <meta property="og:url" content="http://yoursite.com/2018/01/27/前端笔试基础题/index.html">
 <meta property="og:site_name" content="Blog | Kerminate">
-<meta property="og:description" content="只要 协议、域名、端口 有任何一个不同, 都被当作是 不同 的域。 onBlur: 当 失去 输入焦点后产生该事件 onFocus: 当 输入 获得焦点后，产生该文件 onchange: 当文字值改变时，产生该事件 onselect: 当文字加亮后，产生该事件 onClick: 当组件被点击时产生的事件 DOCTYPE不存在或格式不正确会导致文档以 混杂模式 呈现 call() 方法和 appl">
+<meta property="og:description" content="最近在复习前端知识时，将遇到的一些前端基础整理一下。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-06T13:56:58.861Z">
+<meta property="og:updated_time" content="2018-02-07T08:11:57.190Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端笔试基础题">
-<meta name="twitter:description" content="只要 协议、域名、端口 有任何一个不同, 都被当作是 不同 的域。 onBlur: 当 失去 输入焦点后产生该事件 onFocus: 当 输入 获得焦点后，产生该文件 onchange: 当文字值改变时，产生该事件 onselect: 当文字加亮后，产生该事件 onClick: 当组件被点击时产生的事件 DOCTYPE不存在或格式不正确会导致文档以 混杂模式 呈现 call() 方法和 appl">
+<meta name="twitter:description" content="最近在复习前端知识时，将遇到的一些前端基础整理一下。">
 
 
 
@@ -98,7 +98,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Gemini',
     version: '5.1.3',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -315,7 +315,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,534
+                  1,895
                 </span>
               
 
@@ -331,7 +331,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  6
+                  7
                 </span>
               
             </div>
@@ -352,7 +352,9 @@
       
 
       
-        <ul>
+        <p>最近在复习前端知识时，将遇到的一些前端基础整理一下。</p>
+<a id="more"></a>
+<ul>
 <li>只要 <strong>协议、域名、端口</strong> 有任何一个不同, 都被当作是 <strong>不同</strong> 的域。</li>
 <li>onBlur: 当 <strong>失去</strong> 输入焦点后产生该事件</li>
 <li>onFocus: 当 <strong>输入</strong> 获得焦点后，产生该文件</li>
@@ -446,6 +448,8 @@
 <li>DHCP协议：一个局域网的网络协议，使用UDP协议工作，用途：给内部网络或网络服务供应商自动分配IP地址，给用户或这内部管理员作为对所有计算机作中央处理的手段。</li>
 </ol>
 </li>
+<li><p><strong>TCP和UDP的区别</strong><br>TCP提供面向连接的、可靠的数据流的传输，而UDP提供的是非面向连接的、不可靠的数据流的传输；TCP传输单位称为TCP报文段，UDP传输单位称为用户数据报；TCP注重数据安全性，UDP数据传输快，因为不需要等待连接，少了很多操作，但是其安全性一般；TCP和UDP对应的协议如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">TCP协议</span><br><span class="line">  1. FTP：定义了文件传输协议，使用21端口。</span><br><span class="line">  2. Telnet：一种用于远程登录的端口，使用23端口，用户可以以自己的身份，远程连接到计算机上，可以提供基于DOS模式下的通信服务。</span><br><span class="line">  3. SMTP：邮件传送协议，用于发送邮件，服务器开放的是25端口。</span><br><span class="line">  4. POP3：它是和SMTP对应，POP3用于接收邮件，POP3协议所用的是110端口</span><br><span class="line"></span><br><span class="line">UDP协议</span><br><span class="line">  1. DNS：用于域名解析服务，将域名地址转化为IP地址，使用53端口。</span><br><span class="line">  2. SNMP：简单网络管理协议，用来管理网络设备，由于网络设备很多，无连接的服务就体现其优势，使用161端口。</span><br><span class="line">  3. TFTP：简单文件传输协议，该协议在熟知端口69上使用UDP服务。</span><br></pre></td></tr></table></figure></li>
 </ul>
 
       
@@ -688,7 +692,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
 
 
 
