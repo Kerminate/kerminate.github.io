@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Blog | Kerminate">
 <meta property="og:description" content="最近在复习前端知识时，将遇到的一些前端基础整理一下。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-07T08:11:57.190Z">
+<meta property="og:updated_time" content="2018-02-07T13:27:52.958Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端笔试基础题">
 <meta name="twitter:description" content="最近在复习前端知识时，将遇到的一些前端基础整理一下。">
@@ -326,7 +326,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,895
+                  2,308
                 </span>
               
 
@@ -342,7 +342,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  7
+                  9
                 </span>
               
             </div>
@@ -422,8 +422,7 @@
 </li>
 </ol>
 <ul>
-<li><p><strong>OSI, TCP/IP, 五层协议的体系结构， 以及各层协议？</strong></p>
-<ul>
+<li><strong>OSI, TCP/IP, 五层协议的体系结构， 以及各层协议？</strong><ul>
 <li>OSI分层(7层)：物理层、数据链路层、网络层、传输层、会话层、表示层、应用层</li>
 <li>TCP/IP分层(4层)：网络接口层、网际层、运输层、应用层</li>
 <li>五层协议(5层)：物理层、数据链路层、网络层、运输层、应用层</li>
@@ -449,8 +448,9 @@
 </li>
 </ul>
 </li>
-<li><p><strong>互联网上各类协议的介绍</strong></p>
-<ol>
+</ul>
+<ul>
+<li><strong>互联网上各类协议的介绍</strong><ol>
 <li>ICMP协议：因特网控制报文协议。它是TCP/IP协议族的一个子协议，用于在IP主机、路由器之间传递控制消息。</li>
 <li>TFTP协议：是TCP/IP协议族中的一个用在客户机与服务器之间进行简单文件传输的协议，提供不复杂，开销不大的文件传输服务。</li>
 <li>HTTP协议：超文本传输协议，是一个属于应用层的面向对象的协议，由于其简洁、快速的方式，适用于分布式超媒体信息系统。</li>
@@ -459,8 +459,71 @@
 <li>DHCP协议：一个局域网的网络协议，使用UDP协议工作，用途：给内部网络或网络服务供应商自动分配IP地址，给用户或这内部管理员作为对所有计算机作中央处理的手段。</li>
 </ol>
 </li>
+</ul>
+<ul>
 <li><p><strong>TCP和UDP的区别</strong><br>TCP提供面向连接的、可靠的数据流的传输，而UDP提供的是非面向连接的、不可靠的数据流的传输；TCP传输单位称为TCP报文段，UDP传输单位称为用户数据报；TCP注重数据安全性，UDP数据传输快，因为不需要等待连接，少了很多操作，但是其安全性一般；TCP和UDP对应的协议如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">TCP协议</span><br><span class="line">  1. FTP：定义了文件传输协议，使用21端口。</span><br><span class="line">  2. Telnet：一种用于远程登录的端口，使用23端口，用户可以以自己的身份，远程连接到计算机上，可以提供基于DOS模式下的通信服务。</span><br><span class="line">  3. SMTP：邮件传送协议，用于发送邮件，服务器开放的是25端口。</span><br><span class="line">  4. POP3：它是和SMTP对应，POP3用于接收邮件，POP3协议所用的是110端口</span><br><span class="line"></span><br><span class="line">UDP协议</span><br><span class="line">  1. DNS：用于域名解析服务，将域名地址转化为IP地址，使用53端口。</span><br><span class="line">  2. SNMP：简单网络管理协议，用来管理网络设备，由于网络设备很多，无连接的服务就体现其优势，使用161端口。</span><br><span class="line">  3. TFTP：简单文件传输协议，该协议在熟知端口69上使用UDP服务。</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">TCP协议</span><br><span class="line">  1. FTP：定义了文件传输协议，使用21端口。</span><br><span class="line">  2. Telnet：一种用于远程登录的端口，使用23端口，用户可以以自己的身份，远程连接到计算机上，可以提供基于DOS模式下的通信服务。</span><br><span class="line">  3. SMTP：邮件传送协议，用于发送邮件，服务器开放的是25端口。</span><br><span class="line">  4. POP3：它是和SMTP对应，POP3用于接收邮件，POP3协议所用的是110端口</span><br><span class="line"></span><br><span class="line">UDP协议</span><br><span class="line">  1. DNS：用于域名解析服务，将域名地址转化为IP地址，使用53端口。</span><br><span class="line">  2. SNMP：简单网络管理协议，用来管理网络设备，由于网络设备很多，无连接的服务就体现其优势，使用161端口。</span><br><span class="line">  3. TFTP：简单文件传输协议，该协议在熟知端口69上使用UDP服务。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>如何进行网站性能优化</strong></p>
+<ul>
+<li>content方面<ul>
+<li>减少HTTP请求：合并文件、css sprites、inline image</li>
+<li>减少DNS查询：DNS查询完成之前浏览器不能从这个主机下载任何文件。方法：DNS缓存，将资源分布到恰当数量的主机名，平衡并行下载和DNS查询</li>
+<li>避免重定向：多余的中间访问</li>
+<li>使Ajax可缓存</li>
+<li>非必须组件延迟加载</li>
+<li>未来所需组件预加载</li>
+<li>减少DOM元素数量</li>
+<li>将资源放到不同的域下：浏览器同时从一个域下载资源的数目有限，增加域可以提高并行下载量</li>
+<li>减少iframe数量</li>
+<li>不用404</li>
+</ul>
+</li>
+<li>Server方面<ul>
+<li>使用CDN</li>
+<li>使用Expires或者Cache-Control响应头</li>
+<li>对组件进行Gzip压缩</li>
+<li>配置ETag(实体标签，HTTP中并没有指定如何生成ETag，哈希是比较理想的选择。)</li>
+<li>Flush Buffer Early(尽可能早地发送缓冲区内容)</li>
+<li>Ajax使用GET进行请求</li>
+<li>避免空src的img标签</li>
+</ul>
+</li>
+<li>Cookie方面<ul>
+<li>减小cookie大小</li>
+<li>引入资源的域名不要包含cookie</li>
+</ul>
+</li>
+<li>css方面<ul>
+<li>将样式表放到页面顶部</li>
+<li>不使用css表达式</li>
+<li>尽量不使用@import</li>
+<li>不使用IE的Filter</li>
+</ul>
+</li>
+<li>Javascript方面<ul>
+<li>将脚本放到页面底部</li>
+<li>将javascript和css从外部引入</li>
+<li>压缩javascript和css</li>
+<li>删除不需要的脚本</li>
+<li>减少DOM访问</li>
+<li>合理设计事件监听器</li>
+</ul>
+</li>
+<li>图片方面<ul>
+<li>优化图片：根据实际颜色需要选择色深、压缩</li>
+<li>优化css精灵</li>
+<li>不要再HTML中拉伸图片</li>
+<li>保证favicon.ico小并且可缓存</li>
+</ul>
+</li>
+<li>移动方面<ul>
+<li>保证组件小于25k</li>
+<li>Pack Components into a Multipart Document</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
       
