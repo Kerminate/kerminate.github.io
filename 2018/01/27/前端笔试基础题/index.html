@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Blog | Kerminate">
 <meta property="og:description" content="最近在复习前端知识时，将遇到的一些前端基础整理一下。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-07T13:27:52.958Z">
+<meta property="og:updated_time" content="2018-02-09T09:28:12.493Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端笔试基础题">
 <meta name="twitter:description" content="最近在复习前端知识时，将遇到的一些前端基础整理一下。">
@@ -326,7 +326,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,308
+                  2,315
                 </span>
               
 
@@ -416,9 +416,10 @@
 <li><strong>new 操作符到底做了什么</strong></li>
 </ul>
 <ol>
-<li>new操作符为我们创建一个新的空对象，然后this变量指向该对象</li>
-<li>空对象的原型执行函数的原型</li>
-<li>改变构造函数内部的this的指向<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;&#125;</span><br><span class="line">obj.__proto__ = fn.prototype</span><br><span class="line">fn.call(obj)</span><br></pre></td></tr></table></figure>
+<li>创建一个新对象</li>
+<li>将构造函数的作用域赋给新对象(因此this就指向了这个新对象)</li>
+<li>执行构造函数的代码(为这话新对象添加属性)</li>
+<li>返回新对象<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;&#125;</span><br><span class="line">obj.__proto__ = fn.prototype</span><br><span class="line">fn.call(obj)</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <ul>
@@ -649,7 +650,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
