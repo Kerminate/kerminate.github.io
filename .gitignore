@@ -4,3 +4,6 @@ db.json
 *.log
 node_modules/
 public/
+
+# upload deploy history
+# .deploy*/
