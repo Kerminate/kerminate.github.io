@@ -1,5 +1,5 @@
 ---
-title: Vue + Koa 搭建ACM OJ
+title: Vue + Koa 搭建 ACM OJ
 date: 2018-05-31 11:27:19
 tags: 技术贴
 ---
@@ -19,7 +19,7 @@ tags: 技术贴
 我们学校 acm 起步较晚，最早的 OJ 是由 Hust OJ 魔改而来，界面写的比较粗糙。2年前，那届的 acm 队长本来决定使用 Vue + Go 重写一下 OJ，但是因为一些原因，他跑路了，最后只 fork 了一个开源 OJ。一年前，[lazzzis](https://github.com/lazzzis) 开始重构 OJ，采用了 Vue + node，开发出了 Putong OJ 的第一个版本。今年，由于老师增加了功能上的一些需求，再加上后端数据结构又发生了一些变化，以及对第一个版本不太满意，我与 lazzzis 再次重构，开发出了 Putong OJ V2 版本。 
 
 ## 技术选型
-考虑过要用 React 开发，(好吧，说实话写OJ的时候我还不会React),但是 Vue 上手简单且中文资源丰富，所以决定使用 Vue 全家桶。最初 vue1.0 时官方有推出过 vue-resource，后来在 2.0 时 Vue 官方不再维护 vue-resource， 并推荐使用 axios 作前后端通信。开发初期一开始用了 element 作为 vue 的 UI 库，后来转而使用了 iview。其实这两个 UI 库相当像，都是 ant-design 风格的，api也比较一致，在我眼里比较打的区别是 element 的组件更大，iview 的更小巧（视觉上的大小，element small 的跟 iview 的 default 差不多大）。
+考虑过要用 React 开发，(好吧，说实话写OJ的时候我还不会React),但是 Vue 上手简单且中文资源丰富，所以决定使用 Vue 全家桶。最初 vue1.0 时官方推荐 vue-resource，后来在 2.0 时 Vue 官方不再推荐 vue-resource， 而是推荐使用 axios 作前后端通信。开发初期一开始用了 element 作为 vue 的 UI 库，后来转而使用了 iview。其实这两个 UI 库相当像，都是 ant-design 风格的，api也比较一致，在我眼里比较打的区别是 element 的组件更大，iview 的更小巧（视觉上的大小，element small 的跟 iview 的 default 差不多大）。
 
 后端其实我们不太喜欢 Java，最后用了轻量又方便的 node。数据库用了 MongoDB，主要是方便 js 操作，同时用 redis 做数据缓存，并做了简单的消息队列。
 
