@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="http://or7tt6rug.bkt.clouddn.com/avatar.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="http://or7tt6rug.bkt.clouddn.com/avatar.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="http://or7tt6rug.bkt.clouddn.com/avatar.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="http://or7tt6rug.bkt.clouddn.com/avatar.png?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="技术贴," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="花了两个多月时间，我与 lazzzis 完成了第二版本的Putong OJ，因为中间忙着春招以及毕业设计等，项目最近才正式上线。 项目线上地址：http://acm.cjlu.edu.cn/项目前端地址：https://github.com/acm309/PutongOJ-FE项目后端地址：https://github.com/acm309/PutongOJ  这里求一下star啊(^o^)/~">
+<meta name="keywords" content="技术贴">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue + Koa 搭建 ACM OJ">
+<meta property="og:url" content="http://yoursite.com/2018/05/31/Vue + Koa 搭建 ACM OJ/index.html">
+<meta property="og:site_name" content="Blog | Kerminate">
+<meta property="og:description" content="花了两个多月时间，我与 lazzzis 完成了第二版本的Putong OJ，因为中间忙着春招以及毕业设计等，项目最近才正式上线。 项目线上地址：http://acm.cjlu.edu.cn/项目前端地址：https://github.com/acm309/PutongOJ-FE项目后端地址：https://github.com/acm309/PutongOJ  这里求一下star啊(^o^)/~">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://or7tt6rug.bkt.clouddn.com/%E7%BB%9F%E8%AE%A1.jpg">
+<meta property="og:image" content="http://or7tt6rug.bkt.clouddn.com/%E6%AF%94%E8%B5%9B.jpg">
+<meta property="og:updated_time" content="2018-05-31T09:37:27.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue + Koa 搭建 ACM OJ">
+<meta name="twitter:description" content="花了两个多月时间，我与 lazzzis 完成了第二版本的Putong OJ，因为中间忙着春招以及毕业设计等，项目最近才正式上线。 项目线上地址：http://acm.cjlu.edu.cn/项目前端地址：https://github.com/acm309/PutongOJ-FE项目后端地址：https://github.com/acm309/PutongOJ  这里求一下star啊(^o^)/~">
+<meta name="twitter:image" content="http://or7tt6rug.bkt.clouddn.com/%E7%BB%9F%E8%AE%A1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/31/Vue + Koa 搭建 ACM OJ/"/>
+
+
+
+
+
+  <title>Vue + Koa 搭建 ACM OJ | Blog | Kerminate</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Blog | Kerminate</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/31/Vue + Koa 搭建 ACM OJ/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kerminate">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://or7tt6rug.bkt.clouddn.com/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog | Kerminate">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Vue + Koa 搭建 ACM OJ</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-31T11:27:19+08:00">
+                2018-05-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/31/Vue + Koa 搭建 ACM OJ/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/05/31/Vue + Koa 搭建 ACM OJ/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/05/31/Vue + Koa 搭建 ACM OJ/" class="leancloud_visitors" data-flag-title="Vue + Koa 搭建 ACM OJ">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,091
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  9
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>花了两个多月时间，我与 <a href="https://github.com/lazzzis" target="_blank" rel="noopener">lazzzis</a> 完成了第二版本的Putong OJ，因为中间忙着春招以及毕业设计等，项目最近才正式上线。</p>
+<p>项目线上地址：<a href="http://acm.cjlu.edu.cn/" target="_blank" rel="noopener">http://acm.cjlu.edu.cn/</a><br>项目前端地址：<a href="https://github.com/acm309/PutongOJ-FE" target="_blank" rel="noopener">https://github.com/acm309/PutongOJ-FE</a><br>项目后端地址：<a href="https://github.com/acm309/PutongOJ" target="_blank" rel="noopener">https://github.com/acm309/PutongOJ</a></p>
+<blockquote>
+<p>这里求一下star啊(^o^)/~</p>
+</blockquote>
+<p>本OJ前端架构为 Vue2.5 + vue-router + vuex + axios + iview + stylus + webpack3.6<br>后端架构为 Koa2 + MongoDB + redis</p>
+<h2 id="开发背景"><a href="#开发背景" class="headerlink" title="开发背景"></a>开发背景</h2><p>我们学校 acm 起步较晚，最早的 OJ 是由 Hust OJ 魔改而来，界面写的比较粗糙。2年前，那届的 acm 队长本来决定使用 Vue + Go 重写一下 OJ，但是因为一些原因，他跑路了，最后只 fork 了一个开源 OJ。一年前，<a href="https://github.com/lazzzis" target="_blank" rel="noopener">lazzzis</a> 开始重构 OJ，采用了 Vue + node，开发出了 Putong OJ 的第一个版本。今年，由于老师增加了功能上的一些需求，再加上后端数据结构又发生了一些变化，以及对第一个版本不太满意，我与 lazzzis 再次重构，开发出了 Putong OJ V2 版本。 </p>
+<h2 id="技术选型"><a href="#技术选型" class="headerlink" title="技术选型"></a>技术选型</h2><p>考虑过要用 React 开发，(好吧，说实话写OJ的时候我还不会React),但是 Vue 上手简单且中文资源丰富，所以决定使用 Vue 全家桶。最初 vue1.0 时官方推荐 vue-resource，后来在 2.0 时 Vue 官方不再推荐 vue-resource， 而是推荐使用 axios 作前后端通信。开发初期一开始用了 element 作为 vue 的 UI 库，后来转而使用了 iview。其实这两个 UI 库相当像，都是 ant-design 风格的，api也比较一致，在我眼里比较打的区别是 element 的组件更大，iview 的更小巧（视觉上的大小，element small 的跟 iview 的 default 差不多大）。</p>
+<p>后端其实我们不太喜欢 Java，最后用了轻量又方便的 node。数据库用了 MongoDB，主要是方便 js 操作，同时用 redis 做数据缓存，并做了简单的消息队列。</p>
+<h2 id="预览"><a href="#预览" class="headerlink" title="预览"></a>预览</h2><p>主题色采用了 lazzzis 比较喜欢的骚紫。</p>
+<p><img src="http://or7tt6rug.bkt.clouddn.com/%E7%BB%9F%E8%AE%A1.jpg" alt=""><br><img src="http://or7tt6rug.bkt.clouddn.com/%E6%AF%94%E8%B5%9B.jpg" alt=""></p>
+<h3 id="实现功能"><a href="#实现功能" class="headerlink" title="实现功能"></a>实现功能</h3><p>OJ分为web端和判题端，这边主要分析web端，判题端 由 <a href="https://github.com/KIDx/Judger" target="_blank" rel="noopener">Acdream的判题端</a> 魔改而来。web 端共有消息模块，题目模块，讨论模块，状态模块，排行模块，比赛模块与管理员模块七大模块。<br>本OJ提供了两种用户，普通用户和管理员用户。顾名思义，普通用户只能答题，参加比赛，发帖，查看信息等，管理员用户拥有对信息，题目，比赛等增删改查的权限。</p>
+<ul>
+<li>消息模块<br>  就是 OJ 的首页，含有列表页和消息详情页，主要就是管理员发布的消息。</li>
+<li>题目模块<br>  OJ 的核心模块之一，含有题目列表页和题目详情页，题目详情页里有 6 个 tab 页，题目描述，提交，我的提交，统计，编辑，测试数据。其中编辑和测试数据两个 tab 页仅管理员可见。</li>
+<li>讨论模块<br>  其实就是讨论区，用户可在上面发帖评论。</li>
+<li>状态模块<br>  用户提交题目的判题结果。</li>
+<li>排行模块<br>  用户排名，有分组功能，便于老师统计结果</li>
+<li>比赛模块<br>  核心模块之一，含有比赛列表和比赛详情页，比赛详情页有 6 个 tab 页，总览，题目，提交，状态，排名，编辑。其中编辑页仅管理员可见。</li>
+<li>管理员模块<br>  核心模块之一，含有创建消息，创建题目，创建比赛，用户管理四个功能页。</li>
+</ul>
+<p>给大家提前注册了一个普通用户账号，账号 123456 ，密码 123456 ，欢迎去试用一下。</p>
+<h2 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h2><p>先来看看前端的项目结构，通过脚手架 vue-cli 构建<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">├── dist // 生成打包好的文件</span><br><span class="line">│   ├── static</span><br><span class="line">│   │   ├── css</span><br><span class="line">│   │   ├── fonts</span><br><span class="line">│   │   ├── img</span><br><span class="line">│   │   └── js  </span><br><span class="line">│   └── index.html</span><br><span class="line">└── src</span><br><span class="line">    ├── main.js // 项目入口</span><br><span class="line">    ├── router // 路由文件，说明了各个路由将会使用的组件</span><br><span class="line">    │   ├── index.js // router 的配置以及引用组件</span><br><span class="line">    │   └── routes.js // 定义各个路由</span><br><span class="line">    ├── assets // 网站 logo 图资源</span><br><span class="line">    ├── components // 一些小组件</span><br><span class="line">    ├── store // vuex 文件</span><br><span class="line">    │   └── modules // 子模块</span><br><span class="line">    ├── utils // js 工具方法</span><br><span class="line">    └── views // 路由对应的组件 (这些组件在 router.js 中都被引入)</span><br><span class="line">        ├── Admin</span><br><span class="line">        ├── Contest</span><br><span class="line">        ├── News</span><br><span class="line">        └── Problem</span><br></pre></td></tr></table></figure></p>
+<p>前端一共有三十多张页面，但其实大多数都是只有图表，页面逻辑并不复杂。<br>iview 按需加载，减小前端打包大小。<br>为了保证首屏加载的速度，对部分路由进行懒加载。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 路由懒加载</span></span><br><span class="line"><span class="keyword">const</span> ProblemStatistics = <span class="function"><span class="params">r</span> =&gt;</span> <span class="built_in">require</span>.ensure([], () =&gt; r(<span class="built_in">require</span>(<span class="string">'@/views/Problem/Statistics'</span>)), <span class="string">'statistics'</span>)</span><br><span class="line"><span class="keyword">const</span> ProblemEdit = <span class="function"><span class="params">r</span> =&gt;</span> <span class="built_in">require</span>.ensure([], () =&gt; r(<span class="built_in">require</span>(<span class="string">'@/views/Problem/ProblemEdit'</span>)), <span class="string">'admin'</span>)</span><br><span class="line"><span class="keyword">const</span> Testcase = <span class="function"><span class="params">r</span> =&gt;</span> <span class="built_in">require</span>.ensure([], () =&gt; r(<span class="built_in">require</span>(<span class="string">'@/views/Problem/Testcase'</span>)), <span class="string">'admin'</span>)</span><br><span class="line"><span class="keyword">const</span> ContestEdit = <span class="function"><span class="params">r</span> =&gt;</span> <span class="built_in">require</span>.ensure([], () =&gt; r(<span class="built_in">require</span>(<span class="string">'@/views/Contest/ContestEdit'</span>)), <span class="string">'admin'</span>)</span><br><span class="line"><span class="keyword">const</span> NewsEdit = <span class="function"><span class="params">r</span> =&gt;</span> <span class="built_in">require</span>.ensure([], () =&gt; r(<span class="built_in">require</span>(<span class="string">'@/views/News/NewsEdit'</span>)), <span class="string">'admin'</span>)</span><br><span class="line"><span class="keyword">const</span> ProblemCreate = <span class="function"><span class="params">r</span> =&gt;</span> <span class="built_in">require</span>.ensure([], () =&gt; r(<span class="built_in">require</span>(<span class="string">'@/views/Admin/ProblemCreate'</span>)), <span class="string">'admin'</span>)</span><br><span class="line"><span class="keyword">const</span> ContestCreate = <span class="function"><span class="params">r</span> =&gt;</span> <span class="built_in">require</span>.ensure([], () =&gt; r(<span class="built_in">require</span>(<span class="string">'@/views/Admin/ContestCreate'</span>)), <span class="string">'admin'</span>)</span><br><span class="line"><span class="keyword">const</span> NewsCreate = <span class="function"><span class="params">r</span> =&gt;</span> <span class="built_in">require</span>.ensure([], () =&gt; r(<span class="built_in">require</span>(<span class="string">'@/views/Admin/NewsCreate'</span>)), <span class="string">'admin'</span>)</span><br><span class="line"><span class="keyword">const</span> UserManage = <span class="function"><span class="params">r</span> =&gt;</span> <span class="built_in">require</span>.ensure([], () =&gt; r(<span class="built_in">require</span>(<span class="string">'@/views/Admin/UserManage/Usermanage'</span>)), <span class="string">'admin'</span>)</span><br><span class="line"><span class="keyword">const</span> UserEdit = <span class="function"><span class="params">r</span> =&gt;</span> <span class="built_in">require</span>.ensure([], () =&gt; r(<span class="built_in">require</span>(<span class="string">'@/views/Admin/UserManage/UserEdit'</span>)), <span class="string">'admin'</span>)</span><br><span class="line"><span class="keyword">const</span> GroupEdit = <span class="function"><span class="params">r</span> =&gt;</span> <span class="built_in">require</span>.ensure([], () =&gt; r(<span class="built_in">require</span>(<span class="string">'@/views/Admin/UserManage/GroupEdit'</span>)), <span class="string">'admin'</span>)</span><br><span class="line"><span class="keyword">const</span> AdminEdit = <span class="function"><span class="params">r</span> =&gt;</span> <span class="built_in">require</span>.ensure([], () =&gt; r(<span class="built_in">require</span>(<span class="string">'@/views/Admin/UserManage/AdminEdit'</span>)), <span class="string">'admin'</span>)</span><br><span class="line"><span class="keyword">const</span> TagEdit = <span class="function"><span class="params">r</span> =&gt;</span> <span class="built_in">require</span>.ensure([], () =&gt; r(<span class="built_in">require</span>(<span class="string">'@/views/Admin/UserManage/TagEdit'</span>)), <span class="string">'admin'</span>)</span><br></pre></td></tr></table></figure>
+<p>同时前端用了不少第三方组件实现小的需求。</p>
+<ul>
+<li><strong>vue-echarts</strong>: 基于 Vue 的 Echarts组件，在项目中用于展示提交结果的统计分析图。</li>
+<li><strong>vue2-editor</strong>: 基于 Vue 的富文本编辑器，用于题目内容的编辑，支持图片上传等基本功能。</li>
+<li><strong>Vue.Draggable</strong>: 基于 Vue 的拖拽组件，方便管理员对比赛题目顺序做改动。</li>
+<li><strong>vue-clipboard2</strong>: 基于 Vue 的剪切板，方便用户复制代码。</li>
+<li><strong>vuex-router-sync</strong>: 使 vue-router 的 $route 能够在 vuex 中的 state 访问到。</li>
+<li><strong>highlight.js</strong>: 页面里代码高亮。</li>
+</ul>
+<h2 id="后端"><a href="#后端" class="headerlink" title="后端"></a>后端</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">├── config // 项目配置（数据库等）</span><br><span class="line">├── model // 数据库 model</span><br><span class="line">├── routes // 后端路由</span><br><span class="line">├── controllers // 主要功能实现</span><br><span class="line">├── services // 主要服务（判题、邮件提醒、更新）</span><br><span class="line">├── utils // js 工具函数</span><br><span class="line">├── test // 测试</span><br><span class="line">├── app.js</span><br><span class="line">└── manage.js</span><br></pre></td></tr></table></figure>
+<p>后端使用 koa2 开发，使用 async/await 代替回调，避免 callback hell. 主要数据都保存在 MongoDB 中，使用的 node 的 mongoose 包。为了避免多人同时提交题目，造成的高并发问题，接口遵循 RESTful 设计，使用 redis 对判题做了队列缓存。用户提交的题目会进入 redis 中，再一个个弹出队列交给判题端处理。正常 ACM 比赛最后一小时会进行封榜（不再进行排名和ac题目的更新，但是会更新用户的提交次数），在这里也用了 redis 对比赛排行榜进行更新，比赛过程中只将数据保存在 redis 中，并实现封榜，赛后再将比赛所有信息保存到 mongo 中。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 比赛时返回比赛排行榜</span></span><br><span class="line"><span class="keyword">const</span> ranklist = <span class="keyword">async</span> (ctx) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> contest = ctx.state.contest</span><br><span class="line">  <span class="keyword">const</span> ranklist = ctx.state.contest.ranklist</span><br><span class="line">  <span class="keyword">let</span> res</span><br><span class="line">  <span class="keyword">const</span> deadline = <span class="number">60</span> * <span class="number">60</span> * <span class="number">1000</span></span><br><span class="line">  <span class="keyword">await</span> <span class="built_in">Promise</span>.all(<span class="built_in">Object</span>.keys(ranklist).map(<span class="function">(<span class="params">uid</span>) =&gt;</span></span><br><span class="line">    User</span><br><span class="line">      .findOne(&#123; uid &#125;)</span><br><span class="line">      .exec()</span><br><span class="line">      .then(<span class="function"><span class="params">user</span> =&gt;</span> &#123; ranklist[user.uid].nick = user.nick &#125;)))</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">Date</span>.now() + deadline &lt; contest.end) &#123;</span><br><span class="line">    <span class="comment">// 若比赛未进入最后一小时，最新的 ranklist 推到 redis 里</span></span><br><span class="line">    <span class="keyword">const</span> str = <span class="built_in">JSON</span>.stringify(ranklist)</span><br><span class="line">    <span class="keyword">await</span> redis.set(<span class="string">`oj:ranklist:<span class="subst">$&#123;contest.cid&#125;</span>`</span>, str) <span class="comment">// 更新该比赛的最新排名信息</span></span><br><span class="line">    res = ranklist</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!isAdmin(ctx.session.profile) &amp;&amp;</span><br><span class="line">    <span class="built_in">Date</span>.now() + deadline &gt; contest.end &amp;&amp;</span><br><span class="line">    <span class="built_in">Date</span>.now() &lt; contest.end) &#123;</span><br><span class="line">    <span class="comment">// 比赛最后一小时封榜，普通用户只能看到题目提交的变化</span></span><br><span class="line">    <span class="keyword">const</span> mid = <span class="keyword">await</span> redis.get(<span class="string">`oj:ranklist:<span class="subst">$&#123;contest.cid&#125;</span>`</span>) <span class="comment">// 获取 redis 中该比赛的排名信息</span></span><br><span class="line">    res = <span class="built_in">JSON</span>.parse(mid)</span><br><span class="line">    <span class="built_in">Object</span>.entries(ranklist).map(<span class="function">(<span class="params">[uid, problems]</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">Object</span>.entries(problems).map(<span class="function">(<span class="params">[pid, sub]</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (sub.wa &lt; <span class="number">0</span>) &#123;</span><br><span class="line">          res[uid][pid] = &#123;</span><br><span class="line">            wa: sub.wa</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">const</span> str = <span class="built_in">JSON</span>.stringify(res)</span><br><span class="line">    <span class="keyword">await</span> redis.set(<span class="string">`oj:ranklist:<span class="subst">$&#123;contest.cid&#125;</span>`</span>, str) <span class="comment">// 将更新后的 ranklist 更新到 redis</span></span><br><span class="line">    <span class="comment">// 比赛结束</span></span><br><span class="line">    res = ranklist</span><br><span class="line">  &#125;</span><br><span class="line">  ctx.body = &#123;</span><br><span class="line">    ranklist: res</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>项目使用 docker 进行一键部署。写了 Dockerfile 对 web 端进行镜像定制，在 docker-compose 中配置项目所需的所有镜像。<a href="https://github.com/acm309/PutongOJ" target="_blank" rel="noopener">部署过程</a></p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>篇幅有限，无法展现更多的内容，有兴趣的话可以进入项目地址阅读源码，当然，如果觉得项目还不错的话 👏，就给个 star ⭐️ 鼓励一下吧~</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/技术贴/" rel="tag"># 技术贴</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/19/js优化计算斐波那契数列/" rel="next" title="js优化计算斐波那契数列">
+                <i class="fa fa-chevron-left"></i> js优化计算斐波那契数列
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://or7tt6rug.bkt.clouddn.com/avatar.png"
+                alt="Kerminate" />
+            
+              <p class="site-author-name" itemprop="name">Kerminate</p>
+              <p class="site-description motion-element" itemprop="description">一个喜欢篮球的程序猿.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/Kerminate" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:kepeilin@outlook.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/Kerminate" target="_blank" title="Twitter">
+                    
+                      <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://weibo.com/5955228776/profile" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lazzzis.github.io/" title="lazzzis" target="_blank">lazzzis</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://mengrenzi.com/" title="MRZ's Blog" target="_blank">MRZ's Blog</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#开发背景"><span class="nav-number">1.</span> <span class="nav-text">开发背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#技术选型"><span class="nav-number">2.</span> <span class="nav-text">技术选型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#预览"><span class="nav-number">3.</span> <span class="nav-text">预览</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现功能"><span class="nav-number">3.1.</span> <span class="nav-text">实现功能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前端"><span class="nav-number">4.</span> <span class="nav-text">前端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后端"><span class="nav-number">5.</span> <span class="nav-text">后端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最后"><span class="nav-number">6.</span> <span class="nav-text">最后</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kerminate</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+    <i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+      本站总访问量 <span id="busuanzi_value_site_pv"></span>次  </span>由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://Kerminate.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2018/05/31/Vue + Koa 搭建 ACM OJ/';
+          this.page.identifier = '2018/05/31/Vue + Koa 搭建 ACM OJ/';
+          this.page.title = 'Vue + Koa 搭建 ACM OJ';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://Kerminate.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("sL0C4Wm24YmFljxp9tAdcUmg-gzGzoHsz", "n57GxQF4055NmnaWWlGEaIvo");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  
+  <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("sL0C4Wm24YmFljxp9tAdcUmg-gzGzoHsz", "n57GxQF4055NmnaWWlGEaIvo");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = '0 ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+});
+</script>
+
+  
+
+</body>
+</html>
