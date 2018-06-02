@@ -15,6 +15,8 @@ tags: 技术贴
 本OJ前端架构为 Vue2.5 + vue-router + vuex + axios + iview + stylus + webpack3.6
 后端架构为 Koa2 + MongoDB + redis
 
+<!--more-->
+
 ## 开发背景
 我们学校 acm 起步较晚，最早的 OJ 是由 Hust OJ 魔改而来，界面写的比较粗糙。2年前，那届的 acm 队长本来决定使用 Vue + Go 重写一下 OJ，但是因为一些原因，他跑路了，最后只 fork 了一个开源 OJ。一年前，[lazzzis](https://github.com/lazzzis) 开始重构 OJ，采用了 Vue + node，开发出了 Putong OJ 的第一个版本。今年，由于老师增加了功能上的一些需求，再加上后端数据结构又发生了一些变化，以及对第一个版本不太满意，我与 lazzzis 再次重构，开发出了 Putong OJ V2 版本。 
 
