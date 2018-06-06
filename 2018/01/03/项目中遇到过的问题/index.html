@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Blog | Kerminate">
 <meta property="og:description" content="最近在写OJ的时候，遇到的一些问题。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-06T03:01:49.000Z">
+<meta property="og:updated_time" content="2018-06-06T09:10:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="项目中遇到过的问题">
 <meta name="twitter:description" content="最近在写OJ的时候，遇到的一些问题。">
@@ -326,7 +326,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  381
+                  453
                 </span>
               
 
@@ -377,6 +377,8 @@
 <p>还有一种方法，使用yarn代替npm，<code>yarn run dev</code> 启动项目，不会产生上述的问题</p>
 <h2 id="mongoose-里保存-mixed-类型的数据"><a href="#mongoose-里保存-mixed-类型的数据" class="headerlink" title="mongoose 里保存 mixed 类型的数据"></a>mongoose 里保存 mixed 类型的数据</h2><p>在 mongoose 对 type 为 mixed 的数据作修改时，save 操作时会保存不进去。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">contest.ranklist = ranklist</span><br><span class="line">contest.markModified(<span class="string">'ranklist'</span>)</span><br><span class="line"><span class="keyword">await</span> contest.save()</span><br></pre></td></tr></table></figure></p>
 <p>保存时对改变的字段进行 markModified 操作，再 save 后可以保存对数据的操作。</p>
+<h2 id="react-中批量导入图片"><a href="#react-中批量导入图片" class="headerlink" title="react 中批量导入图片"></a>react 中批量导入图片</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> requireContext = <span class="built_in">require</span>.context(<span class="string">'../img'</span>, <span class="literal">true</span>, /^\.\/.*\.png$/)</span><br><span class="line"><span class="keyword">const</span> images = requireContext.keys().map(requireContext)</span><br></pre></td></tr></table></figure>
+<p>该方法的缺点是导入顺序是文件里的图片顺序，image 数组保存的是图片的 base64 编码，无法在代码中通过名字确认是哪张图</p>
 
       
     </div>
@@ -602,7 +604,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#坑点"><span class="nav-number">1.</span> <span class="nav-text">坑点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面试题"><span class="nav-number">2.</span> <span class="nav-text">面试题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack中css预处理器的配置"><span class="nav-number">3.</span> <span class="nav-text">webpack中css预处理器的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用node和chrome调试"><span class="nav-number">4.</span> <span class="nav-text">使用node和chrome调试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用npm启动项目"><span class="nav-number">5.</span> <span class="nav-text">使用npm启动项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mongoose-里保存-mixed-类型的数据"><span class="nav-number">6.</span> <span class="nav-text">mongoose 里保存 mixed 类型的数据</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#坑点"><span class="nav-number">1.</span> <span class="nav-text">坑点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面试题"><span class="nav-number">2.</span> <span class="nav-text">面试题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack中css预处理器的配置"><span class="nav-number">3.</span> <span class="nav-text">webpack中css预处理器的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用node和chrome调试"><span class="nav-number">4.</span> <span class="nav-text">使用node和chrome调试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用npm启动项目"><span class="nav-number">5.</span> <span class="nav-text">使用npm启动项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mongoose-里保存-mixed-类型的数据"><span class="nav-number">6.</span> <span class="nav-text">mongoose 里保存 mixed 类型的数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#react-中批量导入图片"><span class="nav-number">7.</span> <span class="nav-text">react 中批量导入图片</span></a></li></ol></div>
             
 
           </div>
