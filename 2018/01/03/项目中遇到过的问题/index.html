@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="最近在写OJ的时候，遇到的一些问题。">
+<meta name="description" content="记录开发过程中遇到的一些问题和一些技巧。 坑点 使用vue的ui框架时，比如element,iview等，需要给组件绑定原生事件，可以在事件后加.native。例如element的input组件绑定键盘事件可以这么写@keyup.enter.native=”add” 详见vue的官方教程  面试题 不用循环生成100长度都为1的数组,详见es6  123new Array(100).fill(1)">
 <meta name="keywords" content="技术帖">
 <meta property="og:type" content="article">
-<meta property="og:title" content="项目中遇到过的问题">
+<meta property="og:title" content="项目中遇到过的问题与技巧">
 <meta property="og:url" content="http://yoursite.com/2018/01/03/项目中遇到过的问题/index.html">
 <meta property="og:site_name" content="Blog | Kerminate">
-<meta property="og:description" content="最近在写OJ的时候，遇到的一些问题。">
+<meta property="og:description" content="记录开发过程中遇到的一些问题和一些技巧。 坑点 使用vue的ui框架时，比如element,iview等，需要给组件绑定原生事件，可以在事件后加.native。例如element的input组件绑定键盘事件可以这么写@keyup.enter.native=”add” 详见vue的官方教程  面试题 不用循环生成100长度都为1的数组,详见es6  123new Array(100).fill(1)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-11T12:57:17.000Z">
+<meta property="og:updated_time" content="2018-07-13T08:43:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="项目中遇到过的问题">
-<meta name="twitter:description" content="最近在写OJ的时候，遇到的一些问题。">
+<meta name="twitter:title" content="项目中遇到过的问题与技巧">
+<meta name="twitter:description" content="记录开发过程中遇到的一些问题和一些技巧。 坑点 使用vue的ui框架时，比如element,iview等，需要给组件绑定原生事件，可以在事件后加.native。例如element的input组件绑定键盘事件可以这么写@keyup.enter.native=”add” 详见vue的官方教程  面试题 不用循环生成100长度都为1的数组,详见es6  123new Array(100).fill(1)">
 
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>项目中遇到过的问题 | Blog | Kerminate</title>
+  <title>项目中遇到过的问题与技巧 | Blog | Kerminate</title>
   
 
 
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">项目中遇到过的问题</h1>
+          <h1 class="post-title" itemprop="name headline">项目中遇到过的问题与技巧</h1>
         
 
         <div class="post-meta">
@@ -301,7 +301,7 @@
 
           
           
-             <span id="/2018/01/03/项目中遇到过的问题/" class="leancloud_visitors" data-flag-title="项目中遇到过的问题">
+             <span id="/2018/01/03/项目中遇到过的问题/" class="leancloud_visitors" data-flag-title="项目中遇到过的问题与技巧">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -326,7 +326,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  453
+                  522
                 </span>
               
 
@@ -363,7 +363,7 @@
       
 
       
-        <p>最近在写OJ的时候，遇到的一些问题。<br><a id="more"></a></p>
+        <p>记录开发过程中遇到的一些问题和一些技巧。</p>
 <h2 id="坑点"><a href="#坑点" class="headerlink" title="坑点"></a>坑点</h2><ul>
 <li>使用vue的ui框架时，比如element,iview等，需要给组件绑定原生事件，可以在事件后加.native。例如element的input组件绑定键盘事件可以这么写@keyup.enter.native=”add” 详见<a href="https://cn.vuejs.org/v2/guide/components.html#%E7%BB%99%E7%BB%84%E4%BB%B6%E7%BB%91%E5%AE%9A%E5%8E%9F%E7%94%9F%E4%BA%8B%E4%BB%B6" target="_blank" rel="noopener">vue的官方教程</a></li>
 </ul>
@@ -371,6 +371,7 @@
 <li>不用循环生成100长度都为1的数组,详见<a href="http://es6.ruanyifeng.com/#docs/array#Array-from" target="_blank" rel="noopener">es6</a></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">new Array(100).fill(1)</span><br><span class="line">Array.from(&#123;length: 1&#125;, () =&gt; 1)</span><br><span class="line">Array.from(&#123;length: 1&#125;).map(() =&gt; 1)</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h2 id="webpack中css预处理器的配置"><a href="#webpack中css预处理器的配置" class="headerlink" title="webpack中css预处理器的配置"></a>webpack中css预处理器的配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sass: cnpm install node-sass sass-loader --save-dev</span><br><span class="line">less: cnpm install less less-loader --save-dev</span><br><span class="line">stylus: cnpm install stylus stylus-loader --save-dev</span><br></pre></td></tr></table></figure>
 <h2 id="使用node和chrome调试"><a href="#使用node和chrome调试" class="headerlink" title="使用node和chrome调试"></a>使用node和chrome调试</h2><p>进入到项目当前文件，比如要调试 d/Leetcode/045/main.js 文件，git bash进入到 d/Leetcode/045/, 输入命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node --inspect-brk main</span><br></pre></td></tr></table></figure></p>
 <h2 id="使用npm启动项目"><a href="#使用npm启动项目" class="headerlink" title="使用npm启动项目"></a>使用npm启动项目</h2><p>在windows本地调试时使用 <code>npm run dev</code> 启动项目，用 <code>ctrl + c</code> 停止，会导致进程没有结束，这时需要在windows找到该项目的进程并结束<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">netstat -ano | findstr 8080 //找到8080端口正在运行的进程</span><br><span class="line">taskkill /f /pid xxx // 强行结束pid为xxx的进程</span><br></pre></td></tr></table></figure></p>
@@ -379,6 +380,8 @@
 <p>保存时对改变的字段进行 markModified 操作，再 save 后可以保存对数据的操作。</p>
 <h2 id="react-中批量导入图片"><a href="#react-中批量导入图片" class="headerlink" title="react 中批量导入图片"></a>react 中批量导入图片</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> requireContext = <span class="built_in">require</span>.context(<span class="string">'../img'</span>, <span class="literal">true</span>, /^\.\/.*\.png$/)</span><br><span class="line"><span class="keyword">const</span> images = requireContext.keys().map(requireContext)</span><br></pre></td></tr></table></figure>
 <p>该方法的缺点是导入顺序是文件里的图片顺序，image 数组保存的是图片的 base64 编码，无法在代码中通过名字确认是哪张图</p>
+<h2 id="linux-命令行常用快捷键"><a href="#linux-命令行常用快捷键" class="headerlink" title="linux 命令行常用快捷键"></a>linux 命令行常用快捷键</h2><p>Ctrl + A  // 光标移到行首<br>Ctrl + E  // 光标移到行尾<br>Ctrl + K  // 删除之行尾</p>
+<h2 id="linux-常用指令"><a href="#linux-常用指令" class="headerlink" title="linux 常用指令"></a>linux 常用指令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo $(cat a) &gt; b  // 将文件a输出至文件b</span><br><span class="line">echo $(cat a) &gt;&gt; b  // 将文件a追加至文件b</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -512,7 +515,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -604,7 +607,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#坑点"><span class="nav-number">1.</span> <span class="nav-text">坑点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面试题"><span class="nav-number">2.</span> <span class="nav-text">面试题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack中css预处理器的配置"><span class="nav-number">3.</span> <span class="nav-text">webpack中css预处理器的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用node和chrome调试"><span class="nav-number">4.</span> <span class="nav-text">使用node和chrome调试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用npm启动项目"><span class="nav-number">5.</span> <span class="nav-text">使用npm启动项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mongoose-里保存-mixed-类型的数据"><span class="nav-number">6.</span> <span class="nav-text">mongoose 里保存 mixed 类型的数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#react-中批量导入图片"><span class="nav-number">7.</span> <span class="nav-text">react 中批量导入图片</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#坑点"><span class="nav-number">1.</span> <span class="nav-text">坑点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面试题"><span class="nav-number">2.</span> <span class="nav-text">面试题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack中css预处理器的配置"><span class="nav-number">3.</span> <span class="nav-text">webpack中css预处理器的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用node和chrome调试"><span class="nav-number">4.</span> <span class="nav-text">使用node和chrome调试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用npm启动项目"><span class="nav-number">5.</span> <span class="nav-text">使用npm启动项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mongoose-里保存-mixed-类型的数据"><span class="nav-number">6.</span> <span class="nav-text">mongoose 里保存 mixed 类型的数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#react-中批量导入图片"><span class="nav-number">7.</span> <span class="nav-text">react 中批量导入图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux-命令行常用快捷键"><span class="nav-number">8.</span> <span class="nav-text">linux 命令行常用快捷键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux-常用指令"><span class="nav-number">9.</span> <span class="nav-text">linux 常用指令</span></a></li></ol></div>
             
 
           </div>
@@ -779,7 +782,7 @@
         var disqus_config = function () {
           this.page.url = 'http://yoursite.com/2018/01/03/项目中遇到过的问题/';
           this.page.identifier = '2018/01/03/项目中遇到过的问题/';
-          this.page.title = '项目中遇到过的问题';
+          this.page.title = '项目中遇到过的问题与技巧';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://Kerminate.disqus.com/embed.js';

@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="先介绍一下斐波那契数列, 它是一个形如这样的序列：1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, …如果设F(n）为该数列的第n项（n∈N*），那么这句话可以写成如下形式：:F(n) = F(n-1) + F(n-2)">
+<meta name="description" content="先介绍一下斐波那契数列, 它是一个形如这样的序列：1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, …如果设F(n）为该数列的第n项（n∈N*），那么这句话可以写成如下形式：:F(n) = F(n-1) + F(n-2) 常用的解法如下1234function fibonacci (n) &amp;#123;  if (n &amp;lt; 2) return 1  retur">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js优化计算斐波那契数列">
 <meta property="og:url" content="http://yoursite.com/2018/03/19/js优化计算斐波那契数列/index.html">
 <meta property="og:site_name" content="Blog | Kerminate">
-<meta property="og:description" content="先介绍一下斐波那契数列, 它是一个形如这样的序列：1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, …如果设F(n）为该数列的第n项（n∈N*），那么这句话可以写成如下形式：:F(n) = F(n-1) + F(n-2)">
+<meta property="og:description" content="先介绍一下斐波那契数列, 它是一个形如这样的序列：1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, …如果设F(n）为该数列的第n项（n∈N*），那么这句话可以写成如下形式：:F(n) = F(n-1) + F(n-2) 常用的解法如下1234function fibonacci (n) &amp;#123;  if (n &amp;lt; 2) return 1  retur">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-11T12:57:17.000Z">
+<meta property="og:updated_time" content="2018-07-13T08:42:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js优化计算斐波那契数列">
-<meta name="twitter:description" content="先介绍一下斐波那契数列, 它是一个形如这样的序列：1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, …如果设F(n）为该数列的第n项（n∈N*），那么这句话可以写成如下形式：:F(n) = F(n-1) + F(n-2)">
+<meta name="twitter:description" content="先介绍一下斐波那契数列, 它是一个形如这样的序列：1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, …如果设F(n）为该数列的第n项（n∈N*），那么这句话可以写成如下形式：:F(n) = F(n-1) + F(n-2) 常用的解法如下1234function fibonacci (n) &amp;#123;  if (n &amp;lt; 2) return 1  retur">
 
 
 
@@ -364,9 +364,9 @@
 
       
         <p>先介绍一下斐波那契数列, 它是一个形如这样的序列：1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, …<br>如果设F(n）为该数列的第n项（n∈N*），那么这句话可以写成如下形式：:F(n) = F(n-1) + F(n-2)</p>
-<a id="more"></a>
 <p>常用的解法如下<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fibonacci</span> (<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (n &lt; <span class="number">2</span>) <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">  <span class="keyword">return</span> fibonacci(n - <span class="number">1</span>) + fibonacci(n - <span class="number">2</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>这种写法使函数调用函数，所有的<strong>调用帧</strong>会形成一个<strong>调用栈</strong>，最后导致堆栈溢出<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fibonacci(<span class="number">10</span>) <span class="comment">// 89</span></span><br><span class="line">fibonacci(<span class="number">100</span>) <span class="comment">// 堆栈溢出</span></span><br><span class="line">fibonacci(<span class="number">500</span>) <span class="comment">// 堆栈溢出</span></span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <h2 id="优化方法"><a href="#优化方法" class="headerlink" title="优化方法"></a>优化方法</h2><h3 id="数组缓存"><a href="#数组缓存" class="headerlink" title="数组缓存"></a>数组缓存</h3><p>使用数组记录斐波那契数列的中间值，使它不用被多次计算<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fibonacci = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> arr = []</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (arr[n] !== <span class="literal">undefined</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> arr[n]</span><br><span class="line">    &#125;</span><br><span class="line">    arr[n] = n &lt; <span class="number">2</span> ? <span class="number">1</span> : fibonacci(n - <span class="number">1</span>) + fibonacci(n - <span class="number">2</span>)</span><br><span class="line">    <span class="keyword">return</span> arr[n]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure></p>
 <h3 id="高效迭代"><a href="#高效迭代" class="headerlink" title="高效迭代"></a>高效迭代</h3><p>不通过递归，在内部一次while循环计算<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fibonacci</span> (<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> x = <span class="number">1</span>, y = <span class="number">1</span>, i = <span class="number">1</span></span><br><span class="line">  <span class="keyword">while</span> (i &lt; n) &#123;</span><br><span class="line">    y = x + y</span><br><span class="line">    x = y - x</span><br><span class="line">    i++</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> y</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h3 id="尾递归优化"><a href="#尾递归优化" class="headerlink" title="尾递归优化"></a>尾递归优化</h3><p>结合上面的算法，使用 <code>ES6</code> 的尾递归优化写法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fibonacci</span> (<span class="params">n, ac1 = <span class="number">1</span>, ac2 = <span class="number">1</span></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (n &lt;= <span class="number">1</span>) <span class="keyword">return</span> ac2</span><br><span class="line">  <span class="keyword">return</span> fibonacci(n - <span class="number">1</span>, ac2, ac1 + ac2)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -503,7 +503,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

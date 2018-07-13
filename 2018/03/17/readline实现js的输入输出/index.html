@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="学C++的时候，有cin, cout, Java也有println和Scanner控件能够实现输入输出。在Node.js里，通过readline模块实现输入输出。">
+<meta name="description" content="学C++的时候，有cin, cout, Java也有println和Scanner控件能够实现输入输出。在Node.js里，通过readline模块实现输入输出。 什么是readlinereadline是Node.js里实现标准输入输出的封装好的模块，通过这个模块我们可以以逐行的方式读取数据流 如何使用Readline 创建readline实例 学习里面的接口方法 学习监听与处理readline事">
 <meta name="keywords" content="Node">
 <meta property="og:type" content="article">
 <meta property="og:title" content="readline实现js的输入输出">
 <meta property="og:url" content="http://yoursite.com/2018/03/17/readline实现js的输入输出/index.html">
 <meta property="og:site_name" content="Blog | Kerminate">
-<meta property="og:description" content="学C++的时候，有cin, cout, Java也有println和Scanner控件能够实现输入输出。在Node.js里，通过readline模块实现输入输出。">
+<meta property="og:description" content="学C++的时候，有cin, cout, Java也有println和Scanner控件能够实现输入输出。在Node.js里，通过readline模块实现输入输出。 什么是readlinereadline是Node.js里实现标准输入输出的封装好的模块，通过这个模块我们可以以逐行的方式读取数据流 如何使用Readline 创建readline实例 学习里面的接口方法 学习监听与处理readline事">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://or7tt6rug.bkt.clouddn.com/readline.png">
 <meta property="og:image" content="http://or7tt6rug.bkt.clouddn.com/shoot.png">
-<meta property="og:updated_time" content="2018-07-11T12:57:17.000Z">
+<meta property="og:updated_time" content="2018-07-13T08:42:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="readline实现js的输入输出">
-<meta name="twitter:description" content="学C++的时候，有cin, cout, Java也有println和Scanner控件能够实现输入输出。在Node.js里，通过readline模块实现输入输出。">
+<meta name="twitter:description" content="学C++的时候，有cin, cout, Java也有println和Scanner控件能够实现输入输出。在Node.js里，通过readline模块实现输入输出。 什么是readlinereadline是Node.js里实现标准输入输出的封装好的模块，通过这个模块我们可以以逐行的方式读取数据流 如何使用Readline 创建readline实例 学习里面的接口方法 学习监听与处理readline事">
 <meta name="twitter:image" content="http://or7tt6rug.bkt.clouddn.com/readline.png">
 
 
@@ -366,12 +366,13 @@
       
 
       
-        <p>学C++的时候，有cin, cout, Java也有println和Scanner控件能够实现输入输出。在Node.js里，通过readline模块实现输入输出。<br><a id="more"></a></p>
+        <p>学C++的时候，有cin, cout, Java也有println和Scanner控件能够实现输入输出。在Node.js里，通过readline模块实现输入输出。</p>
 <h2 id="什么是readline"><a href="#什么是readline" class="headerlink" title="什么是readline"></a>什么是readline</h2><p>readline是Node.js里实现标准输入输出的封装好的模块，通过这个模块我们可以以逐行的方式读取数据流</p>
 <h2 id="如何使用Readline"><a href="#如何使用Readline" class="headerlink" title="如何使用Readline"></a>如何使用Readline</h2><ul>
 <li>创建readline实例</li>
 <li>学习里面的接口方法</li>
-<li>学习监听与处理readline事件</li>
+<li>学习监听与处理readline事件<a id="more"></a>
+</li>
 </ul>
 <h3 id="实例1"><a href="#实例1" class="headerlink" title="实例1"></a>实例1</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> readline = <span class="built_in">require</span>(<span class="string">'readline'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> rl = readline.createInterface(&#123;</span><br><span class="line">  <span class="comment">// process为node里的全局变量</span></span><br><span class="line">  input: process.stdin,</span><br><span class="line">  output: process.stdout</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 输入通过line记录</span></span><br><span class="line">rl.on(<span class="string">'line'</span>, (line) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'My name is '</span> + line)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 结束进程时监听的方法(ctrl + c)</span></span><br><span class="line">rl.on(<span class="string">'close'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Bye bye!'</span>)</span><br><span class="line">  process.exit(<span class="number">0</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>输入输出如下<br><img src="http://or7tt6rug.bkt.clouddn.com/readline.png" alt=""></p>
@@ -538,7 +539,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="想要了解 javascript 的原型链和继承，就要先从 javascript 的对象说起，如何创建一个 javascript 对象">
+<meta name="description" content="想要了解 javascript 的原型链和继承，就要先从 javascript 的对象说起，如何创建一个 javascript 对象 创建对象(ES5)虽然 Object 构造函数或对象字面量都可以用来创建单个对象，但这些方式有个明显的缺点：使用同一个接口创建很多对象，会产生大量的重复代码。为解决这个问题，人们开始使用工厂模式这一变体。">
 <meta name="keywords" content="前端">
 <meta property="og:type" content="article">
 <meta property="og:title" content="详解Javascript的原型链与继承(从ES5到ES6)">
 <meta property="og:url" content="http://yoursite.com/2018/02/09/详解Javascript的原型链与继承-从ES5到ES6/index.html">
 <meta property="og:site_name" content="Blog | Kerminate">
-<meta property="og:description" content="想要了解 javascript 的原型链和继承，就要先从 javascript 的对象说起，如何创建一个 javascript 对象">
+<meta property="og:description" content="想要了解 javascript 的原型链和继承，就要先从 javascript 的对象说起，如何创建一个 javascript 对象 创建对象(ES5)虽然 Object 构造函数或对象字面量都可以用来创建单个对象，但这些方式有个明显的缺点：使用同一个接口创建很多对象，会产生大量的重复代码。为解决这个问题，人们开始使用工厂模式这一变体。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://or7tt6rug.bkt.clouddn.com/prototype.png">
-<meta property="og:updated_time" content="2018-07-11T12:57:17.000Z">
+<meta property="og:updated_time" content="2018-07-13T08:41:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="详解Javascript的原型链与继承(从ES5到ES6)">
-<meta name="twitter:description" content="想要了解 javascript 的原型链和继承，就要先从 javascript 的对象说起，如何创建一个 javascript 对象">
+<meta name="twitter:description" content="想要了解 javascript 的原型链和继承，就要先从 javascript 的对象说起，如何创建一个 javascript 对象 创建对象(ES5)虽然 Object 构造函数或对象字面量都可以用来创建单个对象，但这些方式有个明显的缺点：使用同一个接口创建很多对象，会产生大量的重复代码。为解决这个问题，人们开始使用工厂模式这一变体。">
 <meta name="twitter:image" content="http://or7tt6rug.bkt.clouddn.com/prototype.png">
 
 
@@ -365,8 +365,8 @@
       
 
       
-        <p>想要了解 <code>javascript</code> 的原型链和继承，就要先从 <code>javascript</code> 的对象说起，如何创建一个 <code>javascript</code> 对象<br><a id="more"></a></p>
-<h2 id="创建对象-ES5"><a href="#创建对象-ES5" class="headerlink" title="创建对象(ES5)"></a>创建对象(ES5)</h2><p>虽然 <code>Object</code> 构造函数或对象字面量都可以用来创建单个对象，但这些方式有个明显的缺点：使用同一个接口创建很多对象，会产生大量的重复代码。为解决这个问题，人们开始使用工厂模式这一变体。</p>
+        <p>想要了解 <code>javascript</code> 的原型链和继承，就要先从 <code>javascript</code> 的对象说起，如何创建一个 <code>javascript</code> 对象</p>
+<h2 id="创建对象-ES5"><a href="#创建对象-ES5" class="headerlink" title="创建对象(ES5)"></a>创建对象(ES5)</h2><p>虽然 <code>Object</code> 构造函数或对象字面量都可以用来创建单个对象，但这些方式有个明显的缺点：使用同一个接口创建很多对象，会产生大量的重复代码。为解决这个问题，人们开始使用工厂模式这一变体。<br><a id="more"></a></p>
 <h4 id="1-工厂模式"><a href="#1-工厂模式" class="headerlink" title="1.工厂模式"></a>1.工厂模式</h4><p>用函数来封装一特定接口创建对象的细节，如下面的例子所示<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span> (<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>()</span><br><span class="line">  o.name = name</span><br><span class="line">  o.sayName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> o</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> p1 = Person(<span class="string">'Nicho'</span>, <span class="number">29</span>)</span><br><span class="line"><span class="keyword">let</span> p2 = Person(<span class="string">'Greg'</span>, <span class="number">27</span>)</span><br></pre></td></tr></table></figure></p>
 <p>可以通过 <code>Person</code> 函数构建含有必要信息的 <code>Person</code> 对象。工厂模式虽然解决了创建多个相似对象的问题，但却没有解决对象识别的问题(即怎样知道一个对象的类型)</p>
 <h4 id="2-构造函数模式"><a href="#2-构造函数模式" class="headerlink" title="2.构造函数模式"></a>2.构造函数模式</h4><p>可以创建自定义的构造函数，从而自定义对象类型的属性和方法，通过构造函数模式将上面的例子重写<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span> (<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name</span><br><span class="line">  <span class="keyword">this</span>.age = age</span><br><span class="line">  <span class="keyword">this</span>.sayName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> p1 = <span class="keyword">new</span> Person(<span class="string">'Nicho'</span>, <span class="number">29</span>)</span><br><span class="line"><span class="keyword">let</span> p2 = <span class="keyword">new</span> Person(<span class="string">'Greg'</span>, <span class="number">27</span>)</span><br></pre></td></tr></table></figure></p>
@@ -541,7 +541,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
