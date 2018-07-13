@@ -5,7 +5,6 @@ tags: 前端
 ---
 
 这边使用三种方法处理元素居中的问题。
-<!--more-->
 放上示范的html代码：
 
 ```html
@@ -15,6 +14,7 @@ tags: 前端
   </div>
 </body>
 ```
+<!--more-->
 
 1. 方法一
 `div` 使用绝对布局，设置 `margin: auto`;并设置 `top、left、right、bottom` 的值相等即可，不一定要都是0
