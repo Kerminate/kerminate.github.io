@@ -15,7 +15,17 @@ git push origin [你当前的分支]  // 将当前分支提交到远程仓库
 ```
 <!--more-->
 
-## 2. 撤销回退 
+## 2. 分支管理
+```
+git checkout -b dev  // 创建新分支 dev，并切换到该分支
+git branch  // 显示所有分支
+git checkout master  // 切换到 master 分支
+git merge dev  // 将 dev 分支合并到 master 分支
+git branch -d dev  // 将本地的 dev 分支删除
+git push origin -d dev  // 将远端的 dev 分支删除
+```
+
+## 3. 撤销回退 
 ### 使用 git reset
 首先认识一下 `git status` 命令，显示当前暂存区的消息
 本例中修改了 README.md，但是并没有 add
@@ -71,7 +81,7 @@ git revert 57af6d9f0f8e4fdb646e86bd189c2346f6bd5458
 ```
 ![](http://or7tt6rug.bkt.clouddn.com/git-revert1.png)
 
-## 3. 常用技巧
+## 4. 常用技巧
 ### 使用 git stash
 当你正在进行项目开发，已经修改了部分代码，但是发现现有分支上有个 bug 要解决，但你又不想把代码 commit 到本地仓库，这时候可以使用 git stash 储存当前工作目录的中间状态。
 可以直接使用 git stash 储存，也可以通过 git stash save "你的备注" 做一个message
