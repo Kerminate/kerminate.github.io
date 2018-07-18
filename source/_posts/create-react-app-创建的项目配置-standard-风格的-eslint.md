@@ -34,6 +34,7 @@ npm install --save-dev eslint@4.19.1 eslint-plugin-react@7.6.1
 在项目根目录新建 .eslintignore 文件，加上
 ```
 /config/
+/scripts/
 /dist/
 /*.js
 /test/unit/coverage/
