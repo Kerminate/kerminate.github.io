@@ -1,5 +1,5 @@
 ---
-title: Javascript实现双向链表
+title: Javascript 实现双向链表
 date: 2018-03-01 19:28:28
 tags: 算法
 ---

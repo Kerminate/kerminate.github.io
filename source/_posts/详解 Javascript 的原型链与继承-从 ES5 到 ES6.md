@@ -1,5 +1,5 @@
 ---
-title: 详解Javascript的原型链与继承(从ES5到ES6)
+title: 详解 Javascript 的原型链与继承(从 ES5 到 ES6)
 date: 2018-02-09 16:39:50
 tags: 前端
 ---

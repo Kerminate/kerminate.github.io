@@ -1,18 +1,18 @@
 ---
-title: readline实现js的输入输出
+title: readline 实现 Javascript 的输入输出
 date: 2018-03-17 13:47:01
 tags: Node
 ---
 
-学C++的时候，有cin, cout, Java也有println和Scanner控件能够实现输入输出。在Node.js里，通过readline模块实现输入输出。
+学 C++ 的时候，有 cin, cout, Java 也有 println 和 Scanner 控件能够实现输入输出。在 Node.js 里，通过 readline 模块实现输入输出。
 
 ## 什么是readline
-readline是Node.js里实现标准输入输出的封装好的模块，通过这个模块我们可以以逐行的方式读取数据流
+readline 是 Node.js 里实现标准输入输出的封装好的模块，通过这个模块我们可以以逐行的方式读取数据流
 
 ## 如何使用Readline
-- 创建readline实例
+- 创建 readline 实例
 - 学习里面的接口方法
-- 学习监听与处理readline事件
+- 学习监听与处理 readline 事件
 <!--more-->
 
 ### 实例1
