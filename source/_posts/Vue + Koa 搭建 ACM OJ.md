@@ -168,7 +168,11 @@ const ranklist = async (ctx) => {
 }
 ```
 
-项目使用 docker 进行一键部署。写了 Dockerfile 对 web 端进行镜像定制，在 docker-compose 中配置项目所需的所有镜像。[部署过程](https://github.com/acm309/PutongOJ)
+## 测试与部署
+后端使用了 [ava](https://github.com/avajs/ava) 的测试框架，为什么没有采用 mocha, tape，主要是 ava 做了进程隔离，可以并发执行测试，跑起来更快。
+并且使用 [travis](https://travis-ci.org/) 进行持续集成，目前测试覆盖率达到**%86**。
+
+项目使用 docker 进行一键部署。写了 Dockerfile 对 web 端进行镜像定制，在 docker-compose 中配置项目所需的所有镜，并使用 pm2 进行进程管理。[部署过程](https://github.com/acm309/PutongOJ#user-content-delpoyment)
 
 ## 最后
 篇幅有限，无法展现更多的内容，有兴趣的话可以进入项目地址阅读源码，当然，如果觉得项目还不错的话 👏，就给个 star ⭐️ 鼓励一下吧~

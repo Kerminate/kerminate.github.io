@@ -18,7 +18,8 @@ git push origin [你当前的分支]  // 将当前分支提交到远程仓库
 ## 2. 分支管理
 ```
 git checkout -b dev  // 创建新分支 dev，并切换到该分支
-git branch  // 显示所有分支
+git branch  // 显示本地分支
+git branch -a  // 显示所有分支(本地和远程)
 git checkout master  // 切换到 master 分支
 git merge dev  // 将 dev 分支合并到 master 分支
 git branch -d dev  // 将本地的 dev 分支删除
