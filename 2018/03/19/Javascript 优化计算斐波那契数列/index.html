@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="技术贴," />
+  <meta name="keywords" content="算法," />
 
 
 
@@ -79,25 +79,18 @@
 
 
 
-<meta name="description" content="在团队里工作了一段时间，逐渐适应了多人协作开发，这里总结一下 git 的使用方法与一些技巧。 1. 基本操作（正常提交流程）1234git init   // 版本库初始化git add -A  // 将本地修改的所有文件提交到暂存区git commit -m &amp;quot;你的提交信息&amp;quot;  // 将暂存区文件提交到版本库git push origin [你当前的分支]  // 将当前分支">
-<meta name="keywords" content="技术贴">
+<meta name="description" content="先介绍一下斐波那契数列, 它是一个形如这样的序列：1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, …如果设 F(n) 为该数列的第n项（n∈N*），那么这句话可以写成如下形式：:F(n) = F(n-1) + F(n-2) 常用的解法如下1234function fibonacci (n) &amp;#123;  if (n &amp;lt; 2) return 1  ret">
+<meta name="keywords" content="算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git 使用方法与技巧">
-<meta property="og:url" content="http://yoursite.com/2018/07/11/Git 使用方法与技巧/index.html">
+<meta property="og:title" content="Javascript 优化计算斐波那契数列">
+<meta property="og:url" content="http://yoursite.com/2018/03/19/Javascript 优化计算斐波那契数列/index.html">
 <meta property="og:site_name" content="Blog | Kerminate">
-<meta property="og:description" content="在团队里工作了一段时间，逐渐适应了多人协作开发，这里总结一下 git 的使用方法与一些技巧。 1. 基本操作（正常提交流程）1234git init   // 版本库初始化git add -A  // 将本地修改的所有文件提交到暂存区git commit -m &amp;quot;你的提交信息&amp;quot;  // 将暂存区文件提交到版本库git push origin [你当前的分支]  // 将当前分支">
+<meta property="og:description" content="先介绍一下斐波那契数列, 它是一个形如这样的序列：1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, …如果设 F(n) 为该数列的第n项（n∈N*），那么这句话可以写成如下形式：:F(n) = F(n-1) + F(n-2) 常用的解法如下1234function fibonacci (n) &amp;#123;  if (n &amp;lt; 2) return 1  ret">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://or7tt6rug.bkt.clouddn.com/git-status.jpg">
-<meta property="og:image" content="http://or7tt6rug.bkt.clouddn.com/git-status2.jpg">
-<meta property="og:image" content="http://or7tt6rug.bkt.clouddn.com/git-log.jpg">
-<meta property="og:image" content="http://or7tt6rug.bkt.clouddn.com/git-revert1.png">
-<meta property="og:image" content="http://or7tt6rug.bkt.clouddn.com/git-stash1.jpg">
-<meta property="og:image" content="http://or7tt6rug.bkt.clouddn.com/git-stash2.jpg">
-<meta property="og:updated_time" content="2018-07-20T14:38:13.000Z">
+<meta property="og:updated_time" content="2018-07-18T03:05:38.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git 使用方法与技巧">
-<meta name="twitter:description" content="在团队里工作了一段时间，逐渐适应了多人协作开发，这里总结一下 git 的使用方法与一些技巧。 1. 基本操作（正常提交流程）1234git init   // 版本库初始化git add -A  // 将本地修改的所有文件提交到暂存区git commit -m &amp;quot;你的提交信息&amp;quot;  // 将暂存区文件提交到版本库git push origin [你当前的分支]  // 将当前分支">
-<meta name="twitter:image" content="http://or7tt6rug.bkt.clouddn.com/git-status.jpg">
+<meta name="twitter:title" content="Javascript 优化计算斐波那契数列">
+<meta name="twitter:description" content="先介绍一下斐波那契数列, 它是一个形如这样的序列：1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, …如果设 F(n) 为该数列的第n项（n∈N*），那么这句话可以写成如下形式：:F(n) = F(n-1) + F(n-2) 常用的解法如下1234function fibonacci (n) &amp;#123;  if (n &amp;lt; 2) return 1  ret">
 
 
 
@@ -127,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/11/Git 使用方法与技巧/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/19/Javascript 优化计算斐波那契数列/"/>
 
 
 
 
 
-  <title>Git 使用方法与技巧 | Blog | Kerminate</title>
+  <title>Javascript 优化计算斐波那契数列 | Blog | Kerminate</title>
   
 
 
@@ -250,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/Git 使用方法与技巧/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/19/Javascript 优化计算斐波那契数列/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kerminate">
@@ -267,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Git 使用方法与技巧</h1>
+          <h1 class="post-title" itemprop="name headline">Javascript 优化计算斐波那契数列</h1>
         
 
         <div class="post-meta">
@@ -279,8 +272,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-11T21:04:51+08:00">
-                2018-07-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-19T19:18:29+08:00">
+                2018-03-19
               </time>
             
 
@@ -298,9 +291,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/07/11/Git 使用方法与技巧/#comments" itemprop="discussionUrl">
+                <a href="/2018/03/19/Javascript 优化计算斐波那契数列/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/07/11/Git 使用方法与技巧/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/03/19/Javascript 优化计算斐波那契数列/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -308,7 +301,7 @@
 
           
           
-             <span id="/2018/07/11/Git 使用方法与技巧/" class="leancloud_visitors" data-flag-title="Git 使用方法与技巧">
+             <span id="/2018/03/19/Javascript 优化计算斐波那契数列/" class="leancloud_visitors" data-flag-title="Javascript 优化计算斐波那契数列">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -333,7 +326,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,059
+                  315
                 </span>
               
 
@@ -349,7 +342,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  1
                 </span>
               
             </div>
@@ -370,38 +363,13 @@
       
 
       
-        <p>在团队里工作了一段时间，逐渐适应了多人协作开发，这里总结一下 git 的使用方法与一些技巧。</p>
-<h2 id="1-基本操作（正常提交流程）"><a href="#1-基本操作（正常提交流程）" class="headerlink" title="1. 基本操作（正常提交流程）"></a>1. 基本操作（正常提交流程）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git init   // 版本库初始化</span><br><span class="line">git add -A  // 将本地修改的所有文件提交到暂存区</span><br><span class="line">git commit -m &quot;你的提交信息&quot;  // 将暂存区文件提交到版本库</span><br><span class="line">git push origin [你当前的分支]  // 将当前分支提交到远程仓库</span><br></pre></td></tr></table></figure>
+        <p>先介绍一下斐波那契数列, 它是一个形如这样的序列：1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, …<br>如果设 F(n) 为该数列的第n项（n∈N*），那么这句话可以写成如下形式：:F(n) = F(n-1) + F(n-2)</p>
+<p>常用的解法如下<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fibonacci</span> (<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (n &lt; <span class="number">2</span>) <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">  <span class="keyword">return</span> fibonacci(n - <span class="number">1</span>) + fibonacci(n - <span class="number">2</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这种写法使函数调用函数，所有的 <strong>调用帧</strong> 会形成一个 <strong>调用栈</strong>，最后导致堆栈溢出<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fibonacci(<span class="number">10</span>) <span class="comment">// 89</span></span><br><span class="line">fibonacci(<span class="number">100</span>) <span class="comment">// 堆栈溢出</span></span><br><span class="line">fibonacci(<span class="number">500</span>) <span class="comment">// 堆栈溢出</span></span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
-<h2 id="2-分支管理"><a href="#2-分支管理" class="headerlink" title="2. 分支管理"></a>2. 分支管理</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b dev  // 创建新分支 dev，并切换到该分支</span><br><span class="line">git branch  // 显示本地分支</span><br><span class="line">git branch -a  // 显示所有分支(本地和远程)</span><br><span class="line">git checkout master  // 切换到 master 分支</span><br><span class="line">git merge dev  // 将 dev 分支合并到 master 分支</span><br><span class="line">git branch -d dev  // 将本地的 dev 分支删除</span><br><span class="line">git push origin -d dev  // 将远端的 dev 分支删除</span><br></pre></td></tr></table></figure>
-<h2 id="3-撤销回退"><a href="#3-撤销回退" class="headerlink" title="3. 撤销回退"></a>3. 撤销回退</h2><h3 id="使用-git-reset"><a href="#使用-git-reset" class="headerlink" title="使用 git reset"></a>使用 git reset</h3><p>首先认识一下 <code>git status</code> 命令，显示当前暂存区的消息<br>本例中修改了 README.md，但是并没有 add<br><img src="http://or7tt6rug.bkt.clouddn.com/git-status.jpg" alt=""><br>之后 <code>git add -A</code> 将文件保存在暂存区，git status 查看此时暂存区状态<br><img src="http://or7tt6rug.bkt.clouddn.com/git-status2.jpg" alt=""></p>
-<h4 id="撤销所有本地代码（git-add-之前）"><a href="#撤销所有本地代码（git-add-之前）" class="headerlink" title="撤销所有本地代码（git add 之前）"></a>撤销所有本地代码（git add 之前）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout .</span><br></pre></td></tr></table></figure>
-<h4 id="git-add-后撤销"><a href="#git-add-后撤销" class="headerlink" title="git add 后撤销"></a>git add 后撤销</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD .  // 撤销所有add文件</span><br><span class="line">git reset HEAD -filename  // 撤销单个add文件</span><br></pre></td></tr></table></figure>
-<p>通过 <code>git status</code> 查看暂存区内无状态，说明此时本地分支代码没有改动</p>
-<h4 id="git-commit-后撤销"><a href="#git-commit-后撤销" class="headerlink" title="git commit 后撤销"></a>git commit 后撤销</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard head^ // 回退到上个 commit 版本</span><br></pre></td></tr></table></figure>
-<h5 id="版本回退（git-push-后撤销）"><a href="#版本回退（git-push-后撤销）" class="headerlink" title="版本回退（git push 后撤销）"></a>版本回退（git push 后撤销）</h5><p>先使用 git log 查看信息，找到你想回退到版本的 id, 再通过 git reset 回退，可以清空中间的提交记录</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log</span><br></pre></td></tr></table></figure>
-<p><img src="http://or7tt6rug.bkt.clouddn.com/git-log.jpg" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard 5aabd83035a2a92db15b95d0f43cb797288a915f</span><br><span class="line">git push origin HEAD --force</span><br></pre></td></tr></table></figure>
-<p>这里 HEAD 指当前版本，把回退后的当前版本强行提交到远程仓库</p>
-<h4 id="git-merge-后撤销"><a href="#git-merge-后撤销" class="headerlink" title="git merge 后撤销"></a>git merge 后撤销</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout [行merge操作时所在的分支]</span><br><span class="line">git reset --hard [merge前的版本号]</span><br></pre></td></tr></table></figure>
-<h3 id="使用-git-revert"><a href="#使用-git-revert" class="headerlink" title="使用 git revert"></a>使用 git revert</h3><ul>
-<li><strong>git reset</strong> 是直接删除指定的 commit，把HEAD 向后移动了一下</li>
-<li><strong>git revert</strong> 是一次新的特殊的commit，HEAD 继续前进，本质和普通 add commit 一样，仅仅是 commit 内容很特殊：提交的内容是与前面普通 commit 文本变化的反操作</li>
-</ul>
-<p>假设按时间顺序依次有 commit1, commit2, commit3, commit4,对应有 version1, version2, version3, version4 四个状态.<br>revert 某次commit，最终文件状态为 commit4 前，即version3 状态)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git revert 57af6d9f0f8e4fdb646e86bd189c2346f6bd5458</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://or7tt6rug.bkt.clouddn.com/git-revert1.png" alt=""></p>
-<h2 id="4-常用技巧"><a href="#4-常用技巧" class="headerlink" title="4. 常用技巧"></a>4. 常用技巧</h2><h3 id="使用-git-stash"><a href="#使用-git-stash" class="headerlink" title="使用 git stash"></a>使用 git stash</h3><p>当你正在进行项目开发，已经修改了部分代码，但是发现现有分支上有个 bug 要解决，但你又不想把代码 commit 到本地仓库，这时候可以使用 git stash 储存当前工作目录的中间状态。<br>可以直接使用 git stash 储存，也可以通过 git stash save “你的备注” 做一个message<br>我在本地修改了根目录的 README.md, 并删除了 tutorial 下的 readme.txt<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash save &quot;rm tutorial/readme.txt&quot;</span><br></pre></td></tr></table></figure></p>
-<p>之后查看 stash 栈<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash list</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://or7tt6rug.bkt.clouddn.com/git-stash1.jpg" alt=""><br>此时代码已经回到了你修改前的版本，本地修好 bug 后，将代码 push 到远端，再使用 git stash pop 或 git stash apply 来恢复之前的工作状态</p>
-<ul>
-<li><strong>git stash pop</strong>: 这个指令将缓存堆栈中的第一个 stash 删除，并将对应修改应用到当前的工作目录下.</li>
-<li><strong>git stash apply</strong>: 将缓存堆栈中的stash多次应用到工作目录中，但并不删除stash拷贝.使用该命令时可以通过名字指定使用哪个stash，默认使用最近的stash</li>
-</ul>
-<p><img src="http://or7tt6rug.bkt.clouddn.com/git-stash2.jpg" alt=""><br>恢复后会显示暂存区内文件的修改情况，与之前一致</p>
-<h3 id="使用-git-rebase"><a href="#使用-git-rebase" class="headerlink" title="使用 git rebase"></a>使用 git rebase</h3><p>多人协作时，使用 git rebase 代替 git merge 来变基，减少难看的 merge 类型的 commit<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git stash</span><br><span class="line">git pull —-rebase</span><br><span class="line">git stash apply</span><br><span class="line">手动解决冲突</span><br><span class="line">git add -A</span><br><span class="line">git rebase —-continue</span><br><span class="line">如果此时提示 No rebase in progress? 则表示已经没有冲突了；否则上面两步要重复多次</span><br><span class="line">git commit -m “xxx”</span><br><span class="line">git push origin [branch] -f</span><br></pre></td></tr></table></figure></p>
-<p>其中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git pull = git fetch + git merge</span><br><span class="line">git pull –-rebase = git fetch + git rebase</span><br></pre></td></tr></table></figure></p>
-<p>在合并分支时，直接使用 git rebase 代替 git merge</p>
+<h2 id="优化方法"><a href="#优化方法" class="headerlink" title="优化方法"></a>优化方法</h2><h3 id="数组缓存"><a href="#数组缓存" class="headerlink" title="数组缓存"></a>数组缓存</h3><p>使用数组记录斐波那契数列的中间值，使它不用被多次计算<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fibonacci = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> arr = []</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (arr[n] !== <span class="literal">undefined</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> arr[n]</span><br><span class="line">    &#125;</span><br><span class="line">    arr[n] = n &lt; <span class="number">2</span> ? <span class="number">1</span> : fibonacci(n - <span class="number">1</span>) + fibonacci(n - <span class="number">2</span>)</span><br><span class="line">    <span class="keyword">return</span> arr[n]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure></p>
+<h3 id="高效迭代"><a href="#高效迭代" class="headerlink" title="高效迭代"></a>高效迭代</h3><p>不通过递归，在内部一次while循环计算<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fibonacci</span> (<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> x = <span class="number">1</span>, y = <span class="number">1</span>, i = <span class="number">1</span></span><br><span class="line">  <span class="keyword">while</span> (i &lt; n) &#123;</span><br><span class="line">    y = x + y</span><br><span class="line">    x = y - x</span><br><span class="line">    i++</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> y</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="尾递归优化"><a href="#尾递归优化" class="headerlink" title="尾递归优化"></a>尾递归优化</h3><p>结合上面的算法，使用 <code>ES6</code> 的尾递归优化写法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fibonacci</span> (<span class="params">n, ac1 = <span class="number">1</span>, ac2 = <span class="number">1</span></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (n &lt;= <span class="number">1</span>) <span class="keyword">return</span> ac2</span><br><span class="line">  <span class="keyword">return</span> fibonacci(n - <span class="number">1</span>, ac2, ac1 + ac2)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -419,7 +387,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/技术贴/" rel="tag"># 技术贴</a>
+            <a href="/tags/算法/" rel="tag"># 算法</a>
           
         </div>
       
@@ -432,8 +400,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/31/Vue + Koa 搭建 ACM OJ/" rel="next" title="Vue + Koa 搭建 ACM OJ">
-                <i class="fa fa-chevron-left"></i> Vue + Koa 搭建 ACM OJ
+              <a href="/2018/03/17/readline 实现 Javascript 的输入输出/" rel="next" title="readline 实现 Javascript 的输入输出">
+                <i class="fa fa-chevron-left"></i> readline 实现 Javascript 的输入输出
               </a>
             
           </div>
@@ -442,8 +410,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/07/17/create-react-app 创建的项目配置 standard 风格的 eslint/" rel="prev" title="create-react-app 创建的项目配置 standard 风格的 eslint">
-                create-react-app 创建的项目配置 standard 风格的 eslint <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/31/Vue + Koa 搭建 ACM OJ/" rel="prev" title="Vue + Koa 搭建 ACM OJ">
+                Vue + Koa 搭建 ACM OJ <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -627,7 +595,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-基本操作（正常提交流程）"><span class="nav-number">1.</span> <span class="nav-text">1. 基本操作（正常提交流程）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-分支管理"><span class="nav-number">2.</span> <span class="nav-text">2. 分支管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-撤销回退"><span class="nav-number">3.</span> <span class="nav-text">3. 撤销回退</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-git-reset"><span class="nav-number">3.1.</span> <span class="nav-text">使用 git reset</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#撤销所有本地代码（git-add-之前）"><span class="nav-number">3.1.1.</span> <span class="nav-text">撤销所有本地代码（git add 之前）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-add-后撤销"><span class="nav-number">3.1.2.</span> <span class="nav-text">git add 后撤销</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-commit-后撤销"><span class="nav-number">3.1.3.</span> <span class="nav-text">git commit 后撤销</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#版本回退（git-push-后撤销）"><span class="nav-number">3.1.3.1.</span> <span class="nav-text">版本回退（git push 后撤销）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-merge-后撤销"><span class="nav-number">3.1.4.</span> <span class="nav-text">git merge 后撤销</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-git-revert"><span class="nav-number">3.2.</span> <span class="nav-text">使用 git revert</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-常用技巧"><span class="nav-number">4.</span> <span class="nav-text">4. 常用技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-git-stash"><span class="nav-number">4.1.</span> <span class="nav-text">使用 git stash</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-git-rebase"><span class="nav-number">4.2.</span> <span class="nav-text">使用 git rebase</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#优化方法"><span class="nav-number">1.</span> <span class="nav-text">优化方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组缓存"><span class="nav-number">1.1.</span> <span class="nav-text">数组缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高效迭代"><span class="nav-number">1.2.</span> <span class="nav-text">高效迭代</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#尾递归优化"><span class="nav-number">1.3.</span> <span class="nav-text">尾递归优化</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -800,9 +768,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2018/07/11/Git 使用方法与技巧/';
-          this.page.identifier = '2018/07/11/Git 使用方法与技巧/';
-          this.page.title = 'Git 使用方法与技巧';
+          this.page.url = 'http://yoursite.com/2018/03/19/Javascript 优化计算斐波那契数列/';
+          this.page.identifier = '2018/03/19/Javascript 优化计算斐波那契数列/';
+          this.page.title = 'Javascript 优化计算斐波那契数列';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://Kerminate.disqus.com/embed.js';
