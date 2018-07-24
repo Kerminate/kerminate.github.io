@@ -58,9 +58,8 @@ npm install --save-dev react-app-rewired
   },
 ```
 在项目根目录下创建一个 `config-overrides.js` 文件，对 webpack 配置进行扩展
-```
+```javascript
 /* config-overrides.js */
-
 module.exports = function override (config, env) {
   // do stuff with the webpack config...
   return config
@@ -71,7 +70,7 @@ module.exports = function override (config, env) {
 npm install --save-dev babel-plugin-import
 ```
 再修改 `config-overrides.js`
-```
+```javascript
 /* config-overrides.js */
 const { injectBabelPlugin } = require('react-app-rewired')
 module.exports = function override (config, env) {
@@ -90,7 +89,7 @@ npm install --save-dev less less-loader react-app-rewire-less
 npm install --save-dev less@2.7.3
 ```
 再修改 `config-overrides.js`
-```
+```javascript
 const { injectBabelPlugin } = require('react-app-rewired')
 const rewireLess = require('react-app-rewire-less')
 module.exports = function override (config, env) {
