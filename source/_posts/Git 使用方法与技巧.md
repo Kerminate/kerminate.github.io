@@ -99,6 +99,11 @@ git stash list
 - **git stash pop**: 这个指令将缓存堆栈中的第一个 stash 删除，并将对应修改应用到当前的工作目录下.
 - **git stash apply**: 将缓存堆栈中的stash多次应用到工作目录中，但并不删除stash拷贝.使用该命令时可以通过名字指定使用哪个stash，默认使用最近的stash
 
+示例：
+```
+git stash apply stash{0}  // 将 stash 栈里的第一个恢复
+```
+
 ![](http://or7tt6rug.bkt.clouddn.com/git-stash2.jpg)
 恢复后会显示暂存区内文件的修改情况，与之前一致
 
