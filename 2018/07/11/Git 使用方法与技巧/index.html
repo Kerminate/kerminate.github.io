@@ -93,7 +93,7 @@
 <meta property="og:image" content="http://or7tt6rug.bkt.clouddn.com/git-revert1.png">
 <meta property="og:image" content="http://or7tt6rug.bkt.clouddn.com/git-stash1.jpg">
 <meta property="og:image" content="http://or7tt6rug.bkt.clouddn.com/git-stash2.jpg">
-<meta property="og:updated_time" content="2018-07-20T14:38:13.000Z">
+<meta property="og:updated_time" content="2018-07-26T12:53:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 使用方法与技巧">
 <meta name="twitter:description" content="在团队里工作了一段时间，逐渐适应了多人协作开发，这里总结一下 git 的使用方法与一些技巧。 1. 基本操作（正常提交流程）1234git init   // 版本库初始化git add -A  // 将本地修改的所有文件提交到暂存区git commit -m &amp;quot;你的提交信息&amp;quot;  // 将暂存区文件提交到版本库git push origin [你当前的分支]  // 将当前分支">
@@ -333,7 +333,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,059
+                  1,077
                 </span>
               
 
@@ -398,6 +398,7 @@
 <li><strong>git stash pop</strong>: 这个指令将缓存堆栈中的第一个 stash 删除，并将对应修改应用到当前的工作目录下.</li>
 <li><strong>git stash apply</strong>: 将缓存堆栈中的stash多次应用到工作目录中，但并不删除stash拷贝.使用该命令时可以通过名字指定使用哪个stash，默认使用最近的stash</li>
 </ul>
+<p>示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash apply stash&#123;0&#125;  // 将 stash 栈里的第一个恢复</span><br></pre></td></tr></table></figure></p>
 <p><img src="http://or7tt6rug.bkt.clouddn.com/git-stash2.jpg" alt=""><br>恢复后会显示暂存区内文件的修改情况，与之前一致</p>
 <h3 id="使用-git-rebase"><a href="#使用-git-rebase" class="headerlink" title="使用 git rebase"></a>使用 git rebase</h3><p>多人协作时，使用 git rebase 代替 git merge 来变基，减少难看的 merge 类型的 commit<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git stash</span><br><span class="line">git pull —-rebase</span><br><span class="line">git stash apply</span><br><span class="line">手动解决冲突</span><br><span class="line">git add -A</span><br><span class="line">git rebase —-continue</span><br><span class="line">如果此时提示 No rebase in progress? 则表示已经没有冲突了；否则上面两步要重复多次</span><br><span class="line">git commit -m “xxx”</span><br><span class="line">git push origin [branch] -f</span><br></pre></td></tr></table></figure></p>
 <p>其中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git pull = git fetch + git merge</span><br><span class="line">git pull –-rebase = git fetch + git rebase</span><br></pre></td></tr></table></figure></p>
