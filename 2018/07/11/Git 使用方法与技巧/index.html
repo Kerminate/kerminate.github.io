@@ -93,7 +93,7 @@
 <meta property="og:image" content="http://or7tt6rug.bkt.clouddn.com/git-revert1.png">
 <meta property="og:image" content="http://or7tt6rug.bkt.clouddn.com/git-stash1.jpg">
 <meta property="og:image" content="http://or7tt6rug.bkt.clouddn.com/git-stash2.jpg">
-<meta property="og:updated_time" content="2018-07-26T12:53:34.000Z">
+<meta property="og:updated_time" content="2018-08-03T14:31:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 使用方法与技巧">
 <meta name="twitter:description" content="在团队里工作了一段时间，逐渐适应了多人协作开发，这里总结一下 git 的使用方法与一些技巧。 1. 基本操作（正常提交流程）1234git init   // 版本库初始化git add -A  // 将本地修改的所有文件提交到暂存区git commit -m &amp;quot;你的提交信息&amp;quot;  // 将暂存区文件提交到版本库git push origin [你当前的分支]  // 将当前分支">
@@ -333,7 +333,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,077
+                  1,202
                 </span>
               
 
@@ -349,7 +349,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  5
                 </span>
               
             </div>
@@ -391,7 +391,11 @@
 </ul>
 <p>假设按时间顺序依次有 commit1, commit2, commit3, commit4,对应有 version1, version2, version3, version4 四个状态.<br>revert 某次commit，最终文件状态为 commit4 前，即version3 状态)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git revert 57af6d9f0f8e4fdb646e86bd189c2346f6bd5458</span><br></pre></td></tr></table></figure></p>
 <p><img src="http://or7tt6rug.bkt.clouddn.com/git-revert1.png" alt=""></p>
-<h2 id="4-常用技巧"><a href="#4-常用技巧" class="headerlink" title="4. 常用技巧"></a>4. 常用技巧</h2><h3 id="使用-git-stash"><a href="#使用-git-stash" class="headerlink" title="使用 git stash"></a>使用 git stash</h3><p>当你正在进行项目开发，已经修改了部分代码，但是发现现有分支上有个 bug 要解决，但你又不想把代码 commit 到本地仓库，这时候可以使用 git stash 储存当前工作目录的中间状态。<br>可以直接使用 git stash 储存，也可以通过 git stash save “你的备注” 做一个message<br>我在本地修改了根目录的 README.md, 并删除了 tutorial 下的 readme.txt<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash save &quot;rm tutorial/readme.txt&quot;</span><br></pre></td></tr></table></figure></p>
+<h2 id="4-标签管理"><a href="#4-标签管理" class="headerlink" title="4. 标签管理"></a>4. 标签管理</h2><blockquote>
+<p>标签可以针对某一时间点的版本做标记，常用于版本发布。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git tag  // 输出所有标签</span><br><span class="line">git tag v1.0  // 创建标签 v1.0</span><br><span class="line">git show v1.0  // 查看标签 v1.0 的版本信息</span><br><span class="line">git checkout v1.0  // 切换到 v1.0 标签</span><br><span class="line">git tag -d v1.0  // 删除 v1.0 标签</span><br><span class="line">git push origin v1.0  // 将标签 v1.0 提交到远程仓库</span><br><span class="line">git push origin -tags  // 将所有标签都提交到远程仓库</span><br></pre></td></tr></table></figure>
+<h2 id="5-常用技巧"><a href="#5-常用技巧" class="headerlink" title="5. 常用技巧"></a>5. 常用技巧</h2><h3 id="使用-git-stash"><a href="#使用-git-stash" class="headerlink" title="使用 git stash"></a>使用 git stash</h3><p>当你正在进行项目开发，已经修改了部分代码，但是发现现有分支上有个 bug 要解决，但你又不想把代码 commit 到本地仓库，这时候可以使用 git stash 储存当前工作目录的中间状态。<br>可以直接使用 git stash 储存，也可以通过 git stash save “你的备注” 做一个message<br>我在本地修改了根目录的 README.md, 并删除了 tutorial 下的 readme.txt<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash save &quot;rm tutorial/readme.txt&quot;</span><br></pre></td></tr></table></figure></p>
 <p>之后查看 stash 栈<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash list</span><br></pre></td></tr></table></figure></p>
 <p><img src="http://or7tt6rug.bkt.clouddn.com/git-stash1.jpg" alt=""><br>此时代码已经回到了你修改前的版本，本地修好 bug 后，将代码 push 到远端，再使用 git stash pop 或 git stash apply 来恢复之前的工作状态</p>
 <ul>
@@ -628,7 +632,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-基本操作（正常提交流程）"><span class="nav-number">1.</span> <span class="nav-text">1. 基本操作（正常提交流程）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-分支管理"><span class="nav-number">2.</span> <span class="nav-text">2. 分支管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-撤销回退"><span class="nav-number">3.</span> <span class="nav-text">3. 撤销回退</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-git-reset"><span class="nav-number">3.1.</span> <span class="nav-text">使用 git reset</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#撤销所有本地代码（git-add-之前）"><span class="nav-number">3.1.1.</span> <span class="nav-text">撤销所有本地代码（git add 之前）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-add-后撤销"><span class="nav-number">3.1.2.</span> <span class="nav-text">git add 后撤销</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-commit-后撤销"><span class="nav-number">3.1.3.</span> <span class="nav-text">git commit 后撤销</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#版本回退（git-push-后撤销）"><span class="nav-number">3.1.3.1.</span> <span class="nav-text">版本回退（git push 后撤销）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-merge-后撤销"><span class="nav-number">3.1.4.</span> <span class="nav-text">git merge 后撤销</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-git-revert"><span class="nav-number">3.2.</span> <span class="nav-text">使用 git revert</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-常用技巧"><span class="nav-number">4.</span> <span class="nav-text">4. 常用技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-git-stash"><span class="nav-number">4.1.</span> <span class="nav-text">使用 git stash</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-git-rebase"><span class="nav-number">4.2.</span> <span class="nav-text">使用 git rebase</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-基本操作（正常提交流程）"><span class="nav-number">1.</span> <span class="nav-text">1. 基本操作（正常提交流程）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-分支管理"><span class="nav-number">2.</span> <span class="nav-text">2. 分支管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-撤销回退"><span class="nav-number">3.</span> <span class="nav-text">3. 撤销回退</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-git-reset"><span class="nav-number">3.1.</span> <span class="nav-text">使用 git reset</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#撤销所有本地代码（git-add-之前）"><span class="nav-number">3.1.1.</span> <span class="nav-text">撤销所有本地代码（git add 之前）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-add-后撤销"><span class="nav-number">3.1.2.</span> <span class="nav-text">git add 后撤销</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-commit-后撤销"><span class="nav-number">3.1.3.</span> <span class="nav-text">git commit 后撤销</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#版本回退（git-push-后撤销）"><span class="nav-number">3.1.3.1.</span> <span class="nav-text">版本回退（git push 后撤销）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-merge-后撤销"><span class="nav-number">3.1.4.</span> <span class="nav-text">git merge 后撤销</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-git-revert"><span class="nav-number">3.2.</span> <span class="nav-text">使用 git revert</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-标签管理"><span class="nav-number">4.</span> <span class="nav-text">4. 标签管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-常用技巧"><span class="nav-number">5.</span> <span class="nav-text">5. 常用技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-git-stash"><span class="nav-number">5.1.</span> <span class="nav-text">使用 git stash</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-git-rebase"><span class="nav-number">5.2.</span> <span class="nav-text">使用 git rebase</span></a></li></ol></li></ol></div>
             
 
           </div>
