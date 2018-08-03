@@ -82,7 +82,20 @@ git revert 57af6d9f0f8e4fdb646e86bd189c2346f6bd5458
 ```
 ![](http://or7tt6rug.bkt.clouddn.com/git-revert1.png)
 
-## 4. 常用技巧
+## 4. 标签管理
+> 标签可以针对某一时间点的版本做标记，常用于版本发布。
+
+```
+git tag  // 输出所有标签
+git tag v1.0  // 创建标签 v1.0
+git show v1.0  // 查看标签 v1.0 的版本信息
+git checkout v1.0  // 切换到 v1.0 标签
+git tag -d v1.0  // 删除 v1.0 标签
+git push origin v1.0  // 将标签 v1.0 提交到远程仓库
+git push origin -tags  // 将所有标签都提交到远程仓库
+```
+
+## 5. 常用技巧
 ### 使用 git stash
 当你正在进行项目开发，已经修改了部分代码，但是发现现有分支上有个 bug 要解决，但你又不想把代码 commit 到本地仓库，这时候可以使用 git stash 储存当前工作目录的中间状态。
 可以直接使用 git stash 储存，也可以通过 git stash save "你的备注" 做一个message
