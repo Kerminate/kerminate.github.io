@@ -139,3 +139,13 @@ git pull = git fetch + git merge
 git pull –-rebase = git fetch + git rebase
 ```
 在合并分支时，直接使用 git rebase 代替 git merge
+
+## 6. 遇到的问题
+本地创建一个分支推到远端之后，如果远端代码更新，执行 `git pull` 会失败，如图
+![](http://or7tt6rug.bkt.clouddn.com/git01.png)
+终端给出了 2 种方法，第一种 pull 的时候写上对应的远端分支和本地分支，形成映射关系，还有一种就是将本地分支和远程分支关联，这样以后就可以直接用 `git pull` 拉取最新代码
+```
+git pull <remote> <branch>  // 写上对应的映射分支
+git branch --set-upstream-to=origin/<branch> <remote>  // 关联远端分支和本地分支
+```
+![](http://or7tt6rug.bkt.clouddn.com/git02.png)
