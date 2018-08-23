@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Node," />
+  <meta name="keywords" content="技术贴," />
 
 
 
@@ -79,21 +79,20 @@
 
 
 
-<meta name="description" content="学 C++ 的时候，有 cin, cout, Java 也有 println 和 Scanner 控件能够实现输入输出。在 Node.js 里，通过 readline 模块实现输入输出。 什么是readlinereadline 是 Node.js 里实现标准输入输出的封装好的模块，通过这个模块我们可以以逐行的方式读取数据流 如何使用Readline 创建 readline 实例 学习里面的接口方法">
-<meta name="keywords" content="Node">
+<meta name="description" content="如何管理多个 git 的 SSH 私钥一般本地的 id_rsa 公钥时，默认为你 github 账号的公钥，如果在公司办公，需要在公司的 git 仓库里提交代码，就需要再生成一个公钥12# 生成一个新的公钥ssh-keygen -t rsa -C &quot;your_email@example.com” -f ~/.ssh/id_rsa_work">
+<meta name="keywords" content="技术贴">
 <meta property="og:type" content="article">
-<meta property="og:title" content="readline 实现 Javascript 的输入输出">
-<meta property="og:url" content="http://yoursite.com/2018/03/17/readline 实现 Javascript 的输入输出/index.html">
+<meta property="og:title" content="Git 配置">
+<meta property="og:url" content="http://yoursite.com/2018/08/22/Git-配置/index.html">
 <meta property="og:site_name" content="Blog | Kerminate">
-<meta property="og:description" content="学 C++ 的时候，有 cin, cout, Java 也有 println 和 Scanner 控件能够实现输入输出。在 Node.js 里，通过 readline 模块实现输入输出。 什么是readlinereadline 是 Node.js 里实现标准输入输出的封装好的模块，通过这个模块我们可以以逐行的方式读取数据流 如何使用Readline 创建 readline 实例 学习里面的接口方法">
+<meta property="og:description" content="如何管理多个 git 的 SSH 私钥一般本地的 id_rsa 公钥时，默认为你 github 账号的公钥，如果在公司办公，需要在公司的 git 仓库里提交代码，就需要再生成一个公钥12# 生成一个新的公钥ssh-keygen -t rsa -C &quot;your_email@example.com” -f ~/.ssh/id_rsa_work">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://or7tt6rug.bkt.clouddn.com/readline.png">
-<meta property="og:image" content="http://or7tt6rug.bkt.clouddn.com/shoot.png">
-<meta property="og:updated_time" content="2018-07-18T03:07:12.000Z">
+<meta property="og:image" content="http://or7tt6rug.bkt.clouddn.com/ssh_key.png">
+<meta property="og:updated_time" content="2018-08-22T07:44:26.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="readline 实现 Javascript 的输入输出">
-<meta name="twitter:description" content="学 C++ 的时候，有 cin, cout, Java 也有 println 和 Scanner 控件能够实现输入输出。在 Node.js 里，通过 readline 模块实现输入输出。 什么是readlinereadline 是 Node.js 里实现标准输入输出的封装好的模块，通过这个模块我们可以以逐行的方式读取数据流 如何使用Readline 创建 readline 实例 学习里面的接口方法">
-<meta name="twitter:image" content="http://or7tt6rug.bkt.clouddn.com/readline.png">
+<meta name="twitter:title" content="Git 配置">
+<meta name="twitter:description" content="如何管理多个 git 的 SSH 私钥一般本地的 id_rsa 公钥时，默认为你 github 账号的公钥，如果在公司办公，需要在公司的 git 仓库里提交代码，就需要再生成一个公钥12# 生成一个新的公钥ssh-keygen -t rsa -C &quot;your_email@example.com” -f ~/.ssh/id_rsa_work">
+<meta name="twitter:image" content="http://or7tt6rug.bkt.clouddn.com/ssh_key.png">
 
 
 
@@ -123,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/17/readline 实现 Javascript 的输入输出/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/22/Git-配置/"/>
 
 
 
 
 
-  <title>readline 实现 Javascript 的输入输出 | Blog | Kerminate</title>
+  <title>Git 配置 | Blog | Kerminate</title>
   
 
 
@@ -246,7 +245,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/17/readline 实现 Javascript 的输入输出/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/22/Git-配置/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kerminate">
@@ -263,7 +262,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">readline 实现 Javascript 的输入输出</h1>
+          <h1 class="post-title" itemprop="name headline">Git 配置</h1>
         
 
         <div class="post-meta">
@@ -275,8 +274,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-17T13:47:01+08:00">
-                2018-03-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-22T13:56:09+08:00">
+                2018-08-22
               </time>
             
 
@@ -294,9 +293,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/03/17/readline 实现 Javascript 的输入输出/#comments" itemprop="discussionUrl">
+                <a href="/2018/08/22/Git-配置/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/03/17/readline 实现 Javascript 的输入输出/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/08/22/Git-配置/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -304,7 +303,7 @@
 
           
           
-             <span id="/2018/03/17/readline 实现 Javascript 的输入输出/" class="leancloud_visitors" data-flag-title="readline 实现 Javascript 的输入输出">
+             <span id="/2018/08/22/Git-配置/" class="leancloud_visitors" data-flag-title="Git 配置">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -329,7 +328,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,257
+                  194
                 </span>
               
 
@@ -345,7 +344,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  5
+                  1
                 </span>
               
             </div>
@@ -366,47 +365,11 @@
       
 
       
-        <p>学 C++ 的时候，有 cin, cout, Java 也有 println 和 Scanner 控件能够实现输入输出。在 Node.js 里，通过 readline 模块实现输入输出。</p>
-<h2 id="什么是readline"><a href="#什么是readline" class="headerlink" title="什么是readline"></a>什么是readline</h2><p>readline 是 Node.js 里实现标准输入输出的封装好的模块，通过这个模块我们可以以逐行的方式读取数据流</p>
-<h2 id="如何使用Readline"><a href="#如何使用Readline" class="headerlink" title="如何使用Readline"></a>如何使用Readline</h2><ul>
-<li>创建 readline 实例</li>
-<li>学习里面的接口方法</li>
-<li>学习监听与处理 readline 事件<a id="more"></a>
-</li>
-</ul>
-<h3 id="实例1"><a href="#实例1" class="headerlink" title="实例1"></a>实例1</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> readline = <span class="built_in">require</span>(<span class="string">'readline'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> rl = readline.createInterface(&#123;</span><br><span class="line">  <span class="comment">// process为node里的全局变量</span></span><br><span class="line">  input: process.stdin,</span><br><span class="line">  output: process.stdout</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 输入通过line记录</span></span><br><span class="line">rl.on(<span class="string">'line'</span>, (line) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'My name is '</span> + line)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 结束进程时监听的方法(ctrl + c)</span></span><br><span class="line">rl.on(<span class="string">'close'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Bye bye!'</span>)</span><br><span class="line">  process.exit(<span class="number">0</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>输入输出如下<br><img src="http://or7tt6rug.bkt.clouddn.com/readline.png" alt=""></p>
-<h3 id="下面通过一道网易在线编程题实践一下"><a href="#下面通过一道网易在线编程题实践一下" class="headerlink" title="下面通过一道网易在线编程题实践一下"></a>下面通过一道网易在线编程题实践一下</h3><h4 id="魔法币"><a href="#魔法币" class="headerlink" title="魔法币"></a><a href="https://www.nowcoder.com/test/question/32c71b52db52424c89a565e4134bfe4e?pid=6910869&amp;tid=14179440" target="_blank" rel="noopener">魔法币</a></h4><ul>
-<li><p>描述<br>小易准备去魔法王国采购魔法神器,购买魔法神器需要使用魔法币,但是小易现在一枚魔法币都没有,但是小易有两台魔法机器可以通过投入x(x可以为0)个魔法币产生更多的魔法币。<br>魔法机器1: 如果投入x个魔法币,魔法机器会将其变为2x+1个魔法币<br>魔法机器2: 如果投入x个魔法币,魔法机器会将其变为2x+2个魔法币<br>小易采购魔法神器总共需要n个魔法币,所以小易只能通过两台魔法机器产生恰好n个魔法币,小易需要你帮他设计一个投入方案使他最后恰好拥有n个魔法币。</p>
-</li>
-<li><p>输入描述:<br>输入包括一行,包括一个正整数n(1 ≤ n ≤ 10^9),表示小易需要的魔法币数量。</p>
-</li>
-<li><p>输出描述:<br>输出一个字符串,每个字符表示该次小易选取投入的魔法机器。其中只包含字符’1’和’2’。</p>
-</li>
-<li><p>输入例子1:<br>10</p>
-</li>
-<li><p>输出例子1:<br>122</p>
-</li>
-</ul>
-<h4 id="ac代码"><a href="#ac代码" class="headerlink" title="ac代码"></a>ac代码</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> readline = <span class="built_in">require</span>(<span class="string">'readline'</span>)</span><br><span class="line"><span class="keyword">const</span> rl = readline.createInterface(&#123;</span><br><span class="line">  input: process.stdin,</span><br><span class="line">  output: process.stdout</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">rl.on(<span class="string">'line'</span>, (line) =&gt; &#123;</span><br><span class="line">  <span class="keyword">let</span> num = <span class="built_in">parseInt</span>(line)</span><br><span class="line">  <span class="keyword">let</span> arr = []</span><br><span class="line">  <span class="keyword">while</span> (num !== <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (num % <span class="number">2</span> === <span class="number">0</span>) &#123;</span><br><span class="line">      arr.push(<span class="string">'2'</span>)</span><br><span class="line">      num = (num - <span class="number">2</span>) / <span class="number">2</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      arr.push(<span class="string">'1'</span>)</span><br><span class="line">      num = (num - <span class="number">1</span>) / <span class="number">2</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> res = arr.reverse().join(<span class="string">''</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(res)</span><br><span class="line">  process.exit(<span class="number">0</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="涉及到多行输入可看例题二"><a href="#涉及到多行输入可看例题二" class="headerlink" title="涉及到多行输入可看例题二"></a>涉及到多行输入可看例题二</h3><h4 id="射击游戏"><a href="#射击游戏" class="headerlink" title="射击游戏"></a><a href="https://www.nowcoder.com/question/next?pid=6910869&amp;qid=126948&amp;tid=14179440" target="_blank" rel="noopener">射击游戏</a></h4><ul>
-<li>描述<br>小易正在玩一款新出的射击游戏,这个射击游戏在一个二维平面进行,小易在坐标原点(0,0),平面上有n只怪物,每个怪物有所在的坐标(x[i], y[i])。小易进行一次射击会把x轴和y轴上(包含坐标原点)的怪物一次性消灭。<br>小易是这个游戏的VIP玩家,他拥有两项特权操作:<br>1、让平面内的所有怪物同时向任意同一方向移动任意同一距离<br>2、让平面内的所有怪物同时对于小易(0,0)旋转任意同一角度<br>小易要进行一次射击。小易在进行射击前,可以使用这两项特权操作任意次。<br>小易想知道在他射击的时候最多可以同时消灭多少只怪物,请你帮帮小易。 </li>
-</ul>
-<p>如样例所示:<br><img src="http://or7tt6rug.bkt.clouddn.com/shoot.png" alt=""><br>所有点对于坐标原点(0,0)顺时针或者逆时针旋转45°,可以让所有点都在坐标轴上,所以5个怪物都可以消灭。 </p>
-<ul>
-<li><p>输入描述:<br>输入包括三行。<br>第一行中有一个正整数n(1 ≤ n ≤ 50),表示平面内的怪物数量。<br>第二行包括n个整数x<a href="-1,000,000 ≤ x[i] ≤ 1,000,000">i</a>,表示每只怪物所在坐标的横坐标,以空格分割。<br>第二行包括n个整数y<a href="-1,000,000 ≤ y[i] ≤ 1,000,000">i</a>,表示每只怪物所在坐标的纵坐标,以空格分割。</p>
-</li>
-<li><p>输出描述:<br>输出一个整数表示小易最多能消灭多少只怪物。</p>
-</li>
-<li><p>输入例子1:<br>5<br>0 -1 1 1 -1<br>0 -1 -1 1 1</p>
-</li>
-<li><p>输出例子1:<br>5</p>
-</li>
-</ul>
-<blockquote>
-<p><strong>思路是任意找出三个点构成坐标轴，看其他点落在坐标轴上的个数，选出落在坐标轴上最多的点</strong></p>
-</blockquote>
-<h4 id="ac代码-1"><a href="#ac代码-1" class="headerlink" title="ac代码"></a>ac代码</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> readline = <span class="built_in">require</span>(<span class="string">'readline'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> rl = readline.createInterface(&#123;</span><br><span class="line">  input: process.stdin,</span><br><span class="line">  output: process.stdout</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> lines = []</span><br><span class="line">rl.on(<span class="string">'line'</span>, (line) =&gt; &#123;</span><br><span class="line">  lines.push(line)</span><br><span class="line">  <span class="keyword">if</span> (lines.length === <span class="number">3</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> n = <span class="built_in">parseInt</span>(lines[<span class="number">0</span>])</span><br><span class="line">    <span class="keyword">let</span> x = lines[<span class="number">1</span>].split(<span class="string">' '</span>).map(<span class="function">(<span class="params">num</span>) =&gt;</span> <span class="built_in">parseInt</span>(num))</span><br><span class="line">    <span class="keyword">let</span> y = lines[<span class="number">2</span>].split(<span class="string">' '</span>).map(<span class="function">(<span class="params">num</span>) =&gt;</span> <span class="built_in">parseInt</span>(num))</span><br><span class="line">    <span class="keyword">let</span> res</span><br><span class="line">    <span class="keyword">if</span> (n &lt; <span class="number">3</span>) res = n</span><br><span class="line">    <span class="keyword">else</span> res = <span class="number">3</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i === j) <span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> k = <span class="number">0</span>; k &lt; n; k++) &#123;</span><br><span class="line">          <span class="keyword">if</span> (i === k || j === k) <span class="keyword">continue</span></span><br><span class="line">          <span class="keyword">let</span> num = <span class="number">3</span></span><br><span class="line">          <span class="keyword">for</span> (<span class="keyword">let</span> r = <span class="number">0</span>; r &lt; n; r++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (r === i || r === j || r === k) <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">if</span> ((y[r] - y[i]) * (x[r] - x[j]) == (y[r] - y[j]) * (x[r] - x[i])) num++</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> ((x[i] - x[j]) * (x[r] - x[k]) == (y[j] - y[i]) * (y[r] - y[k])) num++</span><br><span class="line">          &#125;</span><br><span class="line">          res = <span class="built_in">Math</span>.max(res, num)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">    process.exit(<span class="number">0</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+        <h2 id="如何管理多个-git-的-SSH-私钥"><a href="#如何管理多个-git-的-SSH-私钥" class="headerlink" title="如何管理多个 git 的 SSH 私钥"></a>如何管理多个 git 的 SSH 私钥</h2><p>一般本地的 id_rsa 公钥时，默认为你 github 账号的公钥，如果在公司办公，需要在公司的 git 仓库里提交代码，就需要再生成一个公钥<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 生成一个新的公钥</span><br><span class="line">ssh-keygen -t rsa -C "your_email@example.com” -f ~/.ssh/id_rsa_work</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>进入 ~/.ssh 文件，新建一个 config 文件，加入以下代码<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 该文件用于配置私钥对应的服务器</span><br><span class="line"><span class="meta">#</span> Default github user(your_email@outlook.com)</span><br><span class="line">  Host github.com</span><br><span class="line">  HostName github.com</span><br><span class="line">  User git</span><br><span class="line">  IdentityFile /Users/your_name/.ssh/id_rsa</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> second user(your_email@company.com)</span><br><span class="line"><span class="meta">#</span> 使用公司的域名和公司的git账户</span><br><span class="line">  Host git.A.com</span><br><span class="line">  HostName git.A.com</span><br><span class="line">  User git</span><br><span class="line">  IdentityFile /Users/your_name/.ssh/id_rsa_work</span><br></pre></td></tr></table></figure></p>
+<p>此时 ssh 下的目录结构应该如下<br><img src="http://or7tt6rug.bkt.clouddn.com/ssh_key.png" alt=""></p>
+
       
     </div>
     
@@ -423,7 +386,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Node/" rel="tag"># Node</a>
+            <a href="/tags/技术贴/" rel="tag"># 技术贴</a>
           
         </div>
       
@@ -436,8 +399,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/16/原生 Javascript 实现(拖拽效果、深拷贝)/" rel="next" title="原生 Javascript 实现(拖拽效果、深拷贝)">
-                <i class="fa fa-chevron-left"></i> 原生 Javascript 实现(拖拽效果、深拷贝)
+              <a href="/2018/07/17/自定义配置 create-react-app 创建的项目/" rel="next" title="自定义配置 create-react-app 创建的项目">
+                <i class="fa fa-chevron-left"></i> 自定义配置 create-react-app 创建的项目
               </a>
             
           </div>
@@ -445,10 +408,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/19/Javascript 优化计算斐波那契数列/" rel="prev" title="Javascript 优化计算斐波那契数列">
-                Javascript 优化计算斐波那契数列 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -631,7 +590,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是readline"><span class="nav-number">1.</span> <span class="nav-text">什么是readline</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何使用Readline"><span class="nav-number">2.</span> <span class="nav-text">如何使用Readline</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实例1"><span class="nav-number">2.1.</span> <span class="nav-text">实例1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下面通过一道网易在线编程题实践一下"><span class="nav-number">2.2.</span> <span class="nav-text">下面通过一道网易在线编程题实践一下</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#魔法币"><span class="nav-number">2.2.1.</span> <span class="nav-text">魔法币</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ac代码"><span class="nav-number">2.2.2.</span> <span class="nav-text">ac代码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#涉及到多行输入可看例题二"><span class="nav-number">2.3.</span> <span class="nav-text">涉及到多行输入可看例题二</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#射击游戏"><span class="nav-number">2.3.1.</span> <span class="nav-text">射击游戏</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ac代码-1"><span class="nav-number">2.3.2.</span> <span class="nav-text">ac代码</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#如何管理多个-git-的-SSH-私钥"><span class="nav-number">1.</span> <span class="nav-text">如何管理多个 git 的 SSH 私钥</span></a></li></ol></div>
             
 
           </div>
@@ -804,9 +763,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2018/03/17/readline 实现 Javascript 的输入输出/';
-          this.page.identifier = '2018/03/17/readline 实现 Javascript 的输入输出/';
-          this.page.title = 'readline 实现 Javascript 的输入输出';
+          this.page.url = 'http://yoursite.com/2018/08/22/Git-配置/';
+          this.page.identifier = '2018/08/22/Git-配置/';
+          this.page.title = 'Git 配置';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://Kerminate.disqus.com/embed.js';
