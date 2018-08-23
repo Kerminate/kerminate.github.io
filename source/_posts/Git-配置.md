@@ -3,27 +3,28 @@ title: Git 配置
 date: 2018-08-22 13:56:09
 tags: 技术贴
 ---
-当本地有多个 git 账号时，需要做如下配置
+## 如何管理多个 git 的 SSH 私钥
+一般本地的 id_rsa 公钥时，默认为你 github 账号的公钥，如果在公司办公，需要在公司的 git 仓库里提交代码，就需要再生成一个公钥
+```shell
+# 生成一个新的公钥
+ssh-keygen -t rsa -C "your_email@example.com” -f ~/.ssh/id_rsa_work
+```
+<!--more-->
 进入 ~/.ssh 文件，新建一个 config 文件，加入以下代码
 ```shell
 # 该文件用于配置私钥对应的服务器
-# Default github user(kepeilin@outlook.com)
+# Default github user(your_email@outlook.com)
   Host github.com
   HostName github.com
   User git
-  IdentityFile /Users/kepeilin/.ssh/id_rsa
+  IdentityFile /Users/your_name/.ssh/id_rsa
 
-# second user(kepeilin@meituan.com)
-# 建一个github别名，新建的帐号使用这个别名做克隆和更新
+# second user(your_email@company.com)
+# 使用公司的域名和公司的git账户
   Host git.A.com
   HostName git.A.com
   User git
-  IdentityFile /Users/kepeilin/.ssh/id_rsa_work
-
-# second user(kepeilin@meituan.com)
-# 建一个github别名，新建的帐号使用这个别名做克隆和更新
-  Host git.B.com
-  HostName git.B.com
-  User git
-  IdentityFile /Users/kepeilin/.ssh/id_rsa_work
+  IdentityFile /Users/your_name/.ssh/id_rsa_work
 ```
+此时 ssh 下的目录结构应该如下
+![](http://or7tt6rug.bkt.clouddn.com/ssh_key.png)
