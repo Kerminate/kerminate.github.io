@@ -140,6 +140,29 @@ git pull –-rebase = git fetch + git rebase
 ```
 在合并分支时，直接使用 git rebase 代替 git merge
 
+### fork 后的分支与源库同步
+一般参与开源项目时，需要从源库中 fork 出一个分支，在本地开发好后再向源仓库发出 pull request，但是如何保证 fork 出的仓库与源库能保持同步。
+以 https://github.com/dt-fe/weekly.git 这个仓库为例，
+手动 fork 这个仓库到个人的 github 仓库下
+```shell
+git clone https://github.com/Kerminate/weekly.git  // clone 到本地
+git remote add upstream https://github.com/dt-fe/weekly.git  // 指定源库
+```
+查看远程仓库信息
+![](http://or7tt6rug.bkt.clouddn.com/pr.png)
+```
+git checkout -b dev  // 在新的分支上开发
+git add -A
+git commit -m "feat: add some change."
+git push origin dev
+```
+之后手动向源库发起 PR，被 merge 之后，可以在本地 master 分支同步最新代码
+```
+git checkout master
+git pull upstream master
+git push
+```
+
 ## 6. 遇到的问题
 本地创建一个分支推到远端之后，如果远端代码更新，执行 `git pull` 会失败，如图
 ![](http://or7tt6rug.bkt.clouddn.com/git01.png)
