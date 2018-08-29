@@ -93,9 +93,10 @@
 <meta property="og:image" content="http://or7tt6rug.bkt.clouddn.com/git-revert1.png">
 <meta property="og:image" content="http://or7tt6rug.bkt.clouddn.com/git-stash1.jpg">
 <meta property="og:image" content="http://or7tt6rug.bkt.clouddn.com/git-stash2.jpg">
+<meta property="og:image" content="http://or7tt6rug.bkt.clouddn.com/pr.png">
 <meta property="og:image" content="http://or7tt6rug.bkt.clouddn.com/git01.png">
 <meta property="og:image" content="http://or7tt6rug.bkt.clouddn.com/git02.png">
-<meta property="og:updated_time" content="2018-08-21T12:54:41.000Z">
+<meta property="og:updated_time" content="2018-08-24T03:30:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 使用方法与技巧">
 <meta name="twitter:description" content="在团队里工作了一段时间，逐渐适应了多人协作开发，这里总结一下 git 的使用方法与一些技巧。 1. 基本操作（正常提交流程）1234git init   // 版本库初始化git add -A  // 将本地修改的所有文件提交到暂存区git commit -m &amp;quot;你的提交信息&amp;quot;  // 将暂存区文件提交到版本库git push origin [你当前的分支]  // 将当前分支">
@@ -335,7 +336,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,345
+                  1,547
                 </span>
               
 
@@ -351,7 +352,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  5
+                  6
                 </span>
               
             </div>
@@ -409,6 +410,9 @@
 <h3 id="使用-git-rebase"><a href="#使用-git-rebase" class="headerlink" title="使用 git rebase"></a>使用 git rebase</h3><p>多人协作时，使用 git rebase 代替 git merge 来变基，减少难看的 merge 类型的 commit<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git stash</span><br><span class="line">git pull —-rebase</span><br><span class="line">git stash apply</span><br><span class="line">手动解决冲突</span><br><span class="line">git add -A</span><br><span class="line">git rebase —-continue</span><br><span class="line">如果此时提示 No rebase in progress? 则表示已经没有冲突了；否则上面两步要重复多次</span><br><span class="line">git commit -m “xxx”</span><br><span class="line">git push origin [branch] -f</span><br></pre></td></tr></table></figure></p>
 <p>其中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git pull = git fetch + git merge</span><br><span class="line">git pull –-rebase = git fetch + git rebase</span><br></pre></td></tr></table></figure></p>
 <p>在合并分支时，直接使用 git rebase 代替 git merge</p>
+<h3 id="fork-后的分支与源库同步"><a href="#fork-后的分支与源库同步" class="headerlink" title="fork 后的分支与源库同步"></a>fork 后的分支与源库同步</h3><p>一般参与开源项目时，需要从源库中 fork 出一个分支，在本地开发好后再向源仓库发出 pull request，但是如何保证 fork 出的仓库与源库能保持同步。<br>以 <a href="https://github.com/dt-fe/weekly.git" target="_blank" rel="noopener">https://github.com/dt-fe/weekly.git</a> 这个仓库为例，<br>手动 fork 这个仓库到个人的 github 仓库下<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/Kerminate/weekly.git  // clone 到本地</span><br><span class="line">git remote add upstream https://github.com/dt-fe/weekly.git  // 指定源库</span><br></pre></td></tr></table></figure></p>
+<p>查看远程仓库信息<br><img src="http://or7tt6rug.bkt.clouddn.com/pr.png" alt=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b dev  // 在新的分支上开发</span><br><span class="line">git add -A</span><br><span class="line">git commit -m &quot;feat: add some change.&quot;</span><br><span class="line">git push origin dev</span><br></pre></td></tr></table></figure></p>
+<p>之后手动向源库发起 PR，被 merge 之后，可以在本地 master 分支同步最新代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git pull upstream master</span><br><span class="line">git push</span><br></pre></td></tr></table></figure></p>
 <h2 id="6-遇到的问题"><a href="#6-遇到的问题" class="headerlink" title="6. 遇到的问题"></a>6. 遇到的问题</h2><p>本地创建一个分支推到远端之后，如果远端代码更新，执行 <code>git pull</code> 会失败，如图<br><img src="http://or7tt6rug.bkt.clouddn.com/git01.png" alt=""><br>终端给出了 2 种方法，第一种 pull 的时候写上对应的远端分支和本地分支，形成映射关系，还有一种就是将本地分支和远程分支关联，这样以后就可以直接用 <code>git pull</code> 拉取最新代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git pull &lt;remote&gt; &lt;branch&gt;  // 写上对应的映射分支</span><br><span class="line">git branch --set-upstream-to=origin/&lt;branch&gt; &lt;remote&gt;  // 关联远端分支和本地分支</span><br></pre></td></tr></table></figure></p>
 <p><img src="http://or7tt6rug.bkt.clouddn.com/git02.png" alt=""></p>
 
@@ -544,7 +548,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -636,7 +640,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-基本操作（正常提交流程）"><span class="nav-number">1.</span> <span class="nav-text">1. 基本操作（正常提交流程）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-分支管理"><span class="nav-number">2.</span> <span class="nav-text">2. 分支管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-撤销回退"><span class="nav-number">3.</span> <span class="nav-text">3. 撤销回退</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-git-reset"><span class="nav-number">3.1.</span> <span class="nav-text">使用 git reset</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#撤销所有本地代码（git-add-之前）"><span class="nav-number">3.1.1.</span> <span class="nav-text">撤销所有本地代码（git add 之前）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-add-后撤销"><span class="nav-number">3.1.2.</span> <span class="nav-text">git add 后撤销</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-commit-后撤销"><span class="nav-number">3.1.3.</span> <span class="nav-text">git commit 后撤销</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#版本回退（git-push-后撤销）"><span class="nav-number">3.1.3.1.</span> <span class="nav-text">版本回退（git push 后撤销）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-merge-后撤销"><span class="nav-number">3.1.4.</span> <span class="nav-text">git merge 后撤销</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-git-revert"><span class="nav-number">3.2.</span> <span class="nav-text">使用 git revert</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-标签管理"><span class="nav-number">4.</span> <span class="nav-text">4. 标签管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-常用技巧"><span class="nav-number">5.</span> <span class="nav-text">5. 常用技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-git-stash"><span class="nav-number">5.1.</span> <span class="nav-text">使用 git stash</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-git-rebase"><span class="nav-number">5.2.</span> <span class="nav-text">使用 git rebase</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-遇到的问题"><span class="nav-number">6.</span> <span class="nav-text">6. 遇到的问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-基本操作（正常提交流程）"><span class="nav-number">1.</span> <span class="nav-text">1. 基本操作（正常提交流程）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-分支管理"><span class="nav-number">2.</span> <span class="nav-text">2. 分支管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-撤销回退"><span class="nav-number">3.</span> <span class="nav-text">3. 撤销回退</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-git-reset"><span class="nav-number">3.1.</span> <span class="nav-text">使用 git reset</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#撤销所有本地代码（git-add-之前）"><span class="nav-number">3.1.1.</span> <span class="nav-text">撤销所有本地代码（git add 之前）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-add-后撤销"><span class="nav-number">3.1.2.</span> <span class="nav-text">git add 后撤销</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-commit-后撤销"><span class="nav-number">3.1.3.</span> <span class="nav-text">git commit 后撤销</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#版本回退（git-push-后撤销）"><span class="nav-number">3.1.3.1.</span> <span class="nav-text">版本回退（git push 后撤销）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-merge-后撤销"><span class="nav-number">3.1.4.</span> <span class="nav-text">git merge 后撤销</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-git-revert"><span class="nav-number">3.2.</span> <span class="nav-text">使用 git revert</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-标签管理"><span class="nav-number">4.</span> <span class="nav-text">4. 标签管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-常用技巧"><span class="nav-number">5.</span> <span class="nav-text">5. 常用技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-git-stash"><span class="nav-number">5.1.</span> <span class="nav-text">使用 git stash</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-git-rebase"><span class="nav-number">5.2.</span> <span class="nav-text">使用 git rebase</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fork-后的分支与源库同步"><span class="nav-number">5.3.</span> <span class="nav-text">fork 后的分支与源库同步</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-遇到的问题"><span class="nav-number">6.</span> <span class="nav-text">6. 遇到的问题</span></a></li></ol></div>
             
 
           </div>
