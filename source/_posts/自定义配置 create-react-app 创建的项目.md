@@ -1,7 +1,7 @@
 ---
 title: 自定义配置 create-react-app 创建的项目
 date: 2018-07-17 21:02:15
-tags: 技术贴
+tags: 技术帖
 ---
 
 ## 配置 standard 风格的eslint
