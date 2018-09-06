@@ -5,8 +5,11 @@ tags: 前端
 ---
 在如今的前端时代，工具链已是开发中必不可少的一环。Sublime 的闭源，Atom 的启动性能较差，以及随着 VSCode 的逐渐成熟，已经成为前端开发中必不可少的神奇。
 在 VSCode 中，通过配置以及丰富的插件，可以让你在敲代码时有事半功倍的效果。
+
+**持续更新中...**
 <!--more-->
 
+# 配置
 在 VSCode 中，自带支持 emmet 语法，但是默认是关闭的，在首选项中进行如下配置
 ```json
 "emmet.triggerExpansionOnTab": true
@@ -43,3 +46,15 @@ tags: 前端
 },
 "standard.autoFixOnSave": true,
 ```
+
+# 插件
+- TODO Highlight: TODO 高亮
+- React.js code snippets: react 的 snippets
+- React Standard Style code snippets: 因为我个人偏爱 standard 风格的 eslint，所以使用这款插件做 react 的 snippets 例如
+rcc →	class component skeleton
+ren → render method
+
+![](http://or7tt6rug.bkt.clouddn.com/rcc-recycle.gif)
+
+# 快捷键
+Command + d 选中一个单词后，使用该快捷键再选中下一个相同单词，可以一直下去
