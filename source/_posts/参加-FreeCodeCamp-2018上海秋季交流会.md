@@ -14,5 +14,30 @@ https://m.aliyun.com/yunqi/articles/622301?utm_content=m_1000011680
 首先，大会的主持人于航介绍了下 FreeCodeCamp（FCC）,这是一个适合零基础的编程社区，起源于国外，近几年在国内开设了中文社区，并开始活跃起来。接下来就是各个讲师的技术分享了。
 
 ### Layers: a case study of CSS optimization
-第一个是来自 Aminoapps 的吴名扬，他主要讲了 CSS 中关于 layer 层的优化。背景是 Aminoapps 的网站首页有大量的 gif 图，导致网站滚动比较卡。下图是浏览器的渲染过程：
-![](http://or7tt6rug.bkt.clouddn.com/layer.png)
+第一个是来自 Aminoapps 的吴名扬，他主要讲了 CSS 中关于 layer 层的优化。背景是 Aminoapps 的网站首页有大量的 gif 图，导致网站滚动比较卡。浏览器的加载渲染过程：
+> **Javascript -> Style -> Layout -> Paint -> Composite**
+
+本次宣讲的主题就是减少中间的 Layout 时间，由于 layout 本身可能存在发散，不同的层之间的合成导致性能降低，所以是尽可能减少层的数量，讲师提出了一些方法
+- 由于事先 position: relative 时常会触发不必要的 layer, 视情况可以改布局为 flexbox / float / table, 或改用 native margin
+- 注意 profiling, 不要因减少 layer 而增加 layout 的时间
+- 不要在出现次数多，像素少的元素上使用 transform
+- translate 类的属性可以使用 margin / padding 代替
+- scale 类的属性可以使用 rem / em / vw 代替
+- scale 类的属性还可以使用 responsive background 代替
+- 使用 contain: content 可以隔离 paint / layout, 让 layout 不会扩散
+- css filter 不宜用于背景图片（如 blur）
+
+顺便我还学会了如何查看页面的 layer
+
+![](http://or7tt6rug.bkt.clouddn.com/layer-ins.png)
+
+### webRTC 的场景创新和体验优化
+来自爱奇艺的韦躐晟老师主要基于他们的业务阐述了 webRTC。由于没怎么接触过视频这块，听得有点云里雾里，感觉不明觉厉。不过，韦躐晟老师放的一个蒙版弹幕视频着实惊艳，弹幕会从人像的背后穿过，不会遮挡在人前，但是可以在背景上出现。据他描述，他们是获取了每一帧的图像，然后通过之前深度学习跑出的模型进行计算，生成一个人像蒙版，而字母就是在对应的蒙版周围，所以，其实不是字从人下面穿过，其实是在人像的范围内压根没有弹幕。
+贴一下韦躐晟老师提到的 WebRTC 的应用与创新：
+- 单聊转群聊
+- 群聊画中画模式
+- 共享桌面 + 白板
+- 远程桌面控制
+- 主播推流
+- 推流 + 游戏互动
+- 推流 + 蒙版弹幕
