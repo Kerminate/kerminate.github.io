@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="http://or7tt6rug.bkt.clouddn.com/avatar.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="http://or7tt6rug.bkt.clouddn.com/avatar.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="http://or7tt6rug.bkt.clouddn.com/avatar.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="http://or7tt6rug.bkt.clouddn.com/avatar.png?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="技术帖," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="redux-saga 和 redux-thunk 是最广为人知的2种 redux 的异步流处理方案。在认识 redux-saga 之前，我们先再看一看 redux-thunk。 在 redux 里，dispatch 出的 action 是一个对象，而 redux-thunk 中间件可以返回一个函数，函数处理完之后再 dispatch 一个对象到 reducer 里。redux 的源码也相当简单：1">
+<meta name="keywords" content="技术帖">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初窥 redux-saga 的异步流">
+<meta property="og:url" content="http://yoursite.com/2018/09/21/初窥-redux-saga-的异步流/index.html">
+<meta property="og:site_name" content="Blog | Kerminate">
+<meta property="og:description" content="redux-saga 和 redux-thunk 是最广为人知的2种 redux 的异步流处理方案。在认识 redux-saga 之前，我们先再看一看 redux-thunk。 在 redux 里，dispatch 出的 action 是一个对象，而 redux-thunk 中间件可以返回一个函数，函数处理完之后再 dispatch 一个对象到 reducer 里。redux 的源码也相当简单：1">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://or7tt6rug.bkt.clouddn.com/redux-saga-demo.jpeg">
+<meta property="og:updated_time" content="2018-09-23T07:10:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="初窥 redux-saga 的异步流">
+<meta name="twitter:description" content="redux-saga 和 redux-thunk 是最广为人知的2种 redux 的异步流处理方案。在认识 redux-saga 之前，我们先再看一看 redux-thunk。 在 redux 里，dispatch 出的 action 是一个对象，而 redux-thunk 中间件可以返回一个函数，函数处理完之后再 dispatch 一个对象到 reducer 里。redux 的源码也相当简单：1">
+<meta name="twitter:image" content="http://or7tt6rug.bkt.clouddn.com/redux-saga-demo.jpeg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/09/21/初窥-redux-saga-的异步流/"/>
+
+
+
+
+
+  <title>初窥 redux-saga 的异步流 | Blog | Kerminate</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Blog | Kerminate</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/21/初窥-redux-saga-的异步流/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kerminate">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://or7tt6rug.bkt.clouddn.com/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog | Kerminate">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">初窥 redux-saga 的异步流</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-21T14:02:51+08:00">
+                2018-09-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/21/初窥-redux-saga-的异步流/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/09/21/初窥-redux-saga-的异步流/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/09/21/初窥-redux-saga-的异步流/" class="leancloud_visitors" data-flag-title="初窥 redux-saga 的异步流">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,825
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  8
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>redux-saga 和 redux-thunk 是最广为人知的2种 redux 的异步流处理方案。在认识 redux-saga 之前，我们先再看一看 redux-thunk。</p>
+<p>在 redux 里，dispatch 出的 action 是一个对象，而 redux-thunk 中间件可以返回一个函数，函数处理完之后再 dispatch 一个对象到 reducer 里。redux 的源码也相当简单：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createThunkMiddleware</span> (<span class="params">extraArgument</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">&#123; dispatch, getState &#125;</span>) =&gt;</span> next =&gt; <span class="function"><span class="params">action</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> action === <span class="string">'function'</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> action(dispatch, getState, extraArgument)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> next(action)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>从源码里可以看到 redux-thunk 先判断到来的 action 是否为函数，如果是函数的话，就调用这个函数，否则就执行下一个 action。</p>
+<p>redux-thunk 的缺点很明显，redux 只是执行了这个函数，不会在乎函数主体是什么。每一个异步操作都发起一个有副作用的 action，这样异步代码会分布在每一个 action里，形式不统一，也不易维护。</p>
+<p>而 redux-saga 则是将所有的异步操作都统一放到了 saga的文件函数里，使异步操作可以被集中处理，同时也达到了形式上的统一，易于维护。</p>
+<h3 id="如何使用-redux-saga"><a href="#如何使用-redux-saga" class="headerlink" title="如何使用 redux-saga"></a>如何使用 redux-saga</h3><p>redux-saga 包括三个部分</p>
+<blockquote>
+<ul>
+<li>worker saga<br>做所有的工作，如调用 API，进行异步请求，并且获得返回结果</li>
+<li>watcher saga<br>监听被 dispatch 的 actions，当接收到 action 或者知道其被触发时，调用 worker saga 执行任务</li>
+<li>root saga<br>立即启动 sagas 的唯一入口</li>
+</ul>
+</blockquote>
+<p>首先在 store 的入口文件里加上对应的中间件<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createStore, applyMiddleware, compose &#125; <span class="keyword">from</span> <span class="string">'redux'</span></span><br><span class="line"><span class="keyword">import</span> createSagaMiddleware <span class="keyword">from</span> <span class="string">'redux-saga'</span></span><br><span class="line"><span class="keyword">import</span> reducer <span class="keyword">from</span> <span class="string">'./reducers'</span></span><br><span class="line"><span class="keyword">import</span> sagas <span class="keyword">from</span> <span class="string">'./sagas'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> sagaMiddleware = createSagaMiddleware()</span><br><span class="line"><span class="keyword">const</span> store = createStore(reducer, applyMiddleware(sagaMiddleware))</span><br><span class="line">sagaMiddleware.run(sagas)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> store</span><br></pre></td></tr></table></figure></p>
+<p>之后在 sagas 的文件夹里集中写 saga 的代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span></span><br><span class="line"><span class="keyword">import</span> &#123; put, takeEvery &#125; <span class="keyword">from</span> <span class="string">'redux-saga/effects'</span></span><br><span class="line"><span class="keyword">import</span> &#123; GET_INIT_LIST &#125; <span class="keyword">from</span> <span class="string">'./actionTypes'</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">getInitList</span> (<span class="params">url</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> res = <span class="keyword">yield</span> call(axios.get, url)</span><br><span class="line">    <span class="keyword">yield</span> put(&#123; <span class="attr">type</span>: <span class="string">'GET_DATA_SUCCESS'</span>, res &#125;)</span><br><span class="line">  &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">    <span class="keyword">yield</span> put(&#123; <span class="attr">type</span>: <span class="string">'GET_DATA_FAIL'</span>, e &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">mySaga</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">yield</span> takeEvery(GET_INIT_LIST, getInitList(action.url));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> mySaga;</span><br></pre></td></tr></table></figure></p>
+<h3 id="常用-API"><a href="#常用-API" class="headerlink" title="常用 API"></a>常用 API</h3><h4 id="take-takeEvery-takeLatest"><a href="#take-takeEvery-takeLatest" class="headerlink" title="take,takeEvery,takeLatest"></a>take,takeEvery,takeLatest</h4><p>创建一条 Effect 描述信息，指示 middleware 等待 Store 上指定的 action。 Generator 会暂停，直到一个与 pattern 匹配的 action 被发起<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">mySaga</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">yield</span> take(GET_INIT_LIST, getInitList(action.url));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>与 take 有类似功能的 API 还有 takeEvery 和 takeLatest</p>
+<ul>
+<li>takeEvery 允许多个 getInitList 实例同时启动，在某个特定时刻，尽管之前还有一个或多个 getInitList 尚未结束，我们还是可以启动一个新的 getInitList 任务</li>
+<li>和 takeEvery 不同，在任何时刻 takeLatest 只允许一个 getInitList 任务在执行。并且这个任务是最后被启动的那个。 如果已经有一个任务在执行的时候启动另一个 getInitList ，那之前的这个任务会被自动取消。</li>
+</ul>
+<h4 id="put"><a href="#put" class="headerlink" title="put"></a>put</h4><p>用于触发 action，功能上类似于dispatch<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">getInitList</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">yield</span> put(&#123; <span class="attr">type</span>: <span class="string">'GET_DATA_SUCCESS'</span>, res &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="call-fn-…args"><a href="#call-fn-…args" class="headerlink" title="call(fn, …args)"></a>call(fn, …args)</h4><p>call 创建了一条描述结果的信息, 用于调用异步逻辑, 指示 middleware 调用 fn 函数并以 args 为参数。fn 既可以是一个普通函数，也可以是一个 Generator 函数。<br>如果结果是一个 Generator 对象，middleware 会执行它,如果结果是一个 Promise，middleware 会暂停直到这个 Promise 被 resolve，resolve 后 Generator 会继续执行。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">fetchProducts</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> products = <span class="keyword">yield</span> Api.fetch(<span class="string">'/products'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>假设我们想测试上面的 generator:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> iterator = fetchProducts()</span><br><span class="line">assert.deepEqual(iterator.next().value, ??) <span class="comment">// 我们期望得到什么？</span></span><br></pre></td></tr></table></figure></p>
+<p>而如果我们使用 call 去调用这个 ajax 方法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">fetchProducts</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> products = <span class="keyword">yield</span> call(Api.fetch, <span class="string">'/products'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>测试的代码就可以这样写了<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> iterator = fetchProducts()</span><br><span class="line">assert.deepEqual(</span><br><span class="line">  iterator.next().value,</span><br><span class="line">  call(Api.fetch, <span class="string">'/products'</span>),</span><br><span class="line">  <span class="string">"fetchProducts should yield an Effect call(Api.fetch, './products')"</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+<h4 id="fork-fn-…args"><a href="#fork-fn-…args" class="headerlink" title="fork(fn, …args)"></a>fork(fn, …args)</h4><p>创建一条 Effect 描述信息，指示 middleware 以 无阻塞调用 方式执行 fn。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> task = <span class="keyword">yield</span> fork(takeLatest, <span class="string">'GET_PERSON_DATA'</span>, getPersonData)</span><br></pre></td></tr></table></figure></p>
+<p>这里面通过 takeLatest 去监听 type: ‘GET_PERSON_DATA’ 的 action，当有一个这样的 action 被触发，就会 fork 出一个 task<br>这边讲下 fork 与 call 的区别</p>
+<ul>
+<li>fork 是非阻塞的，非阻塞就是遇到它，不需要等它执行完, 就可以直接往下运行</li>
+<li>call 是阻塞，阻塞的意思就是一定要等它执行完, 才可以直接往下运行</li>
+<li><strong>fork是返回一个任务，这个任务是可以被取消的；而call就是它执行的正常返回结果！（非常重要）</strong></li>
+</ul>
+<h4 id="cancel"><a href="#cancel" class="headerlink" title="cancel"></a>cancel</h4><p>一旦任务被 fork，可以使用 yield cancel(task) 来中止任务执行。取消正在运行的任务。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (<span class="keyword">yield</span> take(<span class="string">'START_BACKGROUND_SYNC'</span>)) &#123;</span><br><span class="line">    <span class="comment">// 启动后台任务</span></span><br><span class="line">    <span class="keyword">const</span> bgSyncTask = <span class="keyword">yield</span> fork(bgSync)</span><br><span class="line">    <span class="comment">// 等待用户的停止操作</span></span><br><span class="line">    <span class="keyword">yield</span> take(<span class="string">'STOP_BACKGROUND_SYNC'</span>)</span><br><span class="line">    <span class="comment">// 用户点击了停止，取消后台任务</span></span><br><span class="line">    <span class="comment">// 这会导致被 fork 的 bgSync 任务跳进它的 finally 区块</span></span><br><span class="line">    <span class="keyword">yield</span> cancel(bgSyncTask)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="all"><a href="#all" class="headerlink" title="all"></a>all</h4><p>效果与 Promise.all 相对应,创建一个 Effect 描述信息，用来命令 middleware 并行地运行多个 Effect，并等待它们全部完成<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">yield</span> all([</span><br><span class="line">  call(fetchResource, <span class="string">'users'</span>),</span><br><span class="line">  call(fetchResource, <span class="string">'comments'</span>)</span><br><span class="line">])</span><br></pre></td></tr></table></figure></p>
+<p>当并发运行 Effect 时，middleware 将暂停 Generator，直到以下任一情况发生：</p>
+<ul>
+<li>所有 Effect 都成功完成：返回一个包含所有 Effect 结果的数组，并恢复 Generator。</li>
+<li>在所有 Effect 完成之前，有一个 Effect 被 reject：在 Generator 中抛出 reject 错误。</li>
+</ul>
+<h4 id="race"><a href="#race" class="headerlink" title="race"></a>race</h4><p>效果与 Promise.race 相对应,创建一个 Effect 描述信息，用来命令 middleware 在多个 Effect 间进行竞赛<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [response, cancel] = <span class="keyword">yield</span> race([</span><br><span class="line">  call(fetchUsers),</span><br><span class="line">  take(<span class="string">'CANCEL_FETCH'</span>)</span><br><span class="line">])</span><br></pre></td></tr></table></figure></p>
+<p>如果 fetchUsers 先 resolve，那么 response 将是 fetchUsers 的结果，并且 cancel 将是 undefined<br>如果在 fetchUsers 完成之前，Store 上先发起了一个 ‘CANCEL_FETCH’ 类型的 action，那么 response 将是 undefined，并且 cancel 将是被发起的 action</p>
+<h4 id="delay"><a href="#delay" class="headerlink" title="delay"></a>delay</h4><p>返回一个 effect 描述信息，用于阻塞执行 ms 毫秒，并返回 val 值<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [posts, timeout] = <span class="keyword">yield</span> race(&#123;</span><br><span class="line">  call(fetchUsers),</span><br><span class="line">  call(delay, <span class="number">1000</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>上面的例子其实就是限制了 fetchUsers 必须在 1秒内作出响应，否则会作超时处理。</p>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>查询与责任分离，保证了action的纯洁性，符合 redux 设计思想</li>
+<li>实现以同步方式写异步操作，容易理解，逻辑清晰</li>
+<li>通过发送指令而不是直接调用让异步操作变得容易测试</li>
+<li>监听、执行自动化</li>
+<li>高级的异步控制流以及并发管理,实现颗粒更小的异步控制，通过 <code>fork</code> 实现并发任务。</li>
+<li>架构上的优势：将所有的异步流程控制都移入到了 sagas，UI 组件不用执行业务逻辑，只需 dispatch action 就行，增强组件复用性</li>
+</ul>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li>action 任务拆分更细，原有流程上相当于多了一个环节,对开发者的设计和抽象拆分能力更有要求</li>
+<li>代码复杂性也有所增加，比较复杂，学习成本高</li>
+<li>异步请求相关的问题较难调试排查</li>
+</ul>
+<h3 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h3><p>写了一个 redux-saga 的一个小 demo，书写了 redux-saga 的主要架构，并实现了发送请求，取消请求和超时请求几个小功能。<br><img src="http://or7tt6rug.bkt.clouddn.com/redux-saga-demo.jpeg" alt=""></p>
+<blockquote>
+<p><strong>github 地址：<a href="https://github.com/Kerminate/redux-saga-demo" target="_blank" rel="noopener">https://github.com/Kerminate/redux-saga-demo</a></strong></p>
+</blockquote>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://redux-saga-in-chinese.js.org/" target="_blank" rel="noopener">Redux-saga 中文文档</a><br><a href="https://www.jianshu.com/p/e84493c7af35" target="_blank" rel="noopener">聊一聊 redux 异步流之 redux-saga</a><br><a href="https://juejin.im/post/5ad83a70f265da503825b2b4" target="_blank" rel="noopener">Redux-Saga 实用指北</a><br><a href="https://github.com/Pines-Cheng/blog/issues/9" target="_blank" rel="noopener">从redux-thunk到redux-saga实践</a><a href="https://www.jianshu.com/p/6bcf4573ca28?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation" target="_blank" rel="noopener">对使用Redux和Redux-saga管理状态的思考</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/技术帖/" rel="tag"># 技术帖</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/16/参加-FreeCodeCamp-2018上海秋季交流会/" rel="next" title="参加 FreeCodeCamp 2018上海秋季交流会">
+                <i class="fa fa-chevron-left"></i> 参加 FreeCodeCamp 2018上海秋季交流会
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://or7tt6rug.bkt.clouddn.com/avatar.png"
+                alt="Kerminate" />
+            
+              <p class="site-author-name" itemprop="name">Kerminate</p>
+              <p class="site-description motion-element" itemprop="description">一个喜欢篮球的程序猿.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/Kerminate" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:kepeilin@outlook.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/Kerminate" target="_blank" title="Twitter">
+                    
+                      <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://weibo.com/5955228776/profile" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lazzzis.github.io/" title="lazzzis" target="_blank">lazzzis</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://mengrenzi.com/" title="MRZ's Blog" target="_blank">MRZ's Blog</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何使用-redux-saga"><span class="nav-number">1.</span> <span class="nav-text">如何使用 redux-saga</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用-API"><span class="nav-number">2.</span> <span class="nav-text">常用 API</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#take-takeEvery-takeLatest"><span class="nav-number">2.1.</span> <span class="nav-text">take,takeEvery,takeLatest</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#put"><span class="nav-number">2.2.</span> <span class="nav-text">put</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#call-fn-…args"><span class="nav-number">2.3.</span> <span class="nav-text">call(fn, …args)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#fork-fn-…args"><span class="nav-number">2.4.</span> <span class="nav-text">fork(fn, …args)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cancel"><span class="nav-number">2.5.</span> <span class="nav-text">cancel</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#all"><span class="nav-number">2.6.</span> <span class="nav-text">all</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#race"><span class="nav-number">2.7.</span> <span class="nav-text">race</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#delay"><span class="nav-number">2.8.</span> <span class="nav-text">delay</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优点"><span class="nav-number">3.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点"><span class="nav-number">4.</span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#demo"><span class="nav-number">5.</span> <span class="nav-text">demo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kerminate</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+    <i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+      本站总访问量 <span id="busuanzi_value_site_pv"></span>次  </span>由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://Kerminate.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2018/09/21/初窥-redux-saga-的异步流/';
+          this.page.identifier = '2018/09/21/初窥-redux-saga-的异步流/';
+          this.page.title = '初窥 redux-saga 的异步流';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://Kerminate.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("sL0C4Wm24YmFljxp9tAdcUmg-gzGzoHsz", "n57GxQF4055NmnaWWlGEaIvo");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  
+  <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("sL0C4Wm24YmFljxp9tAdcUmg-gzGzoHsz", "n57GxQF4055NmnaWWlGEaIvo");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = '0 ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+});
+</script>
+
+  
+
+</body>
+</html>
