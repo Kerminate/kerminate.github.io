@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Blog | Kerminate">
 <meta property="og:description" content="记录开发过程中遇到的一些问题和一些技巧。 坑点 使用vue的ui框架时，比如element,iview等，需要给组件绑定原生事件，可以在事件后加.native。例如element的input组件绑定键盘事件可以这么写@keyup.enter.native=”add” 详见vue的官方教程  面试题 不用循环生成100长度都为1的数组,详见es6  123new Array(100).fill(1)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-25T01:44:44.000Z">
+<meta property="og:updated_time" content="2018-09-25T02:14:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="项目中遇到过的问题与技巧">
 <meta name="twitter:description" content="记录开发过程中遇到的一些问题和一些技巧。 坑点 使用vue的ui框架时，比如element,iview等，需要给组件绑定原生事件，可以在事件后加.native。例如element的input组件绑定键盘事件可以这么写@keyup.enter.native=”add” 详见vue的官方教程  面试题 不用循环生成100长度都为1的数组,详见es6  123new Array(100).fill(1)">
@@ -326,7 +326,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  807
+                  855
                 </span>
               
 
@@ -342,7 +342,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  4
                 </span>
               
             </div>
@@ -388,6 +388,8 @@
 <p>但也有难以避免的情况，比如使用 Object.defineProperty 监听数组变化时，就不得不破坏 JS 引擎渲染了。</p>
 <p>使用 proxy 监听数组变化，这并不会改变 Elements 的结构，所以这也从另一个侧面证明了使用 proxy 监听对象变化比 Object.defineProperty 更优，因为 Object.defineProperty 会破坏 JS 引擎对数组做的优化。</p>
 <p><strong>原文可参考 <a href="https://github.com/dt-fe/weekly/blob/master/62.%E7%B2%BE%E8%AF%BB%E3%80%8AJS%20%E5%BC%95%E6%93%8E%E5%9F%BA%E7%A1%80%E4%B9%8B%20Shapes%20and%20Inline%20Caches%E3%80%8B.md" target="_blank" rel="noopener">JS 引擎基础之 Shapes and Inline Caches</a></strong></p>
+<h2 id="reduce-函数使用技巧"><a href="#reduce-函数使用技巧" class="headerlink" title="reduce 函数使用技巧"></a>reduce 函数使用技巧</h2><p>计算数组 array 的累加和<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> add = array</span><br><span class="line">  .reduce(<span class="function">(<span class="params">sum, val</span>) =&gt;</span> &#123;</span><br><span class="line">    sum += val</span><br><span class="line">    <span class="keyword">return</span> sum</span><br><span class="line">  &#125;, <span class="number">0</span>)</span><br></pre></td></tr></table></figure></p>
+<p>可以简化为<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> add = array</span><br><span class="line">  .reduce(<span class="function">(<span class="params">sum, val</span>) =&gt;</span> (sum += val), <span class="number">0</span>)</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -613,7 +615,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#坑点"><span class="nav-number">1.</span> <span class="nav-text">坑点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面试题"><span class="nav-number">2.</span> <span class="nav-text">面试题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack中css预处理器的配置"><span class="nav-number">3.</span> <span class="nav-text">webpack中css预处理器的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用node和chrome调试"><span class="nav-number">4.</span> <span class="nav-text">使用node和chrome调试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用npm启动项目"><span class="nav-number">5.</span> <span class="nav-text">使用npm启动项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mongoose-里保存-mixed-类型的数据"><span class="nav-number">6.</span> <span class="nav-text">mongoose 里保存 mixed 类型的数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#react-中批量导入图片"><span class="nav-number">7.</span> <span class="nav-text">react 中批量导入图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux-命令行常用快捷键"><span class="nav-number">8.</span> <span class="nav-text">linux 命令行常用快捷键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux-常用指令"><span class="nav-number">9.</span> <span class="nav-text">linux 常用指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#npm-gt-5-0-时更新包"><span class="nav-number">10.</span> <span class="nav-text">npm &gt;= 5.0 时更新包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reset-css"><span class="nav-number">11.</span> <span class="nav-text">reset.css</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-proxy-代替-Object-defineProperty"><span class="nav-number">12.</span> <span class="nav-text">使用 proxy 代替 Object.defineProperty</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#坑点"><span class="nav-number">1.</span> <span class="nav-text">坑点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面试题"><span class="nav-number">2.</span> <span class="nav-text">面试题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack中css预处理器的配置"><span class="nav-number">3.</span> <span class="nav-text">webpack中css预处理器的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用node和chrome调试"><span class="nav-number">4.</span> <span class="nav-text">使用node和chrome调试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用npm启动项目"><span class="nav-number">5.</span> <span class="nav-text">使用npm启动项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mongoose-里保存-mixed-类型的数据"><span class="nav-number">6.</span> <span class="nav-text">mongoose 里保存 mixed 类型的数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#react-中批量导入图片"><span class="nav-number">7.</span> <span class="nav-text">react 中批量导入图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux-命令行常用快捷键"><span class="nav-number">8.</span> <span class="nav-text">linux 命令行常用快捷键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux-常用指令"><span class="nav-number">9.</span> <span class="nav-text">linux 常用指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#npm-gt-5-0-时更新包"><span class="nav-number">10.</span> <span class="nav-text">npm &gt;= 5.0 时更新包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reset-css"><span class="nav-number">11.</span> <span class="nav-text">reset.css</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-proxy-代替-Object-defineProperty"><span class="nav-number">12.</span> <span class="nav-text">使用 proxy 代替 Object.defineProperty</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reduce-函数使用技巧"><span class="nav-number">13.</span> <span class="nav-text">reduce 函数使用技巧</span></a></li></ol></div>
             
 
           </div>
