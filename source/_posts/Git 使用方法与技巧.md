@@ -36,7 +36,8 @@ git push origin -d dev  // 将远端的 dev 分支删除
 
 #### 撤销所有本地代码（git add 之前）
 ```
-git checkout .
+git checkout .  // 撤销所有修改
+git clean -df  // 移除没有 track 的文件，-d 表示目录，-f 表示 force
 ```
 
 #### git add 后撤销
