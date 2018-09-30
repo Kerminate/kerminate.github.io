@@ -26,5 +26,8 @@ tags: 工具
 ![](http://or7tt6rug.bkt.clouddn.com/gifsicle2.png)
 > 进入 `src` 目录，将原 GIf 图片(路径 ~/Documents/tools/gif/rcc.gif)设置为循环播放
 
-![](http://or7tt6rug.bkt.clouddn.com/gifsicle3.png)
+![](http://or7tt6rug.bkt.clouddn.com/gif4.png)
 > 将 GIF 图片设置为循环播放已完成
+
+## 参考
+[MAC制作GIF及设置GIF循环播放](https://www.jianshu.com/p/32b369b4691f)

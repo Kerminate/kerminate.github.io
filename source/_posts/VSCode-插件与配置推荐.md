@@ -46,6 +46,10 @@ tags: 工具
 },
 "standard.autoFixOnSave": true,
 ```
+在项目中新增 .eslintrc 文件，里面的规则会覆盖在编辑器设置的规则，所以不用担心你个人的eslint配置会影响到项目
+保证开启 eslint 的 autoFixOnSave，Ctrl + S 效果如下
+
+![](http://or7tt6rug.bkt.clouddn.com/eslint.gif)
 
 # 插件
 - TODO Highlight: TODO 高亮
