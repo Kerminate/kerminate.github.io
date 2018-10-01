@@ -42,8 +42,8 @@ git clean -df  // 移除没有 track 的文件，-d 表示目录，-f 表示 for
 
 #### git add 后撤销
 ```
-git reset HEAD .  // 撤销所有add文件
-git reset HEAD -filename  // 撤销单个add文件
+git reset HEAD .  // 撤销所有 add 文件
+git reset HEAD -filename  // 撤销单个 add 文件
 ```
 通过 `git status` 查看暂存区内无状态，说明此时本地分支代码没有改动
 
@@ -74,7 +74,7 @@ git reset --hard [merge前的版本号]
 
 ### 使用 git revert
 - **git reset** 是直接删除指定的 commit，把HEAD 向后移动了一下
-- **git revert** 是一次新的特殊的commit，HEAD 继续前进，本质和普通 add commit 一样，仅仅是 commit 内容很特殊：提交的内容是与前面普通 commit 文本变化的反操作
+- **git revert** 是一次新的特殊的 commit，HEAD 继续前进，本质和普通 add commit 一样，仅仅是 commit 内容很特殊：提交的内容是与前面普通 commit 文本变化的反操作
 
 假设按时间顺序依次有 commit1, commit2, commit3, commit4,对应有 version1, version2, version3, version4 四个状态.
 revert 某次commit，最终文件状态为 commit4 前，即version3 状态)
@@ -111,7 +111,7 @@ git stash list
 ![](http://or7tt6rug.bkt.clouddn.com/git-stash1.jpg)
 此时代码已经回到了你修改前的版本，本地修好 bug 后，将代码 push 到远端，再使用 git stash pop 或 git stash apply 来恢复之前的工作状态
 - **git stash pop**: 这个指令将缓存堆栈中的第一个 stash 删除，并将对应修改应用到当前的工作目录下.
-- **git stash apply**: 将缓存堆栈中的stash多次应用到工作目录中，但并不删除stash拷贝.使用该命令时可以通过名字指定使用哪个stash，默认使用最近的stash
+- **git stash apply**: 将缓存堆栈中的 stash 多次应用到工作目录中，但并不删除 stash 拷贝.使用该命令时可以通过名字指定使用哪个 stash，默认使用最近的 stash
 
 示例：
 ```
@@ -127,10 +127,10 @@ git stash apply stash{0}  // 将 stash 栈里的第一个恢复
 git stash
 git pull —-rebase
 git stash apply
-手动解决冲突
+## 手动解决冲突
 git add -A
 git rebase —-continue
-如果此时提示 No rebase in progress? 则表示已经没有冲突了；否则上面两步要重复多次
+## 如果此时提示 No rebase in progress? 则表示已经没有冲突了；否则上面两步要重复多次
 git commit -m “xxx”
 git push origin [branch] -f
 ```
