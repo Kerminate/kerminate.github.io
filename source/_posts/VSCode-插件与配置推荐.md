@@ -59,7 +59,9 @@ rcc →	class component skeleton
 ren → render method
 
 ![](http://or7tt6rug.bkt.clouddn.com/rcc-recycle.gif)
+- Document This: 自动补全函数的 JSDoc 注释 (Ctrl + Alt + D)
 
 # 快捷键
 Command + d 选中一个单词后，使用该快捷键再选中下一个相同单词，可以一直下去
 Command + 鼠标左键  可显示多光标
+fn + f12 跳转到函数定义的位置
