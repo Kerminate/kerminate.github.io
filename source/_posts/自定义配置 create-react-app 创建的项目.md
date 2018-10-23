@@ -12,7 +12,7 @@ npx create-react-app forum-fe
 
 之后安装 standard 相关依赖
 ```
-npm install --save-dev eslint-config-standard eslint-config-standard-react eslint-plugin-standard eslint-plugin-promise eslint-plugin-import eslint-plugin-node eslint-plugin-react
+npm install --save-dev eslint eslint-config-standard eslint-config-standard-react eslint-plugin-standard eslint-plugin-promise eslint-plugin-import eslint-plugin-node eslint-plugin-react
 ```
 <!--more-->
 
@@ -101,3 +101,11 @@ module.exports = function override (config, env) {
 }
 ```
 在 modifyVars 里修改 antd 的主要样式变量
+
+## vue 项目中配置 standard 风格的 eslint
+> 这边顺便讲下在 vue 的项目里如何配置 standard 风格的 eslint
+
+因为有大部分 js 代码是写在 .vue 文件里，所以相比 react 来讲，需要多加一个 eslint-plugin-html 依赖，不过减少了 eslint-config-standard-react 和 eslint-plugin-react 的依赖。
+```
+npm install --save-dev eslint eslint-config-standard eslint-config-standard eslint-plugin-standard eslint-plugin-promise eslint-plugin-import eslint-plugin-node eslint-plugin-html
+```
