@@ -60,6 +60,7 @@ ren → render method
 
 ![](http://or7tt6rug.bkt.clouddn.com/rcc-recycle.gif)
 - Document This: 自动补全函数的 JSDoc 注释 (Ctrl + Alt + D)
+- koroFileHeader 自动补全函数的注释和文件头的注释
 
 # 快捷键
 Command + d 选中一个单词后，使用该快捷键再选中下一个相同单词，可以一直下去
