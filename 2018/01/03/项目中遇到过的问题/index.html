@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Blog | Kerminate">
 <meta property="og:description" content="记录开发过程中遇到的一些问题和一些技巧。 坑点 使用vue的ui框架时，比如element,iview等，需要给组件绑定原生事件，可以在事件后加.native。例如element的input组件绑定键盘事件可以这么写@keyup.enter.native=”add” 详见vue的官方教程  面试题 不用循环生成100长度都为1的数组,详见es6  123new Array(100).fill(1)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-24T02:21:39.870Z">
+<meta property="og:updated_time" content="2018-10-25T01:57:28.917Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="项目中遇到过的问题与技巧">
 <meta name="twitter:description" content="记录开发过程中遇到的一些问题和一些技巧。 坑点 使用vue的ui框架时，比如element,iview等，需要给组件绑定原生事件，可以在事件后加.native。例如element的input组件绑定键盘事件可以这么写@keyup.enter.native=”add” 详见vue的官方教程  面试题 不用循环生成100长度都为1的数组,详见es6  123new Array(100).fill(1)">
@@ -326,7 +326,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,266
+                  1,290
                 </span>
               
 
@@ -398,6 +398,7 @@
 <p>创建数据库<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> database_name;</span><br></pre></td></tr></table></figure></p>
 <p>创建数据表<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> table_name(</span><br><span class="line">   <span class="keyword">id</span> <span class="built_in">INT</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</span><br><span class="line">   title <span class="built_in">VARCHAR</span>(<span class="number">100</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">   author <span class="built_in">VARCHAR</span>(<span class="number">40</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">   <span class="built_in">date</span> <span class="built_in">DATE</span>,</span><br><span class="line">   PRIMARY <span class="keyword">KEY</span> ( <span class="keyword">id</span> )</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
 <h2 id="使用-sequelize-cli-闯将数据表"><a href="#使用-sequelize-cli-闯将数据表" class="headerlink" title="使用 sequelize-cli 闯将数据表"></a>使用 sequelize-cli 闯将数据表</h2><p>创建一个名字为 auth 的表，字段有 id(int),title(varchar)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx sequelize model:create --name auth --attributes id:integer,title:string</span><br></pre></td></tr></table></figure></p>
+<p>将文件中 migration 的数据表同步到本地的数据库中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx sequelize db:migrate</span><br></pre></td></tr></table></figure></p>
 <h2 id="brew-的基本操作"><a href="#brew-的基本操作" class="headerlink" title="brew 的基本操作"></a>brew 的基本操作</h2><p>安装 brew<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span><br></pre></td></tr></table></figure></p>
 <p>使用 brew 安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">brew search xxx  // 搜索</span><br><span class="line">brew install xxx // 安装</span><br><span class="line">brew uninstall xxx  // 卸载</span><br><span class="line">brew list  // 查看所有已安装的</span><br></pre></td></tr></table></figure></p>
 <p>使用 brew services 管理服务 (比如 mysql)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">brew services start mysql  // 启动 mysql 服务</span><br><span class="line">brew services stop mysql  // 停止 mysql 服务</span><br><span class="line">brew services restart mysql  // 重启 mysql 服务</span><br><span class="line">brew services list  // 查看使用 brew 安装的服务列表</span><br></pre></td></tr></table></figure></p>
