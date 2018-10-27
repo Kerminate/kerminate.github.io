@@ -63,6 +63,9 @@ ren → render method
 - koroFileHeader 自动补全函数的注释和文件头的注释
 
 # 快捷键
-Command + d 选中一个单词后，使用该快捷键再选中下一个相同单词，可以一直下去
-Command + 鼠标左键  可显示多光标
-fn + f12 跳转到函数定义的位置
+- Command + d 选中一个单词后，使用该快捷键再选中下一个相同单词，可以一直下去
+- Command + 鼠标左键  可显示多光标
+- fn + f12 跳转到函数定义的位置
+- Alt + → 按照单词移动光标
+- Ctrl + Alt + → 按照单词大小写移动光标
+- Alt + Commond + ↓ 出现多行光标
