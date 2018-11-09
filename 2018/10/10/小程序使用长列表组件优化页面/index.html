@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Blog | Kerminate">
 <meta property="og:description" content="先占个坑，有空在写~">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-23T01:41:14.725Z">
+<meta property="og:updated_time" content="2018-11-08T11:44:25.248Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小程序使用长列表组件优化页面">
 <meta name="twitter:description" content="先占个坑，有空在写~">
@@ -326,7 +326,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  48
+                  930
                 </span>
               
 
@@ -342,7 +342,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  4
                 </span>
               
             </div>
@@ -370,6 +370,23 @@
 <div style="display:flex;justify-content:space-around;"><br>  <iframe height="498" width="310" src="http://or7tt6rug.bkt.clouddn.com/old-menu.mp4" frameborder="0" allowfullscreen></iframe><br>  <iframe height="498" width="310" src="http://or7tt6rug.bkt.clouddn.com/recycleview-menu.mp4" frameborder="0" allowfullscreen></iframe><br></div>
 
 <div style="display:flex;justify-content:space-around;"><br>  <iframe height="498" width="310" src="http://or7tt6rug.bkt.clouddn.com/old-scroll.mp4" frameborder="0" allowfullscreen></iframe><br>  <iframe height="498" width="310" src="http://or7tt6rug.bkt.clouddn.com/recycleview-scroll.mp4" frameborder="0" allowfullscreen></iframe><br></div>
+
+<h2 id="长列表的使用方法"><a href="#长列表的使用方法" class="headerlink" title="长列表的使用方法"></a>长列表的使用方法</h2><h3 id="安装长列表"><a href="#安装长列表" class="headerlink" title="安装长列表"></a>安装长列表</h3><ul>
+<li>使用 npm 安装<br><code>npm install --save miniprogram-recycle-view</code><br>在页面的 json 文件加入 recycle-view 和 recycle-item 自定义组件的配置<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"usingComponents"</span>: &#123;</span><br><span class="line">    <span class="attr">"recycle-view"</span>: <span class="string">"miniprogram-recycle-view/recycle-view"</span>,</span><br><span class="line">    <span class="attr">"recycle-item"</span>: <span class="string">"miniprogram-recycle-view/recycle-item"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>由于小程序从 2.2.1 版本开始才支持npm安装第三方包，考虑到目前还有接近 10% 的用户的基础库低于这个版本，所以我更推荐大家使用下面一种方法</p>
+<ul>
+<li>将长列表的<a href="https://github.com/wechat-miniprogram/recycle-view" target="_blank" rel="noopener">源码</a>拷贝一份到项目目录下<br>json文件里配置就是对应的代码路径<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"usingComponents"</span>: &#123;</span><br><span class="line">    <span class="attr">"recycle-view"</span>: <span class="string">"../../custom-components/recycle-view/recycle-view/recycle-view"</span>,</span><br><span class="line">    <span class="attr">"recycle-item"</span>: <span class="string">"../../custom-components/recycle-view/recycle-item/recycle-item"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>菜单页的目录结构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">├── src</span><br><span class="line">    ├── pages</span><br><span class="line">    │   └── menu</span><br><span class="line">    │       ├── menu.html</span><br><span class="line">    │       ├── menu.less</span><br><span class="line">    │       ├── menu.ts</span><br><span class="line">    │       └── menu.json</span><br><span class="line">    ├── components</span><br><span class="line">    │   ├── menu</span><br><span class="line">    │   │   ├── menu-container.html</span><br><span class="line">    │   │   ├── menu-container.less</span><br><span class="line">    │   │   └── menu.ts</span><br><span class="line">    │   └── common</span><br><span class="line">    │       ├── dish-item.html</span><br><span class="line">    │       └── dish-item.less</span><br><span class="line">    └── custom-components</span><br><span class="line">       └── recycle-view</span><br><span class="line">           ├── recycle-item</span><br><span class="line">           ├── recycle-view</span><br><span class="line">           ├── utils</span><br><span class="line">           ├── behavior.js</span><br><span class="line">           └── index.js</span><br></pre></td></tr></table></figure></p>
+<p>在 menu.ts 里管理 recycle-view 的数据<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> createRecycleContext <span class="keyword">from</span> <span class="string">'../../custom-components/recycle-view/index.js'</span>;</span><br><span class="line"><span class="keyword">const</span> pageConfig: wx.PageOptions = &#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    recycleListIndex: <span class="number">0</span>,  <span class="comment">// </span></span><br><span class="line">    placeholderImage: <span class="string">''</span>  <span class="comment">// 占位图</span></span><br><span class="line">  &#125;,</span><br><span class="line">  onLoad(<span class="keyword">this</span>: MenuPage) &#123;</span><br><span class="line">    <span class="keyword">this</span>.initAjaxData(data);  <span class="comment">// 对菜单页数据进行处理</span></span><br><span class="line">  &#125;,</span><br><span class="line">  onUnload(<span class="keyword">this</span>: MenuPage) &#123;</span><br><span class="line">    <span class="keyword">this</span>.ctx = <span class="literal">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>因为长列表的特性所以数据必须是一维的，而我们的菜品数据是二维的(菜品下是菜品分类的数组，每个分类下才是具体的菜品信息)<br>我们需要对后端传来的数据进行处理。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">initAjaxData(<span class="keyword">this</span>: MenuPage, <span class="attr">data</span>: MenuData) &#123;</span><br><span class="line">  <span class="keyword">let</span> arrayOfDishes: any = [];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> item <span class="keyword">in</span> data.spuMenuSet) &#123;</span><br><span class="line">    <span class="comment">// 每个 item 都是一个分类的所有数据</span></span><br><span class="line">    <span class="keyword">if</span> (item) &#123;</span><br><span class="line">      <span class="comment">// 分类的题目信息也得抽出来放在同一维度下</span></span><br><span class="line">      <span class="keyword">const</span> obj = &#123;</span><br><span class="line">        iconType: data.spuMenuSet[item].iconType || <span class="number">0</span>,</span><br><span class="line">        id: data.spuMenuSet[item].id,</span><br><span class="line">        name: data.spuMenuSet[item].name</span><br><span class="line">      &#125;;</span><br><span class="line">      arrayOfDishes.push(obj);</span><br><span class="line">      <span class="keyword">const</span> middleArray: any = [];</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">const</span> ele <span class="keyword">of</span> data.spuMenuSet[item].spuMenuItemList) &#123;</span><br><span class="line">        <span class="keyword">const</span> newObj: any = <span class="built_in">Object</span>.assign(&#123;&#125;, ele);</span><br><span class="line">        newObj.categoryId = data.spuMenuSet[item].id;</span><br><span class="line">        newObj.iconType = data.spuMenuSet[item].iconType;</span><br><span class="line">        middleArray.push(newObj);</span><br><span class="line">      &#125;</span><br><span class="line">      arrayOfDishes = [...arrayOfDishes, ...middleArray];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  localData.arrayOfDishes = arrayOfDishes;  <span class="comment">// 将菜品数据保存在全局，如果挂载在页面上数据量太大</span></span><br><span class="line">  <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">    <span class="comment">// page 所需的变量 set 上去</span></span><br><span class="line">  &#125;, () =&gt; &#123;</span><br><span class="line">    <span class="comment">// dom渲染完再处理长列表的数据</span></span><br><span class="line">    that.appendRecycleList();</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>处理长列表的数据<br>因为长列表是一维数据，里面包括了题目信息和菜品信息，所以在页面加载完成前预留的空间是不一样的，所以在 itemSize 函数里通过每个 item 的属性生成不同的宽高。transformRpx 函数可以将 rpx 转化为 px。<br>这里主要是题目和菜品两个不同的子项，而菜品因为内部显示信息的不同，高度也会有所变化，展示所有信息时，高度会被撑开。所以长列表里共有三种不同高宽的子项。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 长列表组件加载数据</span></span><br><span class="line">appendRecycleList(<span class="keyword">this</span>: MenuPage) &#123;</span><br><span class="line">  <span class="keyword">if</span> (!<span class="keyword">this</span>.ctx) &#123;</span><br><span class="line">    <span class="keyword">const</span> ctx = createRecycleContext(&#123;</span><br><span class="line">      id: <span class="string">'dish-list'</span>,  <span class="comment">// recycle-view 的 id</span></span><br><span class="line">      dataKey: <span class="string">'recycleList'</span>,  <span class="comment">// recycle-item 里 wx:for 绑定的变量</span></span><br><span class="line">      page: <span class="keyword">this</span>,</span><br><span class="line">      itemSize(item) &#123;</span><br><span class="line">        <span class="keyword">if</span> (item.id) &#123;</span><br><span class="line">            <span class="keyword">return</span> &#123;</span><br><span class="line">              width: <span class="keyword">this</span>.transformRpx(<span class="number">590</span>),</span><br><span class="line">              height: <span class="keyword">this</span>.transformRpx(<span class="number">70</span>)</span><br><span class="line">            &#125;;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (item.description &amp;&amp; (item.tagInfos &amp;&amp; item.tagInfos.length &gt; <span class="number">0</span> || item.exchangeTag)) &#123;</span><br><span class="line">            <span class="keyword">return</span> &#123;</span><br><span class="line">              width: <span class="keyword">this</span>.transformRpx(<span class="number">590</span>),</span><br><span class="line">              height: <span class="keyword">this</span>.transformRpx(<span class="number">244</span>)</span><br><span class="line">            &#125;;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> &#123;</span><br><span class="line">              width: <span class="keyword">this</span>.transformRpx(<span class="number">590</span>),</span><br><span class="line">              height: <span class="keyword">this</span>.transformRpx(<span class="number">218</span>)</span><br><span class="line">            &#125;;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">if</span> (ctx.comp) &#123;</span><br><span class="line">      ctx.append(localData.arrayOfDishes, () =&gt; &#123;</span><br><span class="line">        <span class="comment">// 新增加的数据渲染完毕之后, 触发的回调</span></span><br><span class="line">        <span class="keyword">this</span>.ctx = ctx;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -473,8 +490,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -493,7 +519,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -575,6 +601,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#长列表的使用方法"><span class="nav-number">1.</span> <span class="nav-text">长列表的使用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装长列表"><span class="nav-number">1.1.</span> <span class="nav-text">安装长列表</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
