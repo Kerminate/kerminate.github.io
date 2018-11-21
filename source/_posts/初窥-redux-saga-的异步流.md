@@ -190,7 +190,7 @@ const [posts, timeout] = yield race({
 
 ### demo
 写了一个 redux-saga 的一个小 demo，书写了 redux-saga 的主要架构，并实现了发送请求，取消请求和超时请求几个小功能。
-![](http://or7tt6rug.bkt.clouddn.com/redux-saga-demo.jpeg)
+![](https://i.loli.net/2018/11/19/5bf28b123f9c0.jpeg)
 > **github 地址：https://github.com/Kerminate/redux-saga-demo**
 
 ### 参考

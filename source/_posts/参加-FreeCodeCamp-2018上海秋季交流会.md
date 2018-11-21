@@ -4,7 +4,7 @@ date: 2018-09-16 16:24:37
 tags: Conf
 ---
 本周六参加了 FreeCodeCamp 的前端交流会，而这也是我第一次参加的线下 Conf，在这里分享一下整个 Conf 大概的内容和自己的收获。
-![](http://or7tt6rug.bkt.clouddn.com/fcc%281%29.png)
+![](https://i.loli.net/2018/11/20/5bf3a7a4673ba.png)
 
 <!--more-->
 本次 Conf 的地点是在上海淞虹路，我坐了一个半小时的地铁匆匆地赶到了会场，楼下的工作人员说地点从6楼改到了4楼，之后我乘着电梯终于到了目的地。会场的布置比较简单，大约有一百多个座位，前面有个大屏幕展示讲师的ppt。
@@ -27,7 +27,7 @@ tags: Conf
 
 顺便我还学会了如何查看页面的 layer
 
-![](http://or7tt6rug.bkt.clouddn.com/layer-ins.png)
+![](https://i.loli.net/2018/11/20/5bf3ac048c32c.png)
 
 ### webRTC 的场景创新和体验优化
 来自爱奇艺的韦躐晟老师主要基于他们的业务阐述了 webRTC。由于没怎么接触过视频这块，听得有点云里雾里，感觉不明觉厉。不过，韦躐晟老师放的一个蒙版弹幕视频着实惊艳，弹幕会从人像的背后穿过，不会遮挡在人前，但是可以在背景上出现。据他描述，他们是获取了每一帧的图像，然后通过之前深度学习跑出的模型进行计算，生成一个人像蒙版，而字母就是在对应的蒙版周围，所以，其实不是字从人下面穿过，是在人像的范围内压根没有弹幕。
@@ -45,7 +45,7 @@ tags: Conf
 
 讲解期间，讲师晒出了目前大型互联网公司常见的 web 架构：
 
-![](http://or7tt6rug.bkt.clouddn.com/DR-fe.png)
+![](https://i.loli.net/2018/11/20/5bf3a7aebbaff.png)
 
 ### 函数式语言：ClosureScript 在前端开发的体验
 重量级讲师，题叶大佬。原是 React 中文社区的发起人，现活跃与 ClosureScript 社区，之前在饿了吗就职，现投身于一家创业公司。题叶大佬感觉很有极客精神，讲话语速也比较快，主要是介绍了 ClosureScript 和它的应用，以及自己在平常使用的实际操作和相关的个人项目。这是一门现代化的 Lisp 方言，可以编译到 JVM/JavaScript 运行，契合 React 的理念，适合界面开发。毕竟没怎么接触过 Lisp 语言，听课过程有点不明觉厉，只想喊666。
@@ -56,7 +56,7 @@ tags: Conf
 ### 最后
 FCC 每年会举办4次，每个季节举办一次，期待下次的冬季交流会，最后放上大会的合照。
 
-![](http://or7tt6rug.bkt.clouddn.com/FCC-photo.jpeg)
+![](https://i.loli.net/2018/11/20/5bf3a7b4a54b6.jpeg)
 
 #### 资料链接
 [layer相关](https://m.aliyun.com/yunqi/articles/622301?utm_content=m_1000011680)

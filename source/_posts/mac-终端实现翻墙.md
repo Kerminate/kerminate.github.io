@@ -10,7 +10,7 @@ tags: 工具
 现在一般人都是使用 VPN 或者 shadowsocks 的方法实现浏览器的翻墙。这边不再赘述，因为我在终端实现的翻墙走的是 shadowsocks 的代理，所以简单说下 ss 的安装。
 https://github.com/shadowsocks/ShadowsocksX-NG 这是我用的 ss 的下载地址，点击进去，在 release 下面随便找个最近的包下载安装即可。
 
-![](http://or7tt6rug.bkt.clouddn.com/shadowsocks.png)
+![](https://i.loli.net/2018/11/19/5bf28b1627855.png)
 
 这个是 shadowsocks 的客户端，账号需要在 https://shadowsocks.com/ 上面注册。
 这边有一个坑点，就是这个网站翻墙才能进去😂，所以你得先找个能翻墙的朋友帮你注册账号（一年大约100来块）

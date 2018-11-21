@@ -30,9 +30,10 @@ git push origin -d dev  // 将远端的 dev 分支删除
 ### 使用 git reset
 首先认识一下 `git status` 命令，显示当前暂存区的消息
 本例中修改了 README.md，但是并没有 add
-![](http://or7tt6rug.bkt.clouddn.com/git-status.jpg)
+![](https://i.loli.net/2018/11/20/5bf3a7c6377cb.jpg)
 之后 `git add -A` 将文件保存在暂存区，git status 查看此时暂存区状态
-![](http://or7tt6rug.bkt.clouddn.com/git-status2.jpg)
+
+![](https://i.loli.net/2018/11/20/5bf3a7c79100d.jpg)
 
 #### 撤销所有本地代码（git add 之前）
 ```
@@ -58,7 +59,7 @@ git reset --hard head^ // 回退到上个 commit 版本
 ```
 git log
 ```
-![](http://or7tt6rug.bkt.clouddn.com/git-log.jpg)
+![](https://i.loli.net/2018/11/20/5bf3a7bb321f0.jpg)
 
 ```
 git reset --hard 5aabd83035a2a92db15b95d0f43cb797288a915f
@@ -81,7 +82,7 @@ revert 某次commit，最终文件状态为 commit4 前，即version3 状态)
 ```
 git revert 57af6d9f0f8e4fdb646e86bd189c2346f6bd5458
 ```
-![](http://or7tt6rug.bkt.clouddn.com/git-revert1.png)
+![](https://i.loli.net/2018/11/20/5bf3a7bbda57e.png)
 
 ## 4. 标签管理
 > 标签可以针对某一时间点的版本做标记，常用于版本发布。
@@ -108,7 +109,7 @@ git stash save "rm tutorial/readme.txt"
 ```
 git stash list
 ```
-![](http://or7tt6rug.bkt.clouddn.com/git-stash1.jpg)
+![](https://i.loli.net/2018/11/20/5bf3a7bb69ad0.jpg)
 此时代码已经回到了你修改前的版本，本地修好 bug 后，将代码 push 到远端，再使用 git stash pop 或 git stash apply 来恢复之前的工作状态
 - **git stash pop**: 这个指令将缓存堆栈中的第一个 stash 删除，并将对应修改应用到当前的工作目录下.
 - **git stash apply**: 将缓存堆栈中的 stash 多次应用到工作目录中，但并不删除 stash 拷贝.使用该命令时可以通过名字指定使用哪个 stash，默认使用最近的 stash
@@ -118,7 +119,7 @@ git stash list
 git stash apply stash{0}  // 将 stash 栈里的第一个恢复
 ```
 
-![](http://or7tt6rug.bkt.clouddn.com/git-stash2.jpg)
+![](https://i.loli.net/2018/11/20/5bf3a7c6865c2.jpg)
 恢复后会显示暂存区内文件的修改情况，与之前一致
 
 ### 使用 git rebase
@@ -150,7 +151,7 @@ git clone https://github.com/Kerminate/weekly.git  // clone 到本地
 git remote add upstream https://github.com/dt-fe/weekly.git  // 指定源库
 ```
 查看远程仓库信息
-![](http://or7tt6rug.bkt.clouddn.com/pr.png)
+![](https://i.loli.net/2018/11/19/5bf28a00963e2.png)
 ```
 git checkout -b dev  // 在新的分支上开发
 git add -A
@@ -166,10 +167,10 @@ git push
 
 ## 6. 遇到的问题
 本地创建一个分支推到远端之后，如果远端代码更新，执行 `git pull` 会失败，如图
-![](http://or7tt6rug.bkt.clouddn.com/git01.png)
+![](https://i.loli.net/2018/11/20/5bf3a7c5d3183.png)
 终端给出了 2 种方法，第一种 pull 的时候写上对应的远端分支和本地分支，形成映射关系，还有一种就是将本地分支和远程分支关联，这样以后就可以直接用 `git pull` 拉取最新代码
 ```
 git pull <remote> <branch>  // 写上对应的映射分支
 git branch --set-upstream-to=origin/<branch> <remote>  // 关联远端分支和本地分支
 ```
-![](http://or7tt6rug.bkt.clouddn.com/git02.png)
+![](https://i.loli.net/2018/11/20/5bf3a7c6c8b56.png)

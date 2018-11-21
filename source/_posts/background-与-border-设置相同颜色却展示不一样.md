@@ -5,7 +5,7 @@ tags: 前端
 ---
 这两天在写一个需求的时候发现，当 background 与 border 设置相同时，颜色有时候展示会不一样
 
-![](http://or7tt6rug.bkt.clouddn.com/back1.png)
+![](https://i.loli.net/2018/11/19/5bf2895d614ed.png)
 两张图的 background 与 border 都设置颜色相同，但是左边这张图，展示保持一致，而右边这张图却不一致
 <!--more-->
 来看下两张图的代码
@@ -38,4 +38,4 @@ tags: 前端
 
 只需要将 background-clip 设置为 padding-box 或 content-box 就能达到颜色展示一样的效果
 
-![](http://or7tt6rug.bkt.clouddn.com/back2.png)
+![](https://i.loli.net/2018/11/19/5bf2896173fa1.png)

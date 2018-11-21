@@ -49,7 +49,7 @@ tags: 工具
 在项目中新增 .eslintrc 文件，里面的规则会覆盖在编辑器设置的规则，所以不用担心你个人的eslint配置会影响到项目
 保证开启 eslint 的 autoFixOnSave，Ctrl + S 效果如下
 
-![](http://or7tt6rug.bkt.clouddn.com/eslint.gif)
+![](https://i.loli.net/2018/11/20/5bf3a7c44ec80.gif)
 
 # 插件
 - TODO Highlight: TODO 高亮
@@ -58,7 +58,7 @@ tags: 工具
 rcc →	class component skeleton
 ren → render method
 
-![](http://or7tt6rug.bkt.clouddn.com/rcc-recycle.gif)
+![](https://i.loli.net/2018/11/19/5bf28a0b2f973.gif)
 - Document This: 自动补全函数的 JSDoc 注释 (Ctrl + Alt + D)
 - koroFileHeader 自动补全函数的注释和文件头的注释
 

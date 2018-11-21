@@ -10,7 +10,7 @@ tags: 工具
 ## 使用 Giphy Capture 制作 GIF
 
 [GIPHY Capture](https://itunes.apple.com/us/app/giphy-capture.-the-gif-maker/id668208984?mt=12) 是由一个很火的 Gif 分享网站 GIPHY 开发的，可以直接上传至 giphy.com，也可以保存到本地。
-![](http://or7tt6rug.bkt.clouddn.com/giphy.png)
+![](https://i.loli.net/2018/11/20/5bf3a7ba2b3f3.png)
 如图，可以在紫条中控制输出的片段，在 Loop Type 中控制播放的顺序，在 Pixel Size 中控制输出的尺寸大小，在 Frame Rate 中控制输出的帧率。
 下面 save as... 可以保存在本地，或上传到 giphy.com
 **我这里保存为 rcc.gif, 路径为 ~/Documents/tools/gif/rcc.gif**
@@ -20,13 +20,13 @@ tags: 工具
 我解压到该目录 ~/Documents/tools/gifsicle-1.91
 > 进入该目录，执行 `./configure --disable-gifview --disable-gifdiff`
 
-![](http://or7tt6rug.bkt.clouddn.com/gifsicle1.png)
+![](https://i.loli.net/2018/11/20/5bf3a7b79a80a.png)
 > 执行 `make`
 
-![](http://or7tt6rug.bkt.clouddn.com/gifsicle2.png)
+![](https://i.loli.net/2018/11/20/5bf3a7a3b9151.png)
 > 进入 `src` 目录，将原 GIf 图片(路径 ~/Documents/tools/gif/rcc.gif)设置为循环播放
 
-![](http://or7tt6rug.bkt.clouddn.com/gif4.png)
+![](https://i.loli.net/2018/11/20/5bf3a7a3f1ccd.png)
 > 将 GIF 图片设置为循环播放已完成
 
 ## 参考

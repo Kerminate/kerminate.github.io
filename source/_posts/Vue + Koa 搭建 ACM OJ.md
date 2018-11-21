@@ -28,8 +28,8 @@ tags: 技术帖
 ## 预览
 主题色采用了 lazzzis 特别喜欢的骚紫。
 
-![](http://or7tt6rug.bkt.clouddn.com/%E7%BB%9F%E8%AE%A1.jpg)
-![](http://or7tt6rug.bkt.clouddn.com/%E6%AF%94%E8%B5%9B.jpg)
+![](https://i.loli.net/2018/11/19/5bf28bc30b0ab.jpg)
+![](https://i.loli.net/2018/11/19/5bf28bb35ff3e.jpg)
 
 ### 实现功能
 OJ分为web端和判题端，这边主要分析web端，判题端 由 [Acdream的判题端](https://github.com/KIDx/Judger) 魔改而来。web 端共有消息模块，题目模块，讨论模块，状态模块，排行模块，比赛模块与管理员模块七大模块。

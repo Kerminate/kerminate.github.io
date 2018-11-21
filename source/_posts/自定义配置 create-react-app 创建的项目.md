@@ -16,7 +16,7 @@ npm install --save-dev eslint eslint-config-standard eslint-config-standard-reac
 ```
 <!--more-->
 
-![](http://or7tt6rug.bkt.clouddn.com/react-eslint2%281%29.jpg)
+![](https://i.loli.net/2018/11/19/5bf28a1457c51.jpg)
 这时候发现 eslint 和 eslint-plugin-react 版本过低，将这两个包按照要求升级
 ```
 npm install --save-dev eslint@4.19.1 eslint-plugin-react@7.6.1
@@ -39,9 +39,9 @@ npm install --save-dev eslint@4.19.1 eslint-plugin-react@7.6.1
 ```
 
 此时打开项目中文件，standard 的 eslint 效果已经生效
-![](http://or7tt6rug.bkt.clouddn.com/react-eslint3%281%29.png)
+![](https://i.loli.net/2018/11/19/5bf28a15092ed.png)
 Ctrl + S 保存后，格式化成功!
-![](http://or7tt6rug.bkt.clouddn.com/react-eslint4%281%29.png)
+![](https://i.loli.net/2018/11/19/5bf28a160fa49.png)
 
 ## 配置 antd 的按需加载
 安装 react-app-rewired (一个对 create-react-app 进行自定义配置的社区解决方案)

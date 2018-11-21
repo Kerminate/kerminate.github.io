@@ -37,7 +37,7 @@ rl.on('close', () => {
 })
 ```
 输入输出如下
-![](http://or7tt6rug.bkt.clouddn.com/readline.png)
+![](https://i.loli.net/2018/11/19/5bf28a1534301.png)
 
 ### 下面通过一道网易在线编程题实践一下
 
@@ -99,7 +99,7 @@ rl.on('line', (line) => {
 小易想知道在他射击的时候最多可以同时消灭多少只怪物,请你帮帮小易。 
 
 如样例所示: 
-![](http://or7tt6rug.bkt.clouddn.com/shoot.png)
+![](https://i.loli.net/2018/11/19/5bf28b130261c.png)
 所有点对于坐标原点(0,0)顺时针或者逆时针旋转45°,可以让所有点都在坐标轴上,所以5个怪物都可以消灭。 
 
 - 输入描述:
