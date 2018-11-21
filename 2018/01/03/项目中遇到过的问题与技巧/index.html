@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="http://or7tt6rug.bkt.clouddn.com/avatar.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="http://or7tt6rug.bkt.clouddn.com/avatar.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="http://or7tt6rug.bkt.clouddn.com/avatar.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="http://or7tt6rug.bkt.clouddn.com/avatar.png?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="技术帖," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="记录开发过程中遇到的一些问题和一些技巧。 坑点 使用vue的ui框架时，比如element,iview等，需要给组件绑定原生事件，可以在事件后加.native。例如element的input组件绑定键盘事件可以这么写@keyup.enter.native=”add” 详见vue的官方教程  面试题 不用循环生成100长度都为1的数组,详见es6  123new Array(100).fill(1)">
+<meta name="keywords" content="技术帖">
+<meta property="og:type" content="article">
+<meta property="og:title" content="项目中遇到过的问题与技巧">
+<meta property="og:url" content="http://yoursite.com/2018/01/03/项目中遇到过的问题与技巧/index.html">
+<meta property="og:site_name" content="Blog | Kerminate">
+<meta property="og:description" content="记录开发过程中遇到的一些问题和一些技巧。 坑点 使用vue的ui框架时，比如element,iview等，需要给组件绑定原生事件，可以在事件后加.native。例如element的input组件绑定键盘事件可以这么写@keyup.enter.native=”add” 详见vue的官方教程  面试题 不用循环生成100长度都为1的数组,详见es6  123new Array(100).fill(1)">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-11-20T03:43:22.878Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="项目中遇到过的问题与技巧">
+<meta name="twitter:description" content="记录开发过程中遇到的一些问题和一些技巧。 坑点 使用vue的ui框架时，比如element,iview等，需要给组件绑定原生事件，可以在事件后加.native。例如element的input组件绑定键盘事件可以这么写@keyup.enter.native=”add” 详见vue的官方教程  面试题 不用循环生成100长度都为1的数组,详见es6  123new Array(100).fill(1)">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/01/03/项目中遇到过的问题与技巧/"/>
+
+
+
+
+
+  <title>项目中遇到过的问题与技巧 | Blog | Kerminate</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Blog | Kerminate</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/03/项目中遇到过的问题与技巧/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kerminate">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://or7tt6rug.bkt.clouddn.com/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog | Kerminate">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">项目中遇到过的问题与技巧</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-03T17:42:08+08:00">
+                2018-01-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/03/项目中遇到过的问题与技巧/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/01/03/项目中遇到过的问题与技巧/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/01/03/项目中遇到过的问题与技巧/" class="leancloud_visitors" data-flag-title="项目中遇到过的问题与技巧">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,451
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>记录开发过程中遇到的一些问题和一些技巧。</p>
+<h2 id="坑点"><a href="#坑点" class="headerlink" title="坑点"></a>坑点</h2><ul>
+<li>使用vue的ui框架时，比如element,iview等，需要给组件绑定原生事件，可以在事件后加.native。例如element的input组件绑定键盘事件可以这么写@keyup.enter.native=”add” 详见<a href="https://cn.vuejs.org/v2/guide/components.html#%E7%BB%99%E7%BB%84%E4%BB%B6%E7%BB%91%E5%AE%9A%E5%8E%9F%E7%94%9F%E4%BA%8B%E4%BB%B6" target="_blank" rel="noopener">vue的官方教程</a></li>
+</ul>
+<h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h2><ul>
+<li>不用循环生成100长度都为1的数组,详见<a href="http://es6.ruanyifeng.com/#docs/array#Array-from" target="_blank" rel="noopener">es6</a></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">100</span>).fill(<span class="number">1</span>)</span><br><span class="line"><span class="built_in">Array</span>.from(&#123;<span class="attr">length</span>: <span class="number">1</span>&#125;, () =&gt; <span class="number">1</span>)</span><br><span class="line"><span class="built_in">Array</span>.from(&#123;<span class="attr">length</span>: <span class="number">1</span>&#125;).map(<span class="function"><span class="params">()</span> =&gt;</span> <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="webpack中css预处理器的配置"><a href="#webpack中css预处理器的配置" class="headerlink" title="webpack中css预处理器的配置"></a>webpack中css预处理器的配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sass: cnpm install node-sass sass-loader --save-dev</span><br><span class="line">less: cnpm install less less-loader --save-dev</span><br><span class="line">stylus: cnpm install stylus stylus-loader --save-dev</span><br></pre></td></tr></table></figure>
+<h2 id="使用node和chrome调试"><a href="#使用node和chrome调试" class="headerlink" title="使用node和chrome调试"></a>使用node和chrome调试</h2><p>进入到项目当前文件，比如要调试 d/Leetcode/045/main.js 文件，git bash进入到 d/Leetcode/045/, 输入命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node --inspect-brk main</span><br></pre></td></tr></table></figure></p>
+<h2 id="使用npm启动项目-查看端口占用"><a href="#使用npm启动项目-查看端口占用" class="headerlink" title="使用npm启动项目(查看端口占用)"></a>使用npm启动项目(查看端口占用)</h2><p>在windows本地调试时使用 <code>npm run dev</code> 启动项目，用 <code>ctrl + c</code> 停止，会导致进程没有结束，这时需要在windows找到该项目的进程并结束<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">netstat -ano | findstr 8080 //找到8080端口正在运行的进程</span><br><span class="line">taskkill /f /pid xxx // 强行结束pid为xxx的进程</span><br></pre></td></tr></table></figure></p>
+<p>还有一种方法，使用yarn代替npm，<code>yarn run dev</code> 启动项目，不会产生上述的问题</p>
+<p>mac 中查看端口占用并结束进程的方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lsof -i:8080</span><br><span class="line">kill xxx</span><br></pre></td></tr></table></figure></p>
+<h2 id="mongoose-里保存-mixed-类型的数据"><a href="#mongoose-里保存-mixed-类型的数据" class="headerlink" title="mongoose 里保存 mixed 类型的数据"></a>mongoose 里保存 mixed 类型的数据</h2><p>在 mongoose 对 type 为 mixed 的数据作修改时，save 操作时会保存不进去。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">contest.ranklist = ranklist</span><br><span class="line">contest.markModified(<span class="string">'ranklist'</span>)</span><br><span class="line"><span class="keyword">await</span> contest.save()</span><br></pre></td></tr></table></figure></p>
+<p>保存时对改变的字段进行 markModified 操作，再 save 后可以保存对数据的操作。</p>
+<h2 id="react-中批量导入图片"><a href="#react-中批量导入图片" class="headerlink" title="react 中批量导入图片"></a>react 中批量导入图片</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> requireContext = <span class="built_in">require</span>.context(<span class="string">'../img'</span>, <span class="literal">true</span>, /^\.\/.*\.png$/)</span><br><span class="line"><span class="keyword">const</span> images = requireContext.keys().map(requireContext)</span><br></pre></td></tr></table></figure>
+<p>该方法的缺点是导入顺序是文件里的图片顺序，image 数组保存的是图片的 base64 编码，无法在代码中通过名字确认是哪张图</p>
+<h2 id="linux-命令行常用快捷键"><a href="#linux-命令行常用快捷键" class="headerlink" title="linux 命令行常用快捷键"></a>linux 命令行常用快捷键</h2><p>Ctrl + A  // 光标移到行首<br>Ctrl + E  // 光标移到行尾<br>Ctrl + K  // 删除之行尾</p>
+<h2 id="linux-常用指令"><a href="#linux-常用指令" class="headerlink" title="linux 常用指令"></a>linux 常用指令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo $(cat a) &gt; b  // 将文件a输出至文件b</span><br><span class="line">echo $(cat a) &gt;&gt; b  // 将文件a追加至文件b</span><br></pre></td></tr></table></figure>
+<h2 id="npm-部分操作"><a href="#npm-部分操作" class="headerlink" title="npm 部分操作"></a>npm 部分操作</h2><p>npm &gt;= 5.0 时更新包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install xxx@yyy --save-dev  // 手动指定安装版本</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install -g xxx  // npm 全局安装</span><br><span class="line">npm uninstall -g xxx // 卸载全局安装的包</span><br><span class="line">npm list -g --depth 0  // 查看全局安装过的包</span><br></pre></td></tr></table></figure>
+<h2 id="reset-css"><a href="#reset-css" class="headerlink" title="reset.css"></a>reset.css</h2><p>做 PC 端时，不同的浏览器的默认样式之间存在差别，使用 reset.css 来将浏览器的默认样式全部覆盖掉，达到统一样式的效果。<br><a href="https://meyerweb.com/eric/tools/css/reset/" target="_blank" rel="noopener">reset.css</a></p>
+<h2 id="使用-proxy-代替-Object-defineProperty"><a href="#使用-proxy-代替-Object-defineProperty" class="headerlink" title="使用 proxy 代替 Object.defineProperty"></a>使用 proxy 代替 Object.defineProperty</h2><p>对象级别的优化已经很极致了，工程代码中也没有机会帮助 JS 引擎做得更好，值得注意的是不要对数组使用 Object 对象下的方法，尤其是 defineProperty，因为这会让 JS 引擎在存储数组元素时，使用 Dictionary Elements 结构替代 Elements，而 Elements 结构是共享 PropertyDescriptor 的。</p>
+<p>但也有难以避免的情况，比如使用 Object.defineProperty 监听数组变化时，就不得不破坏 JS 引擎渲染了。</p>
+<p>使用 proxy 监听数组变化，这并不会改变 Elements 的结构，所以这也从另一个侧面证明了使用 proxy 监听对象变化比 Object.defineProperty 更优，因为 Object.defineProperty 会破坏 JS 引擎对数组做的优化。</p>
+<p><strong>原文可参考 <a href="https://github.com/dt-fe/weekly/blob/master/62.%E7%B2%BE%E8%AF%BB%E3%80%8AJS%20%E5%BC%95%E6%93%8E%E5%9F%BA%E7%A1%80%E4%B9%8B%20Shapes%20and%20Inline%20Caches%E3%80%8B.md" target="_blank" rel="noopener">JS 引擎基础之 Shapes and Inline Caches</a></strong></p>
+<h2 id="reduce-函数使用技巧"><a href="#reduce-函数使用技巧" class="headerlink" title="reduce 函数使用技巧"></a>reduce 函数使用技巧</h2><p>计算数组 array 的累加和<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> add = array</span><br><span class="line">  .reduce(<span class="function">(<span class="params">sum, val</span>) =&gt;</span> &#123;</span><br><span class="line">    sum += val</span><br><span class="line">    <span class="keyword">return</span> sum</span><br><span class="line">  &#125;, <span class="number">0</span>)</span><br></pre></td></tr></table></figure></p>
+<p>可以简化为<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> add = array</span><br><span class="line">  .reduce(<span class="function">(<span class="params">sum, val</span>) =&gt;</span> (sum += val), <span class="number">0</span>)</span><br></pre></td></tr></table></figure></p>
+<h2 id="极简版函数柯里化"><a href="#极简版函数柯里化" class="headerlink" title="极简版函数柯里化"></a>极简版函数柯里化</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">curry</span>(<span class="params">fn, args = []</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> length = fn.length</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> _args = args.slice(<span class="number">0</span>)</span><br><span class="line">    <span class="built_in">Array</span>.prototype.push.apply(_args, <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>))</span><br><span class="line">    <span class="keyword">if</span> (_args.length === length) &#123;</span><br><span class="line">      <span class="keyword">return</span> fn.apply(<span class="keyword">this</span>, _args)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> curry.call(<span class="keyword">this</span>, fn, _args)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> func = curry(<span class="function">(<span class="params">a, b, c</span>) =&gt;</span> [a, b, c])</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(func(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)) <span class="comment">// [ 1, 2, 3 ]</span></span><br><span class="line"><span class="built_in">console</span>.log(func(<span class="number">1</span>)(<span class="number">2</span>)(<span class="number">3</span>)) <span class="comment">// [ 1, 2, 3 ]</span></span><br></pre></td></tr></table></figure>
+<p><strong>函数的 length 表示该函数参数的数量</strong></p>
+<h2 id="MAC-操作-mariadb"><a href="#MAC-操作-mariadb" class="headerlink" title="MAC 操作 mariadb"></a>MAC 操作 mariadb</h2><p>进入 mariadb 启动目录,启动 mariadb，之后登录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/Cellar/mariadb/10.3.9/bin</span><br><span class="line">mysql.server start</span><br><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure></p>
+<p>创建数据库<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> database_name;</span><br></pre></td></tr></table></figure></p>
+<p>创建数据表<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> table_name(</span><br><span class="line">   <span class="keyword">id</span> <span class="built_in">INT</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</span><br><span class="line">   title <span class="built_in">VARCHAR</span>(<span class="number">100</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">   author <span class="built_in">VARCHAR</span>(<span class="number">40</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">   <span class="built_in">date</span> <span class="built_in">DATE</span>,</span><br><span class="line">   PRIMARY <span class="keyword">KEY</span> ( <span class="keyword">id</span> )</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<h2 id="使用-sequelize-cli-闯将数据表"><a href="#使用-sequelize-cli-闯将数据表" class="headerlink" title="使用 sequelize-cli 闯将数据表"></a>使用 sequelize-cli 闯将数据表</h2><p>创建一个名字为 auth 的表，字段有 id(int),title(varchar)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx sequelize model:create --name auth --attributes id:integer,title:string</span><br></pre></td></tr></table></figure></p>
+<p>将文件中 migration 的数据表同步到本地的数据库中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx sequelize db:migrate</span><br></pre></td></tr></table></figure></p>
+<h2 id="brew-的基本操作"><a href="#brew-的基本操作" class="headerlink" title="brew 的基本操作"></a>brew 的基本操作</h2><p>安装 brew<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span><br></pre></td></tr></table></figure></p>
+<p>使用 brew 安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">brew search xxx  // 搜索</span><br><span class="line">brew install xxx // 安装</span><br><span class="line">brew uninstall xxx  // 卸载</span><br><span class="line">brew list  // 查看所有已安装的</span><br></pre></td></tr></table></figure></p>
+<p>使用 brew services 管理服务 (比如 mysql)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">brew services start mysql  // 启动 mysql 服务</span><br><span class="line">brew services stop mysql  // 停止 mysql 服务</span><br><span class="line">brew services restart mysql  // 重启 mysql 服务</span><br><span class="line">brew services list  // 查看使用 brew 安装的服务列表</span><br></pre></td></tr></table></figure></p>
+<h2 id="react-中-background-image-使用变量"><a href="#react-中-background-image-使用变量" class="headerlink" title="react 中 background-image 使用变量"></a>react 中 background-image 使用变量</h2><p>当尝试赋值给 backgroundImage 带空格的 url 时设置值会无效<br>尝试把空格转义，然后设置给 backgroundImage 就没问题了<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">img = img.replace(<span class="regexp">/\s/g</span>, <span class="built_in">encodeURIComponent</span>(<span class="string">' '</span>))</span><br><span class="line">&lt;div className=<span class="string">"infoImg"</span> style=&#123;&#123;<span class="attr">backgroundImage</span>:&#123;<span class="string">"url("</span>+img+<span class="string">")"</span>&#125;&#125;&#125;&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="使用-babel7-更新依赖"><a href="#使用-babel7-更新依赖" class="headerlink" title="使用 babel7 更新依赖"></a>使用 babel7 更新依赖</h2><p>使用了babel7.0以上的版本，依赖不再是安装 babel-core 这种，命名空间改为了 @babel-core<br>所有原来的依赖都要更改为新的命名空间<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&quot;@babel/core&quot;: &quot;^7.1.2&quot;,</span><br><span class="line">&quot;@babel/preset-env&quot;: &quot;^7.1.5&quot;,</span><br></pre></td></tr></table></figure></p>
+<p>babel 升级工具修改配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npx babel-upgrade --write</span><br><span class="line"></span><br><span class="line"># 或是安装 babel-upgrade -g</span><br><span class="line">npm install babel-upgrade -g</span><br><span class="line">babel-upgrade --write</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/技术帖/" rel="tag"># 技术帖</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/08/浅谈成为程序猿的心路历程/" rel="next" title="浅谈成为程序猿的心路历程">
+                <i class="fa fa-chevron-left"></i> 浅谈成为程序猿的心路历程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/26/Javascript 交换变量的几种方法/" rel="prev" title="Javascript 交换变量的几种方法">
+                Javascript 交换变量的几种方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://or7tt6rug.bkt.clouddn.com/avatar.png"
+                alt="Kerminate" />
+            
+              <p class="site-author-name" itemprop="name">Kerminate</p>
+              <p class="site-description motion-element" itemprop="description">一个喜欢篮球的程序猿.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/Kerminate" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:kepeilin@outlook.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/Kerminate" target="_blank" title="Twitter">
+                    
+                      <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://weibo.com/5955228776/profile" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lazzzis.github.io/" title="lazzzis" target="_blank">lazzzis</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://mengrenzi.com/" title="MRZ's Blog" target="_blank">MRZ's Blog</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#坑点"><span class="nav-number">1.</span> <span class="nav-text">坑点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面试题"><span class="nav-number">2.</span> <span class="nav-text">面试题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack中css预处理器的配置"><span class="nav-number">3.</span> <span class="nav-text">webpack中css预处理器的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用node和chrome调试"><span class="nav-number">4.</span> <span class="nav-text">使用node和chrome调试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用npm启动项目-查看端口占用"><span class="nav-number">5.</span> <span class="nav-text">使用npm启动项目(查看端口占用)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mongoose-里保存-mixed-类型的数据"><span class="nav-number">6.</span> <span class="nav-text">mongoose 里保存 mixed 类型的数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#react-中批量导入图片"><span class="nav-number">7.</span> <span class="nav-text">react 中批量导入图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux-命令行常用快捷键"><span class="nav-number">8.</span> <span class="nav-text">linux 命令行常用快捷键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux-常用指令"><span class="nav-number">9.</span> <span class="nav-text">linux 常用指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#npm-部分操作"><span class="nav-number">10.</span> <span class="nav-text">npm 部分操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reset-css"><span class="nav-number">11.</span> <span class="nav-text">reset.css</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-proxy-代替-Object-defineProperty"><span class="nav-number">12.</span> <span class="nav-text">使用 proxy 代替 Object.defineProperty</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reduce-函数使用技巧"><span class="nav-number">13.</span> <span class="nav-text">reduce 函数使用技巧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#极简版函数柯里化"><span class="nav-number">14.</span> <span class="nav-text">极简版函数柯里化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MAC-操作-mariadb"><span class="nav-number">15.</span> <span class="nav-text">MAC 操作 mariadb</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-sequelize-cli-闯将数据表"><span class="nav-number">16.</span> <span class="nav-text">使用 sequelize-cli 闯将数据表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#brew-的基本操作"><span class="nav-number">17.</span> <span class="nav-text">brew 的基本操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#react-中-background-image-使用变量"><span class="nav-number">18.</span> <span class="nav-text">react 中 background-image 使用变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-babel7-更新依赖"><span class="nav-number">19.</span> <span class="nav-text">使用 babel7 更新依赖</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kerminate</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+    <i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+      本站总访问量 <span id="busuanzi_value_site_pv"></span>次  </span>由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://Kerminate.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2018/01/03/项目中遇到过的问题与技巧/';
+          this.page.identifier = '2018/01/03/项目中遇到过的问题与技巧/';
+          this.page.title = '项目中遇到过的问题与技巧';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://Kerminate.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("sL0C4Wm24YmFljxp9tAdcUmg-gzGzoHsz", "n57GxQF4055NmnaWWlGEaIvo");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  
+  <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("sL0C4Wm24YmFljxp9tAdcUmg-gzGzoHsz", "n57GxQF4055NmnaWWlGEaIvo");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = '0 ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+});
+</script>
+
+  
+
+</body>
+</html>
