@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Blog | Kerminate">
 <meta property="og:description" content="最近七牛云回收了测试域名，导致我在上面存的一些图片资源都访问不了。由于疏忽，之前没有注意到七牛云回收测试域名的邮件，导致现在在七牛云上也无法将图片资源下载到本地，传到其他的云上。遂发起工单，终于找到了解决办法。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-19T11:38:30.701Z">
+<meta property="og:updated_time" content="2018-11-21T03:28:30.660Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="七牛云回收测试域名后将图片下载到本地的解决办法">
 <meta name="twitter:description" content="最近七牛云回收了测试域名，导致我在上面存的一些图片资源都访问不了。由于疏忽，之前没有注意到七牛云回收测试域名的邮件，导致现在在七牛云上也无法将图片资源下载到本地，传到其他的云上。遂发起工单，终于找到了解决办法。">
@@ -326,7 +326,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  652
+                  852
                 </span>
               
 
@@ -381,6 +381,11 @@
 <p>files 的路径为 <code>/Users/kepeilin/Documents/kpl/cdn-images/files</code><br>将七牛云空间里的所有文件名保存到 files 里<br>接着写一个 shell 文件批量下载图片, <code>vim download.sh</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for line in `cat /Users/kepeilin/Documents/kpl/cdn-images/files`</span><br><span class="line">do</span><br><span class="line">    qrsctl get blog $line ./images/$line</span><br><span class="line">done</span><br></pre></td></tr></table></figure></p>
 <p>回到 <code>/Users/kepeilin/Documents/kpl/cdn-images</code> 执行 <code>./download.sh</code><br>等到所有的 info 信息结束之后，所有的文件都被保存到 <code>/Users/kepeilin/Documents/kpl/cdn-images/images</code> 目录下</p>
 <p>我们发现该目录下多了一些没用的文件，将它们删除<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm *.(jpg1|jpg2|jpeg1|jpeg2|png1|png2|gif1|gif2|pdf1|pdf2|mp41|mp42)</span><br></pre></td></tr></table></figure></p>
+<h2 id="使用-sm-ms-取代七牛云"><a href="#使用-sm-ms-取代七牛云" class="headerlink" title="使用 sm.ms 取代七牛云"></a>使用 sm.ms 取代七牛云</h2><p>目前七牛云每次新建一个空间只能使用30天的测试域名，30天之后就会回收，除非绑定域名。而这个域名必须进行 ICP 备案，很遗憾我的域名是国外域名，而且 2018 年工信部发了通知今年开始国外域名无法进行 ICP 备案，所以只能放弃七牛云。</p>
+<blockquote>
+<p>这边推荐一个免费的图床网站 <a href="http://sm.ms/" target="_blank" rel="noopener">sm.ms</a>，无外链限制，无流量限制</p>
+</blockquote>
+<p>不过由于没有区分用户，使用该图床不好管理自己的上传图片，所以我再安利一个图片管理工具 <strong><a href="https://github.com/Molunerfinn/PicGo" target="_blank" rel="noopener">PicGo</a></strong><br>windows,linux,mac版本都有，进入 github 依照自己的环境下载最新版本的 release 包即可</p>
 
       
     </div>
@@ -602,7 +607,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载-qshell-和-qrsctl"><span class="nav-number">1.</span> <span class="nav-text">下载 qshell 和 qrsctl</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#登录账号"><span class="nav-number">2.</span> <span class="nav-text">登录账号</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#qshell-登录"><span class="nav-number">2.1.</span> <span class="nav-text">qshell 登录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#qrsctl-登录"><span class="nav-number">2.2.</span> <span class="nav-text">qrsctl 登录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将图片下载到本地"><span class="nav-number">3.</span> <span class="nav-text">将图片下载到本地</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#批量下载图片"><span class="nav-number">3.1.</span> <span class="nav-text">批量下载图片</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载-qshell-和-qrsctl"><span class="nav-number">1.</span> <span class="nav-text">下载 qshell 和 qrsctl</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#登录账号"><span class="nav-number">2.</span> <span class="nav-text">登录账号</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#qshell-登录"><span class="nav-number">2.1.</span> <span class="nav-text">qshell 登录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#qrsctl-登录"><span class="nav-number">2.2.</span> <span class="nav-text">qrsctl 登录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将图片下载到本地"><span class="nav-number">3.</span> <span class="nav-text">将图片下载到本地</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#批量下载图片"><span class="nav-number">3.1.</span> <span class="nav-text">批量下载图片</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-sm-ms-取代七牛云"><span class="nav-number">4.</span> <span class="nav-text">使用 sm.ms 取代七牛云</span></a></li></ol></div>
             
 
           </div>
