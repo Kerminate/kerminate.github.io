@@ -165,6 +165,14 @@ git pull upstream master
 git push
 ```
 
+### .gitignore 失效
+由于 .gitignore 只能忽略那些原来没有被track的文件，如果某些文件已经被纳入了版本管理中，则修改 .gitignore 是无效的。 要解决这个问题，需要先把本地缓存删除（改变成未track状态），然后再提交。
+```
+git rm -r --cached .
+git add -A
+git commit -m "feat: ignore xxx files"
+```
+
 ## 6. 遇到的问题
 本地创建一个分支推到远端之后，如果远端代码更新，执行 `git pull` 会失败，如图
 ![](https://i.loli.net/2018/11/20/5bf3a7c5d3183.png)
