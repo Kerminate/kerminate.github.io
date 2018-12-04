@@ -23,6 +23,7 @@ git branch -a  // 显示所有分支(本地和远程)
 git checkout master  // 切换到 master 分支
 git merge dev  // 将 dev 分支合并到 master 分支
 git branch -d dev  // 将本地的 dev 分支删除
+git branch -D dev  // 强制将本地 dev 分支删除（未解决冲突等）
 git push origin -d dev  // 将远端的 dev 分支删除
 ```
 
