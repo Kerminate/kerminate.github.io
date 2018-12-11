@@ -5,6 +5,9 @@
   "hexo": {
     "version": "3.8.0"
   },
+  "scripts": {
+    "freshtall": "npm cache clean --force && rm -rf node_modules && rm -f package-lock.json && npm install"
+  },
   "dependencies": {
     "hexo": "^3.8.0",
     "hexo-deployer-git": "^0.3.1",
