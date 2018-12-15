@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="前端,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -79,18 +79,21 @@
 
 
 
-<meta name="description" content="先通过下面代码看 undefined, null, {}, [], &amp;#39;&amp;#39;, 0 的布尔值和类型">
-<meta name="keywords" content="前端">
+<meta name="description" content="在 WEB 开发中服务端和客户端的交互至关重要，客户端可以使用原生的 XMLHttpRequest 对象，服务端也可以使用 node 自带的 http 模块，而现在也有相当多的 第三方库来供我们使用。这里，我简要对一些流行的库或原生方法进行对比，并得出我们的最佳选择。 主流的 ajax/http 方法库的兼容性和特性如上图所示。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Javascript 判断 undefined, null, {}, [], &#39;, 0">
-<meta property="og:url" content="http://yoursite.com/2018/03/02/Javascript 判断 undefined-null/index.html">
+<meta property="og:title" content="对比各类 ajax&#x2F;http 库及最佳选择">
+<meta property="og:url" content="http://yoursite.com/2018/12/15/对比各类-ajax-http-库及最佳选择/index.html">
 <meta property="og:site_name" content="Blog | Kerminate">
-<meta property="og:description" content="先通过下面代码看 undefined, null, {}, [], &amp;#39;&amp;#39;, 0 的布尔值和类型">
+<meta property="og:description" content="在 WEB 开发中服务端和客户端的交互至关重要，客户端可以使用原生的 XMLHttpRequest 对象，服务端也可以使用 node 自带的 http 模块，而现在也有相当多的 第三方库来供我们使用。这里，我简要对一些流行的库或原生方法进行对比，并得出我们的最佳选择。 主流的 ajax/http 方法库的兼容性和特性如上图所示。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-18T03:03:45.000Z">
+<meta property="og:image" content="https://i.loli.net/2018/12/15/5c14e2873d36c.png">
+<meta property="og:image" content="https://i.loli.net/2018/12/15/5c14e26f88e38.png">
+<meta property="og:image" content="https://i.loli.net/2018/12/15/5c14e27b45da8.png">
+<meta property="og:updated_time" content="2018-12-15T11:35:12.003Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Javascript 判断 undefined, null, {}, [], &#39;, 0">
-<meta name="twitter:description" content="先通过下面代码看 undefined, null, {}, [], &amp;#39;&amp;#39;, 0 的布尔值和类型">
+<meta name="twitter:title" content="对比各类 ajax&#x2F;http 库及最佳选择">
+<meta name="twitter:description" content="在 WEB 开发中服务端和客户端的交互至关重要，客户端可以使用原生的 XMLHttpRequest 对象，服务端也可以使用 node 自带的 http 模块，而现在也有相当多的 第三方库来供我们使用。这里，我简要对一些流行的库或原生方法进行对比，并得出我们的最佳选择。 主流的 ajax/http 方法库的兼容性和特性如上图所示。">
+<meta name="twitter:image" content="https://i.loli.net/2018/12/15/5c14e2873d36c.png">
 
 
 
@@ -120,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/02/Javascript 判断 undefined-null/">
+  <link rel="canonical" href="http://yoursite.com/2018/12/15/对比各类-ajax-http-库及最佳选择/">
 
 
 
 
 
-  <title>Javascript 判断 undefined, null, {}, [], ', 0 | Blog | Kerminate</title>
+  <title>对比各类 ajax/http 库及最佳选择 | Blog | Kerminate</title>
   
 
 
@@ -243,7 +246,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/02/Javascript 判断 undefined-null/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/15/对比各类-ajax-http-库及最佳选择/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kerminate">
@@ -260,7 +263,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Javascript 判断 undefined, null, {}, [], ', 0</h1>
+          <h1 class="post-title" itemprop="name headline">对比各类 ajax/http 库及最佳选择</h1>
         
 
         <div class="post-meta">
@@ -272,8 +275,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-02T18:51:50+08:00">
-                2018-03-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-15T14:41:55+08:00">
+                2018-12-15
               </time>
             
 
@@ -291,8 +294,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/03/02/Javascript 判断 undefined-null/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/03/02/Javascript 判断 undefined-null/" itemprop="commentCount"></span>
+                <a href="/2018/12/15/对比各类-ajax-http-库及最佳选择/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/12/15/对比各类-ajax-http-库及最佳选择/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -300,7 +303,7 @@
 
           
           
-             <span id="/2018/03/02/Javascript 判断 undefined-null/" class="leancloud_visitors" data-flag-title="Javascript 判断 undefined, null, {}, [], ', 0">
+             <span id="/2018/12/15/对比各类-ajax-http-库及最佳选择/" class="leancloud_visitors" data-flag-title="对比各类 ajax/http 库及最佳选择">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -325,7 +328,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  560
+                  1,208
                 </span>
               
 
@@ -341,7 +344,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  5
                 </span>
               
             </div>
@@ -362,15 +365,67 @@
       
 
       
-        <p>先通过下面代码看 <code>undefined</code>, <code>null</code>, <code>{}</code>, <code>[]</code>, <code>&#39;&#39;</code>, <code>0</code> 的布尔值和类型<br><a id="more"></a><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="literal">null</span></span><br><span class="line"><span class="keyword">let</span> b = &#123;&#125;</span><br><span class="line"><span class="keyword">let</span> c = []</span><br><span class="line"><span class="keyword">let</span> d = <span class="string">''</span></span><br><span class="line"><span class="keyword">let</span> e = <span class="number">0</span></span><br><span class="line"><span class="keyword">let</span> f</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(!a) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(!b) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(!c) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(!d) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(!e) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(!f) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> a) <span class="comment">// object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> b) <span class="comment">// object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> c) <span class="comment">// object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> d) <span class="comment">// string</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> e) <span class="comment">// number</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> f) <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a == <span class="literal">null</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(b == <span class="literal">null</span>) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(c == <span class="literal">null</span>) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(d == <span class="literal">null</span>) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(e == <span class="literal">null</span>) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(f == <span class="literal">null</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(f === <span class="literal">undefined</span>) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.isArray(a)) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.isArray(b)) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.isArray(c)) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.isArray(d)) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.isArray(e)) <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(a)) <span class="comment">// [object Null]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(b)) <span class="comment">// [object Object]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(c)) <span class="comment">// [object Array]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(d)) <span class="comment">// [object String]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(e)) <span class="comment">// [object Number]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(f)) <span class="comment">// [object Undefined]</span></span><br></pre></td></tr></table></figure></p>
-<p>从上面代码得出判断过程</p>
+        <p>在 WEB 开发中服务端和客户端的交互至关重要，客户端可以使用原生的 XMLHttpRequest 对象，服务端也可以使用 node 自带的 http 模块，而现在也有相当多的 第三方库来供我们使用。这里，我简要对一些流行的库或原生方法进行对比，并得出我们的最佳选择。</p>
+<p><img src="https://i.loli.net/2018/12/15/5c14e2873d36c.png" alt=""><br>主流的 ajax/http 方法库的兼容性和特性如上图所示。<br><a id="more"></a></p>
+<h2 id="XMLHttpRequest"><a href="#XMLHttpRequest" class="headerlink" title="XMLHttpRequest"></a>XMLHttpRequest</h2><p>JS 实现 AJAX 主要基于浏览器提供的 XMLHttpRequest（XHR）类，所有现代浏览器（IE7+、Firefox、Chrome、Safari 以及 Opera）均内建 XMLHttpRequest 对象。<br>然而，如果在项目中使用原生的 XMLHttpRequest，需要手动封装很多方法，使用起来相对麻烦。</p>
+<h2 id="JQuery"><a href="#JQuery" class="headerlink" title="JQuery"></a>JQuery</h2><p>JQuery 很好地封装了原生 AJAX 的代码，在 IE5，IE6上使用 ActiveX 对象来实现 Ajax，其他浏览器上都是使用 XMLHttpRequest。它在兼容性和易用性方面都做了很大的提高，让 AJAX 的调用变得非常简单。<br>但是随着前端浪潮的发展，它的缺点也暴露了出来。</p>
 <ul>
-<li>先判断这些变量的布尔值, 其中 <code>null</code> , <code>undefined</code> , <code>0</code> 和 <code>&#39;&#39;</code> 的布尔值都为 <code>false</code></li>
-<li>再通过判断它们的类型, <code>null</code> 的类型为 <code>object</code>, <code>undefined</code> 的类型为 <code>undefined</code>, <code>0</code> 为 <code>number</code>, <code>&#39;&#39;</code> 为 <code>string</code></li>
-<li><code>{}</code> 和 <code>[]</code> 的布尔值都为 <code>true</code>, 通过 <code>Array.isArray</code> 方法判断是数组还是对象</li>
-<li>最简单的方法是通过 <code>Object.prototype.toString.call()</code> 直接判断</li>
+<li>XMLHttpRequest 不符合关注分离的原则，配置和调用方式非常混乱</li>
+<li>需要手动包一层 Promise，才能方便在现有项目开发</li>
+<li>JQuery 整个项目太大，单纯使用 ajax 却要引入整个 JQuery 非常的不合理</li>
 </ul>
-<p>顺便看一下各个数据类型 <code>typeof</code> 和 <code>instanceof</code> 的输出结果<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;&#125;</span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line"><span class="keyword">let</span> num1 = <span class="number">1</span></span><br><span class="line"><span class="keyword">let</span> num2 = <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">let</span> str1 = <span class="string">'string'</span></span><br><span class="line"><span class="keyword">let</span> str2 = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'string'</span>)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span> (<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> obj) <span class="comment">// object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> arr) <span class="comment">// object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> num1) <span class="comment">// number</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> num2) <span class="comment">// object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> str1) <span class="comment">// string</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> str2) <span class="comment">// object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> fun) <span class="comment">// function</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="literal">undefined</span>) <span class="comment">// undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="literal">null</span>) <span class="comment">// object</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj <span class="keyword">instanceof</span> <span class="built_in">Object</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(arr <span class="keyword">instanceof</span> <span class="built_in">Array</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(arr <span class="keyword">instanceof</span> <span class="built_in">Object</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(num1 <span class="keyword">instanceof</span> <span class="built_in">Number</span>) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(num1 <span class="keyword">instanceof</span> <span class="built_in">Object</span>) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(num2 <span class="keyword">instanceof</span> <span class="built_in">Number</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(num2 <span class="keyword">instanceof</span> <span class="built_in">Object</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(str1 <span class="keyword">instanceof</span> <span class="built_in">String</span>) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(str1 <span class="keyword">instanceof</span> <span class="built_in">Object</span>) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(str2 <span class="keyword">instanceof</span> <span class="built_in">String</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(str2 <span class="keyword">instanceof</span> <span class="built_in">Object</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(fun <span class="keyword">instanceof</span> <span class="built_in">Object</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(fun <span class="keyword">instanceof</span> <span class="built_in">Function</span>) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">undefined</span> <span class="keyword">instanceof</span> <span class="built_in">Object</span>) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">null</span> <span class="keyword">instanceof</span> <span class="built_in">Object</span>) <span class="comment">// false</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="Node-HTTP"><a href="#Node-HTTP" class="headerlink" title="Node HTTP"></a>Node HTTP</h2><p>http 属于 node 原生的模块之一，这个模块现在主要用在启动 http server 的服务，它也有 request 和 get 的方法，能够完成基本的 http 请求交互，不过它提供的是相对底层的 API，且还是 callback 形式，需要自己手动封装一层 Promise。</p>
+<h2 id="fetch"><a href="#fetch" class="headerlink" title="fetch"></a>fetch</h2><p>fetch 作为 HTML5 的新特性，主要用来代替 XMLHttpRequest。优缺点也很明显</p>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>符合关注分离，没有将输入、输出和用事件来跟踪的状态混杂在一个对象里</li>
+<li>更好更方便的写法</li>
+<li>更加底层，提供的API丰富</li>
+<li>支持 Promise，避免了 callback</li>
+</ul>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li>在浏览器的兼容性不太好</li>
+<li>只对网络请求报错，对400，500都当做成功的请求，需要封装去处理</li>
+<li>默认不会带 cookie，需要添加配置项</li>
+<li>原生不支持 abort，不支持超时控制</li>
+<li>没有办法原生监测请求的进度</li>
+</ul>
+<h2 id="fetch-扩展库"><a href="#fetch-扩展库" class="headerlink" title="fetch 扩展库"></a>fetch 扩展库</h2><p>为了解决原生 fetch 使用环境的问题，fetch 也扩展了很多库</p>
+<h3 id="fetch-polyfill"><a href="#fetch-polyfill" class="headerlink" title="fetch polyfill"></a>fetch polyfill</h3><p>为了解决 fetch 各大浏览器的兼容性问题，fetch 官方推出了它的 polyfill 包。安装方法如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install whatwg-fetch --save</span><br></pre></td></tr></table></figure></p>
+<h3 id="node-fetch"><a href="#node-fetch" class="headerlink" title="node-fetch"></a>node-fetch</h3><p>能够支持 fetch 在 Node 环境使用。安装方法如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install node-fetch --save</span><br></pre></td></tr></table></figure></p>
+<h3 id="isomorphic-fetch"><a href="#isomorphic-fetch" class="headerlink" title="isomorphic-fetch"></a>isomorphic-fetch</h3><p>能同时使用在各大浏览器和 Node 环境。安装方法如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save isomorphic-fetch es6-promise</span><br></pre></td></tr></table></figure></p>
+<h2 id="Superagent"><a href="#Superagent" class="headerlink" title="Superagent"></a>Superagent</h2><p>Superagent 是一个基于 Promise 的轻量级渐进式 AJAX API，它既适用于 Node，也适用于所有现代浏览器。</p>
+<h3 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>同时支持 Node.js 和浏览器</li>
+<li>它有一个插件生态，通过构建插件可以实现更多功能</li>
+<li>可配置</li>
+<li>支持显示上传和下载进度</li>
+<li>支持分块传输编码</li>
+</ul>
+<h3 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li>其 API 不符合任何标准</li>
+</ul>
+<h2 id="axios"><a href="#axios" class="headerlink" title="axios"></a>axios</h2><p>Axios 是一个基于 Promise 的 HTTP 库，可用在 Node.js 和浏览器上发起 HTTP 请求，支持所有现代浏览器，甚至包括 IE8+！在浏览器端它通过 xhr 方式创建ajax 请求，在 node环境 下，通过 http 库创建网络请求。</p>
+<h3 id="优点-2"><a href="#优点-2" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>同时支持 Node.js 和浏览器</li>
+<li>支持 Promise API</li>
+<li>可以配置或取消请求</li>
+<li>可以设置响应超时</li>
+<li>支持防止跨站点请求伪造（CSRF）攻击</li>
+<li>可以拦截未执行的请求或响应</li>
+<li>支持显示上传进度</li>
+</ul>
+<h2 id="request"><a href="#request" class="headerlink" title="request"></a>request</h2><p>广泛用于 Node.js，但是不能使用在浏览器环境。缺点是不能基于 Promise，所以官方也出了不少 request 的扩展库</p>
+<ul>
+<li>request-promise (uses Bluebird Promises)</li>
+<li>request-promise-native (uses native Promises)</li>
+<li>request-promise-any (uses any-promise Promises)</li>
+</ul>
+<h2 id="数据统计"><a href="#数据统计" class="headerlink" title="数据统计"></a>数据统计</h2><p>近2年，以上库 npm 的下载量对比图如下</p>
+<p><img src="https://i.loli.net/2018/12/15/5c14e26f88e38.png" alt=""></p>
+<p>Github 上仓库的信息</p>
+<p><img src="https://i.loli.net/2018/12/15/5c14e27b45da8.png" alt=""></p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>我们分析了最受欢迎的一些 HTTP 库，问题在于我应该使用哪一个是取决于你的项目。没有正确或者错误的选择，只有为项目选择更适合的工具。在这里，<br>我个人推荐使用 axios 库，不仅在于它能同时支持 Node 和各大浏览器，还包括它强大的功能，以及简单易上手的特性，且已经广泛运用在了 React/Vue 的项目，增长趋势也相当明显。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.javascriptstuff.com/ajax-libraries/" target="_blank" rel="noopener">AJAX/HTTP Library Comparison</a><br><a href="https://blog.bitsrc.io/comparing-http-request-libraries-for-2019-7bedb1089c83" target="_blank" rel="noopener">Comparing JavaScript HTTP Requests Libraries for 2019</a><br><a href="https://blog.csdn.net/twodogya/article/details/80223508" target="_blank" rel="noopener">ajax、axios、fetch之间的详细区别以及优缺点</a><br><a href="https://zhuanlan.zhihu.com/p/52235130" target="_blank" rel="noopener">JS HTTP 请求库哪家强？Axios？Request？Superagent？</a><br><a href="https://zhuanlan.zhihu.com/p/24594294" target="_blank" rel="noopener">AJAX 之 XHR, jQuery, Fetch 的对比</a></p>
 
       
     </div>
@@ -386,12 +441,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/前端/" rel="tag"># 前端</a>
-          
-        </div>
-      
 
       
       
@@ -401,8 +450,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/01/Javascript 实现双向链表/" rel="next" title="Javascript 实现双向链表">
-                <i class="fa fa-chevron-left"></i> Javascript 实现双向链表
+              <a href="/2018/12/12/npm-管理依赖包/" rel="next" title="npm 管理依赖包">
+                <i class="fa fa-chevron-left"></i> npm 管理依赖包
               </a>
             
           </div>
@@ -410,10 +459,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/02/使网页中 div 元素居中-垂直居中-水平居中-的方法/" rel="prev" title="使网页中 div 元素居中(垂直居中+水平居中)的方法">
-                使网页中 div 元素居中(垂直居中+水平居中)的方法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -475,8 +520,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -575,6 +629,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#XMLHttpRequest"><span class="nav-number">1.</span> <span class="nav-text">XMLHttpRequest</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JQuery"><span class="nav-number">2.</span> <span class="nav-text">JQuery</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-HTTP"><span class="nav-number">3.</span> <span class="nav-text">Node HTTP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fetch"><span class="nav-number">4.</span> <span class="nav-text">fetch</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#优点"><span class="nav-number">4.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点"><span class="nav-number">4.2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fetch-扩展库"><span class="nav-number">5.</span> <span class="nav-text">fetch 扩展库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#fetch-polyfill"><span class="nav-number">5.1.</span> <span class="nav-text">fetch polyfill</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#node-fetch"><span class="nav-number">5.2.</span> <span class="nav-text">node-fetch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#isomorphic-fetch"><span class="nav-number">5.3.</span> <span class="nav-text">isomorphic-fetch</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Superagent"><span class="nav-number">6.</span> <span class="nav-text">Superagent</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#优点-1"><span class="nav-number">6.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点-1"><span class="nav-number">6.2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#axios"><span class="nav-number">7.</span> <span class="nav-text">axios</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#优点-2"><span class="nav-number">7.1.</span> <span class="nav-text">优点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#request"><span class="nav-number">8.</span> <span class="nav-text">request</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据统计"><span class="nav-number">9.</span> <span class="nav-text">数据统计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结论"><span class="nav-number">10.</span> <span class="nav-text">结论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">11.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -742,9 +812,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2018/03/02/Javascript 判断 undefined-null/';
-          this.page.identifier = '2018/03/02/Javascript 判断 undefined-null/';
-          this.page.title = 'Javascript 判断 undefined, null, {}, [], \', 0';
+          this.page.url = 'http://yoursite.com/2018/12/15/对比各类-ajax-http-库及最佳选择/';
+          this.page.identifier = '2018/12/15/对比各类-ajax-http-库及最佳选择/';
+          this.page.title = '对比各类 ajax/http 库及最佳选择';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://Kerminate.disqus.com/embed.js';
