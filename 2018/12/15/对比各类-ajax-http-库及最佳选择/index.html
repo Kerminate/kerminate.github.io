@@ -89,7 +89,7 @@
 <meta property="og:image" content="https://i.loli.net/2018/12/15/5c14e2873d36c.png">
 <meta property="og:image" content="https://i.loli.net/2018/12/15/5c14e26f88e38.png">
 <meta property="og:image" content="https://i.loli.net/2018/12/15/5c14e27b45da8.png">
-<meta property="og:updated_time" content="2018-12-15T11:35:12.003Z">
+<meta property="og:updated_time" content="2018-12-16T10:54:25.914Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="对比各类 ajax&#x2F;http 库及最佳选择">
 <meta name="twitter:description" content="在 WEB 开发中服务端和客户端的交互至关重要，客户端可以使用原生的 XMLHttpRequest 对象，服务端也可以使用 node 自带的 http 模块，而现在也有相当多的 第三方库来供我们使用。这里，我简要对一些流行的库或原生方法进行对比，并得出我们的最佳选择。 主流的 ajax/http 方法库的兼容性和特性如上图所示。">
@@ -328,7 +328,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,208
+                  1,243
                 </span>
               
 
@@ -393,7 +393,7 @@
 <h3 id="fetch-polyfill"><a href="#fetch-polyfill" class="headerlink" title="fetch polyfill"></a>fetch polyfill</h3><p>为了解决 fetch 各大浏览器的兼容性问题，fetch 官方推出了它的 polyfill 包。安装方法如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install whatwg-fetch --save</span><br></pre></td></tr></table></figure></p>
 <h3 id="node-fetch"><a href="#node-fetch" class="headerlink" title="node-fetch"></a>node-fetch</h3><p>能够支持 fetch 在 Node 环境使用。安装方法如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install node-fetch --save</span><br></pre></td></tr></table></figure></p>
 <h3 id="isomorphic-fetch"><a href="#isomorphic-fetch" class="headerlink" title="isomorphic-fetch"></a>isomorphic-fetch</h3><p>能同时使用在各大浏览器和 Node 环境。安装方法如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save isomorphic-fetch es6-promise</span><br></pre></td></tr></table></figure></p>
-<h2 id="Superagent"><a href="#Superagent" class="headerlink" title="Superagent"></a>Superagent</h2><p>Superagent 是一个基于 Promise 的轻量级渐进式 AJAX API，它既适用于 Node，也适用于所有现代浏览器。</p>
+<h2 id="Superagent"><a href="#Superagent" class="headerlink" title="Superagent"></a>Superagent</h2><p>Superagent 是一个基于 Promise 的轻量级渐进式 AJAX API，它既适用于 Node，也适用于所有现代浏览器。安装方式如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install superagent --save</span><br></pre></td></tr></table></figure></p>
 <h3 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h3><ul>
 <li>同时支持 Node.js 和浏览器</li>
 <li>它有一个插件生态，通过构建插件可以实现更多功能</li>
@@ -404,7 +404,7 @@
 <h3 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h3><ul>
 <li>其 API 不符合任何标准</li>
 </ul>
-<h2 id="axios"><a href="#axios" class="headerlink" title="axios"></a>axios</h2><p>Axios 是一个基于 Promise 的 HTTP 库，可用在 Node.js 和浏览器上发起 HTTP 请求，支持所有现代浏览器，甚至包括 IE8+！在浏览器端它通过 xhr 方式创建ajax 请求，在 node环境 下，通过 http 库创建网络请求。</p>
+<h2 id="axios"><a href="#axios" class="headerlink" title="axios"></a>axios</h2><p>Axios 是一个基于 Promise 的 HTTP 库，可用在 Node.js 和浏览器上发起 HTTP 请求，支持所有现代浏览器，甚至包括 IE8+！在浏览器端它通过 xhr 方式创建 ajax 请求，在 node 环境 下，通过 http 库创建网络请求。安装方式如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install axios --save</span><br></pre></td></tr></table></figure></p>
 <h3 id="优点-2"><a href="#优点-2" class="headerlink" title="优点"></a>优点</h3><ul>
 <li>同时支持 Node.js 和浏览器</li>
 <li>支持 Promise API</li>
@@ -414,7 +414,8 @@
 <li>可以拦截未执行的请求或响应</li>
 <li>支持显示上传进度</li>
 </ul>
-<h2 id="request"><a href="#request" class="headerlink" title="request"></a>request</h2><p>广泛用于 Node.js，但是不能使用在浏览器环境。缺点是不能基于 Promise，所以官方也出了不少 request 的扩展库</p>
+<h2 id="request"><a href="#request" class="headerlink" title="request"></a>request</h2><p>广泛用于 Node.js，但是不能使用在浏览器环境。安装方式如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install request --save</span><br></pre></td></tr></table></figure></p>
+<p>它的缺点是不能基于 Promise，所以官方也出了不少 request 的扩展库</p>
 <ul>
 <li>request-promise (uses Bluebird Promises)</li>
 <li>request-promise-native (uses native Promises)</li>
