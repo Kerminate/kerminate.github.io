@@ -61,6 +61,7 @@ ren → render method
 ![](https://i.loli.net/2018/11/19/5bf28a0b2f973.gif)
 - Document This: 自动补全函数的 JSDoc 注释 (Ctrl + Alt + D)
 - koroFileHeader 自动补全函数的注释和文件头的注释
+- Settings Sync 上传 vscode 配置，可在多台电脑上同步配置
 
 # 快捷键
 - Command + d 选中一个单词后，使用该快捷键再选中下一个相同单词，可以一直下去
