@@ -27,7 +27,7 @@ tags: 工具
   "editor.tabSize": 2,
   "editor.formatOnPaste": false,
   "editor.formatOnSave": false
-},
+}
 ```
 使用 eslint 格式化代码, 我使用了 standard 风格的 eslint
 ```json
@@ -44,24 +44,47 @@ tags: 工具
     ".vue"
   ]
 },
-"standard.autoFixOnSave": true,
+"standard.autoFixOnSave": true
 ```
 在项目中新增 .eslintrc 文件，里面的规则会覆盖在编辑器设置的规则，所以不用担心你个人的eslint配置会影响到项目
 保证开启 eslint 的 autoFixOnSave，Ctrl + S 效果如下
 
 ![](https://i.loli.net/2018/11/20/5bf3a7c44ec80.gif)
 
+使对应扩展名的文件使用特定的语言
+```json
+"files.associations": {
+  "*.tpl": "html",
+  "*.cjson": "jsonc",
+  "*.wxss": "css",
+  "*.wxs": "javascript",
+  ".**rc": "json",
+  ".sequelizerc": "javascript"
+}
+```
+
+全局搜索中排除的文件
+```json
+"search.exclude": {
+  "**/node_modules": true,
+  "**/bower_components": true,
+  "**/dist": true,
+  "**/dest": true
+}
+```
+
 # 插件
-- TODO Highlight: TODO 高亮
-- React.js code snippets: react 的 snippets
-- React Standard Style code snippets: 因为我个人偏爱 standard 风格的 eslint，所以使用这款插件做 react 的 snippets 例如
+- **[TODO Highlight](https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight)**: TODO 高亮
+- **[Reactjs code snippets](https://marketplace.visualstudio.com/items?itemName=xabikos.ReactSnippets)**: react 的 snippets
+- **[React Standard Style code snippets](https://marketplace.visualstudio.com/items?itemName=TimonVS.ReactSnippetsStandard)**: 因为我个人偏爱 standard 风格的 eslint，所以使用这款插件做 react 的 snippets 例如
 rcc →	class component skeleton
 ren → render method
 
 ![](https://i.loli.net/2018/11/19/5bf28a0b2f973.gif)
-- Document This: 自动补全函数的 JSDoc 注释 (Ctrl + Alt + D)
-- koroFileHeader 自动补全函数的注释和文件头的注释
-- Settings Sync 上传 vscode 配置，可在多台电脑上同步配置
+- **[Document This](https://marketplace.visualstudio.com/items?itemName=joelday.docthis)**: 自动补全函数的 JSDoc 注释 (Ctrl + Alt + D)
+- **[koroFileHeader](https://marketplace.visualstudio.com/items?itemName=OBKoro1.korofileheader)**: 自动补全函数的注释和文件头的注释
+- **[Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync)**: 上传 vscode 配置，可在多台电脑上同步配置
+- **[Auto Close Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag)**: 自动闭合标签
 
 # 快捷键
 - Command + d 选中一个单词后，使用该快捷键再选中下一个相同单词，可以一直下去
