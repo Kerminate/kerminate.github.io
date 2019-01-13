@@ -93,3 +93,7 @@ ren → render method
 - Alt + → 按照单词移动光标
 - Ctrl + Alt + → 按照单词大小写移动光标
 - Alt + Commond + ↓ 出现多行光标
+
+# 自定义快捷键
+- Command + m 控制 minimap 的出现于隐藏
+- Command + \ 控制 sidebar 的出现于隐藏
