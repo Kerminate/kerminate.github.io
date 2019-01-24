@@ -3,7 +3,7 @@ title: VSCode 插件与配置推荐
 date: 2018-08-24 23:16:35
 tags: 工具
 ---
-在如今的前端时代，工具链已是开发中必不可少的一环。Sublime 的闭源，Atom 的启动性能较差，以及随着 VSCode 的逐渐成熟，已经成为前端开发中必不可少的神奇。
+在如今的前端时代，工具链已是开发中必不可少的一环。Sublime 的闭源，Atom 的启动性能较差，以及随着 VSCode 的逐渐成熟，它已经成为前端开发中必不可少的神器。
 在 VSCode 中，通过配置以及丰富的插件，可以让你在敲代码时有事半功倍的效果。
 
 **持续更新中...**
@@ -85,6 +85,8 @@ ren → render method
 - **[koroFileHeader](https://marketplace.visualstudio.com/items?itemName=OBKoro1.korofileheader)**: 自动补全函数的注释和文件头的注释
 - **[Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync)**: 上传 vscode 配置，可在多台电脑上同步配置
 - **[Auto Close Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag)**: 自动闭合标签
+- **[GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)**: 很强大的看 git blame 和 git history 的插件
+  ![](https://i.loli.net/2019/01/24/5c4957059664f.png)
 
 # 快捷键
 - Command + d 选中一个单词后，使用该快捷键再选中下一个相同单词，可以一直下去
