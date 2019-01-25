@@ -99,3 +99,5 @@ ren → render method
 # 自定义快捷键
 - Command + m 控制 minimap 的出现于隐藏
 - Command + \ 控制 sidebar 的出现于隐藏
+- Command + , 打开设置
+- Command + . 打开用户设置
