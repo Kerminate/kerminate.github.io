@@ -2,6 +2,7 @@
 title: 参加 FreeCodeCamp 2018上海秋季交流会
 date: 2018-09-16 16:24:37
 tags: Conf
+categories: Conf
 ---
 本周六参加了 FreeCodeCamp 的前端交流会，而这也是我第一次参加的线下 Conf，在这里分享一下整个 Conf 大概的内容和自己的收获。
 ![](https://i.loli.net/2018/11/20/5bf3a7a4673ba.png)

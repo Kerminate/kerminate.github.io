@@ -2,6 +2,7 @@
 title: VSCode 插件与配置推荐
 date: 2018-08-24 23:16:35
 tags: 工具
+categories: 工具
 ---
 在如今的前端时代，工具链已是开发中必不可少的一环。Sublime 的闭源，Atom 的启动性能较差，以及随着 VSCode 的逐渐成熟，它已经成为前端开发中必不可少的神器。
 在 VSCode 中，通过配置以及丰富的插件，可以让你在敲代码时有事半功倍的效果。
@@ -87,6 +88,9 @@ ren → render method
 - **[Auto Close Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag)**: 自动闭合标签
 - **[GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)**: 很强大的看 git blame 和 git history 的插件
   ![](https://i.loli.net/2019/01/24/5c4957059664f.png)
+- **[Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer)**: 让括号拥有独立的颜色，易于区分
+- **[Indenticator](https://marketplace.visualstudio.com/items?itemName=SirTori.indenticator)**: 突出目前的缩进深度
+- **[Project Manager](https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager)**: 在多个项目之间快速切换
 
 # 快捷键
 - Command + d 选中一个单词后，使用该快捷键再选中下一个相同单词，可以一直下去
@@ -96,6 +100,7 @@ ren → render method
 - Alt + → 按照单词移动光标
 - Ctrl + Alt + → 按照单词大小写移动光标
 - Alt + Commond + ↓ 出现多行光标
+- Alt + Command + p 快速切换项目
 
 # 自定义快捷键
 - Command + m 控制 minimap 的出现于隐藏

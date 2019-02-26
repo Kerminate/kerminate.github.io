@@ -2,6 +2,7 @@
 title: 详解 Javascript 的原型链与继承(从 ES5 到 ES6)
 date: 2018-02-09 16:39:50
 tags: 前端
+categories: Javascript
 ---
 想要了解 `javascript` 的原型链和继承，就要先从 `javascript` 的对象说起，如何创建一个 `javascript` 对象
 ## 创建对象(ES5)

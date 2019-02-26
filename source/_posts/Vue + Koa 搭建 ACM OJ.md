@@ -2,6 +2,7 @@
 title: Vue + Koa 搭建 ACM OJ
 date: 2018-05-31 11:27:19
 tags: 技术帖
+categories: 技术帖
 ---
 
 花了两个多月时间，我与 [lazzzis](https://github.com/lazzzis) 完成了第二版本的Putong OJ，因为中间忙着春招以及毕业设计等，项目最近才正式上线。

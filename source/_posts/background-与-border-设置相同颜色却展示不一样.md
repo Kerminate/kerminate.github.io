@@ -2,6 +2,7 @@
 title: background 与 border 设置相同颜色却展示不一样
 date: 2018-09-29 10:49:09
 tags: 前端
+categories: CSS
 ---
 这两天在写一个需求的时候发现，当 background 与 border 设置相同时，颜色有时候展示会不一样
 

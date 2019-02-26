@@ -1,7 +1,8 @@
 ---
 title: Koa 使用 Decorator 装饰路由
 date: 2019-01-12 10:40:46
-tags:
+tags: Node
+categories: Node
 ---
 
 ## 引言

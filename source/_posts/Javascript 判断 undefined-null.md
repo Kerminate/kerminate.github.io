@@ -2,6 +2,7 @@
 title: 'Javascript 判断 undefined, null, {}, [], '', 0'
 date: 2018-03-02 18:51:50
 tags: 前端
+categories: Javascript
 ---
 先通过下面代码看 `undefined`, `null`, `{}`, `[]`, `''`, `0` 的布尔值和类型
 <!--more-->

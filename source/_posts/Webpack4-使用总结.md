@@ -2,6 +2,7 @@
 title: Webpack4 使用总结
 date: 2018-11-09 09:41:36
 tags: 技术帖
+categories: 技术帖
 ---
 
 为了让 Tree Shaking 对第三方 npm 包生效，需要通过 mainFields 配置模块的入口描述

@@ -2,6 +2,7 @@
 title: Javascript 实现双向链表
 date: 2018-03-01 19:28:28
 tags: 算法
+categories: 算法
 ---
 `js` 实现双向链表, 双向链表需要增加一个 `previous` 属性
 <!--more-->

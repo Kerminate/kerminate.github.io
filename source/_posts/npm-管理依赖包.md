@@ -1,7 +1,8 @@
 ---
 title: npm 管理依赖包
 date: 2018-12-12 14:46:11
-tags: 技术帖
+tags: Node
+categories: Node
 ---
 由于 npm 包的升级迭代速度很快，经常会出现 npm 依赖包过期或者安全性的问题。
 如果项目是在 github 管理，它会在仓库首页提醒项目中存在有隐患的依赖。

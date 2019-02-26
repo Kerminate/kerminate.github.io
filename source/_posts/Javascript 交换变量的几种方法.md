@@ -2,6 +2,7 @@
 title: Javascript 交换变量的几种方法
 date: 2018-01-26 21:23:25
 tags: 算法
+categories: Javascript
 ---
 
 最近在用 javascript 刷 leetcode 的时候，遇到一道题，需要交换变量的值，突然发现用 js 实现有多种方法，下面简单列举一下：

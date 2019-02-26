@@ -2,6 +2,7 @@
 title: 原生 Javascript 实现(拖拽效果、深拷贝)
 date: 2018-03-16 21:14:33
 tags: 前端
+categories: Javascript
 ---
 
 通过原生的 `onmousedown` `onmousemove` 和 `onmouseup` 事件实现元素的拖拽效果

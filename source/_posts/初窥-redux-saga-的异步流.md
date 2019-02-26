@@ -2,6 +2,7 @@
 title: 初窥 redux-saga 的异步流
 date: 2018-09-21 14:02:51
 tags: 技术帖
+categories: 技术帖
 ---
 redux-saga 和 redux-thunk 是最广为人知的2种 redux 的异步流处理方案。在认识 redux-saga 之前，我们先再看一看 redux-thunk。
 
