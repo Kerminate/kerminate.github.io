@@ -91,6 +91,30 @@ ren → render method
 - **[Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer)**: 让括号拥有独立的颜色，易于区分
 - **[Indenticator](https://marketplace.visualstudio.com/items?itemName=SirTori.indenticator)**: 突出目前的缩进深度
 - **[Project Manager](https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager)**: 在多个项目之间快速切换
+- **[Path Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense)**: 文件地址的只能提示和自动补全
+  若需要在 vue 中识别 `@`, 需要现在 vscode 的 settings.json 配置
+  ```json
+  "path-intellisense.mappings": {
+    "@": "${workspaceRoot}/src"
+  }
+  ```
+  之后项目中新建 jsconfig.json 文件
+  ```json
+  {
+    "compilerOptions": {
+      "target": "ES6",
+      "module": "commonjs",
+      "allowSyntheticDefaultImports": true,
+      "baseUrl": "./",
+      "paths": {
+        "@/*": ["src/*"]
+      }
+    },
+    "exclude": [
+      "node_modules"
+    ]
+  }
+  ```
 
 # 快捷键
 - Command + d 选中一个单词后，使用该快捷键再选中下一个相同单词，可以一直下去
