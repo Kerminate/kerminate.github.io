@@ -90,15 +90,15 @@ class Boy {
   }
 }
 
-function show (language) {
+function speak (language) {
   return function (target, name, descriptor) {
     /**
     *  修饰器内参数的值如下
     *  function (
     *    target: Boy {}
-    *    name: run
+    *    name: show
     *    descriptor: {
-    *      value: [Function: run],
+    *      value: [Function: show],
     *      enumerable: true,
     *      configurable: false,
     *      writable: true
@@ -111,7 +111,7 @@ function show (language) {
 }
 
 const luke = new Boy()
-luke.run() // I can speak 中文
+luke.show() // I can speak 中文
 ```
 
 这里我们就简要介绍一下 Decorator，如果想要深入了解，可以看下阮一峰老师的 **[ES6入门](http://es6.ruanyifeng.com/#docs/decorator)**
