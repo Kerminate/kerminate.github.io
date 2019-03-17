@@ -115,6 +115,8 @@ ren → render method
     ]
   }
   ```
+- **[Import Cost](https://marketplace.visualstudio.com/items?itemName=wix.vscode-import-cost)**: 可以显示导入的包大小
+![](https://i.loli.net/2019/03/15/5c8b9266cbff4.png)
 
 # 快捷键
 - Command + d 选中一个单词后，使用该快捷键再选中下一个相同单词，可以一直下去
