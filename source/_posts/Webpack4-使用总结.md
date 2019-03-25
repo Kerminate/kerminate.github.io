@@ -19,6 +19,7 @@ happypack 升级到 5.x
 postcss-loader 升级到 3.x
 less 升级到 2.x
 less-loader 升级到 3.x
+css-loader 升级到 2.x
 ```
 
 <!-- more -->
