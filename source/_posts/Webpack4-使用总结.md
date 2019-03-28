@@ -99,13 +99,15 @@ if (process.env.npm_config_report) {
 webpack-bundle-analyzer dist/stats.json
 ```
 
+生成的文件上传到 [analyse](http://webpack.github.io/analyse/)，可以分析打包后的文件，module 数量， chunk 数量以及依赖关系等等
+
 ## 其他优化
 ### lodash 按需打包
 lodash 的包特别大，当你只使用了它的某写函数，而将整个包打进去，会导致打进去很多无用的代码
 
 #### 使用子包
 lodash 中的每个函数在 NPM 中都有一个单独的发布模块
-如果你只需要使用 `_.cloneDeep`, 那么只需安装 `lodash.cloneDeep` 模块，然后引入
+如果你只需要使用 `cloneDeep` 方法, 那么只需安装 `lodash.cloneDeep` 模块，然后引入
 ```javascript
 const cloneDeep = require(lodash.cloneDeep)
 const copyObj = cloneDeep(obj)
@@ -132,7 +134,9 @@ module.exports = {
   mode: 'production',
   ...
   plugins: [
-    new LodashModuleReplacementPlugin(),
+    new LodashModuleReplacementPlugin({
+      shorthands: true,
+    }),
   ]
 }
 ```
@@ -167,3 +171,16 @@ module.exports = {
 }
 ```
 以上配置的含义是优先使用 jsnext:main 作为入口，如果不存在 jsnext:main 就采用 browser 或者 main 作为入口。 虽然并不是每个 Npm 中的第三方模块都会提供 ES6 模块化语法的代码，但对于提供了的不能放过，能优化的就优化。
+
+### 排查报错信息
+有时候打包是成功的，但是代码运行有问题，这时候我们需要在打包后的代码里排查问题
+为了识别哪块代码属于哪一个模块，可以通过设置 `pathinfo` 打印出来
+```javascript
+// webpack.config.js
+module.exports = {
+  //...
+  output: {
+    pathinfo: true
+  }
+};
+```
