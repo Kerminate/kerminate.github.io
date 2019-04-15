@@ -87,6 +87,7 @@ ren → render method
 - **[Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync)**: 上传 vscode 配置，可在多台电脑上同步配置
 - **[Auto Close Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag)**: 自动闭合标签
 - **[GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)**: 很强大的看 git blame 和 git history 的插件
+
   ![](https://i.loli.net/2019/01/24/5c4957059664f.png)
 - **[Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer)**: 让括号拥有独立的颜色，易于区分
 - **[Indenticator](https://marketplace.visualstudio.com/items?itemName=SirTori.indenticator)**: 突出目前的缩进深度
@@ -116,7 +117,10 @@ ren → render method
   }
   ```
 - **[Import Cost](https://marketplace.visualstudio.com/items?itemName=wix.vscode-import-cost)**: 可以显示导入的包大小
+
 ![](https://i.loli.net/2019/03/15/5c8b9266cbff4.png)
+- **[DotENV](https://marketplace.visualstudio.com/items?itemName=mikestead.dotenv)**: 支持.env文件语法高亮
+- **[vscode-icons](https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons)**: 为不同文件类型提供相应的图标
 
 # 快捷键
 - Command + d 选中一个单词后，使用该快捷键再选中下一个相同单词，可以一直下去
