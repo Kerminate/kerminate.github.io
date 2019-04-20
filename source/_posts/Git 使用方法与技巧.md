@@ -28,6 +28,13 @@ git branch -D dev  // 强制将本地 dev 分支删除（未解决冲突等）
 git push origin -d dev  // 将远端的 dev 分支删除
 ```
 
+修改本地和远程的分支名
+```
+git branch -m old_branch new_branch # Rename branch locally 
+git push origin :old_branch # Delete the old branch 
+git push --set-upstream origin new_branch # Push the new branch, set local branch to track the new remote
+```
+
 ## 3. 撤销回退 
 ### 使用 git reset
 首先认识一下 `git status` 命令，显示当前暂存区的消息
