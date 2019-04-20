@@ -96,7 +96,7 @@
 <meta property="og:image" content="https://i.loli.net/2018/11/19/5bf28a00963e2.png">
 <meta property="og:image" content="https://i.loli.net/2018/11/20/5bf3a7c5d3183.png">
 <meta property="og:image" content="https://i.loli.net/2018/11/20/5bf3a7c6c8b56.png">
-<meta property="og:updated_time" content="2019-02-26T07:29:50.826Z">
+<meta property="og:updated_time" content="2019-04-15T07:21:26.049Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 使用方法与技巧">
 <meta name="twitter:description" content="在团队里工作了一段时间，逐渐适应了多人协作开发，这里总结一下 git 的使用方法与一些技巧。 1. 基本操作（正常提交流程）1234git init   // 版本库初始化git add -A  // 将本地修改的所有文件提交到暂存区git commit -m &amp;quot;你的提交信息&amp;quot;  // 将暂存区文件提交到版本库git push origin [你当前的分支]  // 将当前分支">
@@ -367,7 +367,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,687
+                  1,735
                 </span>
               
 
@@ -408,6 +408,7 @@
 <h2 id="1-基本操作（正常提交流程）"><a href="#1-基本操作（正常提交流程）" class="headerlink" title="1. 基本操作（正常提交流程）"></a>1. 基本操作（正常提交流程）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git init   // 版本库初始化</span><br><span class="line">git add -A  // 将本地修改的所有文件提交到暂存区</span><br><span class="line">git commit -m &quot;你的提交信息&quot;  // 将暂存区文件提交到版本库</span><br><span class="line">git push origin [你当前的分支]  // 将当前分支提交到远程仓库</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h2 id="2-分支管理"><a href="#2-分支管理" class="headerlink" title="2. 分支管理"></a>2. 分支管理</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b dev  // 创建新分支 dev，并切换到该分支</span><br><span class="line">git branch  // 显示本地分支</span><br><span class="line">git branch -a  // 显示所有分支(本地和远程)</span><br><span class="line">git checkout master  // 切换到 master 分支</span><br><span class="line">git merge dev  // 将 dev 分支合并到 master 分支</span><br><span class="line">git branch -d dev  // 将本地的 dev 分支删除</span><br><span class="line">git branch -D dev  // 强制将本地 dev 分支删除（未解决冲突等）</span><br><span class="line">git push origin -d dev  // 将远端的 dev 分支删除</span><br></pre></td></tr></table></figure>
+<p>修改本地和远程的分支名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git branch -m old_branch new_branch # Rename branch locally </span><br><span class="line">git push origin :old_branch # Delete the old branch </span><br><span class="line">git push --set-upstream origin new_branch # Push the new branch, set local branch to track the new remote</span><br></pre></td></tr></table></figure></p>
 <h2 id="3-撤销回退"><a href="#3-撤销回退" class="headerlink" title="3. 撤销回退"></a>3. 撤销回退</h2><h3 id="使用-git-reset"><a href="#使用-git-reset" class="headerlink" title="使用 git reset"></a>使用 git reset</h3><p>首先认识一下 <code>git status</code> 命令，显示当前暂存区的消息<br>本例中修改了 README.md，但是并没有 add<br><img src="https://i.loli.net/2018/11/20/5bf3a7c6377cb.jpg" alt=""><br>之后 <code>git add -A</code> 将文件保存在暂存区，git status 查看此时暂存区状态</p>
 <p><img src="https://i.loli.net/2018/11/20/5bf3a7c79100d.jpg" alt=""></p>
 <h4 id="撤销所有本地代码（git-add-之前）"><a href="#撤销所有本地代码（git-add-之前）" class="headerlink" title="撤销所有本地代码（git add 之前）"></a>撤销所有本地代码（git add 之前）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout .  // 撤销所有修改</span><br><span class="line">git clean -df  // 移除没有 track 的文件，-d 表示目录，-f 表示 force</span><br></pre></td></tr></table></figure>
