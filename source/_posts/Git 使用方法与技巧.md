@@ -59,7 +59,9 @@ git reset HEAD -filename  // 撤销单个 add 文件
 
 #### git commit 后撤销
 ```
-git reset --hard head^ // 回退到上个 commit 版本
+git reset --mixed head^  // 默认回退方式，只保留源码，回退 commit 和 index 信息
+git reset --soft head^  // 只回退了 commit 的信息，不会恢复到index
+git reset --hard head^  // 彻底回退到某个版本，本地的源码也会变为上一个版本的内容, 慎用
 ```
 
 ##### 版本回退（git push 后撤销）
