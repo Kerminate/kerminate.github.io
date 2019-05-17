@@ -121,6 +121,7 @@ ren → render method
 ![](https://i.loli.net/2019/03/15/5c8b9266cbff4.png)
 - **[DotENV](https://marketplace.visualstudio.com/items?itemName=mikestead.dotenv)**: 支持.env文件语法高亮
 - **[vscode-icons](https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons)**: 为不同文件类型提供相应的图标
+- **[Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)**: 检测代码中单词拼写正确性
 
 # 快捷键
 - Command + d 选中一个单词后，使用该快捷键再选中下一个相同单词，可以一直下去
