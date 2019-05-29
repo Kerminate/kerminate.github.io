@@ -69,3 +69,5 @@ source ~/.bash_profile
 ➜  ~ proxy_off
 已关闭代理
 ```
+
+> ip.cn 有时候会挂掉，可以尝试 ip.sb
