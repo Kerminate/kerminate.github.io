@@ -96,7 +96,7 @@
 <meta property="og:image" content="https://i.loli.net/2018/11/19/5bf28a00963e2.png">
 <meta property="og:image" content="https://i.loli.net/2018/11/20/5bf3a7c5d3183.png">
 <meta property="og:image" content="https://i.loli.net/2018/11/20/5bf3a7c6c8b56.png">
-<meta property="og:updated_time" content="2019-04-22T08:52:08.511Z">
+<meta property="og:updated_time" content="2019-06-03T02:26:16.773Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 使用方法与技巧">
 <meta name="twitter:description" content="在团队里工作了一段时间，逐渐适应了多人协作开发，这里总结一下 git 的使用方法与一些技巧。 1. 基本操作（正常提交流程）1234git init   // 版本库初始化git add -A  // 将本地修改的所有文件提交到暂存区git commit -m &amp;quot;你的提交信息&amp;quot;  // 将暂存区文件提交到版本库git push origin [你当前的分支]  // 将当前分支">
@@ -367,7 +367,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,797
+                  1,854
                 </span>
               
 
@@ -383,7 +383,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  7
+                  8
                 </span>
               
             </div>
@@ -445,7 +445,8 @@
 <p>在合并分支时，直接使用 git rebase 代替 git merge</p>
 <h3 id="fork-后的分支与源库同步"><a href="#fork-后的分支与源库同步" class="headerlink" title="fork 后的分支与源库同步"></a>fork 后的分支与源库同步</h3><p>一般参与开源项目时，需要从源库中 fork 出一个分支，在本地开发好后再向源仓库发出 pull request，但是如何保证 fork 出的仓库与源库能保持同步。<br>以 <a href="https://github.com/dt-fe/weekly.git" target="_blank" rel="noopener">https://github.com/dt-fe/weekly.git</a> 这个仓库为例，<br>手动 fork 这个仓库到个人的 github 仓库下<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/Kerminate/weekly.git  // clone 到本地</span><br><span class="line">git remote add upstream https://github.com/dt-fe/weekly.git  // 指定源库</span><br></pre></td></tr></table></figure></p>
 <p>查看远程仓库信息<br><img src="https://i.loli.net/2018/11/19/5bf28a00963e2.png" alt=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b dev  // 在新的分支上开发</span><br><span class="line">git add -A</span><br><span class="line">git commit -m &quot;feat: add some change.&quot;</span><br><span class="line">git push origin dev</span><br></pre></td></tr></table></figure></p>
-<p>之后手动向源库发起 PR，被 merge 之后，可以在本地 master 分支同步最新代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git pull upstream master</span><br><span class="line">git push</span><br></pre></td></tr></table></figure></p>
+<p>之后手动向源库发起 PR，被 merge 之后，可以在本地 master 分支同步最新代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git pull upstream master</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure></p>
+<p>若源仓库拉出了新的分支进行开发（比如 dev），那么我们同步的方式也是如此（开一个同名的新分支）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b dev</span><br><span class="line">git pull upstream dev</span><br><span class="line">git push origin dev</span><br></pre></td></tr></table></figure></p>
 <h3 id="gitignore-失效"><a href="#gitignore-失效" class="headerlink" title=".gitignore 失效"></a>.gitignore 失效</h3><p>由于 .gitignore 只能忽略那些原来没有被track的文件，如果某些文件已经被纳入了版本管理中，则修改 .gitignore 是无效的。 要解决这个问题，需要先把本地缓存删除（改变成未track状态），然后再提交。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git rm -r --cached .</span><br><span class="line">git add -A</span><br><span class="line">git commit -m &quot;feat: ignore xxx files&quot;</span><br></pre></td></tr></table></figure></p>
 <h2 id="6-遇到的问题"><a href="#6-遇到的问题" class="headerlink" title="6. 遇到的问题"></a>6. 遇到的问题</h2><p>本地创建一个分支推到远端之后，如果远端代码更新，执行 <code>git pull</code> 会失败，如图<br><img src="https://i.loli.net/2018/11/20/5bf3a7c5d3183.png" alt=""><br>终端给出了 2 种方法，第一种 pull 的时候写上对应的远端分支和本地分支，形成映射关系，还有一种就是将本地分支和远程分支关联，这样以后就可以直接用 <code>git pull</code> 拉取最新代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git pull &lt;remote&gt; &lt;branch&gt;  // 写上对应的映射分支</span><br><span class="line">git branch --set-upstream-to=origin/&lt;branch&gt; &lt;remote&gt;  // 关联远端分支和本地分支</span><br></pre></td></tr></table></figure></p>
 <p><img src="https://i.loli.net/2018/11/20/5bf3a7c6c8b56.png" alt=""></p>
