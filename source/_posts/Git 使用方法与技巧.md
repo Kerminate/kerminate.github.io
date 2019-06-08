@@ -173,7 +173,13 @@ git push origin dev
 ```
 git checkout master
 git pull upstream master
-git push
+git push origin master
+```
+若源仓库拉出了新的分支进行开发（比如 dev），那么我们同步的方式也是如此（开一个同名的新分支）
+```
+git checkout -b dev
+git pull upstream dev
+git push origin dev
 ```
 
 ### .gitignore 失效
