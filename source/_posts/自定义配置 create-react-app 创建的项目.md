@@ -5,7 +5,7 @@ tags: 工具
 categories: 工具
 ---
 
-## 配置 standard 风格的eslint
+## 配置 standard 风格的 eslint
 项目使用 create-react-app 搭建
 ```
 npx create-react-app forum-fe
@@ -43,6 +43,36 @@ npm install --save-dev eslint@4.19.1 eslint-plugin-react@7.6.1
 ![](https://i.loli.net/2018/11/19/5bf28a15092ed.png)
 Ctrl + S 保存后，格式化成功!
 ![](https://i.loli.net/2018/11/19/5bf28a160fa49.png)
+
+## 配置 airbnb 风格的 eslint
+通过以下命令查看 airbnb 的依赖
+```shell
+npm info "eslint-config-airbnb@latest" peerDependencies
+```
+![](https://i.loli.net/2019/06/16/5d05f43b3d1e922626.png)
+
+如果 npm5+，可以直接运行以下指令
+```shell
+npx install-peerdeps --dev eslint-config-airbnb
+```
+
+也可以根据依赖手动安装
+```shell
+npm install --save-dev eslint eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react eslint-config-airbnb
+```
+
+除了 eslint 的依赖，还需要安装 babel 的依赖，否则编辑器内会报错, 比如 `Parsing error: Unexpected token =eslint`
+```shell
+npm install --save-dev babel-eslint babel-plugin-import
+```
+
+在项目根目录新建 .eslintrc 文件，加上
+```json
+{
+  "extends": ["airbnb"],
+  "parser": "babel-eslint"
+}
+```
 
 ## 配置 antd 的按需加载
 安装 react-app-rewired (一个对 create-react-app 进行自定义配置的社区解决方案)
