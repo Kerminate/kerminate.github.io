@@ -123,7 +123,7 @@ ren → render method
 - **[vscode-icons](https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons)**: 为不同文件类型提供相应的图标
 - **[Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)**: 检测代码中单词拼写正确性
 - **[open in browser](https://marketplace.visualstudio.com/items?itemName=techer.open-in-browser)**: 将文件直接在浏览器中打开
-- **[Jest](https://marketplace.visualstudio.com/items?itemName=Orta.vscode-jest)**: 提供 jest 的代码不全，调试等功能
+- **[Jest](https://marketplace.visualstudio.com/items?itemName=Orta.vscode-jest)**: 提供 jest 的代码补全，调试等功能
 
 # 快捷键
 - Command + d 选中一个单词后，使用该快捷键再选中下一个相同单词，可以一直下去
