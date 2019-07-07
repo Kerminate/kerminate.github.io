@@ -336,7 +336,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,485
+                  1,557
                 </span>
               
 
@@ -428,11 +428,11 @@
 <p>可能熟悉 React 的同学会发现，这与 React Hooks 的写法特别像，没错。它的表现与 Hooks 很一致，但是其实又有不少区别。</p>
 <ul>
 <li>同样的逻辑组合，复用能力。</li>
-<li>只调用一次（初始化时，后期通过依赖追踪更新）</li>
-<li>符合 JS 直觉</li>
-<li>没有闭包变量问题</li>
-<li>没有内存 / GC 压力</li>
-<li>不存在内联回调导致子组件永远更新的问题</li>
+<li>整体上更符合 JavaScript 的直觉</li>
+<li>不受调用顺序的限制，可以有条件地被调用</li>
+<li>不会在后续更新时不断产生大量的内联函数而影响引擎优化或是导致 GC 压力</li>
+<li>不需要总是使用 useCallback 来缓存传给子组件的回调以防止过度更新</li>
+<li>不需要担心传了错误的依赖数组给 useEffect/useMemo/useCallback 从而导致回调中使用了过期的值 —— Vue 的依赖追踪是全自动的。</li>
 </ul>
 
           
@@ -1002,7 +1002,7 @@
         
           
             <p>React16 新增了 Fragment, Suspense, memo 等新特性</p>
-<p>Fragment 的语法糖 &lt;&gt;, 若使用 Fragment, 我更喜欢<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Fragment &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"></span><br><span class="line">&lt;Frament&gt;&lt;/Frament&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Fragment 的语法糖 &lt;&gt;, 若使用 Fragment, 我更喜欢<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Fragment &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"></span><br><span class="line">&lt;Frament&gt;<span class="xml"><span class="tag">&lt;/<span class="name">Frament</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
 <p>因为使用 React.Fragment 补全时候，根据 emmet 语法补全，会变成类</p>
 <p>更新中…</p>
 

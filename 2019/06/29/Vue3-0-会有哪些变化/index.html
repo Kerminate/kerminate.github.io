@@ -90,7 +90,7 @@
 <meta property="og:image" content="https://i.loli.net/2019/06/30/5d181ce03576128336.jpeg">
 <meta property="og:image" content="https://i.loli.net/2019/06/30/5d181d77611d293658.jpeg">
 <meta property="og:image" content="https://i.loli.net/2019/06/30/5d182827a8ba974072.jpeg">
-<meta property="og:updated_time" content="2019-06-30T07:22:00.220Z">
+<meta property="og:updated_time" content="2019-07-05T10:13:25.632Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue 3.0 会有哪些变化">
 <meta name="twitter:description" content="前段时间在 Vue RFCs 提出的 Functional API 在社区中引起了轩然大波，感觉是 Vue 史上最有争议的一个特性。那么，Vue 3.0 到底会带来哪些改变呢，让我们一起来看一看。 更快Object.defineProperty -&amp;gt; Proxy在 Vue 2.0 里面是通过使用 Object.defineProperty 来进行数据侦测12345678910111213fu">
@@ -339,7 +339,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,485
+                  1,557
                 </span>
               
 
@@ -429,11 +429,11 @@
 <p>可能熟悉 React 的同学会发现，这与 React Hooks 的写法特别像，没错。它的表现与 Hooks 很一致，但是其实又有不少区别。</p>
 <ul>
 <li>同样的逻辑组合，复用能力。</li>
-<li>只调用一次（初始化时，后期通过依赖追踪更新）</li>
-<li>符合 JS 直觉</li>
-<li>没有闭包变量问题</li>
-<li>没有内存 / GC 压力</li>
-<li>不存在内联回调导致子组件永远更新的问题</li>
+<li>整体上更符合 JavaScript 的直觉</li>
+<li>不受调用顺序的限制，可以有条件地被调用</li>
+<li>不会在后续更新时不断产生大量的内联函数而影响引擎优化或是导致 GC 压力</li>
+<li>不需要总是使用 useCallback 来缓存传给子组件的回调以防止过度更新</li>
+<li>不需要担心传了错误的依赖数组给 useEffect/useMemo/useCallback 从而导致回调中使用了过期的值 —— Vue 的依赖追踪是全自动的。</li>
 </ul>
 
       
