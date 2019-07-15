@@ -79,21 +79,21 @@
 
 
 
-<meta name="description" content="前段时间在 Vue RFCs 提出的 Functional API 在社区中引起了轩然大波，感觉是 Vue 史上最有争议的一个特性。那么，Vue 3.0 到底会带来哪些改变呢，让我们一起来看一看。 更快Object.defineProperty -&amp;gt; Proxy在 Vue 2.0 里面是通过使用 Object.defineProperty 来进行数据侦测12345678910111213fu">
+<meta name="description" content="前段时间在 Vue RFCs 提出的 Functional API 在社区中引起了轩然大波，感觉是 Vue 史上最有争议的一个特性。那么，Vue 3.0 到底会带来哪些改变呢，让我们一起来看一看。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue 3.0 会有哪些变化">
 <meta property="og:url" content="http://yoursite.com/2019/06/29/Vue3-0-会有哪些变化/index.html">
 <meta property="og:site_name" content="Blog | Kerminate">
-<meta property="og:description" content="前段时间在 Vue RFCs 提出的 Functional API 在社区中引起了轩然大波，感觉是 Vue 史上最有争议的一个特性。那么，Vue 3.0 到底会带来哪些改变呢，让我们一起来看一看。 更快Object.defineProperty -&amp;gt; Proxy在 Vue 2.0 里面是通过使用 Object.defineProperty 来进行数据侦测12345678910111213fu">
+<meta property="og:description" content="前段时间在 Vue RFCs 提出的 Functional API 在社区中引起了轩然大波，感觉是 Vue 史上最有争议的一个特性。那么，Vue 3.0 到底会带来哪些改变呢，让我们一起来看一看。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2019/06/29/5d1736bac776433441.jpeg">
 <meta property="og:image" content="https://i.loli.net/2019/06/30/5d181ce03576128336.jpeg">
 <meta property="og:image" content="https://i.loli.net/2019/06/30/5d181d77611d293658.jpeg">
 <meta property="og:image" content="https://i.loli.net/2019/06/30/5d182827a8ba974072.jpeg">
-<meta property="og:updated_time" content="2019-07-05T10:13:25.632Z">
+<meta property="og:updated_time" content="2019-07-15T07:50:36.117Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue 3.0 会有哪些变化">
-<meta name="twitter:description" content="前段时间在 Vue RFCs 提出的 Functional API 在社区中引起了轩然大波，感觉是 Vue 史上最有争议的一个特性。那么，Vue 3.0 到底会带来哪些改变呢，让我们一起来看一看。 更快Object.defineProperty -&amp;gt; Proxy在 Vue 2.0 里面是通过使用 Object.defineProperty 来进行数据侦测12345678910111213fu">
+<meta name="twitter:description" content="前段时间在 Vue RFCs 提出的 Functional API 在社区中引起了轩然大波，感觉是 Vue 史上最有争议的一个特性。那么，Vue 3.0 到底会带来哪些改变呢，让我们一起来看一看。">
 <meta name="twitter:image" content="https://i.loli.net/2019/06/29/5d1736bac776433441.jpeg">
 
 
@@ -377,6 +377,7 @@
 
       
         <p>前段时间在 <a href="https://github.com/vuejs/rfcs" target="_blank" rel="noopener">Vue RFCs</a> 提出的 Functional API 在社区中引起了轩然大波，感觉是 Vue 史上最有争议的一个特性。那么，Vue 3.0 到底会带来哪些改变呢，让我们一起来看一看。</p>
+<a id="more"></a>
 <h2 id="更快"><a href="#更快" class="headerlink" title="更快"></a>更快</h2><h3 id="Object-defineProperty-gt-Proxy"><a href="#Object-defineProperty-gt-Proxy" class="headerlink" title="Object.defineProperty -&gt; Proxy"></a>Object.defineProperty -&gt; Proxy</h3><p>在 Vue 2.0 里面是通过使用 <code>Object.defineProperty</code> 来进行数据侦测<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">definedReactive</span>(<span class="params">data, key, val</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">Object</span>.defineProperty(data, key, &#123;</span><br><span class="line">    enumerable: <span class="literal">true</span>,</span><br><span class="line">    configurable: <span class="literal">true</span>,</span><br><span class="line">    get() &#123;</span><br><span class="line">      <span class="keyword">return</span> val;</span><br><span class="line">    &#125;,</span><br><span class="line">    set(newVal) &#123;</span><br><span class="line">      <span class="keyword">if</span> (val === newVal) <span class="keyword">return</span>;</span><br><span class="line">      val = newVal;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>每当从 data 的 key 中读取数据时，get 函数被触发，每当往 data 的 key 中设置数据时，set 函数被触发。<br>但是可以看出来 <code>Object.defineProperty</code> 能够监测对象的变化，但是对于数组的一些原生方法如 <code>push, pop</code> 等就无能为力。<br>因此，Vue 中其实对数组的原生方法进行了覆盖，共七个（<code>push, pop, shift, unshift, splice, sort, reverse</code>），实际上就是使用了拦截器覆盖了 Array 的原型，使得在使用这几个函数的时候能够做到数据侦测。<br><code>Object.defineProperty</code> 通过 <code>getter/setter</code> 来追踪变化，但它其实只能追踪一个数据是否被修改，无法追踪新增属性和删除属性，所以 Vue 又提供了 <code>vm.$set</code> 和 <code>vm.$delete</code> 方法来实现响应式地新增和删除属性。</p>
 <p>ES6 新增的 <code>Proxy</code> 可以直接监听对象而非属性，所以以上 <code>Object.defineProperty</code> 的缺点它都没有。</p>
