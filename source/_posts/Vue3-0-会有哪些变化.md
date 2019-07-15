@@ -5,6 +5,8 @@ tags:
 ---
 前段时间在 [Vue RFCs](https://github.com/vuejs/rfcs) 提出的 Functional API 在社区中引起了轩然大波，感觉是 Vue 史上最有争议的一个特性。那么，Vue 3.0 到底会带来哪些改变呢，让我们一起来看一看。
 
+<!--more-->
+
 ## 更快
 
 ### Object.defineProperty -> Proxy
