@@ -195,7 +195,8 @@ const [posts, timeout] = yield race({
 > **github 地址：https://github.com/Kerminate/redux-saga-demo**
 
 ### 参考
-[Redux-saga 中文文档](https://redux-saga-in-chinese.js.org/)
-[聊一聊 redux 异步流之 redux-saga](https://www.jianshu.com/p/e84493c7af35)
-[Redux-Saga 实用指北](https://juejin.im/post/5ad83a70f265da503825b2b4)
-[从redux-thunk到redux-saga实践](https://github.com/Pines-Cheng/blog/issues/9)[对使用Redux和Redux-saga管理状态的思考](https://www.jianshu.com/p/6bcf4573ca28?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation)
+- [Redux-saga 中文文档](https://redux-saga-in-chinese.js.org/)
+- [聊一聊 redux 异步流之 redux-saga](https://www.jianshu.com/p/e84493c7af35)
+- [Redux-Saga 实用指北](https://juejin.im/post/5ad83a70f265da503825b2b4)
+- [从redux-thunk到redux-saga实践](https://github.com/Pines-Cheng/blog/issues/9)
+- [对使用Redux和Redux-saga管理状态的思考](https://www.jianshu.com/p/6bcf4573ca28?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation)

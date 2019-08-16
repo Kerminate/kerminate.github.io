@@ -11,7 +11,9 @@ categories: 工具
 ## 使用 Giphy Capture 制作 GIF
 
 [GIPHY Capture](https://itunes.apple.com/us/app/giphy-capture.-the-gif-maker/id668208984?mt=12) 是由一个很火的 Gif 分享网站 GIPHY 开发的，可以直接上传至 giphy.com，也可以保存到本地。
+
 ![](https://i.loli.net/2018/11/20/5bf3a7ba2b3f3.png)
+
 如图，可以在紫条中控制输出的片段，在 Loop Type 中控制播放的顺序，在 Pixel Size 中控制输出的尺寸大小，在 Frame Rate 中控制输出的帧率。
 下面 save as... 可以保存在本地，或上传到 giphy.com
 **我这里保存为 rcc.gif, 路径为 ~/Documents/tools/gif/rcc.gif**

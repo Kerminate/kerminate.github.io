@@ -1,27 +1,36 @@
-## Quick Start
+## 目录
 
-### Create a new post
-
-``` bash
-$ hexo new "My new post"
-```
-
-### Run server
-
-``` bash
-$ hexo server
-```
-
-### Generate static files
-
-``` bash
-$ hexo generate
-```
-
-### Deploy to remote sites
-
-``` bash
-$ hexo deploy
-```
-
-More info: [hexo](https://hexo.io/docs)
+- [砥砺前行，背水一战](https://github.com/Kerminate/kerminate.github.io/blob/hexo/source/_posts/%E7%A0%A5%E7%A0%BA%E5%89%8D%E8%A1%8C%EF%BC%8C%E8%83%8C%E6%B0%B4%E4%B8%80%E6%88%98.md)
+- [浅谈成为程序猿的心路历程](https://github.com/Kerminate/kerminate.github.io/blob/hexo/source/_posts/%E6%B5%85%E8%B0%88%E6%88%90%E4%B8%BA%E7%A8%8B%E5%BA%8F%E7%8C%BF%E7%9A%84%E5%BF%83%E8%B7%AF%E5%8E%86%E7%A8%8B.md)
+- [项目中遇到过的问题与技巧](https://github.com/Kerminate/kerminate.github.io/blob/hexo/source/_posts/%E9%A1%B9%E7%9B%AE%E4%B8%AD%E9%81%87%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8E%E6%8A%80%E5%B7%A7.md)
+- [Javascript 交换变量的几种方法](https://github.com/Kerminate/kerminate.github.io/blob/hexo/source/_posts/Javascript%20%E4%BA%A4%E6%8D%A2%E5%8F%98%E9%87%8F%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95.md)
+- [前端笔试基础题](https://github.com/Kerminate/kerminate.github.io/blob/hexo/source/_posts/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AF%95%E5%9F%BA%E7%A1%80%E9%A2%98.md)
+- [详解数据结构八大排序算法](https://github.com/Kerminate/kerminate.github.io/blob/hexo/source/_posts/%E8%AF%A6%E8%A7%A3%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%85%AB%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95.md)
+- [详解 Javascript 的原型链与继承(从 ES5 到 ES6)](https://github.com/Kerminate/kerminate.github.io/blob/hexo/source/_posts/%E8%AF%A6%E8%A7%A3%20Javascript%20%E7%9A%84%E5%8E%9F%E5%9E%8B%E9%93%BE%E4%B8%8E%E7%BB%A7%E6%89%BF-%E4%BB%8E%20ES5%20%E5%88%B0%20ES6.md)
+- [Javascript 实现双向链表](https://github.com/Kerminate/kerminate.github.io/blob/hexo/source/_posts/Javascript%20%E5%AE%9E%E7%8E%B0%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8.md)
+- [Javascript 判断 undefined, null, {}, [], ', 0](https://github.com/Kerminate/kerminate.github.io/blob/hexo/source/_posts/Javascript%20%E5%88%A4%E6%96%AD%20undefined-null.md)
+- [使网页中 div 元素居中(垂直居中+水平居中)的方法](https://github.com/Kerminate/kerminate.github.io/blob/hexo/source/_posts/%E4%BD%BF%E7%BD%91%E9%A1%B5%E4%B8%AD%20div%20%E5%85%83%E7%B4%A0%E5%B1%85%E4%B8%AD-%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD-%E6%B0%B4%E5%B9%B3%E5%B1%85%E4%B8%AD-%E7%9A%84%E6%96%B9%E6%B3%95.md)
+- [原生 Javascript 实现(拖拽效果、深拷贝)](https://github.com/Kerminate/kerminate.github.io/blob/hexo/source/_posts/%E5%8E%9F%E7%94%9F%20Javascript%20%E5%AE%9E%E7%8E%B0(%E6%8B%96%E6%8B%BD%E6%95%88%E6%9E%9C%E3%80%81%E6%B7%B1%E6%8B%B7%E8%B4%9D).md)
+- [readline 实现 Javascript 的输入输出](https://github.com/Kerminate/kerminate.github.io/blob/hexo/source/_posts/readline%20%E5%AE%9E%E7%8E%B0%20Javascript%20%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA.md)
+- [Javascript 优化计算斐波那契数列](https://github.com/Kerminate/kerminate.github.io/blob/hexo/source/_posts/Javascript%20%E4%BC%98%E5%8C%96%E8%AE%A1%E7%AE%97%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97.md)
+- [Vue + Koa 搭建 ACM OJ](https://github.com/Kerminate/kerminate.github.io/blob/hexo/source/_posts/Vue%20%2B%20Koa%20%E6%90%AD%E5%BB%BA%20ACM%20OJ.md)
+- [Git 使用方法与技巧](https://github.com/Kerminate/kerminate.github.io/blob/hexo/source/_posts/Git%20%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E4%B8%8E%E6%8A%80%E5%B7%A7.md)
+- [自定义配置 create-react-app 创建的项目](https://github.com/Kerminate/kerminate.github.io/blob/hexo/source/_posts/%E8%87%AA%E5%AE%9A%E4%B9%89%E9%85%8D%E7%BD%AE%20create-react-app%20%E5%88%9B%E5%BB%BA%E7%9A%84%E9%A1%B9%E7%9B%AE.md)
+- [Git 配置](https://github.com/Kerminate/kerminate.github.io/blob/hexo/source/_posts/Git-%E9%85%8D%E7%BD%AE.md)
+- [VSCode 插件与配置推荐](https://github.com/Kerminate/kerminate.github.io/blob/hexo/source/_posts/VSCode-%E6%8F%92%E4%BB%B6%E4%B8%8E%E9%85%8D%E7%BD%AE%E6%8E%A8%E8%8D%90.md)
+- [Mac 上录制 GIF 并设置其循环播放](https://github.com/Kerminate/kerminate.github.io/blob/hexo/source/_posts/Mac%20%E4%B8%8A%E5%BD%95%E5%88%B6%20GIF%20%E5%B9%B6%E8%AE%BE%E7%BD%AE%E5%85%B6%E5%BE%AA%E7%8E%AF%E6%92%AD%E6%94%BE.md)
+- [参加 FreeCodeCamp 2018上海秋季交流会](https://github.com/Kerminate/kerminate.github.io/blob/hexo/source/_posts/%E5%8F%82%E5%8A%A0-FreeCodeCamp-2018%E4%B8%8A%E6%B5%B7%E7%A7%8B%E5%AD%A3%E4%BA%A4%E6%B5%81%E4%BC%9A.md)
+- [初窥 redux-saga 的异步流](https://github.com/Kerminate/kerminate.github.io/blob/hexo/source/_posts/%E5%88%9D%E7%AA%A5-redux-saga-%E7%9A%84%E5%BC%82%E6%AD%A5%E6%B5%81.md)
+- [background 与 border 设置相同颜色却展示不一样](https://github.com/Kerminate/kerminate.github.io/blob/hexo/source/_posts/background-%E4%B8%8E-border-%E8%AE%BE%E7%BD%AE%E7%9B%B8%E5%90%8C%E9%A2%9C%E8%89%B2%E5%8D%B4%E5%B1%95%E7%A4%BA%E4%B8%8D%E4%B8%80%E6%A0%B7.md)
+- [mac 终端实现翻墙](https://github.com/Kerminate/kerminate.github.io/blob/hexo/source/_posts/mac-%E7%BB%88%E7%AB%AF%E5%AE%9E%E7%8E%B0%E7%BF%BB%E5%A2%99.md)
+- [nginx 反向代理](https://github.com/Kerminate/kerminate.github.io/blob/hexo/source/_posts/nginx-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86.md)
+- [七牛云回收测试域名后将图片下载到本地的解决办法](https://github.com/Kerminate/kerminate.github.io/blob/hexo/source/_posts/%E4%B8%83%E7%89%9B%E4%BA%91%E5%9B%9E%E6%94%B6%E6%B5%8B%E8%AF%95%E5%9F%9F%E5%90%8D%E5%90%8E%E5%B0%86%E5%9B%BE%E7%89%87%E4%B8%8B%E8%BD%BD%E5%88%B0%E6%9C%AC%E5%9C%B0%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95.md)
+- [npm 管理依赖包](https://github.com/Kerminate/kerminate.github.io/blob/hexo/source/_posts/npm-%E7%AE%A1%E7%90%86%E4%BE%9D%E8%B5%96%E5%8C%85.md)
+- [对比各类 ajax/http 库及最佳选择](https://github.com/Kerminate/kerminate.github.io/blob/hexo/source/_posts/%E5%AF%B9%E6%AF%94%E5%90%84%E7%B1%BB-ajax-http-%E5%BA%93%E5%8F%8A%E6%9C%80%E4%BD%B3%E9%80%89%E6%8B%A9.md)
+- [Kerminate 的 2018 年度总结](https://github.com/Kerminate/kerminate.github.io/blob/hexo/source/_posts/Kerminate-%E7%9A%842018%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93.md)
+- [Koa 使用 Decorator 装饰路由](https://github.com/Kerminate/kerminate.github.io/blob/hexo/source/_posts/Koa-%E4%BD%BF%E7%94%A8-Decorator-%E8%A3%85%E9%A5%B0%E8%B7%AF%E7%94%B1.md)
+- [Webpack4 使用总结](https://github.com/Kerminate/kerminate.github.io/blob/hexo/source/_posts/Webpack4-%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93.md)
+- [React 深度探索](https://github.com/Kerminate/kerminate.github.io/blob/hexo/source/_posts/React-%E6%B7%B1%E5%BA%A6%E6%8E%A2%E7%B4%A2.md)
+- [[译] DefinitelyTyped](https://github.com/Kerminate/kerminate.github.io/blob/hexo/source/_posts/%E8%AF%91-DefinitelyTyped.md)
+- [参加 VueConf2019](https://github.com/Kerminate/kerminate.github.io/blob/hexo/source/_posts/%E5%8F%82%E5%8A%A0-VueConf2019.md)
+- [Vue 3.0 会有哪些变化](https://github.com/Kerminate/kerminate.github.io/blob/hexo/source/_posts/Vue3-0-%E4%BC%9A%E6%9C%89%E5%93%AA%E4%BA%9B%E5%8F%98%E5%8C%96.md)

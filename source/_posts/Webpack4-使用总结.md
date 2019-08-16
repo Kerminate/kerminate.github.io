@@ -73,6 +73,7 @@ const smp = new SpeedMeasurePlugin();
 module.exports = smp.wrap(config);
 ```
 ![](https://i.loli.net/2019/03/23/5c962e1314337.png)
+
 使用 `webpack-bundle-analyzer` 分析打包后的代码大小和内容
 在 webpack 的配置文件加上以下内容
 ```javascript
@@ -114,6 +115,7 @@ const copyObj = cloneDeep(obj)
 ```
 
 但是其实这不是一个很好的办法，我们可以看下 lodash 和 它子包的大小
+
 ![](https://i.loli.net/2019/03/24/5c96f8008844b.png)
 
 可以发现，当你的用的函数稍微多一点之后，其实加起来的大小也会跟整个包的大小差不多，所以不推荐使用这种方法

@@ -28,4 +28,5 @@ ssh-keygen -t rsa -C "your_email@example.com” -f ~/.ssh/id_rsa_work
   IdentityFile /Users/your_name/.ssh/id_rsa_work
 ```
 此时 ssh 下的目录结构应该如下
+
 ![](https://i.loli.net/2018/11/19/5bf28b1668ea9.png)

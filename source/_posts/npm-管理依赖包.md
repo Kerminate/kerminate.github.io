@@ -21,6 +21,7 @@ categories: Node
 npm ls
 ```
 ![](https://i.loli.net/2018/12/12/5c10b7ed67f9c.png)
+
 可以从中看出 package-lock.json 中包和 package.json 包的依赖关系
 
 如果感觉信息太多，也可以单独看 package.json 中某个包的依赖情况
@@ -44,6 +45,7 @@ npm uninstall hexo-server
 npm outdated
 ```
 ![](https://i.loli.net/2018/12/12/5c10c2758613b.png)
+
 这个也有缺点，查出来的不一定是过期的，而且只能查出 package.json 里不是 latest 版本的包，无法判断出 package-lock.json 里有问题的依赖。
 
 之后可以更新过期依赖包
@@ -56,11 +58,13 @@ npm update
 如果 npm 版本已经更新到 6.0 以上，每次安装好依赖，npm 都会对依赖包进行安全审核，如果有问题，会在控制台显示
 
 ![](https://i.loli.net/2018/12/12/5c10c6104eaa9.png)
+
 可以查看具体过期依赖详情
 ```
 npm audit
 ```
 ![](https://i.loli.net/2018/12/12/5c10c6d7396d7.png)
+
 之后可以直接修复依赖
 ```
 npm audit fix

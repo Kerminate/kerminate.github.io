@@ -7,6 +7,7 @@ categories: CSS
 这两天在写一个需求的时候发现，当 background 与 border 设置相同时，颜色有时候展示会不一样
 
 ![](https://i.loli.net/2018/11/19/5bf2895d614ed.png)
+
 两张图的 background 与 border 都设置颜色相同，但是左边这张图，展示保持一致，而右边这张图却不一致
 <!--more-->
 来看下两张图的代码

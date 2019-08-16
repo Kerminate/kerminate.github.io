@@ -118,8 +118,8 @@ Github 上仓库的信息
 我个人推荐使用 axios 库，不仅在于它能同时支持 Node 和各大浏览器，还包括它强大的功能，以及简单易上手的特性，且已经广泛运用在了 React/Vue 的项目，增长趋势也相当明显。
 
 ## 参考
-[AJAX/HTTP Library Comparison](https://www.javascriptstuff.com/ajax-libraries/)
-[Comparing JavaScript HTTP Requests Libraries for 2019](https://blog.bitsrc.io/comparing-http-request-libraries-for-2019-7bedb1089c83)
-[ajax、axios、fetch之间的详细区别以及优缺点](https://blog.csdn.net/twodogya/article/details/80223508)
-[JS HTTP 请求库哪家强？Axios？Request？Superagent？](https://zhuanlan.zhihu.com/p/52235130)
-[AJAX 之 XHR, jQuery, Fetch 的对比](https://zhuanlan.zhihu.com/p/24594294)
+- [AJAX/HTTP Library Comparison](https://www.javascriptstuff.com/ajax-libraries/)
+- [Comparing JavaScript HTTP Requests Libraries for 2019](https://blog.bitsrc.io/comparing-http-request-libraries-for-2019-7bedb1089c83)
+- [ajax、axios、fetch之间的详细区别以及优缺点](https://blog.csdn.net/twodogya/article/details/80223508)
+- [JS HTTP 请求库哪家强？Axios？Request？Superagent？](https://zhuanlan.zhihu.com/p/52235130)
+- [AJAX 之 XHR, jQuery, Fetch 的对比](https://zhuanlan.zhihu.com/p/24594294)
