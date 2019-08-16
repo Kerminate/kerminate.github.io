@@ -88,7 +88,7 @@
 <meta property="og:description" content="如何管理多个 git 的 SSH 私钥一般本地的 id_rsa 公钥时，默认为你 github 账号的公钥，如果在公司办公，需要在公司的 git 仓库里提交代码，就需要再生成一个公钥12# 生成一个新的公钥ssh-keygen -t rsa -C &quot;your_email@example.com” -f ~/.ssh/id_rsa_work">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2018/11/19/5bf28b1668ea9.png">
-<meta property="og:updated_time" content="2019-02-26T07:29:58.281Z">
+<meta property="og:updated_time" content="2019-08-16T11:33:16.067Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 配置">
 <meta name="twitter:description" content="如何管理多个 git 的 SSH 私钥一般本地的 id_rsa 公钥时，默认为你 github 账号的公钥，如果在公司办公，需要在公司的 git 仓库里提交代码，就需要再生成一个公钥12# 生成一个新的公钥ssh-keygen -t rsa -C &quot;your_email@example.com” -f ~/.ssh/id_rsa_work">
@@ -399,7 +399,8 @@
         <h2 id="如何管理多个-git-的-SSH-私钥"><a href="#如何管理多个-git-的-SSH-私钥" class="headerlink" title="如何管理多个 git 的 SSH 私钥"></a>如何管理多个 git 的 SSH 私钥</h2><p>一般本地的 id_rsa 公钥时，默认为你 github 账号的公钥，如果在公司办公，需要在公司的 git 仓库里提交代码，就需要再生成一个公钥<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 生成一个新的公钥</span><br><span class="line">ssh-keygen -t rsa -C "your_email@example.com” -f ~/.ssh/id_rsa_work</span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
 <p>进入 ~/.ssh 文件，新建一个 config 文件，加入以下代码<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 该文件用于配置私钥对应的服务器</span><br><span class="line"><span class="meta">#</span> Default github user(your_email@outlook.com)</span><br><span class="line">  Host github.com</span><br><span class="line">  HostName github.com</span><br><span class="line">  User git</span><br><span class="line">  IdentityFile /Users/your_name/.ssh/id_rsa</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> second user(your_email@company.com)</span><br><span class="line"><span class="meta">#</span> 使用公司的域名和公司的git账户</span><br><span class="line">  Host git.A.com</span><br><span class="line">  HostName git.A.com</span><br><span class="line">  User git</span><br><span class="line">  IdentityFile /Users/your_name/.ssh/id_rsa_work</span><br></pre></td></tr></table></figure></p>
-<p>此时 ssh 下的目录结构应该如下<br><img src="https://i.loli.net/2018/11/19/5bf28b1668ea9.png" alt=""></p>
+<p>此时 ssh 下的目录结构应该如下</p>
+<p><img src="https://i.loli.net/2018/11/19/5bf28b1668ea9.png" alt=""></p>
 
       
     </div>
