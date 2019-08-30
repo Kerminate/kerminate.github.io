@@ -134,6 +134,7 @@ ren → render method
 - Ctrl + Alt + → 按照单词大小写移动光标
 - Alt + Commond + ↓ 出现多行光标
 - Alt + Command + p 快速切换项目
+- Command + J 合并当前行
 
 # 自定义快捷键
 - Command + m 控制 minimap 的出现于隐藏
