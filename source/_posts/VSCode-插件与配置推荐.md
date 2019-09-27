@@ -141,3 +141,5 @@ ren → render method
 - Command + \ 控制 sidebar 的出现于隐藏
 - Command + , 打开设置
 - Command + . 打开用户设置
+- Command + u + u 转化为大写(editor.action.transformToUppercase)
+- Command + l + l 转化为小写(editor.action.transformToLowercase)
