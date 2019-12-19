@@ -124,6 +124,7 @@ ren → render method
 - **[Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)**: 检测代码中单词拼写正确性
 - **[open in browser](https://marketplace.visualstudio.com/items?itemName=techer.open-in-browser)**: 将文件直接在浏览器中打开
 - **[Jest](https://marketplace.visualstudio.com/items?itemName=Orta.vscode-jest)**: 提供 jest 的代码补全，调试等功能
+- **[change-case](https://marketplace.visualstudio.com/items?itemName=wmaurer.change-case)**: 更多变量格式转化，包括驼峰命名、下划线分隔命名，snake_case 命名以及 CONST_CAS 命名等
 
 # 快捷键
 - Command + d 选中一个单词后，使用该快捷键再选中下一个相同单词，可以一直下去

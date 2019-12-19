@@ -196,6 +196,12 @@ git add -A
 git commit -m "feat: ignore xxx files"
 ```
 
+### 统计一次 PR 增删的代码量
+```
+git diff --stat feature/1.0 feature/1.1
+```
+
+
 ## 6. 遇到的问题
 本地创建一个分支推到远端之后，如果远端代码更新，执行 `git pull` 会失败，如图
 
