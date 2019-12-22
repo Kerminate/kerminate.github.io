@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://i.loli.net/2018/11/19/5bf2895db2229.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="https://i.loli.net/2018/11/19/5bf2895db2229.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="https://i.loli.net/2018/11/19/5bf2895db2229.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="https://i.loli.net/2018/11/19/5bf2895db2229.png?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="技术帖,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前些时候在团队里接入了前端测试，并总结了相关经验将文章发表到了内网博客上。临近年末了，也把文章发布到个人博客上，希望能让更多的人看到。  2019 年前端测试依然是一个炙手可热的话题。笔者在今年 5 月份参加 Vueconf 的时候，Vue 单元测试的主题演讲者曾向现场的参与者发出提问，有多少团队引入了单元测试，意外的是只有寥寥数人举起了手。尽管，那个时候笔者的团队也还没有引入前端测试，但是考虑">
+<meta name="keywords" content="技术帖">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端测试的最佳实践">
+<meta property="og:url" content="http://yoursite.com/2019/12/22/前端测试的最佳实践/index.html">
+<meta property="og:site_name" content="Blog | Kerminate">
+<meta property="og:description" content="前些时候在团队里接入了前端测试，并总结了相关经验将文章发表到了内网博客上。临近年末了，也把文章发布到个人博客上，希望能让更多的人看到。  2019 年前端测试依然是一个炙手可热的话题。笔者在今年 5 月份参加 Vueconf 的时候，Vue 单元测试的主题演讲者曾向现场的参与者发出提问，有多少团队引入了单元测试，意外的是只有寥寥数人举起了手。尽管，那个时候笔者的团队也还没有引入前端测试，但是考虑">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.loli.net/2019/08/29/lgCzxPSRry1D78w.png">
+<meta property="og:image" content="https://i.loli.net/2019/08/29/dIEKovf5XrRTbCh.png">
+<meta property="og:updated_time" content="2019-12-22T07:30:39.180Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端测试的最佳实践">
+<meta name="twitter:description" content="前些时候在团队里接入了前端测试，并总结了相关经验将文章发表到了内网博客上。临近年末了，也把文章发布到个人博客上，希望能让更多的人看到。  2019 年前端测试依然是一个炙手可热的话题。笔者在今年 5 月份参加 Vueconf 的时候，Vue 单元测试的主题演讲者曾向现场的参与者发出提问，有多少团队引入了单元测试，意外的是只有寥寥数人举起了手。尽管，那个时候笔者的团队也还没有引入前端测试，但是考虑">
+<meta name="twitter:image" content="https://i.loli.net/2019/08/29/lgCzxPSRry1D78w.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/12/22/前端测试的最佳实践/">
+
+
+
+
+
+  <title>前端测试的最佳实践 | Blog | Kerminate</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Blog | Kerminate</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/22/前端测试的最佳实践/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kerminate">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://i.loli.net/2018/11/19/5bf2895db2229.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog | Kerminate">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">前端测试的最佳实践</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-22T15:25:36+08:00">
+                2019-12-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术帖/" itemprop="url" rel="index">
+                    <span itemprop="name">技术帖</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/12/22/前端测试的最佳实践/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/12/22/前端测试的最佳实践/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/12/22/前端测试的最佳实践/" class="leancloud_visitors" data-flag-title="前端测试的最佳实践">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  5,550
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  24
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>前些时候在团队里接入了前端测试，并总结了相关经验将文章发表到了内网博客上。临近年末了，也把文章发布到个人博客上，希望能让更多的人看到。</p>
+</blockquote>
+<p>2019 年前端测试依然是一个炙手可热的话题。笔者在今年 5 月份参加 Vueconf 的时候，Vue 单元测试的主题演讲者曾向现场的参与者发出提问，有多少团队引入了单元测试，意外的是只有寥寥数人举起了手。尽管，那个时候笔者的团队也还没有引入前端测试，但是考虑到测试的必要性，且团队正在着手一个新项目，所以回去之后在这个新项目全量地接入了前端测试。</p>
+<p>现如今大部分互联网团队都是走 <strong>敏捷开发</strong> 的节奏。实际上，自动化测试才是实现“敏捷”的基本保障。业务端的快速上线和快速验证对技术侧的响应力提出了更高的要求：<strong>更快上线，持续上线</strong>。再考虑到人员流动和应用逐步变大的事实，日后迭代的成本只会变得越来越高。当然这个项目迭代的成本也跟项目的复杂度有关，比如笔者所在的点餐业务，项目有足够的复杂性，有些细微的改动点其实会牵扯到很多内容，而对刚加入团队的新人就会显得不太友好。因此，项目拥有前端测试是必不可少的，它能够有效保障业务迭代的质量和稳定性。</p>
+<a id="more"></a>
+<h2 id="什么是前端测试？"><a href="#什么是前端测试？" class="headerlink" title="什么是前端测试？"></a>什么是前端测试？</h2><p>我们经常说的单元测试其实只是前端测试的一种。前端测试分为单元测试，UI 测试，集成测试和端到端测试。</p>
+<ul>
+<li>单元测试：是指对软件中的最小可测试单元进行检查和验证，通常指的是独立测试单个函数。</li>
+<li>UI 测试：是对图形交互界面的测试。</li>
+<li>集成测试：就是测试应用中不同模块如何集成，如何一起工作，这和它的名字一致。</li>
+<li>端到端测试（e2e）：是站在用户角度的测试，把我们的程序看成是一个黑盒子，我不懂你内部是怎么实现的，我只负责打开浏览器，把测试内容在页面上输入一遍，看是不是我想要得到的结果。</li>
+</ul>
+<h2 id="技术选型"><a href="#技术选型" class="headerlink" title="技术选型"></a>技术选型</h2><p>前端测试的框架可谓是百花齐放。</p>
+<ul>
+<li>单元测试有 Mocha, Ava, Karma, Jest, Jasmine 等。</li>
+<li>UI 测试有 ReactTestUtils, Test Render, Enzyme, React-Testing-Library, Vue-Test-Utils 等。</li>
+<li>e2e 测试有 Nightwatch, Cypress, Phantomjs, Puppeteer 等。</li>
+</ul>
+<p>因为我们的项目使用的是 React 技术栈，这里主要介绍 React 项目的技术选型和使用。</p>
+<h3 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h3><table>
+<thead>
+<tr>
+<th>框架</th>
+<th>断言</th>
+<th>仿真</th>
+<th>快照</th>
+<th>异步测试</th>
+<th>环境</th>
+<th>并发测试</th>
+<th>测试覆盖率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mocha</td>
+<td>默认不支持，可配置</td>
+<td>默认不支持，可配置</td>
+<td>默认不支持，可配置</td>
+<td>友好</td>
+<td>全局环境</td>
+<td>否</td>
+<td>需配置</td>
+</tr>
+<tr>
+<td>Ava</td>
+<td>默认支持</td>
+<td>不支持，需第三方配置</td>
+<td>默认支持</td>
+<td>友好</td>
+<td>隔离环境</td>
+<td>是</td>
+<td>不支持，需第三方配置</td>
+</tr>
+<tr>
+<td>Jasmine</td>
+<td>默认支持</td>
+<td>默认支持</td>
+<td>默认支持</td>
+<td>不友好</td>
+<td>全局环境</td>
+<td>否</td>
+<td>不需配置</td>
+</tr>
+<tr>
+<td>Jest</td>
+<td>默认支持</td>
+<td>默认支持</td>
+<td>默认支持</td>
+<td>友好</td>
+<td>隔离环境</td>
+<td>是</td>
+<td>不需配置</td>
+</tr>
+<tr>
+<td>Karma</td>
+<td>不支持，需第三方配置</td>
+<td>不支持，需第三方配置</td>
+<td>不支持，需第三方配置</td>
+<td>不支持，需第三方配置</td>
+<td>-</td>
+<td>-</td>
+<td>需配置</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Mocha 是生态最好，使用最广泛的单测框架，但是他需要较多的配置来实现它的高扩展性。</li>
+<li>Ava 是更轻量高效简单的单测框架，但是自身不够稳定，并发运行文件多的时候会撑爆 CPU.</li>
+<li>Jasmine 是单测框架的“元老”，开箱即用，但是异步测试支持较弱。</li>
+<li>Jest 基于 Jasmine, 做了大量修改并添加了很多特性，同样开箱即用，但异步测试支持良好。</li>
+<li>Karma 能在真实的浏览器中测试，强大适配器，可配置其他单测框架，一般会配合 Mocha 或 Jasmine 等一起使用。</li>
+</ul>
+<p>每个框架都有自己的优缺点，没有最好的框架，只有最适合的框架。Augular 的默认测试框架就是 Karma + Jasmine，而 React 的默认测试框架是 Jest.</p>
+<p>Jest 被各种 React 应用推荐和使用。它基于 Jasmine，至今已经做了大量修改并添加了很多特性，同样也是开箱即用，支持断言，仿真，快照等。Create React App 新建的项目就会默认配置 Jest，我们基本不用做太多改造，就可以直接使用。</p>
+<h3 id="UI-测试"><a href="#UI-测试" class="headerlink" title="UI 测试"></a>UI 测试</h3><p>UI 测试尽管有官方的测试框架 ReactTestUtils 和 Test Render，但是它们的 API 比较复杂，官方文档也是推荐使用 react-testing-library 或 Enzyme 这两个库。</p>
+<blockquote>
+<p><strong>Note:</strong> We recommend using <strong>React Testing Library</strong> which is designed to enable and encourage writing tests that use your components as the end users do.<br>Alternatively, Airbnb has released a testing utility called <strong>Enzyme</strong>, which makes it easy to assert, manipulate, and traverse your React Components’ output.</p>
+</blockquote>
+<p>React Testing Library 和 Enzyme 都是基于 ReactTestUtils 和 Test Render，封装了更简洁易用的 API。</p>
+<p>Enzyme 出来的更早，但是它常常会滞后于 React 功能的实现（大约半年左右，比如不支持 hooks，我不确定现在是否支持了）。React Testing Library 出的比较晚，但倾向于支持 React 的新功能，这对我来说在测试 Hooks 时是一个巨大的好处。</p>
+<p>Enzyme 是从代码实现的角度出发进行测试，基于 state 和 props，而 React Testing Library 是从用户体验的角度出发，所以是基于 dom 进行测试。它也可能有更好的开发体验，以及更稳定的测试。这种方法使重构变得轻而易举，同时也可以实现可访问性的最佳实践。</p>
+<p>当然因为 Enzyme 出的比较早，它的周围生态更好，很多大厂都用了它，不过也有一些正在做 <strong><a href="https://medium.com/@boyney123/my-experience-moving-from-enzyme-to-react-testing-library-5ac65d992ce" target="_blank" rel="noopener">迁移</a></strong>。我希望能够尝试更新更好的框架，所以最后选择了 React Testing Library.</p>
+<h3 id="e2e-测试"><a href="#e2e-测试" class="headerlink" title="e2e 测试"></a>e2e 测试</h3><table>
+<thead>
+<tr>
+<th>框架</th>
+<th>是否跨浏览器支持</th>
+<th>实现</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nightwatch</td>
+<td>是</td>
+<td>Selenium</td>
+<td>可以和其他框架一起使用。适用局部的功能测试场景</td>
+<td>不支持 TypeScript, 社区文化稍弱于其他几个框架</td>
+</tr>
+<tr>
+<td>Cypress</td>
+<td>否</td>
+<td>Chrome</td>
+<td>容易调试和日志记录，使用 Mocha 作为它的测试结构，若单测使用的是 Mocha，所有测试使用的是相同的结构，看起来更“标准”</td>
+<td>缺乏高级功能</td>
+</tr>
+<tr>
+<td>Testcafe</td>
+<td>是</td>
+<td>Testcafe</td>
+<td>支持TS，可并行测试，开箱即用</td>
+<td>不支持录屏，DOM 快照等高级功能</td>
+</tr>
+<tr>
+<td>Puppeteer</td>
+<td>否</td>
+<td>Chrome</td>
+<td>速度快，易调试</td>
+<td>Headless Chrome 不支持安装扩展</td>
+</tr>
+</tbody>
+</table>
+<p>Puppeteer 是 Google Chrome 团队推出的库，尽管它相对其他 e2e 框架更新，但它同样也有一个庞大的社区。它拥有更简洁易用的 API，更快的运行速度，已逐渐成为业内自动化测试的标杆，俘获大量 Selenium 用户的心。可以看下近年来 e2e 测试框架的 <a href="https://www.npmtrends.com/nightwatch-vs-puppeteer-vs-cypress-vs-testcafe-vs-phantomjs" target="_blank" rel="noopener">npm trends</a>.</p>
+<p><img src="https://i.loli.net/2019/08/29/lgCzxPSRry1D78w.png" alt=""></p>
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>经过分析，最后我们项目的技术选型为 <strong>Jest + React Testing Library + Puppeteer</strong></p>
+<p>而对于 Vue 的项目，为了保持技术栈的统一，我们选用了 <strong>Jest + Vue-Test-Utils + Puppeteer</strong></p>
+<h2 id="编写原则"><a href="#编写原则" class="headerlink" title="编写原则"></a>编写原则</h2><ul>
+<li>测试代码时，只考虑测试，不考虑内部实现</li>
+<li>数据尽量模拟现实，越靠近现实越好</li>
+<li>充分考虑数据的边界条件</li>
+<li>对重点、复杂、核心代码，重点测试</li>
+<li>利用 <a href="https://baike.baidu.com/item/AOP/1332219?fr=aladdin" target="_blank" rel="noopener">AOP</a>(beforeEach、afterEach)，减少测试代码数量，避免无用功能</li>
+<li>测试、功能开发相结合，有利于设计和代码重构</li>
+</ul>
+<h2 id="编写说明"><a href="#编写说明" class="headerlink" title="编写说明"></a>编写说明</h2><p>未来的项目都是基于 Talos 生成，其实也就是使用了 Create-React-App 生成 React 项目，使用了 Vue-CLI@3 生成了 Vue 项目。本身默认都有 Jest 的配置，不需做大的改动。</p>
+<ul>
+<li>单元测试和 UI 测试的文件夹统一命名为 <strong>tests</strong>，测试文件以 .test.js 为后缀</li>
+<li>将 <strong>tests</strong> 文件夹与它们正在测试的代码放在同级目录下，以便相对路径导入时路径更短</li>
+<li>e2e 测试的文件夹命名为 e2e，并与 src 同放在根目录下</li>
+<li>VScode 和 WebStorm 都有对应的 Jest 插件，安装后书写代码时有代码补全，debug 和自动运行等功能</li>
+</ul>
+<h2 id="如何编写测试"><a href="#如何编写测试" class="headerlink" title="如何编写测试"></a>如何编写测试</h2><p>其实，Jest 的语法蛮简单的，只需要熟悉几个 API 就可以快速上手测试了。</p>
+<h3 id="工具类函数的单元测试"><a href="#工具类函数的单元测试" class="headerlink" title="工具类函数的单元测试"></a>工具类函数的单元测试</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// lib/utils.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">hexToRGB</span>(<span class="params">hexColor</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> result = <span class="regexp">/^#?([a-f\d]&#123;2&#125;)([a-f\d]&#123;2&#125;)([a-f\d]&#123;2&#125;)$/i</span>.exec(hexColor);</span><br><span class="line">  <span class="keyword">return</span> result ? [<span class="built_in">parseInt</span>(result[<span class="number">1</span>], <span class="number">16</span>), <span class="built_in">parseInt</span>(result[<span class="number">2</span>], <span class="number">16</span>), <span class="built_in">parseInt</span>(result[<span class="number">3</span>], <span class="number">16</span>)] : [];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// lib/__tests__/utils.test.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; hexToRGB &#125; <span class="keyword">from</span> <span class="string">'../util'</span>;</span><br><span class="line"></span><br><span class="line">describe(<span class="string">'将16进制颜色转为 rgb'</span>, () =&gt; &#123;</span><br><span class="line">  it(<span class="string">'小写'</span>, () =&gt; &#123;</span><br><span class="line">    expect(hexToRGB(<span class="string">'#ffc150'</span>)).toEqual([<span class="number">255</span>, <span class="number">193</span>, <span class="number">80</span>]);</span><br><span class="line">  &#125;);</span><br><span class="line">  it(<span class="string">'大写'</span>, () =&gt; &#123;</span><br><span class="line">    expect(hexToRGB(<span class="string">'#FFC150'</span>)).toEqual([<span class="number">255</span>, <span class="number">193</span>, <span class="number">80</span>]);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>只需要给定函数的输入，之后调用函数，验证它的输出与期望的是否一样。</p>
+<h3 id="Redux-的单元测试"><a href="#Redux-的单元测试" class="headerlink" title="Redux 的单元测试"></a>Redux 的单元测试</h3><h4 id="测试-Reducer"><a href="#测试-Reducer" class="headerlink" title="测试 Reducer"></a>测试 Reducer</h4><p>Reducer 把 action 合并到之前的 state，并返回新的 state。因为项目里使用了 Immutable.js，所以需要使用 merge 操作。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// store/reducers/cart.js</span></span><br><span class="line"><span class="keyword">import</span> Immutable <span class="keyword">from</span> <span class="string">'immutable'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; UPDATE_CART_DISH_LIST, UPDATE_CART_DISH_SORT_MAP_LIST &#125; <span class="keyword">from</span> <span class="string">'../actions/cart'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> initialState = Immutable.Map(&#123;</span><br><span class="line">  cartDishList: Immutable.Map(&#123;&#125;),</span><br><span class="line">  cartDishSortMapList: Immutable.List([]),</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> (state = initialState, action) =&gt; &#123;</span><br><span class="line">  <span class="keyword">switch</span> (action.type) &#123;</span><br><span class="line">    <span class="keyword">case</span> UPDATE_CART_DISH_LIST:</span><br><span class="line">      <span class="keyword">return</span> state.merge(&#123;</span><br><span class="line">        cartDishList: action.cartDishList,</span><br><span class="line">      &#125;);</span><br><span class="line">    <span class="keyword">case</span> UPDATE_CART_DISH_SORT_MAP_LIST:</span><br><span class="line">      <span class="keyword">return</span> state.merge(&#123;</span><br><span class="line">        cartDishSortMapList: action.cartDishSortMapList,</span><br><span class="line">      &#125;);</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">      <span class="keyword">return</span> state;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// store/reducers/__tests__/cart.js</span></span><br><span class="line"><span class="keyword">import</span> Immutable <span class="keyword">from</span> <span class="string">'immutable'</span>;</span><br><span class="line"><span class="keyword">import</span> cartReducer, &#123; initialState &#125; <span class="keyword">from</span> <span class="string">'../cart'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; UPDATE_CART_DISH_LIST, UPDATE_CART_DISH_SORT_MAP_LIST &#125; <span class="keyword">from</span> <span class="string">'../../actions/cart'</span>;</span><br><span class="line"></span><br><span class="line">describe(<span class="string">'cart reducer'</span>, () =&gt; &#123;</span><br><span class="line">  it(<span class="string">'返回初始化的 state'</span>, () =&gt; &#123;</span><br><span class="line">    expect(cartReducer(<span class="literal">undefined</span>, &#123;&#125;)).toEqual(initialState);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  it(<span class="string">'更新购物车'</span>, () =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> state = Immutable.Map(&#123; <span class="attr">cartDishList</span>: <span class="literal">null</span> &#125;);</span><br><span class="line">    <span class="keyword">const</span> action = &#123; <span class="attr">type</span>: UPDATE_CART_DISH_LIST, <span class="attr">cartDishList</span>: Immutable.Map(&#123;&#125;) &#125;;</span><br><span class="line">    <span class="keyword">const</span> newState = Immutable.Map(&#123; <span class="attr">cartDishList</span>: Immutable.Map(&#123;&#125;) &#125;);</span><br><span class="line">    expect(cartReducer(state, action)).toEqual(newState);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  it(<span class="string">'更新购物车菜品顺序'</span>, () =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> state = Immutable.Map(&#123; <span class="attr">cartDishSortMapList</span>: <span class="literal">null</span> &#125;);</span><br><span class="line">    <span class="keyword">const</span> action = &#123; <span class="attr">type</span>: UPDATE_CART_DISH_SORT_MAP_LIST, <span class="attr">cartDishSortMapList</span>: Immutable.List([]) &#125;;</span><br><span class="line">    <span class="keyword">const</span> newState = Immutable.Map(&#123; <span class="attr">cartDishSortMapList</span>: Immutable.List([]) &#125;);</span><br><span class="line">    expect(cartReducer(state, action)).toEqual(newState);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="测试普通-Action"><a href="#测试普通-Action" class="headerlink" title="测试普通 Action"></a>测试普通 Action</h4><p>普通 Action 就是一个返回了普通对象的函数，测试起来相当简单。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// store/actions/cart.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> UPDATE_SHOPID = <span class="string">'UPDATE_SHOPID'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">updateShopIdAction</span>(<span class="params">shopId</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    type: UPDATE_SHOPID,</span><br><span class="line">    shopId,</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// store/actions/__tests__/cart.test.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; updateShopIdAction, UPDATE_SHOPID &#125; <span class="keyword">from</span> <span class="string">'../cart'</span>;</span><br><span class="line"></span><br><span class="line">test(<span class="string">'更新 shopId'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> expectedAction = &#123; <span class="attr">type</span>: UPDATE_SHOPID, <span class="attr">shopId</span>: <span class="string">'111'</span> &#125;;</span><br><span class="line">  expect(updateShopIdAction(<span class="string">'111'</span>)).toEqual(expectedAction);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h4 id="测试带中间件的复合-Action"><a href="#测试带中间件的复合-Action" class="headerlink" title="测试带中间件的复合 Action"></a>测试带中间件的复合 Action</h4><p>项目里使用了 <code>redux-thunk</code> 这个中间件，我们需要使用 <code>redux-mock-store</code> 来把中间件应用于模拟的 <code>store</code>.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// store/actions/cart.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">updateShopIdAction</span>(<span class="params">shopId</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    type: UPDATE_SHOPID,</span><br><span class="line">    shopId,</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">updateTableNumAction</span>(<span class="params">tableNum</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    type: UPDATE_TABLE_NUM,</span><br><span class="line">    tableNum,</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">updateBaseInfo</span>(<span class="params">shopId, tableNum</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">dispatch</span>) =&gt;</span> &#123;</span><br><span class="line">    dispatch(updateShopIdAction(shopId));</span><br><span class="line">    dispatch(updateTableNumAction(tableNum));</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// store/actions/__tests__/cart.test.js</span></span><br><span class="line"><span class="keyword">import</span> configureStore <span class="keyword">from</span> <span class="string">'redux-mock-store'</span>;</span><br><span class="line"><span class="keyword">import</span> Immutable <span class="keyword">from</span> <span class="string">'immutable'</span>;</span><br><span class="line"><span class="keyword">import</span> thunk <span class="keyword">from</span> <span class="string">'redux-thunk'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; updateBaseInfo, UPDATE_SHOPID, UPDATE_TABLE_NUM &#125; <span class="keyword">from</span> <span class="string">'../cart'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> middlewares = [thunk];</span><br><span class="line"><span class="keyword">const</span> mockStore = configureStore(middlewares);</span><br><span class="line"></span><br><span class="line">test(<span class="string">'updateBaseInfo'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> store = mockStore(Immutable.Map(&#123;&#125;));</span><br><span class="line">  store.dispatch(updateBaseInfo(<span class="string">'111'</span>, <span class="string">'111'</span>));</span><br><span class="line">  <span class="keyword">const</span> actions = store.getActions();</span><br><span class="line">  <span class="keyword">const</span> expectPayloads = [&#123; <span class="attr">type</span>: UPDATE_SHOPID, <span class="attr">shopId</span>: <span class="string">'111'</span> &#125;, &#123; <span class="attr">type</span>: UPDATE_TABLE_NUM, <span class="attr">tableNum</span>: <span class="string">'111'</span> &#125;];</span><br><span class="line">  expect(actions).toEqual(expectPayloads);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h4 id="测试异步-Action"><a href="#测试异步-Action" class="headerlink" title="测试异步 Action"></a>测试异步 Action</h4><p>我们需要借助 <code>axios-mock-adapter</code> 这个包来模拟请求。<code>Create-React-App</code> 默认会安装这个包。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// store/asyncActions/shop.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; loadShopInfoAction &#125; <span class="keyword">from</span> <span class="string">'../actions/main'</span>;</span><br><span class="line"><span class="keyword">import</span> shop <span class="keyword">from</span> <span class="string">'../../api/shop'</span>;</span><br><span class="line"><span class="keyword">import</span> Loading <span class="keyword">from</span> <span class="string">'../../components/common/Loading'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> getShopInfo = <span class="function">(<span class="params">mtShopId, tableNum</span>) =&gt;</span> (dispatch) =&gt; &#123;</span><br><span class="line">  Loading.show();</span><br><span class="line">  <span class="keyword">return</span> shop.getShopInfo(&#123; mtShopId, tableNum &#125;)</span><br><span class="line">    .then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">      Loading.close();</span><br><span class="line">      <span class="keyword">const</span> result = res.data;</span><br><span class="line">      dispatch(loadShopInfoAction(result));</span><br><span class="line">    &#125;)</span><br><span class="line">    .catch(<span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">      Loading.close();</span><br><span class="line">      <span class="built_in">console</span>.error(e);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// store/asyncActions/__tests__/shop.test.js</span></span><br><span class="line"><span class="keyword">import</span> configureStore <span class="keyword">from</span> <span class="string">'redux-mock-store'</span>;</span><br><span class="line"><span class="keyword">import</span> thunk <span class="keyword">from</span> <span class="string">'redux-thunk'</span>;</span><br><span class="line"><span class="keyword">import</span> MockAdapter <span class="keyword">from</span> <span class="string">'axios-mock-adapter'</span>;</span><br><span class="line"><span class="keyword">import</span> instance <span class="keyword">from</span> <span class="string">'@lib/axios'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; getShopInfo &#125; <span class="keyword">from</span> <span class="string">'../main'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; LOAD_SHOP_INFO &#125; <span class="keyword">from</span> <span class="string">'../../actions/main'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> middlewares = [thunk];</span><br><span class="line"><span class="keyword">const</span> mockStore = configureStore(middlewares);</span><br><span class="line"><span class="keyword">const</span> mockHttp = <span class="keyword">new</span> MockAdapter(instance); <span class="comment">// 继承了 axios.js 文件里的配置</span></span><br><span class="line"></span><br><span class="line">test(<span class="string">'getShopInfo'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> store = mockStore(&#123;&#125;);</span><br><span class="line">  <span class="keyword">const</span> expectPayloads = [&#123; <span class="attr">type</span>: LOAD_SHOP_INFO, <span class="attr">shopInfo</span>: &#123; <span class="attr">peopleCount</span>: <span class="number">0</span> &#125; &#125;];</span><br><span class="line"></span><br><span class="line">  mockHttp.onGet(<span class="string">'/shopInfo'</span>)</span><br><span class="line">    .reply(<span class="number">200</span>, &#123;</span><br><span class="line">      data: &#123; <span class="attr">peopleCount</span>: <span class="number">0</span> &#125;,</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">  store.dispatch(getShopInfo())</span><br><span class="line">    .then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> actions = store.getActions();</span><br><span class="line">      expect(actions).toEqual(expectPayloads);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="UI-测试-1"><a href="#UI-测试-1" class="headerlink" title="UI 测试"></a>UI 测试</h3><p>对于单元测试来说，是成本低且收益高，而对 UI 测试来说，可能更像是成本高但收益低。<br>但是对于一些公共组件的测试还是很有必要的，就像笔者前文说到过的一样，当项目的代码足够复杂时，一个通用组件的改动迎接你的可能就是一个线上 Case。</p>
+<h4 id="函数组件"><a href="#函数组件" class="headerlink" title="函数组件"></a>函数组件</h4><p>下面简单的看一个加减菜组件的测试（精简了一部分逻辑）。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> Immutable <span class="keyword">from</span> <span class="string">'immutable'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'./NumberCount.less'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> NumberCount = <span class="function">(<span class="params">props</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; dish, count, addToCart, minusDish, minusPoint,&#125; = props;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div className=<span class="string">"number-count"</span>&gt;</span><br><span class="line">      &#123;</span><br><span class="line">        count &gt; <span class="number">0</span></span><br><span class="line">          ? (</span><br><span class="line">            &lt;&gt;</span><br><span class="line">              &lt;div className=<span class="string">"minus"</span>&gt;</span><br><span class="line">                &lt;span className=<span class="string">"minus-icon"</span> /&gt;</span><br><span class="line">                &lt;span className=<span class="string">"minus-trigger"</span> onClick=&#123;() =&gt; minusDishToCart(dish)&#125; /&gt;</span><br><span class="line">              &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">              &lt;div className="num"&gt;&#123;count&#125;&lt;/</span>div&gt;</span><br><span class="line">            &lt;<span class="regexp">/&gt;</span></span><br><span class="line"><span class="regexp">          )</span></span><br><span class="line"><span class="regexp">          : null</span></span><br><span class="line"><span class="regexp">      &#125;</span></span><br><span class="line"><span class="regexp">      &lt;div className="plus"&gt;</span></span><br><span class="line"><span class="regexp">        &lt;span className="plus-icon" /</span>&gt;</span><br><span class="line">        &lt;span className=<span class="string">"plus-trigger"</span> onClick=&#123;() =&gt; addToCart(dish)&#125; /&gt;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> NumberCount;</span><br></pre></td></tr></table></figure>
+<p>对于这个组件来说，逻辑还是比较简单的。<br>我们的测试点在加菜和减菜按钮的事件是否被正确触发，当数量为 0 时，减号按钮和数量是否展示，数量不为 0 时，展示是否正确。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; render, cleanup, fireEvent &#125; <span class="keyword">from</span> <span class="string">'@testing-library/react'</span>;</span><br><span class="line"><span class="keyword">import</span> Immutable <span class="keyword">from</span> <span class="string">'immutable'</span>;</span><br><span class="line"><span class="keyword">import</span> NumberCount <span class="keyword">from</span> <span class="string">'../NumberCount'</span>;</span><br><span class="line"></span><br><span class="line">afterEach(cleanup);</span><br><span class="line"></span><br><span class="line">test(<span class="string">'点击加菜按钮'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> props = &#123;</span><br><span class="line">    dish: Immutable.fromJS(&#123; <span class="attr">spuId</span>: <span class="number">111</span> &#125;),</span><br><span class="line">    count: <span class="number">0</span>,</span><br><span class="line">    addToCart: jest.fn(),</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">const</span> &#123; container &#125; = render(&lt;NumberCount &#123;...props&#125; /&gt;);</span><br><span class="line">  const addButton = container.querySelector('.plus-trigger');</span><br><span class="line">  const minusButton = container.querySelector('.minus-trigger');</span><br><span class="line">  const numDiv = container.querySelector('.num');</span><br><span class="line">  expect(minusButton).toBeNull();</span><br><span class="line">  expect(numDiv).toBeNull();</span><br><span class="line">  fireEvent.click(addButton);</span><br><span class="line">  expect(props.addToCart).toBeCalledWith(props.dish);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">test('点击减菜按钮', () =&gt; &#123;</span><br><span class="line">  const props = &#123;</span><br><span class="line">    dish: Immutable.fromJS(&#123; spuId: 111 &#125;),</span><br><span class="line">    count: 1,</span><br><span class="line">    addToCart: jest.fn(),</span><br><span class="line">    minusDish: jest.fn(),</span><br><span class="line">  &#125;;</span><br><span class="line">  const &#123; container &#125; = render(&lt;NumberCount &#123;...props&#125; /&gt;);</span><br><span class="line">  const minusButton = container.querySelector('.minus-trigger');</span><br><span class="line">  const numDiv = container.querySelector('.num');</span><br><span class="line">  expect(numDiv.innerHTML).toBe('1');</span><br><span class="line">  fireEvent.click(minusButton);</span><br><span class="line">  expect(props.minusDish).toBeCalledWith(props.dish);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="使用-connect-包裹后的高阶组件"><a href="#使用-connect-包裹后的高阶组件" class="headerlink" title="使用 connect 包裹后的高阶组件"></a>使用 connect 包裹后的高阶组件</h4><p>尽管理论上 components 里面的公共组件都应该是无状态组件，但是有时候有些公用的组件写成有状态组件可能更容易被使用，开发成本更低。<br>Redux 官方推荐直接测试 connect 包裹前的组件。</p>
+<blockquote>
+<p>In order to be able to test the App component itself without having to deal with the decorator, we recommend you to also export the undecorated component.</p>
+</blockquote>
+<p>这边给出一个样例。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; connect &#125; <span class="keyword">from</span> <span class="string">'react-redux'</span>;</span><br><span class="line"><span class="keyword">import</span> Immutable <span class="keyword">from</span> <span class="string">'immutable'</span>;</span><br><span class="line"><span class="keyword">import</span> ImmutableBaseComponent <span class="keyword">from</span> <span class="string">'./ImmutableBaseComponent'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; selectSkuDish, toggleMultiPanelAction &#125; <span class="keyword">from</span> <span class="string">'../../store/actions/cart'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; computeCount &#125; <span class="keyword">from</span> <span class="string">'@modules/cartHelper'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'./SelectDish.less'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 需要将这个未被 connect 的组件 export, 用于测试</span></span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">SelectDish</span> <span class="keyword">extends</span> <span class="title">ImmutableBaseComponent</span> </span>&#123;</span><br><span class="line">  togglePanel = <span class="function">(<span class="params">e, spuDish</span>) =&gt;</span> &#123;</span><br><span class="line">    e.stopPropagation();</span><br><span class="line">    <span class="keyword">this</span>.props.selectSkuDish(spuDish);</span><br><span class="line">    <span class="keyword">this</span>.props.toggleMultiPanelAction(<span class="literal">true</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; spuDish, cartDishList &#125; = <span class="keyword">this</span>.props;</span><br><span class="line">    <span class="keyword">const</span> count = computeCount(spuDish, cartDishList);</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div className=<span class="string">"select-dish"</span> onClick=&#123;e =&gt; <span class="keyword">this</span>.togglePanel(e, spuDish)&#125;&gt;</span><br><span class="line">        选择</span><br><span class="line">        &#123; count &gt; <span class="number">0</span> &amp;&amp; &lt;span&gt;&#123;count&#125;&lt;/span&gt; &#125;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">const mapStateToProps = state =&gt; (&#123;</span></span><br><span class="line"><span class="regexp">  cartDishList: state.getIn(['cart', 'cartDishList']),</span></span><br><span class="line"><span class="regexp">&#125;);</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">const mapDispatchToProps = dispatch =&gt; (&#123;</span></span><br><span class="line"><span class="regexp">  selectSkuDish: spuDish =&gt; dispatch(selectSkuDish(spuDish)),</span></span><br><span class="line"><span class="regexp">  toggleMultiPanelAction: show =&gt; dispatch(toggleMultiPanelAction(show)),</span></span><br><span class="line"><span class="regexp">&#125;);</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">export default connect(mapStateToProps, mapDispatchToProps)(SelectDish);</span></span><br></pre></td></tr></table></figure>
+<p>可以看到代码中 export 了包裹前的 SelectDish, 这样就能进行如下测试：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; render, cleanup, fireEvent &#125; <span class="keyword">from</span> <span class="string">'@testing-library/react'</span>;</span><br><span class="line"><span class="keyword">import</span> Immutable <span class="keyword">from</span> <span class="string">'immutable'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; SelectDish &#125; <span class="keyword">from</span> <span class="string">'../SelectDish'</span>;</span><br><span class="line"></span><br><span class="line">afterEach(cleanup);</span><br><span class="line"></span><br><span class="line">test(<span class="string">'选择多规格菜品'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> props = &#123;</span><br><span class="line">    spuDish: Immutable.fromJS(&#123; <span class="attr">spuId</span>: <span class="string">'111'</span> &#125;),</span><br><span class="line">    cartDishList: Immutable.fromJS(&#123;&#125;),</span><br><span class="line">    selectSkuDish: jest.fn(),</span><br><span class="line">    toggleMultiPanelAction: jest.fn(),</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">const</span> &#123; container &#125; = render(&lt;SelectDish &#123;...props&#125; /&gt;);</span><br><span class="line">  const selectButton = container.querySelector('.select-dish');</span><br><span class="line">  fireEvent.click(selectButton);</span><br><span class="line">  expect(props.selectSkuDish).toBeCalledWith(props.spuDish);</span><br><span class="line">  expect(props.toggleMultiPanelAction).toBeCalledWith(true);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="编写测试小技巧"><a href="#编写测试小技巧" class="headerlink" title="编写测试小技巧"></a>编写测试小技巧</h3><p>在写某些模块的单测或是 UI 测试时，大家可能会发现一些难以测试的点，比如 Localstorage, 或一些延时函数的触发。下面一起看一下如何处理这些情况。</p>
+<h4 id="LocalStorage"><a href="#LocalStorage" class="headerlink" title="LocalStorage"></a>LocalStorage</h4><p>因为 Jest 的环境是基于 jsdom, 所以我们需要去模拟 localstorage 的行为。借鉴 Vue2.0 里数据侦测的方法。<br>新建一个文件，加入如下代码<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// config/jest/browserMocks.js</span></span><br><span class="line"><span class="keyword">const</span> localStorageMock = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> store = &#123;&#125;;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    getItem(key) &#123;</span><br><span class="line">      <span class="keyword">return</span> store[key] || <span class="literal">null</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    setItem(key, value) &#123;</span><br><span class="line">      store[key] = value.toString();</span><br><span class="line">    &#125;,</span><br><span class="line">    removeItem(key) &#123;</span><br><span class="line">      <span class="keyword">delete</span> store[key];</span><br><span class="line">    &#125;,</span><br><span class="line">    clear() &#123;</span><br><span class="line">      store = &#123;&#125;;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;());</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(<span class="built_in">window</span>, <span class="string">'localStorage'</span>, &#123;</span><br><span class="line">  value: localStorageMock,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>之后需要在 Jest 的配置中将该文件配置为启动文件<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setupFiles: [</span><br><span class="line">  '&lt;rootDir&gt;/config/jest/browserMocks.js',</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<h4 id="延时函数"><a href="#延时函数" class="headerlink" title="延时函数"></a>延时函数</h4><p>利用 Jest 提供的 jest.useFakeTimers()，jest.runAllTimers()，jest.useRealTimers() 等 API 来完成测试。<br>可以看以下 Toast 组件的 UI 测试。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'./Toast.less'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Toast</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> close() &#123;</span><br><span class="line">    Toast.beforeClose &amp;&amp; Toast.beforeClose();</span><br><span class="line">    <span class="keyword">if</span> (Toast.timer) &#123;</span><br><span class="line">      clearTimeout(Toast.timer);</span><br><span class="line">      Toast.timer = <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (Toast.toastWrap) &#123;</span><br><span class="line">      <span class="built_in">document</span>.body.removeChild(Toast.toastWrap);</span><br><span class="line">      Toast.toastWrap = <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; duration, beforeClose &#125; = <span class="keyword">this</span>.props;</span><br><span class="line"></span><br><span class="line">    Toast.beforeClose = beforeClose;</span><br><span class="line">    <span class="keyword">if</span> (duration &gt; <span class="number">0</span>) &#123;</span><br><span class="line">      Toast.timer = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        Toast.close();</span><br><span class="line">      &#125;, duration);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">if</span> (Toast.toastWrap) Toast.close();</span><br><span class="line">    <span class="keyword">const</span> &#123; content, hasMask &#125; = <span class="keyword">this</span>.props;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div className=<span class="string">"toast-wrap"</span>&gt;</span><br><span class="line">        &#123; hasMask &amp;&amp; &lt;div className="toast-mask" /&gt; &#125;</span><br><span class="line">        &lt;div className="toast-box"&gt;</span><br><span class="line">          &#123;content&#125;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Toast;</span><br></pre></td></tr></table></figure>
+<p>我们这里就检查的写一点测试，测试 Toast 弹窗内的内容是否一致，beforeClose 事件是否是在弹窗关闭时才触发。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; render, cleanup &#125; <span class="keyword">from</span> <span class="string">'@testing-library/react'</span>;</span><br><span class="line"><span class="keyword">import</span> Toast <span class="keyword">from</span> <span class="string">'../Toast'</span>;</span><br><span class="line"></span><br><span class="line">afterEach(cleanup);</span><br><span class="line"></span><br><span class="line">test(<span class="string">'正常弹窗'</span>, () =&gt; &#123;</span><br><span class="line">  jest.useFakeTimers();</span><br><span class="line">  <span class="keyword">const</span> props = &#123;</span><br><span class="line">    duration: <span class="number">2000</span>,</span><br><span class="line">    content: <span class="string">'hello world'</span>,</span><br><span class="line">    beforeClose: jest.fn(),</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">const</span> &#123; container &#125; = render(&lt;Toast &#123;...props&#125; /&gt;);</span><br><span class="line">  const toastDiv = container.querySelector('.toast-box');</span><br><span class="line">  expect(toastDiv.innerHTML).toBe('hello world');</span><br><span class="line">  expect(props.beforeClose).not.toBeCalled();</span><br><span class="line">  jest.runAllTimers();</span><br><span class="line">  expect(props.beforeClose).toBeCalled();</span><br><span class="line">  jest.useRealTimers();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="e2e-测试-1"><a href="#e2e-测试-1" class="headerlink" title="e2e 测试"></a>e2e 测试</h3><p>对于 e2e 测试来说，我们不需要写太多的代码，毕竟我们都有专业的 QA 同学。我认为只需要简单的覆盖主流程，比如我们的点餐业务，从最开始的选择人数页进入菜单页，进行加菜，减菜，再进入下单页下单等。<br>e2e 还需要对 Jest 做一点配置。新建一个 jest-e2e.config.js 文件，不与单测的配置冲突。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  preset: <span class="string">'jest-puppeteer'</span>,</span><br><span class="line">  testRegex: <span class="string">'e2e/.*\\.test\\.js$'</span>,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>在 package.json 加一行命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">"scripts": &#123;</span><br><span class="line">  "test:e2e": "jest -c jest-e2e.config.js --detectOpenHandles"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这边简单贴一点 e2e 的代码。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// e2e/regression.test.js</span></span><br><span class="line"><span class="keyword">const</span> puppeteer = <span class="built_in">require</span>(<span class="string">'puppeteer'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> TARGET_URL = <span class="string">'XXX'</span>;</span><br><span class="line"><span class="keyword">const</span> width = <span class="number">375</span>;</span><br><span class="line"><span class="keyword">const</span> height = <span class="number">667</span>;</span><br><span class="line"></span><br><span class="line">test(<span class="string">'主流程'</span>, <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> browser = <span class="keyword">await</span> puppeteer.launch(&#123; <span class="attr">headless</span>: <span class="literal">false</span> &#125;);</span><br><span class="line">  <span class="keyword">const</span> context = <span class="keyword">await</span> browser.createIncognitoBrowserContext();</span><br><span class="line">  <span class="keyword">const</span> page = <span class="keyword">await</span> context.newPage();</span><br><span class="line">  <span class="keyword">await</span> page.goto(TARGET_URL, &#123;</span><br><span class="line">    waitUntil: <span class="string">'networkidle2'</span>, <span class="comment">// 等到空闲</span></span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">await</span> page.setViewport(&#123; width, height &#125;);</span><br><span class="line">  <span class="keyword">await</span> page.waitForSelector(<span class="string">'.people-count'</span>);</span><br><span class="line">  <span class="keyword">await</span> page.screenshot(&#123; <span class="attr">path</span>: <span class="string">'e2e/screenshots/main.png'</span> &#125;);</span><br><span class="line">  <span class="keyword">await</span> page.click(<span class="string">'.people-count:nth-child(1)'</span>);</span><br><span class="line">  <span class="keyword">await</span> page.click(<span class="string">'.start-btn'</span>);</span><br><span class="line">  <span class="keyword">await</span> page.waitFor(<span class="number">3000</span>);</span><br><span class="line">  <span class="keyword">await</span> page.screenshot(&#123; <span class="attr">path</span>: <span class="string">'e2e/screenshots/menu.png'</span> &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 添加普通菜</span></span><br><span class="line">  <span class="keyword">await</span> page.click(<span class="string">'.meal-list-style &gt; ul &gt; li:nth-child(8) .plus-trigger'</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 展开购物车</span></span><br><span class="line">  <span class="keyword">await</span> page.click(<span class="string">'#cart-chef'</span>);</span><br><span class="line">  <span class="keyword">await</span> page.screenshot(&#123; <span class="attr">path</span>: <span class="string">'e2e/screenshots/cart.png'</span> &#125;);</span><br><span class="line">  <span class="keyword">await</span> page.click(<span class="string">'#cart-chef'</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 进入下单页</span></span><br><span class="line">  <span class="keyword">await</span> page.click(<span class="string">'.cart-bar &gt; .btn.highlight'</span>);</span><br><span class="line">  <span class="keyword">await</span> page.waitFor(<span class="number">3000</span>);</span><br><span class="line">  <span class="keyword">await</span> page.screenshot(&#123; <span class="attr">path</span>: <span class="string">'e2e/screenshots/order-confirm.png'</span> &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">await</span> browser.close();</span><br><span class="line">&#125;, <span class="number">20000</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="测试覆盖率"><a href="#测试覆盖率" class="headerlink" title="测试覆盖率"></a>测试覆盖率</h2><p>为项目添加一行命令，就可以查看项目的测试覆盖率。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">"scripts": &#123;</span><br><span class="line">  "cov": "node scripts/test.js --coverage"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编写测试其实是为了保证项目的质量和开发体验，所以原则上不会做到全量的覆盖。</p>
+<p>因为目前我们的项目大多属于敏捷开发，UI 样式的改动或者功能性需求较多，时间上也无法允许我们做到更好的测试覆盖。</p>
+<p>因此，我们书写测试的目标是抽象出来的功能函数（集中放在 modules 文件夹），对数据流操作的 action，公共的组件（components 里 comon 文件夹下）。</p>
+<p>只有单元测试和 UI 测试会计算到测试覆盖率，而 e2e 不会被计算进去。e2e 不需要写太多，因为大部分关键逻辑已经被单元测试覆盖，e2e 只需要简单的进行主流程的模拟。</p>
+<p>通过 Jest 里的 collectCoverageFrom 配置改变测试统计的范围，最终项目的测试覆盖率要求为 Statement 60%, Branches 60%, Functions 60%, Lines 60%. 相关配置如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  collectCoverageFrom: [</span><br><span class="line">    <span class="string">'src/components/common/**/*.&#123;js,jsx,ts,tsx&#125;'</span>,</span><br><span class="line">    <span class="string">'src/modules/**/*.&#123;js,jsx,ts,tsx&#125;'</span>,</span><br><span class="line">    <span class="string">'src/lib/**/*.&#123;js,jsx,ts,tsx&#125;'</span>,</span><br><span class="line">    <span class="string">'src/store/**/*.&#123;js,jsx,ts,tsx&#125;'</span>,</span><br><span class="line">    <span class="string">'src/constants/**/*.&#123;js,jsx,ts,tsx&#125;'</span>,</span><br><span class="line">    <span class="string">'src/api/**/*.&#123;js,jsx,ts,tsx&#125;'</span>,</span><br><span class="line">  ],</span><br><span class="line">  coverageThreshold: &#123;</span><br><span class="line">    global: &#123;</span><br><span class="line">      statements: <span class="number">60</span>,</span><br><span class="line">      branches: <span class="number">60</span>,</span><br><span class="line">      functions: <span class="number">60</span>,</span><br><span class="line">      lines: <span class="number">60</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这边展示下我们项目里 store/actions 文件夹下的测试覆盖情况</p>
+<p><img src="https://i.loli.net/2019/08/29/dIEKovf5XrRTbCh.png" alt=""></p>
+<p>可以在最上面看到整个文件夹的总体的测试覆盖情况，和下面每个文件的具体覆盖情况。点击文件进去还能查看具体代码的覆盖情况。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>为项目添加测试是有一定成本的，尤其是 UI 测试方面。任何一件事情我们都需要平衡成本和收益，就像上文提到的，成本低的单元测试尽可能的全量覆盖，而高成本的 UI 测试则只做公共组件的覆盖。</p>
+<p>前端测试确实会给项目带来相当多的好处，它能为 <strong>长期迭代</strong> 的项目带来显著的质量提升。</p>
+<ul>
+<li>首先是能在测试环境降低 bug 数量，通过运行单测能检测出一些逻辑错误。</li>
+<li>其次覆盖到不少 QA 同学没有覆盖到的边界情况（笔者在后期补写测试的时候，顺手修了几个问题😁），因为我们的测试编写原则就是要充分考虑数据的边界条件。</li>
+<li>能够方便重构。</li>
+<li>在原有逻辑增加新功能时，通过运行之前的测试，能够大大提高迭代的质量和稳定性。</li>
+</ul>
+<p>这篇文章主要总结了笔者在 React 项目中书写测试的经验与沉淀，而对于 Vue 的项目，暂时还没有深入研究。但是 Vue 有个特点，基本上重要的库比如 Vue-Router, Vuex 都是官方维护，同样的 Vue Test Utils 也是 Vue.js 官方的单元测试工具库。<a href="https://vue-test-utils.vuejs.org/zh/guides/#%E8%B5%B7%E6%AD%A5" target="_blank" rel="noopener">文档</a> 写的相当详细，对 Vue 项目编写测试时可以参考。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/技术帖/" rel="tag"># 技术帖</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/15/nvm,nrm,yrm 的使用/" rel="next" title="nvm,nrm,yrm 的使用">
+                <i class="fa fa-chevron-left"></i> nvm,nrm,yrm 的使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://i.loli.net/2018/11/19/5bf2895db2229.png" alt="Kerminate">
+            
+              <p class="site-author-name" itemprop="name">Kerminate</p>
+              <p class="site-description motion-element" itemprop="description">一个喜欢篮球的程序猿.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/Kerminate" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:kepeilin@outlook.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/Kerminate" target="_blank" title="Twitter">
+                    
+                      <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://weibo.com/5955228776/profile" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lazzzis.github.io/" title="lazzzis" target="_blank">lazzzis</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://mengrenzi.com/" title="MRZ's Blog" target="_blank">MRZ's Blog</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://happycloud.coding.me/" title="Happy Cloud" target="_blank">Happy Cloud</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是前端测试？"><span class="nav-number">1.</span> <span class="nav-text">什么是前端测试？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#技术选型"><span class="nav-number">2.</span> <span class="nav-text">技术选型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单元测试"><span class="nav-number">2.1.</span> <span class="nav-text">单元测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UI-测试"><span class="nav-number">2.2.</span> <span class="nav-text">UI 测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#e2e-测试"><span class="nav-number">2.3.</span> <span class="nav-text">e2e 测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结论"><span class="nav-number">2.4.</span> <span class="nav-text">结论</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编写原则"><span class="nav-number">3.</span> <span class="nav-text">编写原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编写说明"><span class="nav-number">4.</span> <span class="nav-text">编写说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何编写测试"><span class="nav-number">5.</span> <span class="nav-text">如何编写测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#工具类函数的单元测试"><span class="nav-number">5.1.</span> <span class="nav-text">工具类函数的单元测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redux-的单元测试"><span class="nav-number">5.2.</span> <span class="nav-text">Redux 的单元测试</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#测试-Reducer"><span class="nav-number">5.2.1.</span> <span class="nav-text">测试 Reducer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试普通-Action"><span class="nav-number">5.2.2.</span> <span class="nav-text">测试普通 Action</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试带中间件的复合-Action"><span class="nav-number">5.2.3.</span> <span class="nav-text">测试带中间件的复合 Action</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试异步-Action"><span class="nav-number">5.2.4.</span> <span class="nav-text">测试异步 Action</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UI-测试-1"><span class="nav-number">5.3.</span> <span class="nav-text">UI 测试</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#函数组件"><span class="nav-number">5.3.1.</span> <span class="nav-text">函数组件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用-connect-包裹后的高阶组件"><span class="nav-number">5.3.2.</span> <span class="nav-text">使用 connect 包裹后的高阶组件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写测试小技巧"><span class="nav-number">5.4.</span> <span class="nav-text">编写测试小技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#LocalStorage"><span class="nav-number">5.4.1.</span> <span class="nav-text">LocalStorage</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#延时函数"><span class="nav-number">5.4.2.</span> <span class="nav-text">延时函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#e2e-测试-1"><span class="nav-number">5.5.</span> <span class="nav-text">e2e 测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试覆盖率"><span class="nav-number">6.</span> <span class="nav-text">测试覆盖率</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kerminate</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+    <i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+      本站总访问量 <span id="busuanzi_value_site_pv"></span>次  </span>由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://Kerminate.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2019/12/22/前端测试的最佳实践/';
+          this.page.identifier = '2019/12/22/前端测试的最佳实践/';
+          this.page.title = '前端测试的最佳实践';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://Kerminate.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("sL0C4Wm24YmFljxp9tAdcUmg-gzGzoHsz", "n57GxQF4055NmnaWWlGEaIvo");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  
+  <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("sL0C4Wm24YmFljxp9tAdcUmg-gzGzoHsz", "n57GxQF4055NmnaWWlGEaIvo");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = '0 ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+});
+</script>
+
+  
+
+</body>
+</html>
