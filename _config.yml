@@ -80,3 +80,13 @@ deploy:
   type: git
   repo: git@github.com:kerminate/kerminate.github.io.git
   branch: master
+
+# rss 配置
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
+  content:
+  content_limit:
+  content_limit_delim: ' '
