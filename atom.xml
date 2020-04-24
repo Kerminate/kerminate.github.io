@@ -45,17 +45,11 @@
     <link href="http://yoursite.com/2020/01/31/Vue3-0-%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86%E8%A7%A3%E6%9E%90/"/>
     <id>http://yoursite.com/2020/01/31/Vue3-0-%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86%E8%A7%A3%E6%9E%90/</id>
     <published>2020-01-31T04:58:23.000Z</published>
-    <updated>2020-02-26T08:13:52.630Z</updated>
+    <updated>2020-04-24T09:12:30.243Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          
-        
-      
+      &lt;p&gt;2019 年 10 月 5 日 Vue3.0 pre-alpha 版本正式发布，之后数个月历经 500 多个 PR，1000 多个 commit，终于在 2020 年 1 月 4 日正式发布了 Vue3.0 alpha.1 版本。Vue3.0 的核心代码基本完成，截止目前为止剩下的主要工作就是服务端渲染，Vue 团队也正在积极进行中。&lt;br&gt;响应式 API 的代码也基本稳定，不会再发生太大的变化（packages 里的 reactivity 包），下面我将从源码分析 Vue3.0 的响应式原理。&lt;/p&gt;
     
     </summary>
     
