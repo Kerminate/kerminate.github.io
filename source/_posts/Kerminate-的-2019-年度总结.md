@@ -37,7 +37,7 @@ categories: 个人总结
 盘点了下这些目标，大概完成了一半吧。
 1. 学习了一小部分 Angular 框架，后来因为要学其他东西，就耽搁了。在部分项目里已经使用了 TS，但是阅读了 Vue3.0 的源码后发现，TS 的使用还是有待提高。
 2. 上半年阅读了 《深入浅出 Vue.js》，对 Vue2.0 源码有了更深的理解。自行研读了 Vue3.0 里 reactivity 的 package（响应式原理）。而 react 跟 Angular 一样，看了一小部分的源码，因为其他事情，不幸太监了。
-3. 没机会去做，但是几年会尝试在项目中接入 SSR，希望能够完成去年的目标。
+3. 没机会去做，但是今年会尝试在项目中接入 SSR，希望能够完成去年的目标。
 4. 没有通过掘金的翻译计划去翻译技术文，但是在学习 TS 的过程中，顺手将 DefinitelyTyped 仓库的 readme 翻译了一下 [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/README.cn.md)
 5. 在业务上已有独当一面的能力，但是对于小部分场景还是不能 cover，需要进一步提高自己。
 6. 几乎没有提高。尽管在阅读文献上很多都是英文资料，但是大多借助了 google 翻译，自身水平还是没有多少提升。
