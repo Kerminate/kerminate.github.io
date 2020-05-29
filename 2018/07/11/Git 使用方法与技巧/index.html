@@ -6,7 +6,7 @@
 
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -98,7 +98,7 @@
 <meta property="og:image" content="https://i.loli.net/2018/11/19/5bf28a00963e2.png">
 <meta property="og:image" content="https://i.loli.net/2018/11/20/5bf3a7c5d3183.png">
 <meta property="og:image" content="https://i.loli.net/2018/11/20/5bf3a7c6c8b56.png">
-<meta property="og:updated_time" content="2019-12-19T06:40:38.744Z">
+<meta property="og:updated_time" content="2020-05-18T06:20:53.018Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 使用方法与技巧">
 <meta name="twitter:description" content="在团队里工作了一段时间，逐渐适应了多人协作开发，这里总结一下 git 的使用方法与一些技巧。 1. 基本操作（正常提交流程）1234git init   // 版本库初始化git add -A  // 将本地修改的所有文件提交到暂存区git commit -m &amp;quot;你的提交信息&amp;quot;  // 将暂存区文件提交到版本库git push origin [你当前的分支]  // 将当前分支">
@@ -150,7 +150,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -160,7 +160,7 @@
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -260,20 +260,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/Git 使用方法与技巧/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kerminate">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="https://i.loli.net/2018/11/19/5bf2895db2229.png">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Blog | Kerminate">
     </span>
 
@@ -316,7 +316,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/技术帖/" itemprop="url" rel="index">
                     <span itemprop="name">技术帖</span>
                   </a>
@@ -412,16 +412,16 @@
 <h2 id="2-分支管理"><a href="#2-分支管理" class="headerlink" title="2. 分支管理"></a>2. 分支管理</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b dev  // 创建新分支 dev，并切换到该分支</span><br><span class="line">git branch  // 显示本地分支</span><br><span class="line">git branch -a  // 显示所有分支(本地和远程)</span><br><span class="line">git checkout master  // 切换到 master 分支</span><br><span class="line">git merge dev  // 将 dev 分支合并到 master 分支</span><br><span class="line">git branch -d dev  // 将本地的 dev 分支删除</span><br><span class="line">git branch -D dev  // 强制将本地 dev 分支删除（未解决冲突等）</span><br><span class="line">git push origin -d dev  // 将远端的 dev 分支删除</span><br></pre></td></tr></table></figure>
 <p>修改本地和远程的分支名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git branch -m old_branch new_branch # Rename branch locally </span><br><span class="line">git push origin :old_branch # Delete the old branch </span><br><span class="line">git push --set-upstream origin new_branch # Push the new branch, set local branch to track the new remote</span><br></pre></td></tr></table></figure></p>
 <h2 id="3-撤销回退"><a href="#3-撤销回退" class="headerlink" title="3. 撤销回退"></a>3. 撤销回退</h2><h3 id="使用-git-reset"><a href="#使用-git-reset" class="headerlink" title="使用 git reset"></a>使用 git reset</h3><p>首先认识一下 <code>git status</code> 命令，显示当前暂存区的消息<br>本例中修改了 README.md，但是并没有 add</p>
-<p><img src="https://i.loli.net/2018/11/20/5bf3a7c6377cb.jpg" alt=""></p>
+<p><img src="https://i.loli.net/2018/11/20/5bf3a7c6377cb.jpg" alt></p>
 <p>之后 <code>git add -A</code> 将文件保存在暂存区，git status 查看此时暂存区状态</p>
-<p><img src="https://i.loli.net/2018/11/20/5bf3a7c79100d.jpg" alt=""></p>
+<p><img src="https://i.loli.net/2018/11/20/5bf3a7c79100d.jpg" alt></p>
 <h4 id="撤销所有本地代码（git-add-之前）"><a href="#撤销所有本地代码（git-add-之前）" class="headerlink" title="撤销所有本地代码（git add 之前）"></a>撤销所有本地代码（git add 之前）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout .  // 撤销所有修改</span><br><span class="line">git clean -df  // 移除没有 track 的文件，-d 表示目录，-f 表示 force</span><br></pre></td></tr></table></figure>
 <h4 id="git-add-后撤销"><a href="#git-add-后撤销" class="headerlink" title="git add 后撤销"></a>git add 后撤销</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD .  // 撤销所有 add 文件</span><br><span class="line">git reset HEAD -filename  // 撤销单个 add 文件</span><br></pre></td></tr></table></figure>
 <p>通过 <code>git status</code> 查看暂存区内无状态，说明此时本地分支代码没有改动</p>
 <h4 id="git-commit-后撤销"><a href="#git-commit-后撤销" class="headerlink" title="git commit 后撤销"></a>git commit 后撤销</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git reset --mixed head^  // 默认回退方式，只保留源码，回退 commit 和 index 信息</span><br><span class="line">git reset --soft head^  // 只回退了 commit 的信息，不会恢复到index</span><br><span class="line">git reset --hard head^  // 彻底回退到某个版本，本地的源码也会变为上一个版本的内容, 慎用</span><br></pre></td></tr></table></figure>
 <h5 id="版本回退（git-push-后撤销）"><a href="#版本回退（git-push-后撤销）" class="headerlink" title="版本回退（git push 后撤销）"></a>版本回退（git push 后撤销）</h5><p>先使用 git log 查看信息，找到你想回退到版本的 id, 再通过 git reset 回退，可以清空中间的提交记录</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log</span><br></pre></td></tr></table></figure>
-<p><img src="https://i.loli.net/2018/11/20/5bf3a7bb321f0.jpg" alt=""></p>
+<p><img src="https://i.loli.net/2018/11/20/5bf3a7bb321f0.jpg" alt></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard 5aabd83035a2a92db15b95d0f43cb797288a915f</span><br><span class="line">git push origin HEAD --force</span><br></pre></td></tr></table></figure>
 <p>这里 HEAD 指当前版本，把回退后的当前版本强行提交到远程仓库</p>
 <h4 id="git-merge-后撤销"><a href="#git-merge-后撤销" class="headerlink" title="git merge 后撤销"></a>git merge 后撤销</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout [行merge操作时所在的分支]</span><br><span class="line">git reset --hard [merge前的版本号]</span><br></pre></td></tr></table></figure>
@@ -430,37 +430,37 @@
 <li><strong>git revert</strong> 是一次新的特殊的 commit，HEAD 继续前进，本质和普通 add commit 一样，仅仅是 commit 内容很特殊：提交的内容是与前面普通 commit 文本变化的反操作</li>
 </ul>
 <p>假设按时间顺序依次有 commit1, commit2, commit3, commit4,对应有 version1, version2, version3, version4 四个状态.<br>revert 某次commit，最终文件状态为 commit4 前，即version3 状态)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git revert 57af6d9f0f8e4fdb646e86bd189c2346f6bd5458</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://i.loli.net/2018/11/20/5bf3a7bbda57e.png" alt=""></p>
+<p><img src="https://i.loli.net/2018/11/20/5bf3a7bbda57e.png" alt></p>
 <h2 id="4-标签管理"><a href="#4-标签管理" class="headerlink" title="4. 标签管理"></a>4. 标签管理</h2><blockquote>
 <p>标签可以针对某一时间点的版本做标记，常用于版本发布。</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git tag  // 输出所有标签</span><br><span class="line">git tag v1.0  // 创建标签 v1.0</span><br><span class="line">git show v1.0  // 查看标签 v1.0 的版本信息</span><br><span class="line">git checkout v1.0  // 切换到 v1.0 标签</span><br><span class="line">git tag -d v1.0  // 删除 v1.0 标签</span><br><span class="line">git push origin v1.0  // 将标签 v1.0 提交到远程仓库</span><br><span class="line">git push origin -tags  // 将所有标签都提交到远程仓库</span><br></pre></td></tr></table></figure>
 <h2 id="5-常用技巧"><a href="#5-常用技巧" class="headerlink" title="5. 常用技巧"></a>5. 常用技巧</h2><h3 id="使用-git-stash"><a href="#使用-git-stash" class="headerlink" title="使用 git stash"></a>使用 git stash</h3><p>当你正在进行项目开发，已经修改了部分代码，但是发现现有分支上有个 bug 要解决，但你又不想把代码 commit 到本地仓库，这时候可以使用 git stash 储存当前工作目录的中间状态。<br>可以直接使用 git stash 储存，也可以通过 git stash save “你的备注” 做一个message<br>我在本地修改了根目录的 README.md, 并删除了 tutorial 下的 readme.txt<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash save &quot;rm tutorial/readme.txt&quot;</span><br></pre></td></tr></table></figure></p>
 <p>之后查看 stash 栈<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash list</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://i.loli.net/2018/11/20/5bf3a7bb69ad0.jpg" alt=""></p>
+<p><img src="https://i.loli.net/2018/11/20/5bf3a7bb69ad0.jpg" alt></p>
 <p>此时代码已经回到了你修改前的版本，本地修好 bug 后，将代码 push 到远端，再使用 git stash pop 或 git stash apply 来恢复之前的工作状态</p>
 <ul>
 <li><strong>git stash pop</strong>: 这个指令将缓存堆栈中的第一个 stash 删除，并将对应修改应用到当前的工作目录下.</li>
 <li><strong>git stash apply</strong>: 将缓存堆栈中的 stash 多次应用到工作目录中，但并不删除 stash 拷贝.使用该命令时可以通过名字指定使用哪个 stash，默认使用最近的 stash</li>
 </ul>
 <p>示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash apply stash&#123;0&#125;  // 将 stash 栈里的第一个恢复</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://i.loli.net/2018/11/20/5bf3a7c6865c2.jpg" alt=""></p>
+<p><img src="https://i.loli.net/2018/11/20/5bf3a7c6865c2.jpg" alt></p>
 <p>恢复后会显示暂存区内文件的修改情况，与之前一致</p>
 <h3 id="使用-git-rebase"><a href="#使用-git-rebase" class="headerlink" title="使用 git rebase"></a>使用 git rebase</h3><p>多人协作时，使用 git rebase 代替 git merge 来变基，减少难看的 merge 类型的 commit<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git stash</span><br><span class="line">git pull —-rebase</span><br><span class="line">git stash apply</span><br><span class="line">## 手动解决冲突</span><br><span class="line">git add -A</span><br><span class="line">git rebase —-continue</span><br><span class="line">## 如果此时提示 No rebase in progress? 则表示已经没有冲突了；否则上面两步要重复多次</span><br><span class="line">git commit -m “xxx”</span><br><span class="line">git push origin [branch] -f</span><br></pre></td></tr></table></figure></p>
 <p>其中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git pull = git fetch + git merge</span><br><span class="line">git pull –-rebase = git fetch + git rebase</span><br></pre></td></tr></table></figure></p>
 <p>在合并分支时，直接使用 git rebase 代替 git merge</p>
 <h3 id="fork-后的分支与源库同步"><a href="#fork-后的分支与源库同步" class="headerlink" title="fork 后的分支与源库同步"></a>fork 后的分支与源库同步</h3><p>一般参与开源项目时，需要从源库中 fork 出一个分支，在本地开发好后再向源仓库发出 pull request，但是如何保证 fork 出的仓库与源库能保持同步。<br>以 <a href="https://github.com/dt-fe/weekly.git" target="_blank" rel="noopener">https://github.com/dt-fe/weekly.git</a> 这个仓库为例，<br>手动 fork 这个仓库到个人的 github 仓库下<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/Kerminate/weekly.git  // clone 到本地</span><br><span class="line">git remote add upstream https://github.com/dt-fe/weekly.git  // 指定源库</span><br></pre></td></tr></table></figure></p>
 <p>查看远程仓库信息</p>
-<p><img src="https://i.loli.net/2018/11/19/5bf28a00963e2.png" alt=""></p>
+<p><img src="https://i.loli.net/2018/11/19/5bf28a00963e2.png" alt></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b dev  // 在新的分支上开发</span><br><span class="line">git add -A</span><br><span class="line">git commit -m &quot;feat: add some change.&quot;</span><br><span class="line">git push origin dev</span><br></pre></td></tr></table></figure>
 <p>之后手动向源库发起 PR，被 merge 之后，可以在本地 master 分支同步最新代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git pull upstream master</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure></p>
 <p>若源仓库拉出了新的分支进行开发（比如 dev），那么我们同步的方式也是如此（开一个同名的新分支）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b dev</span><br><span class="line">git pull upstream dev</span><br><span class="line">git push origin dev</span><br></pre></td></tr></table></figure></p>
 <h3 id="gitignore-失效"><a href="#gitignore-失效" class="headerlink" title=".gitignore 失效"></a>.gitignore 失效</h3><p>由于 .gitignore 只能忽略那些原来没有被track的文件，如果某些文件已经被纳入了版本管理中，则修改 .gitignore 是无效的。 要解决这个问题，需要先把本地缓存删除（改变成未track状态），然后再提交。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git rm -r --cached .</span><br><span class="line">git add -A</span><br><span class="line">git commit -m &quot;feat: ignore xxx files&quot;</span><br></pre></td></tr></table></figure></p>
 <h3 id="统计一次-PR-增删的代码量"><a href="#统计一次-PR-增删的代码量" class="headerlink" title="统计一次 PR 增删的代码量"></a>统计一次 PR 增删的代码量</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff --stat feature/1.0 feature/1.1</span><br></pre></td></tr></table></figure>
 <h2 id="6-遇到的问题"><a href="#6-遇到的问题" class="headerlink" title="6. 遇到的问题"></a>6. 遇到的问题</h2><p>本地创建一个分支推到远端之后，如果远端代码更新，执行 <code>git pull</code> 会失败，如图</p>
-<p><img src="https://i.loli.net/2018/11/20/5bf3a7c5d3183.png" alt=""></p>
+<p><img src="https://i.loli.net/2018/11/20/5bf3a7c5d3183.png" alt></p>
 <p>终端给出了 2 种方法，第一种 pull 的时候写上对应的远端分支和本地分支，形成映射关系，还有一种就是将本地分支和远程分支关联，这样以后就可以直接用 <code>git pull</code> 拉取最新代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git pull &lt;remote&gt; &lt;branch&gt;  // 写上对应的映射分支</span><br><span class="line">git branch --set-upstream-to=origin/&lt;branch&gt; &lt;remote&gt;  // 关联远端分支和本地分支</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://i.loli.net/2018/11/20/5bf3a7c6c8b56.png" alt=""></p>
+<p><img src="https://i.loli.net/2018/11/20/5bf3a7c6c8b56.png" alt></p>
 
       
     </div>
@@ -577,7 +577,7 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="https://i.loli.net/2018/11/19/5bf2895db2229.png" alt="Kerminate">
             

@@ -6,7 +6,7 @@
 
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -90,7 +90,7 @@
 <meta property="og:description" content="想要了解 javascript 的原型链和继承，就要先从 javascript 的对象说起，如何创建一个 javascript 对象 创建对象(ES5)虽然 Object 构造函数或对象字面量都可以用来创建单个对象，但这些方式有个明显的缺点：使用同一个接口创建很多对象，会产生大量的重复代码。为解决这个问题，人们开始使用工厂模式这一变体。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2018/11/19/5bf28a03e96b0.png">
-<meta property="og:updated_time" content="2019-02-26T07:36:39.890Z">
+<meta property="og:updated_time" content="2020-05-18T06:20:53.034Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="详解 Javascript 的原型链与继承(从 ES5 到 ES6)">
 <meta name="twitter:description" content="想要了解 javascript 的原型链和继承，就要先从 javascript 的对象说起，如何创建一个 javascript 对象 创建对象(ES5)虽然 Object 构造函数或对象字面量都可以用来创建单个对象，但这些方式有个明显的缺点：使用同一个接口创建很多对象，会产生大量的重复代码。为解决这个问题，人们开始使用工厂模式这一变体。">
@@ -142,7 +142,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -152,7 +152,7 @@
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -252,20 +252,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/09/详解 Javascript 的原型链与继承-从 ES5 到 ES6/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kerminate">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="https://i.loli.net/2018/11/19/5bf2895db2229.png">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Blog | Kerminate">
     </span>
 
@@ -308,7 +308,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Javascript/" itemprop="url" rel="index">
                     <span itemprop="name">Javascript</span>
                   </a>
@@ -406,7 +406,7 @@
 <p>构造函数虽然好用，在之前 <code>p1</code> 和 <code>p2</code> 都有一个名为 <code>sayName()</code> 的方法，但这两个方法不是同一个 <code>Function</code> 的实例。ECMAScript中的函数是对象，因此每定义一个函数，也就是实例化了一个对象。以下代码可以证明不同实例上的同名函数是不相等的。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(p1.sayName === p2.sayName) <span class="comment">// false</span></span><br></pre></td></tr></table></figure></p>
 <h3 id="3-原型模式"><a href="#3-原型模式" class="headerlink" title="3.原型模式"></a>3.原型模式</h3><p>我们创建的每个函数都有一个 <code>prototype</code> (原型)属性，这个属性是一个指针，指向一个对象。<code>prototype</code> 就是通过调用构造函数而创建的那个对象实例的原型对象。使用原型对象的好处是可以让所有对象实例共享它所包含的属性和方法，换句话说，不必在构造函数中定义对象实例的信息，而是可以将这些信息直接添加到原型对象中，如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  Person.prototype.name = <span class="string">'Nicho'</span></span><br><span class="line">  Person.prototype.age = <span class="number">29</span></span><br><span class="line">  Person.prototype.sayName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> p1 = <span class="keyword">new</span> Person()</span><br><span class="line">p1.sayName() <span class="comment">// 'Nicho'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> p2 = <span class="keyword">new</span> Person()</span><br><span class="line">p2.sayName() <span class="comment">// 'Nicho'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(p1.sayName === p2.sayName) <span class="comment">// true</span></span><br></pre></td></tr></table></figure></p>
 <h3 id="4-组合使用构造函数模式和原型模式"><a href="#4-组合使用构造函数模式和原型模式" class="headerlink" title="4.组合使用构造函数模式和原型模式"></a>4.组合使用构造函数模式和原型模式</h3><p>创建自定义类型的最常见方式，就是组合使用构造函数模式和原型模式。构造函数模式用于定义实例属性，而原型模式用于定义方法和共享的属性。结果，每个实例都会有自己的一份实例属性的副本，但同时又共享着对方法的引用，最大限度地节省了内存。另外，这种混合模式还支持向构造函数传递参数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span> (<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name</span><br><span class="line">  <span class="keyword">this</span>.age = age</span><br><span class="line">  <span class="keyword">this</span>.friends = [<span class="string">'Shelby'</span>, <span class="string">'Court'</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Person.prototype = &#123;</span><br><span class="line">    <span class="keyword">constructor</span>: Person,</span><br><span class="line">    sayName: function () &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> p1 = <span class="keyword">new</span> Person(<span class="string">'Nicho'</span>, <span class="number">29</span>)</span><br><span class="line"><span class="keyword">let</span> p2 = <span class="keyword">new</span> Person(<span class="string">'Greg'</span>, <span class="number">27</span>)</span><br><span class="line"></span><br><span class="line">p1.friends.push(<span class="string">'Van'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(p1.frinends) <span class="comment">// [ 'Shelby', 'Court', 'Van' ]</span></span><br><span class="line"><span class="built_in">console</span>.log(p2.frinends) <span class="comment">// [ 'Shelby', 'Court' ]</span></span><br><span class="line"><span class="built_in">console</span>.log(p1.frinends === p2.friends) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(p1.sayName === p2.sayName) <span class="comment">// true</span></span><br></pre></td></tr></table></figure></p>
-<p>其实在原型对象 <code>Person</code> 中，<code>Person</code> 作为构造函数有一个 <code>prototype</code> 属性指向原型对象<code>Person.prototype</code>,而原型对象 <code>Person.prototype</code> 也有一个 <code>constructor</code> 属性指向它的构造函数 <code>Person</code>，如下图所示：<br><img src="https://i.loli.net/2018/11/19/5bf28a03e96b0.png" alt=""><br>这种构造函数与原型混成额模式，是目前在ECMAScript中使用最广泛、认同度最高的一种创建自定义类型的方法。</p>
+<p>其实在原型对象 <code>Person</code> 中，<code>Person</code> 作为构造函数有一个 <code>prototype</code> 属性指向原型对象<code>Person.prototype</code>,而原型对象 <code>Person.prototype</code> 也有一个 <code>constructor</code> 属性指向它的构造函数 <code>Person</code>，如下图所示：<br><img src="https://i.loli.net/2018/11/19/5bf28a03e96b0.png" alt><br>这种构造函数与原型混成额模式，是目前在ECMAScript中使用最广泛、认同度最高的一种创建自定义类型的方法。</p>
 <h3 id="5-动态原型模式"><a href="#5-动态原型模式" class="headerlink" title="5.动态原型模式"></a>5.动态原型模式</h3><p>有其他OO语言开发经验的开发者在看到独立的构造函数和原型时，可能会感到困惑。动态原型模式把所有信息都封装在了构造函数中，而通过在构造函数中初始化原型(仅在必要的情况下)，又保持了同时使用构造函数和原型的优点。换句话说，可以通过某个应该存在的方法是否有效，来决定是否需要初始化原型。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span> (<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name</span><br><span class="line">  <span class="keyword">this</span>.age = age</span><br><span class="line">  <span class="comment">// 方法</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>.sayName !== <span class="string">'function'</span>) &#123;</span><br><span class="line">    Person.prototype.sayName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> friend = <span class="keyword">new</span> Person(<span class="string">'Nicho'</span>, <span class="number">29</span>)</span><br><span class="line">friend.sayName() <span class="comment">// 'Nicho'</span></span><br></pre></td></tr></table></figure></p>
 <p>上面注释的方法部分，只有在 <code>sayName</code> 方法不存在的情况下，才会将它添加到原型中。这段代码只会在初次调用构造函数时才会执行，此后，原型已经完成初始化，不需要在做什么修改了。</p>
 <h3 id="6-寄生构造函数模式"><a href="#6-寄生构造函数模式" class="headerlink" title="6.寄生构造函数模式"></a>6.寄生构造函数模式</h3><p>通常在前述的几种模式都不适用的情况下，可以使用寄生构造函数模式。这种模式的基本思想是创建一个函数，该函数的作用仅仅是封装创建对象的代码，然后再返回新创建的对象，从表面上看，这个函数又很像是典型的构造函数。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span> (<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>()</span><br><span class="line">  o.name = name</span><br><span class="line">  o.age = age</span><br><span class="line">  o.sayName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> o</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> friend = <span class="keyword">new</span> Person(<span class="string">'Nicho'</span>, <span class="number">29</span>)</span><br><span class="line">friend.sayName() <span class="comment">// 'Nicho'</span></span><br></pre></td></tr></table></figure></p>
@@ -557,7 +557,7 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="https://i.loli.net/2018/11/19/5bf2895db2229.png" alt="Kerminate">
             

@@ -6,7 +6,7 @@
 
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -91,7 +91,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2018/11/19/5bf28bc30b0ab.jpg">
 <meta property="og:image" content="https://i.loli.net/2018/11/19/5bf28bb35ff3e.jpg">
-<meta property="og:updated_time" content="2019-02-26T07:33:45.669Z">
+<meta property="og:updated_time" content="2020-05-18T06:20:53.022Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue + Koa 搭建 ACM OJ">
 <meta name="twitter:description" content="花了两个多月时间，我与 lazzzis 完成了第二版本的Putong OJ，因为中间忙着春招以及毕业设计等，项目最近才正式上线。 项目线上地址：http://acm.cjlu.edu.cn/项目前端地址：https://github.com/acm309/PutongOJ-FE项目后端地址：https://github.com/acm309/PutongOJ  这里求一下star啊(^o^)/~">
@@ -143,7 +143,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -153,7 +153,7 @@
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -253,20 +253,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/31/Vue + Koa 搭建 ACM OJ/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kerminate">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="https://i.loli.net/2018/11/19/5bf2895db2229.png">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Blog | Kerminate">
     </span>
 
@@ -309,7 +309,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/技术帖/" itemprop="url" rel="index">
                     <span itemprop="name">技术帖</span>
                   </a>
@@ -410,7 +410,7 @@
 <h2 id="技术选型"><a href="#技术选型" class="headerlink" title="技术选型"></a>技术选型</h2><p>考虑过要用 React 开发，(好吧，说实话写OJ的时候我还不会React),但是 Vue 上手简单且中文资源丰富，所以决定使用 Vue 全家桶。最初 vue1.0 时官方推荐 vue-resource，后来在 2.0 时 Vue 官方不再推荐 vue-resource， 而是推荐使用 axios 作前后端通信。开发初期一开始用了 element 作为 vue 的 UI 库，后来转而使用了 iview。其实这两个 UI 库相当像，都是 ant-design 风格的，api也比较一致，在我眼里比较大的区别是 element 的组件更大，iview 的更小巧（视觉上的大小，element small 的跟 iview 的 default 差不多大）。</p>
 <p>后端其实我们不太喜欢 Java，最后用了轻量又方便的 node。数据库用了 MongoDB，主要是方便 js 操作，同时用 redis 做数据缓存，并做了简单的消息队列。</p>
 <h2 id="预览"><a href="#预览" class="headerlink" title="预览"></a>预览</h2><p>主题色采用了 lazzzis 特别喜欢的骚紫。</p>
-<p><img src="https://i.loli.net/2018/11/19/5bf28bc30b0ab.jpg" alt=""><br><img src="https://i.loli.net/2018/11/19/5bf28bb35ff3e.jpg" alt=""></p>
+<p><img src="https://i.loli.net/2018/11/19/5bf28bc30b0ab.jpg" alt><br><img src="https://i.loli.net/2018/11/19/5bf28bb35ff3e.jpg" alt></p>
 <h3 id="实现功能"><a href="#实现功能" class="headerlink" title="实现功能"></a>实现功能</h3><p>OJ分为web端和判题端，这边主要分析web端，判题端 由 <a href="https://github.com/KIDx/Judger" target="_blank" rel="noopener">Acdream的判题端</a> 魔改而来。web 端共有消息模块，题目模块，讨论模块，状态模块，排行模块，比赛模块与管理员模块七大模块。<br>本OJ提供了两种用户，普通用户和管理员用户。顾名思义，普通用户只能答题，参加比赛，发帖，查看信息等，管理员用户拥有对信息，题目，比赛等增删改查的权限。</p>
 <ul>
 <li>消息模块<br>  就是 OJ 的首页，含有列表页和消息详情页，主要就是管理员发布的消息。</li>
@@ -556,7 +556,7 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="https://i.loli.net/2018/11/19/5bf2895db2229.png" alt="Kerminate">
             

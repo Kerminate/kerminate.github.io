@@ -6,7 +6,7 @@
 
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -90,7 +90,7 @@
 <meta property="og:description" content="如何管理多个 git 的 SSH 私钥一般本地的 id_rsa 公钥时，默认为你 github 账号的公钥，如果在公司办公，需要在公司的 git 仓库里提交代码，就需要再生成一个公钥12# 生成一个新的公钥ssh-keygen -t rsa -C &quot;your_email@example.com” -f ~/.ssh/id_rsa_work">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2018/11/19/5bf28b1668ea9.png">
-<meta property="og:updated_time" content="2019-08-16T11:33:16.067Z">
+<meta property="og:updated_time" content="2020-05-18T06:20:53.018Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 配置">
 <meta name="twitter:description" content="如何管理多个 git 的 SSH 私钥一般本地的 id_rsa 公钥时，默认为你 github 账号的公钥，如果在公司办公，需要在公司的 git 仓库里提交代码，就需要再生成一个公钥12# 生成一个新的公钥ssh-keygen -t rsa -C &quot;your_email@example.com” -f ~/.ssh/id_rsa_work">
@@ -142,7 +142,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -152,7 +152,7 @@
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -252,20 +252,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/22/Git-配置/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kerminate">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="https://i.loli.net/2018/11/19/5bf2895db2229.png">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Blog | Kerminate">
     </span>
 
@@ -308,7 +308,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/技术帖/" itemprop="url" rel="index">
                     <span itemprop="name">技术帖</span>
                   </a>
@@ -402,7 +402,7 @@
 <a id="more"></a>
 <p>进入 ~/.ssh 文件，新建一个 config 文件，加入以下代码<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 该文件用于配置私钥对应的服务器</span><br><span class="line"><span class="meta">#</span> Default github user(your_email@outlook.com)</span><br><span class="line">  Host github.com</span><br><span class="line">  HostName github.com</span><br><span class="line">  User git</span><br><span class="line">  IdentityFile /Users/your_name/.ssh/id_rsa</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> second user(your_email@company.com)</span><br><span class="line"><span class="meta">#</span> 使用公司的域名和公司的git账户</span><br><span class="line">  Host git.A.com</span><br><span class="line">  HostName git.A.com</span><br><span class="line">  User git</span><br><span class="line">  IdentityFile /Users/your_name/.ssh/id_rsa_work</span><br></pre></td></tr></table></figure></p>
 <p>此时 ssh 下的目录结构应该如下</p>
-<p><img src="https://i.loli.net/2018/11/19/5bf28b1668ea9.png" alt=""></p>
+<p><img src="https://i.loli.net/2018/11/19/5bf28b1668ea9.png" alt></p>
 
       
     </div>
@@ -519,7 +519,7 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="https://i.loli.net/2018/11/19/5bf2895db2229.png" alt="Kerminate">
             

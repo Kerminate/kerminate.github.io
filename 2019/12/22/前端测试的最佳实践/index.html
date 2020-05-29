@@ -6,7 +6,7 @@
 
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -91,7 +91,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2019/08/29/lgCzxPSRry1D78w.png">
 <meta property="og:image" content="https://i.loli.net/2019/08/29/dIEKovf5XrRTbCh.png">
-<meta property="og:updated_time" content="2019-12-22T07:30:39.180Z">
+<meta property="og:updated_time" content="2020-05-18T06:20:53.030Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端测试的最佳实践">
 <meta name="twitter:description" content="前些时候在团队里接入了前端测试，并总结了相关经验将文章发表到了内网博客上。临近年末了，也把文章发布到个人博客上，希望能让更多的人看到。  2019 年前端测试依然是一个炙手可热的话题。笔者在今年 5 月份参加 Vueconf 的时候，Vue 单元测试的主题演讲者曾向现场的参与者发出提问，有多少团队引入了单元测试，意外的是只有寥寥数人举起了手。尽管，那个时候笔者的团队也还没有引入前端测试，但是考虑">
@@ -143,7 +143,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -153,7 +153,7 @@
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -253,20 +253,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/22/前端测试的最佳实践/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kerminate">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="https://i.loli.net/2018/11/19/5bf2895db2229.png">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Blog | Kerminate">
     </span>
 
@@ -309,7 +309,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/技术帖/" itemprop="url" rel="index">
                     <span itemprop="name">技术帖</span>
                   </a>
@@ -544,7 +544,7 @@
 </tbody>
 </table>
 <p>Puppeteer 是 Google Chrome 团队推出的库，尽管它相对其他 e2e 框架更新，但它同样也有一个庞大的社区。它拥有更简洁易用的 API，更快的运行速度，已逐渐成为业内自动化测试的标杆，俘获大量 Selenium 用户的心。可以看下近年来 e2e 测试框架的 <a href="https://www.npmtrends.com/nightwatch-vs-puppeteer-vs-cypress-vs-testcafe-vs-phantomjs" target="_blank" rel="noopener">npm trends</a>.</p>
-<p><img src="https://i.loli.net/2019/08/29/lgCzxPSRry1D78w.png" alt=""></p>
+<p><img src="https://i.loli.net/2019/08/29/lgCzxPSRry1D78w.png" alt></p>
 <h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>经过分析，最后我们项目的技术选型为 <strong>Jest + React Testing Library + Puppeteer</strong></p>
 <p>而对于 Vue 的项目，为了保持技术栈的统一，我们选用了 <strong>Jest + Vue-Test-Utils + Puppeteer</strong></p>
 <h2 id="编写原则"><a href="#编写原则" class="headerlink" title="编写原则"></a>编写原则</h2><ul>
@@ -605,7 +605,7 @@
 <p>只有单元测试和 UI 测试会计算到测试覆盖率，而 e2e 不会被计算进去。e2e 不需要写太多，因为大部分关键逻辑已经被单元测试覆盖，e2e 只需要简单的进行主流程的模拟。</p>
 <p>通过 Jest 里的 collectCoverageFrom 配置改变测试统计的范围，最终项目的测试覆盖率要求为 Statement 60%, Branches 60%, Functions 60%, Lines 60%. 相关配置如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  collectCoverageFrom: [</span><br><span class="line">    <span class="string">'src/components/common/**/*.&#123;js,jsx,ts,tsx&#125;'</span>,</span><br><span class="line">    <span class="string">'src/modules/**/*.&#123;js,jsx,ts,tsx&#125;'</span>,</span><br><span class="line">    <span class="string">'src/lib/**/*.&#123;js,jsx,ts,tsx&#125;'</span>,</span><br><span class="line">    <span class="string">'src/store/**/*.&#123;js,jsx,ts,tsx&#125;'</span>,</span><br><span class="line">    <span class="string">'src/constants/**/*.&#123;js,jsx,ts,tsx&#125;'</span>,</span><br><span class="line">    <span class="string">'src/api/**/*.&#123;js,jsx,ts,tsx&#125;'</span>,</span><br><span class="line">  ],</span><br><span class="line">  coverageThreshold: &#123;</span><br><span class="line">    global: &#123;</span><br><span class="line">      statements: <span class="number">60</span>,</span><br><span class="line">      branches: <span class="number">60</span>,</span><br><span class="line">      functions: <span class="number">60</span>,</span><br><span class="line">      lines: <span class="number">60</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>这边展示下我们项目里 store/actions 文件夹下的测试覆盖情况</p>
-<p><img src="https://i.loli.net/2019/08/29/dIEKovf5XrRTbCh.png" alt=""></p>
+<p><img src="https://i.loli.net/2019/08/29/dIEKovf5XrRTbCh.png" alt></p>
 <p>可以在最上面看到整个文件夹的总体的测试覆盖情况，和下面每个文件的具体覆盖情况。点击文件进去还能查看具体代码的覆盖情况。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>为项目添加测试是有一定成本的，尤其是 UI 测试方面。任何一件事情我们都需要平衡成本和收益，就像上文提到的，成本低的单元测试尽可能的全量覆盖，而高成本的 UI 测试则只做公共组件的覆盖。</p>
 <p>前端测试确实会给项目带来相当多的好处，它能为 <strong>长期迭代</strong> 的项目带来显著的质量提升。</p>
@@ -732,7 +732,7 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="https://i.loli.net/2018/11/19/5bf2895db2229.png" alt="Kerminate">
             

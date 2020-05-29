@@ -6,7 +6,7 @@
 
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -93,7 +93,7 @@
 <meta property="og:image" content="https://i.loli.net/2018/11/19/5bf28a15092ed.png">
 <meta property="og:image" content="https://i.loli.net/2018/11/19/5bf28a160fa49.png">
 <meta property="og:image" content="https://i.loli.net/2019/06/16/5d05f43b3d1e922626.png">
-<meta property="og:updated_time" content="2019-06-16T08:09:28.066Z">
+<meta property="og:updated_time" content="2020-05-18T06:20:53.033Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自定义配置 create-react-app 创建的项目">
 <meta name="twitter:description" content="配置 standard 风格的 eslint项目使用 create-react-app 搭建1npx create-react-app forum-fe 之后安装 standard 相关依赖1npm install --save-dev eslint eslint-config-standard eslint-config-standard-react eslint-plugin-standard">
@@ -145,7 +145,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -155,7 +155,7 @@
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -255,20 +255,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/17/自定义配置 create-react-app 创建的项目/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kerminate">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="https://i.loli.net/2018/11/19/5bf2895db2229.png">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Blog | Kerminate">
     </span>
 
@@ -311,7 +311,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/工具/" itemprop="url" rel="index">
                     <span itemprop="name">工具</span>
                   </a>
@@ -404,12 +404,12 @@
         <h2 id="配置-standard-风格的-eslint"><a href="#配置-standard-风格的-eslint" class="headerlink" title="配置 standard 风格的 eslint"></a>配置 standard 风格的 eslint</h2><p>项目使用 create-react-app 搭建<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx create-react-app forum-fe</span><br></pre></td></tr></table></figure></p>
 <p>之后安装 standard 相关依赖<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev eslint eslint-config-standard eslint-config-standard-react eslint-plugin-standard eslint-plugin-promise eslint-plugin-import eslint-plugin-node eslint-plugin-react</span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
-<p><img src="https://i.loli.net/2018/11/19/5bf28a1457c51.jpg" alt=""><br>这时候发现 eslint 和 eslint-plugin-react 版本过低，将这两个包按照要求升级<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev eslint@4.19.1 eslint-plugin-react@7.6.1</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://i.loli.net/2018/11/19/5bf28a1457c51.jpg" alt><br>这时候发现 eslint 和 eslint-plugin-react 版本过低，将这两个包按照要求升级<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev eslint@4.19.1 eslint-plugin-react@7.6.1</span><br></pre></td></tr></table></figure></p>
 <p>在项目根目录新建 .eslintrc 文件，加上<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"extends"</span>: [<span class="string">"standard"</span>, <span class="string">"standard-react"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>在项目根目录新建 .eslintignore 文件，加上<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/config/</span><br><span class="line">/scripts/</span><br><span class="line">/dist/</span><br><span class="line">/*.js</span><br><span class="line">/test/unit/coverage/</span><br></pre></td></tr></table></figure></p>
-<p>此时打开项目中文件，standard 的 eslint 效果已经生效<br><img src="https://i.loli.net/2018/11/19/5bf28a15092ed.png" alt=""><br>Ctrl + S 保存后，格式化成功!<br><img src="https://i.loli.net/2018/11/19/5bf28a160fa49.png" alt=""></p>
+<p>此时打开项目中文件，standard 的 eslint 效果已经生效<br><img src="https://i.loli.net/2018/11/19/5bf28a15092ed.png" alt><br>Ctrl + S 保存后，格式化成功!<br><img src="https://i.loli.net/2018/11/19/5bf28a160fa49.png" alt></p>
 <h2 id="配置-airbnb-风格的-eslint"><a href="#配置-airbnb-风格的-eslint" class="headerlink" title="配置 airbnb 风格的 eslint"></a>配置 airbnb 风格的 eslint</h2><p>通过以下命令查看 airbnb 的依赖<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm info "eslint-config-airbnb@latest" peerDependencies</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://i.loli.net/2019/06/16/5d05f43b3d1e922626.png" alt=""></p>
+<p><img src="https://i.loli.net/2019/06/16/5d05f43b3d1e922626.png" alt></p>
 <p>如果 npm5+，可以直接运行以下指令<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx install-peerdeps --dev eslint-config-airbnb</span><br></pre></td></tr></table></figure></p>
 <p>也可以根据依赖手动安装<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev eslint eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react eslint-config-airbnb</span><br></pre></td></tr></table></figure></p>
 <p>除了 eslint 的依赖，还需要安装 babel 的依赖，否则编辑器内会报错, 比如 <code>Parsing error: Unexpected token =eslint</code><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev babel-eslint babel-plugin-import</span><br></pre></td></tr></table></figure></p>
@@ -546,7 +546,7 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="https://i.loli.net/2018/11/19/5bf2895db2229.png" alt="Kerminate">
             

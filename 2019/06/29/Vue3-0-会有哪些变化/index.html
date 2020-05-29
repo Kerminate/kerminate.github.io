@@ -6,7 +6,7 @@
 
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -93,7 +93,7 @@
 <meta property="og:image" content="https://i.loli.net/2019/06/30/5d181ce03576128336.jpeg">
 <meta property="og:image" content="https://i.loli.net/2019/06/30/5d181d77611d293658.jpeg">
 <meta property="og:image" content="https://i.loli.net/2019/06/30/5d182827a8ba974072.jpeg">
-<meta property="og:updated_time" content="2019-08-19T06:32:42.586Z">
+<meta property="og:updated_time" content="2020-05-18T06:20:53.023Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue 3.0 会有哪些变化">
 <meta name="twitter:description" content="前段时间在 Vue RFCs 提出的 Functional API 在社区中引起了轩然大波，感觉是 Vue 史上最有争议的一个特性。那么，Vue 3.0 到底会带来哪些改变呢，让我们一起来看一看。">
@@ -145,7 +145,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -155,7 +155,7 @@
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -255,20 +255,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/29/Vue3-0-会有哪些变化/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kerminate">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="https://i.loli.net/2018/11/19/5bf2895db2229.png">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Blog | Kerminate">
     </span>
 
@@ -311,7 +311,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/技术帖/" itemprop="url" rel="index">
                     <span itemprop="name">技术帖</span>
                   </a>
@@ -407,7 +407,7 @@
 <p>每当从 data 的 key 中读取数据时，get 函数被触发，每当往 data 的 key 中设置数据时，set 函数被触发。<br>但是可以看出来 <code>Object.defineProperty</code> 能够监测对象的变化，但是对于数组的一些原生方法如 <code>push, pop</code> 等就无能为力。<br>因此，Vue 中其实对数组的原生方法进行了覆盖，共七个（<code>push, pop, shift, unshift, splice, sort, reverse</code>），实际上就是使用了拦截器覆盖了 Array 的原型，使得在使用这几个函数的时候能够做到数据侦测。<br><code>Object.defineProperty</code> 通过 <code>getter/setter</code> 来追踪变化，但它其实只能追踪一个数据是否被修改，无法追踪新增属性和删除属性，所以 Vue 又提供了 <code>vm.$set</code> 和 <code>vm.$delete</code> 方法来实现响应式地新增和删除属性。</p>
 <p>ES6 新增的 <code>Proxy</code> 可以直接监听对象而非属性，所以以上 <code>Object.defineProperty</code> 的缺点它都没有。</p>
 <p>除此之外，使用 <code>Object.defineProperty</code> 在监听数组变化的时候，破坏了 <strong><a href="https://github.com/dt-fe/weekly/blob/master/62.%E7%B2%BE%E8%AF%BB%E3%80%8AJS%20%E5%BC%95%E6%93%8E%E5%9F%BA%E7%A1%80%E4%B9%8B%20Shapes%20and%20Inline%20Caches%E3%80%8B.md" target="_blank" rel="noopener">JS 引擎的渲染</a></strong>，性能上与 <code>Proxy</code> 也有不少差距。</p>
-<h3 id="Virtual-DOM-重构"><a href="#Virtual-DOM-重构" class="headerlink" title="Virtual DOM 重构"></a>Virtual DOM 重构</h3><p><img src="https://i.loli.net/2019/06/29/5d1736bac776433441.jpeg" alt=""></p>
+<h3 id="Virtual-DOM-重构"><a href="#Virtual-DOM-重构" class="headerlink" title="Virtual DOM 重构"></a>Virtual DOM 重构</h3><p><img src="https://i.loli.net/2019/06/29/5d1736bac776433441.jpeg" alt></p>
 <p>这边补充下：其实在 Vue 1.0 的时候，它的变化侦测力度更细，具体到了某个节点，在 2.0 的时候采取了一个中等粒度的解决方案，状态侦测不再细化到某个具体节点，而是某个组件。从而大大缩减了依赖数量和 watcher 数量，降低了内存开销和依赖追踪的开销。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"content"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"text"</span>&gt;</span>Lorem ipsum<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"text"</span>&gt;</span>Lorem ipsum<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"text"</span>&gt;</span>&#123;&#123; message &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"text"</span>&gt;</span>Lorem ipsum<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"text"</span>&gt;</span>Lorem ipsum<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>对于这么一段模板代码，在更新的时候，我们首先要求判断这是不是同一个 div，它的属性比如 id 等有没有变化，然后判断它的子元素顺序有没有发生改变，每个子元素的属性是否发生变化。</p>
@@ -417,11 +417,11 @@
 <p>而其实上述代码中其他四个 <code>p</code> 的节点都没有发生变化，理想情况下我们只需要去 check 带有 <code>message</code> 变量的那个节点的变化。 </p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"text"</span>&gt;</span>Lorem ipsum<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-if</span>=<span class="string">"ok"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span>&gt;</span>Lorem ipsum<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;&#123; message &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>对于以上代码，就有了节点结构的变化：<code>v-if</code>。我们可以将它拆成内外2块。</p>
-<p><img src="https://i.loli.net/2019/06/30/5d181ce03576128336.jpeg" alt=""></p>
+<p><img src="https://i.loli.net/2019/06/30/5d181ce03576128336.jpeg" alt></p>
 <p>对于 <code>v-for</code> 节点来说，也是一样。</p>
-<p><img src="https://i.loli.net/2019/06/30/5d181d77611d293658.jpeg" alt=""></p>
+<p><img src="https://i.loli.net/2019/06/30/5d181d77611d293658.jpeg" alt></p>
 <p>我们会发现动态结构性节点的变化只会出现在 <code>v-if</code>，<code>v-for</code> 这类结构性指令下，因此，我们以结构性指令为边界将整个模板切分为一个一个的块，称之为 <strong>Block tree</strong></p>
-<p><img src="https://i.loli.net/2019/06/30/5d182827a8ba974072.jpeg" alt=""></p>
+<p><img src="https://i.loli.net/2019/06/30/5d182827a8ba974072.jpeg" alt></p>
 <blockquote>
 <p>这样，新策略就会将 vdom 的更新性能与模板整体大小相关提升为与动态内容的数量相关。</p>
 </blockquote>
@@ -581,7 +581,7 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="https://i.loli.net/2018/11/19/5bf2895db2229.png" alt="Kerminate">
             

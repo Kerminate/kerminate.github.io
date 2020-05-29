@@ -6,7 +6,7 @@
 
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -92,7 +92,7 @@
 <meta property="og:image" content="https://i.loli.net/2018/12/15/5c14e2873d36c.png">
 <meta property="og:image" content="https://i.loli.net/2018/12/15/5c14e26f88e38.png">
 <meta property="og:image" content="https://i.loli.net/2018/12/15/5c14e27b45da8.png">
-<meta property="og:updated_time" content="2019-08-16T11:22:43.990Z">
+<meta property="og:updated_time" content="2020-05-18T06:20:53.032Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="对比各类 ajax&#x2F;http 库及最佳选择">
 <meta name="twitter:description" content="在 WEB 开发中服务端和客户端的交互至关重要，客户端可以使用原生的 XMLHttpRequest 对象，服务端也可以使用 node 自带的 http 模块，而现在也有相当多的 第三方库来供我们使用。这里，我简要对一些流行的库或原生方法进行对比，并得出我们的最佳选择。 主流的 ajax/http 方法库的兼容性和特性如上图所示。">
@@ -144,7 +144,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -154,7 +154,7 @@
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -254,20 +254,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/15/对比各类-ajax-http-库及最佳选择/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kerminate">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="https://i.loli.net/2018/11/19/5bf2895db2229.png">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Blog | Kerminate">
     </span>
 
@@ -310,7 +310,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/技术帖/" itemprop="url" rel="index">
                     <span itemprop="name">技术帖</span>
                   </a>
@@ -401,7 +401,7 @@
 
       
         <p>在 WEB 开发中服务端和客户端的交互至关重要，客户端可以使用原生的 XMLHttpRequest 对象，服务端也可以使用 node 自带的 http 模块，而现在也有相当多的 第三方库来供我们使用。这里，我简要对一些流行的库或原生方法进行对比，并得出我们的最佳选择。</p>
-<p><img src="https://i.loli.net/2018/12/15/5c14e2873d36c.png" alt=""><br>主流的 ajax/http 方法库的兼容性和特性如上图所示。<br><a id="more"></a></p>
+<p><img src="https://i.loli.net/2018/12/15/5c14e2873d36c.png" alt><br>主流的 ajax/http 方法库的兼容性和特性如上图所示。<br><a id="more"></a></p>
 <h2 id="XMLHttpRequest"><a href="#XMLHttpRequest" class="headerlink" title="XMLHttpRequest"></a>XMLHttpRequest</h2><p>JS 实现 AJAX 主要基于浏览器提供的 XMLHttpRequest（XHR）类，所有现代浏览器（IE7+、Firefox、Chrome、Safari 以及 Opera）均内建 XMLHttpRequest 对象。<br>然而，如果在项目中使用原生的 XMLHttpRequest，需要手动封装很多方法，使用起来相对麻烦。</p>
 <h2 id="JQuery"><a href="#JQuery" class="headerlink" title="JQuery"></a>JQuery</h2><p>JQuery 很好地封装了原生 AJAX 的代码，在 IE5，IE6上使用 ActiveX 对象来实现 Ajax，其他浏览器上都是使用 XMLHttpRequest。它在兼容性和易用性方面都做了很大的提高，让 AJAX 的调用变得非常简单。<br>但是随着前端浪潮的发展，它的缺点也暴露了出来。</p>
 <ul>
@@ -457,9 +457,9 @@
 <li>request-promise-any (uses any-promise Promises)</li>
 </ul>
 <h2 id="数据统计"><a href="#数据统计" class="headerlink" title="数据统计"></a>数据统计</h2><p>近2年，以上库 npm 的下载量对比图如下</p>
-<p><img src="https://i.loli.net/2018/12/15/5c14e26f88e38.png" alt=""></p>
+<p><img src="https://i.loli.net/2018/12/15/5c14e26f88e38.png" alt></p>
 <p>Github 上仓库的信息</p>
-<p><img src="https://i.loli.net/2018/12/15/5c14e27b45da8.png" alt=""></p>
+<p><img src="https://i.loli.net/2018/12/15/5c14e27b45da8.png" alt></p>
 <h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>我们分析了最受欢迎的一些 HTTP 库，问题在于我应该使用哪一个是取决于你的项目。没有正确或者错误的选择，只有为项目选择更适合的工具。在这里，<br>我个人推荐使用 axios 库，不仅在于它能同时支持 Node 和各大浏览器，还包括它强大的功能，以及简单易上手的特性，且已经广泛运用在了 React/Vue 的项目，增长趋势也相当明显。</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li><a href="https://www.javascriptstuff.com/ajax-libraries/" target="_blank" rel="noopener">AJAX/HTTP Library Comparison</a></li>
@@ -584,7 +584,7 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="https://i.loli.net/2018/11/19/5bf2895db2229.png" alt="Kerminate">
             

@@ -6,7 +6,7 @@
 
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -90,7 +90,7 @@
 <meta property="og:description" content="最近在使用 brew 安装一些软件时发现速度太慢，而且不少因为超时问题而无法安装。然后我在 google 上查了很多网友提供的方法，发现大多都已经用不了或者是有些细微处有所错误，故此重新写一篇 mac 终端实现翻墙的文章。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2018/11/19/5bf28b1627855.png">
-<meta property="og:updated_time" content="2019-05-26T13:46:06.620Z">
+<meta property="og:updated_time" content="2020-05-18T06:20:53.026Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mac 终端实现翻墙">
 <meta name="twitter:description" content="最近在使用 brew 安装一些软件时发现速度太慢，而且不少因为超时问题而无法安装。然后我在 google 上查了很多网友提供的方法，发现大多都已经用不了或者是有些细微处有所错误，故此重新写一篇 mac 终端实现翻墙的文章。">
@@ -142,7 +142,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -152,7 +152,7 @@
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -252,20 +252,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/22/mac-终端实现翻墙/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kerminate">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="https://i.loli.net/2018/11/19/5bf2895db2229.png">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Blog | Kerminate">
     </span>
 
@@ -308,7 +308,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/工具/" itemprop="url" rel="index">
                     <span itemprop="name">工具</span>
                   </a>
@@ -400,7 +400,7 @@
       
         <p>最近在使用 brew 安装一些软件时发现速度太慢，而且不少因为超时问题而无法安装。然后我在 google 上查了很多网友提供的方法，发现大多都已经用不了或者是有些细微处有所错误，故此重新写一篇 mac 终端实现翻墙的文章。<br><a id="more"></a></p>
 <h2 id="翻墙工具-shadowsocks"><a href="#翻墙工具-shadowsocks" class="headerlink" title="翻墙工具 shadowsocks"></a>翻墙工具 shadowsocks</h2><p>现在一般人都是使用 VPN 或者 shadowsocks 的方法实现浏览器的翻墙。这边不再赘述，因为我在终端实现的翻墙走的是 shadowsocks 的代理，所以简单说下 ss 的安装。<br><a href="https://github.com/shadowsocks/ShadowsocksX-NG" target="_blank" rel="noopener">https://github.com/shadowsocks/ShadowsocksX-NG</a> 这是我用的 ss 的下载地址，点击进去，在 release 下面随便找个最近的包下载安装即可。</p>
-<p><img src="https://i.loli.net/2018/11/19/5bf28b1627855.png" alt=""></p>
+<p><img src="https://i.loli.net/2018/11/19/5bf28b1627855.png" alt></p>
 <p>这个是 shadowsocks 的客户端，账号需要在 <a href="https://shadowsocks.com/" target="_blank" rel="noopener">https://shadowsocks.com/</a> 上面注册。<br>这边有一个坑点，就是这个网站翻墙才能进去😂，所以你得先找个能翻墙的朋友帮你注册账号（一年大约100来块）</p>
 <h2 id="终端配置代理"><a href="#终端配置代理" class="headerlink" title="终端配置代理"></a>终端配置代理</h2><p>在命令行输入执行以下两条指令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export http_proxy=http://127.0.0.1:1087</span><br><span class="line">export https_proxy=http://127.0.0.1:1087</span><br></pre></td></tr></table></figure></p>
 <p>macOS 版的 SS 默认监控本地的HTTP端口是 1087，而 Windows 版本的则是 1080，如果改过默认端口，就使用你指定的端口<br>这样就完成终端翻墙了，当然我们每次翻墙都执行一次指令会比较麻烦，把指令写进 .bash_profile 方便以后操作。</p>
@@ -531,7 +531,7 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="https://i.loli.net/2018/11/19/5bf2895db2229.png" alt="Kerminate">
             
