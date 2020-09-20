@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Blog | Kerminate</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2020-05-18T06:20:53.025Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Kerminate</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Webpack5 changelog</title>
+    <link href="http://yoursite.com/2020/03/27/Webpack5-changelog/"/>
+    <id>http://yoursite.com/2020/03/27/Webpack5-changelog/</id>
+    <published>2020-03-27T02:02:48.000Z</published>
+    <updated>2020-05-18T06:20:53.025Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;总体方向&quot;&gt;&lt;a href=&quot;#总体方向&quot; class=&quot;headerlink&quot; title=&quot;总体方向&quot;&gt;&lt;/a&gt;总体方向&lt;/h1&gt;&lt;p&gt;这个版本重点关注以下内容：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;我们尝试通过持久性缓存提高构建性能。&lt;/li&gt;
+&lt;li&gt;我们尝试通过更好的算法和默认值来改善长期缓存。&lt;/li&gt;
+&lt;li&gt;我们尝试使用更好的 Tree Shaking 和代码生成来改善打包体积。&lt;/li&gt;
+&lt;li&gt;我们尝试清除处于怪异状态的内部结构，同时在 v4 中不引入任何重大改变的情况下实现功能。&lt;/li&gt;
+&lt;li&gt;我们现在尝试通过引入重大改变来为将来的功能做准备，以使我们能够尽可能地长时间使用 v5。&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Vue3.0 响应式原理解析</title>
+    <link href="http://yoursite.com/2020/01/31/Vue3-0-%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86%E8%A7%A3%E6%9E%90/"/>
+    <id>http://yoursite.com/2020/01/31/Vue3-0-响应式原理解析/</id>
+    <published>2020-01-31T04:58:23.000Z</published>
+    <updated>2020-05-18T06:20:53.023Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;2019 年 10 月 5 日 Vue3.0 pre-alpha 版本正式发布，之后数个月历经 500 多个 PR，1000 多个 commit，终于在 2020 年 1 月 4 日正式发布了 Vue3.0 alpha.1 版本。Vue3.0 的核心代码基本完成，截止目前为止剩下的主要工作就是服务端渲染，Vue 团队也正在积极进行中。&lt;br&gt;响应式 API 的代码也基本稳定，不会再发生太大的变化（packages 里的 reactivity 包），下面我将从源码分析 Vue3.0 的响应式原理。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术帖" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF%E5%B8%96/"/>
+    
+    
+      <category term="技术帖" scheme="http://yoursite.com/tags/%E6%8A%80%E6%9C%AF%E5%B8%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Kerminate 的 2019 年度总结</title>
+    <link href="http://yoursite.com/2020/01/29/Kerminate-%E7%9A%84-2019-%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/"/>
+    <id>http://yoursite.com/2020/01/29/Kerminate-的-2019-年度总结/</id>
+    <published>2020-01-29T03:41:04.000Z</published>
+    <updated>2020-05-29T12:49:59.117Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;按照往年，我都会在 19 年的年底就写下这份年终总结。因为太忙，拖了一个月，才静下来总结下自己的 2019。&lt;br&gt;今年是我正式工作的第二个年头，相比于 2018 年的稚嫩，在工作和技术上也是获得了不小的提升。&lt;/p&gt;
+&lt;h1 id=&quot;我做了什么&quot;&gt;&lt;a href=&quot;#我做了什么&quot; class=&quot;headerlink&quot; title=&quot;我做了什么&quot;&gt;&lt;/a&gt;我做了什么&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;写了 8 篇博客&lt;/li&gt;
+&lt;li&gt;参加了 VueConf2019&lt;/li&gt;
+&lt;li&gt;工作中得到了晋升
+    
+    </summary>
+    
+      <category term="个人总结" scheme="http://yoursite.com/categories/%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/"/>
+    
+    
+      <category term="个人总结" scheme="http://yoursite.com/tags/%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前端测试的最佳实践</title>
+    <link href="http://yoursite.com/2019/12/22/%E5%89%8D%E7%AB%AF%E6%B5%8B%E8%AF%95%E7%9A%84%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/"/>
+    <id>http://yoursite.com/2019/12/22/前端测试的最佳实践/</id>
+    <published>2019-12-22T07:25:36.000Z</published>
+    <updated>2020-05-18T06:20:53.030Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;前些时候在团队里接入了前端测试，并总结了相关经验将文章发表到了内网博客上。临近年末了，也把文章发布到个人博客上，希望能让更多的人看到。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;2019 年前端测试依然是一个炙手可热的话题。笔者在今年 5 月份参加 Vueconf 的时候，Vue 单元测试的主题演讲者曾向现场的参与者发出提问，有多少团队引入了单元测试，意外的是只有寥寥数人举起了手。尽管，那个时候笔者的团队也还没有引入前端测试，但是考虑到测试的必要性，且团队正在着手一个新项目，所以回去之后在这个新项目全量地接入了前端测试。&lt;/p&gt;
+&lt;p&gt;现如今大部分互联网团队都是走 &lt;strong&gt;敏捷开发&lt;/strong&gt; 的节奏。实际上，自动化测试才是实现“敏捷”的基本保障。业务端的快速上线和快速验证对技术侧的响应力提出了更高的要求：&lt;strong&gt;更快上线，持续上线&lt;/strong&gt;。再考虑到人员流动和应用逐步变大的事实，日后迭代的成本只会变得越来越高。当然这个项目迭代的成本也跟项目的复杂度有关，比如笔者所在的点餐业务，项目有足够的复杂性，有些细微的改动点其实会牵扯到很多内容，而对刚加入团队的新人就会显得不太友好。因此，项目拥有前端测试是必不可少的，它能够有效保障业务迭代的质量和稳定性。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术帖" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF%E5%B8%96/"/>
+    
+    
+      <category term="技术帖" scheme="http://yoursite.com/tags/%E6%8A%80%E6%9C%AF%E5%B8%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>nvm,nrm,yrm 的使用</title>
+    <link href="http://yoursite.com/2019/10/15/nvm,nrm,yrm%20%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>http://yoursite.com/2019/10/15/nvm,nrm,yrm 的使用/</id>
+    <published>2019-10-15T09:08:18.000Z</published>
+    <updated>2020-05-18T06:20:53.027Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近把电脑上的 Node 版本升级到了 10.16.3 的稳定版本，但是后面在项目开发的时候，发现有些项目重装依赖后打包失败，最后发现是因为 Node 版本的问题。但我又不想降级到 Node8.0，这时候怎么办？&lt;/p&gt;
+&lt;p&gt;我们就需要借助于 nvm 这个 Node 版本管理工具了，同时我还会介绍下 nrm 和 yrm 这两个管理源的工具。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="工具" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="工具" scheme="http://yoursite.com/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue 3.0 会有哪些变化</title>
+    <link href="http://yoursite.com/2019/06/29/Vue3-0-%E4%BC%9A%E6%9C%89%E5%93%AA%E4%BA%9B%E5%8F%98%E5%8C%96/"/>
+    <id>http://yoursite.com/2019/06/29/Vue3-0-会有哪些变化/</id>
+    <published>2019-06-29T03:28:40.000Z</published>
+    <updated>2020-05-18T06:20:53.023Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前段时间在 &lt;a href=&quot;https://github.com/vuejs/rfcs&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Vue RFCs&lt;/a&gt; 提出的 Functional API 在社区中引起了轩然大波，感觉是 Vue 史上最有争议的一个特性。那么，Vue 3.0 到底会带来哪些改变呢，让我们一起来看一看。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术帖" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF%E5%B8%96/"/>
+    
+    
+      <category term="技术帖" scheme="http://yoursite.com/tags/%E6%8A%80%E6%9C%AF%E5%B8%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>参加 VueConf2019</title>
+    <link href="http://yoursite.com/2019/06/08/%E5%8F%82%E5%8A%A0-VueConf2019/"/>
+    <id>http://yoursite.com/2019/06/08/参加-VueConf2019/</id>
+    <published>2019-06-08T14:19:50.000Z</published>
+    <updated>2020-05-18T06:20:53.031Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;千呼万唤始出来，终于等到了 VueConf2019。本次 VueConf 选在了交大百年历史的文治堂里，下面我们一起来一睹风采！&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/06/09/5cfc73dcdf2e255399.jpeg&quot; alt&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Conf" scheme="http://yoursite.com/categories/Conf/"/>
+    
+    
+      <category term="Conf" scheme="http://yoursite.com/tags/Conf/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[译] DefinitelyTyped</title>
+    <link href="http://yoursite.com/2019/06/05/%E8%AF%91-DefinitelyTyped/"/>
+    <id>http://yoursite.com/2019/06/05/译-DefinitelyTyped/</id>
+    <published>2019-06-05T07:27:32.000Z</published>
+    <updated>2020-05-18T06:20:53.034Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近在使用 TypeScript 的时候，发现所有 npm 包上的类型定义都在 &lt;a href=&quot;https://github.com/DefinitelyTyped/DefinitelyTyped&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;DefinitelyTyped&lt;/a&gt; 这里。看了下它的 README，感觉写的有点晦涩，又发现已经有韩语，西班牙语和俄罗斯语的 README。所有，我打算给开源社区一点帮助，就译了这篇 README，并提了 PR，目前已经被仓库合并。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="翻译" scheme="http://yoursite.com/categories/%E7%BF%BB%E8%AF%91/"/>
+    
+    
+      <category term="翻译" scheme="http://yoursite.com/tags/%E7%BF%BB%E8%AF%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>React 深度探索</title>
+    <link href="http://yoursite.com/2019/05/18/React-%E6%B7%B1%E5%BA%A6%E6%8E%A2%E7%B4%A2/"/>
+    <id>http://yoursite.com/2019/05/18/React-深度探索/</id>
+    <published>2019-05-18T13:45:59.000Z</published>
+    <updated>2020-05-18T06:20:53.021Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Webpack4 使用总结</title>
+    <link href="http://yoursite.com/2019/03/24/Webpack4-%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/"/>
+    <id>http://yoursite.com/2019/03/24/Webpack4-使用总结/</id>
+    <published>2019-03-24T01:41:36.000Z</published>
+    <updated>2020-05-18T06:20:53.024Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近对公司的一个项目进行了 webpack4 的升级，这边简要概述下对 webpack4 的理解和总结。&lt;/p&gt;
+&lt;h2 id=&quot;升级依赖包&quot;&gt;&lt;a href=&quot;#升级依赖包&quot; class=&quot;headerlink&quot; title=&quot;升级依赖包&quot;&gt;&lt;/a&gt;升级依赖包&lt;/h2&gt;&lt;p&gt;首先需要升级一些依赖包&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;webpack 升级到 4.x&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;webpack-cli 升级到 3.x&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;webpack-dev-server 升级到 3.x&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;url-loader 升级到 1.x&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;file-loader 升级到 3.x&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;happypack 升级到 5.x&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;postcss-loader 升级到 3.x&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;less 升级到 2.x&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;less-loader 升级到 3.x&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;css-loader 升级到 2.x&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术帖" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF%E5%B8%96/"/>
+    
+    
+      <category term="技术帖" scheme="http://yoursite.com/tags/%E6%8A%80%E6%9C%AF%E5%B8%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Koa 使用 Decorator 装饰路由</title>
+    <link href="http://yoursite.com/2019/01/12/Koa-%E4%BD%BF%E7%94%A8-Decorator-%E8%A3%85%E9%A5%B0%E8%B7%AF%E7%94%B1/"/>
+    <id>http://yoursite.com/2019/01/12/Koa-使用-Decorator-装饰路由/</id>
+    <published>2019-01-12T02:40:46.000Z</published>
+    <updated>2020-05-18T06:20:53.020Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;在 koa 里使用路由一般都是这样写&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; router = requier(&lt;span class=&quot;string&quot;&gt;&#39;koa-router&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;router.get(&lt;span class=&quot;string&quot;&gt;&#39;/users&#39;&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;async&lt;/span&gt; (ctx, next) =&amp;gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  ctx.body = &lt;span class=&quot;string&quot;&gt;&#39;users&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;这样的路由设置显得不是那样的直观，而反观 Java 中 Spring 的写法，就感觉更简洁以及更优雅&lt;br&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;@Controller&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;UserController&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;meta&quot;&gt;@RequestMapping&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;/users&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;function&quot;&gt;String &lt;span class=&quot;title&quot;&gt;Users&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;users&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Node" scheme="http://yoursite.com/categories/Node/"/>
+    
+    
+      <category term="Node" scheme="http://yoursite.com/tags/Node/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Kerminate 的 2018 年度总结</title>
+    <link href="http://yoursite.com/2018/12/30/Kerminate-%E7%9A%842018%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/"/>
+    <id>http://yoursite.com/2018/12/30/Kerminate-的2018年度总结/</id>
+    <published>2018-12-29T16:05:40.000Z</published>
+    <updated>2020-05-18T06:20:53.020Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;2018 年马上过去了，今年做了不少事情，就顺便总结一下吧。&lt;/p&gt;
+&lt;h1 id=&quot;我做了什么&quot;&gt;&lt;a href=&quot;#我做了什么&quot; class=&quot;headerlink&quot; title=&quot;我做了什么&quot;&gt;&lt;/a&gt;我做了什么&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;写了 26 篇博客&lt;/li&gt;
+&lt;li&gt;Putong OJ V2 正式上线&lt;/li&gt;
+&lt;li&gt;加入美团点评&lt;/li&gt;
+&lt;li&gt;参加了技术沙龙
+    
+    </summary>
+    
+      <category term="个人总结" scheme="http://yoursite.com/categories/%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/"/>
+    
+    
+      <category term="个人总结" scheme="http://yoursite.com/tags/%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>对比各类 ajax/http 库及最佳选择</title>
+    <link href="http://yoursite.com/2018/12/15/%E5%AF%B9%E6%AF%94%E5%90%84%E7%B1%BB-ajax-http-%E5%BA%93%E5%8F%8A%E6%9C%80%E4%BD%B3%E9%80%89%E6%8B%A9/"/>
+    <id>http://yoursite.com/2018/12/15/对比各类-ajax-http-库及最佳选择/</id>
+    <published>2018-12-15T06:41:55.000Z</published>
+    <updated>2020-05-18T06:20:53.032Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在 WEB 开发中服务端和客户端的交互至关重要，客户端可以使用原生的 XMLHttpRequest 对象，服务端也可以使用 node 自带的 http 模块，而现在也有相当多的 第三方库来供我们使用。这里，我简要对一些流行的库或原生方法进行对比，并得出我们的最佳选择。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2018/12/15/5c14e2873d36c.png&quot; alt&gt;&lt;br&gt;主流的 ajax/http 方法库的兼容性和特性如上图所示。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="技术帖" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF%E5%B8%96/"/>
+    
+    
+      <category term="技术帖" scheme="http://yoursite.com/tags/%E6%8A%80%E6%9C%AF%E5%B8%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>npm 管理依赖包</title>
+    <link href="http://yoursite.com/2018/12/12/npm-%E7%AE%A1%E7%90%86%E4%BE%9D%E8%B5%96%E5%8C%85/"/>
+    <id>http://yoursite.com/2018/12/12/npm-管理依赖包/</id>
+    <published>2018-12-12T06:46:11.000Z</published>
+    <updated>2020-05-18T06:20:53.027Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;由于 npm 包的升级迭代速度很快，经常会出现 npm 依赖包过期或者安全性的问题。&lt;br&gt;如果项目是在 github 管理，它会在仓库首页提醒项目中存在有隐患的依赖。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2018/12/12/5c10b0976c20c.png&quot; alt&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Node" scheme="http://yoursite.com/categories/Node/"/>
+    
+    
+      <category term="Node" scheme="http://yoursite.com/tags/Node/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>七牛云回收测试域名后将图片下载到本地的解决办法</title>
+    <link href="http://yoursite.com/2018/11/19/%E4%B8%83%E7%89%9B%E4%BA%91%E5%9B%9E%E6%94%B6%E6%B5%8B%E8%AF%95%E5%9F%9F%E5%90%8D%E5%90%8E%E5%B0%86%E5%9B%BE%E7%89%87%E4%B8%8B%E8%BD%BD%E5%88%B0%E6%9C%AC%E5%9C%B0%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"/>
+    <id>http://yoursite.com/2018/11/19/七牛云回收测试域名后将图片下载到本地的解决办法/</id>
+    <published>2018-11-19T06:56:52.000Z</published>
+    <updated>2020-05-18T06:20:53.028Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近七牛云回收了测试域名，导致我在上面存的一些图片资源都访问不了。由于疏忽，之前没有注意到七牛云回收测试域名的邮件，导致现在在七牛云上也无法将图片资源下载到本地，传到其他的云上。&lt;br&gt;遂发起工单，终于找到了解决办法。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="工具" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="工具" scheme="http://yoursite.com/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>nginx 反向代理</title>
+    <link href="http://yoursite.com/2018/11/17/nginx-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/"/>
+    <id>http://yoursite.com/2018/11/17/nginx-反向代理/</id>
+    <published>2018-11-17T04:35:39.000Z</published>
+    <updated>2020-05-18T06:20:53.026Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;当只有一台服务器时，而服务器上有多个 node 的服务，我们需要使用 nginx 进行反向代理，使每个服务能够正常被访问到。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="工具" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="工具" scheme="http://yoursite.com/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mac 终端实现翻墙</title>
+    <link href="http://yoursite.com/2018/10/22/mac-%E7%BB%88%E7%AB%AF%E5%AE%9E%E7%8E%B0%E7%BF%BB%E5%A2%99/"/>
+    <id>http://yoursite.com/2018/10/22/mac-终端实现翻墙/</id>
+    <published>2018-10-22T08:05:59.000Z</published>
+    <updated>2020-05-18T06:20:53.026Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近在使用 brew 安装一些软件时发现速度太慢，而且不少因为超时问题而无法安装。然后我在 google 上查了很多网友提供的方法，发现大多都已经用不了或者是有些细微处有所错误，故此重新写一篇 mac 终端实现翻墙的文章。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="工具" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="工具" scheme="http://yoursite.com/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>background 与 border 设置相同颜色却展示不一样</title>
+    <link href="http://yoursite.com/2018/09/29/background-%E4%B8%8E-border-%E8%AE%BE%E7%BD%AE%E7%9B%B8%E5%90%8C%E9%A2%9C%E8%89%B2%E5%8D%B4%E5%B1%95%E7%A4%BA%E4%B8%8D%E4%B8%80%E6%A0%B7/"/>
+    <id>http://yoursite.com/2018/09/29/background-与-border-设置相同颜色却展示不一样/</id>
+    <published>2018-09-29T02:49:09.000Z</published>
+    <updated>2020-05-18T06:20:53.025Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这两天在写一个需求的时候发现，当 background 与 border 设置相同时，颜色有时候展示会不一样&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2018/11/19/5bf2895d614ed.png&quot; alt&gt;&lt;/p&gt;
+&lt;p&gt;两张图的 background 与 border 都设置颜色相同，但是左边这张图，展示保持一致，而右边这张图却不一致&lt;br&gt;
+    
+    </summary>
+    
+      <category term="CSS" scheme="http://yoursite.com/categories/CSS/"/>
+    
+    
+      <category term="前端" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>初窥 redux-saga 的异步流</title>
+    <link href="http://yoursite.com/2018/09/21/%E5%88%9D%E7%AA%A5-redux-saga-%E7%9A%84%E5%BC%82%E6%AD%A5%E6%B5%81/"/>
+    <id>http://yoursite.com/2018/09/21/初窥-redux-saga-的异步流/</id>
+    <published>2018-09-21T06:02:51.000Z</published>
+    <updated>2020-05-18T06:20:53.029Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;redux-saga 和 redux-thunk 是最广为人知的2种 redux 的异步流处理方案。在认识 redux-saga 之前，我们先再看一看 redux-thunk。&lt;/p&gt;
+&lt;p&gt;在 redux 里，dispatch 出的 action 是一个对象，而 redux-thunk 中间件可以返回一个函数，函数处理完之后再 dispatch 一个对象到 reducer 里。redux 的源码也相当简单：&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;createThunkMiddleware&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;extraArgument&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;(&lt;span class=&quot;params&quot;&gt;&amp;#123; dispatch, getState &amp;#125;&lt;/span&gt;) =&amp;gt;&lt;/span&gt; next =&amp;gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;action&lt;/span&gt; =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;typeof&lt;/span&gt; action === &lt;span class=&quot;string&quot;&gt;&#39;function&#39;&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; action(dispatch, getState, extraArgument)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; next(action)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术帖" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF%E5%B8%96/"/>
+    
+    
+      <category term="技术帖" scheme="http://yoursite.com/tags/%E6%8A%80%E6%9C%AF%E5%B8%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>参加 FreeCodeCamp 2018上海秋季交流会</title>
+    <link href="http://yoursite.com/2018/09/16/%E5%8F%82%E5%8A%A0-FreeCodeCamp-2018%E4%B8%8A%E6%B5%B7%E7%A7%8B%E5%AD%A3%E4%BA%A4%E6%B5%81%E4%BC%9A/"/>
+    <id>http://yoursite.com/2018/09/16/参加-FreeCodeCamp-2018上海秋季交流会/</id>
+    <published>2018-09-16T08:24:37.000Z</published>
+    <updated>2020-05-18T06:20:53.031Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本周六参加了 FreeCodeCamp 的前端交流会，而这也是我第一次参加的线下 Conf，在这里分享一下整个 Conf 大概的内容和自己的收获。&lt;br&gt;&lt;img src=&quot;https://i.loli.net/2018/11/20/5bf3a7a4673ba.png&quot; alt&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Conf" scheme="http://yoursite.com/categories/Conf/"/>
+    
+    
+      <category term="Conf" scheme="http://yoursite.com/tags/Conf/"/>
+    
+  </entry>
+  
+</feed>
