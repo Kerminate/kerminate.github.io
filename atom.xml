@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://kerminate.me/"/>
-  <updated>2020-05-18T06:20:53.025Z</updated>
+  <updated>2021-02-15T08:55:57.833Z</updated>
   <id>https://kerminate.me/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Kerminate 的 2020 年度总结</title>
+    <link href="https://kerminate.me/2021/02/15/Kerminate-%E7%9A%84-2020-%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/"/>
+    <id>https://kerminate.me/2021/02/15/Kerminate-的-2020-年度总结/</id>
+    <published>2021-02-15T07:19:25.000Z</published>
+    <updated>2021-02-15T08:55:57.833Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;2021 已经到来，秉承着每年都要做一次个人总结，尽管现在已经是大年初四，我还是简单的写一点吧😂。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="个人总结" scheme="https://kerminate.me/categories/%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/"/>
+    
+    
+      <category term="个人总结" scheme="https://kerminate.me/tags/%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/"/>
+    
+  </entry>
   
   <entry>
     <title>Webpack5 changelog</title>
@@ -255,10 +275,10 @@
   
   <entry>
     <title>Kerminate 的 2018 年度总结</title>
-    <link href="https://kerminate.me/2018/12/30/Kerminate-%E7%9A%842018%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/"/>
-    <id>https://kerminate.me/2018/12/30/Kerminate-的2018年度总结/</id>
+    <link href="https://kerminate.me/2018/12/30/Kerminate-%E7%9A%84-2018-%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/"/>
+    <id>https://kerminate.me/2018/12/30/Kerminate-的-2018-年度总结/</id>
     <published>2018-12-29T16:05:40.000Z</published>
-    <updated>2020-05-18T06:20:53.020Z</updated>
+    <updated>2021-02-15T07:19:49.175Z</updated>
     
     <summary type="html">
     
@@ -420,26 +440,6 @@
     
     
       <category term="技术帖" scheme="https://kerminate.me/tags/%E6%8A%80%E6%9C%AF%E5%B8%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>参加 FreeCodeCamp 2018上海秋季交流会</title>
-    <link href="https://kerminate.me/2018/09/16/%E5%8F%82%E5%8A%A0-FreeCodeCamp-2018%E4%B8%8A%E6%B5%B7%E7%A7%8B%E5%AD%A3%E4%BA%A4%E6%B5%81%E4%BC%9A/"/>
-    <id>https://kerminate.me/2018/09/16/参加-FreeCodeCamp-2018上海秋季交流会/</id>
-    <published>2018-09-16T08:24:37.000Z</published>
-    <updated>2020-05-18T06:20:53.031Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本周六参加了 FreeCodeCamp 的前端交流会，而这也是我第一次参加的线下 Conf，在这里分享一下整个 Conf 大概的内容和自己的收获。&lt;br&gt;&lt;img src=&quot;https://i.loli.net/2018/11/20/5bf3a7a4673ba.png&quot; alt&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Conf" scheme="https://kerminate.me/categories/Conf/"/>
-    
-    
-      <category term="Conf" scheme="https://kerminate.me/tags/Conf/"/>
     
   </entry>
   
