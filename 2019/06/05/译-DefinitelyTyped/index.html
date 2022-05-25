@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://i.loli.net/2018/11/19/5bf2895db2229.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="https://i.loli.net/2018/11/19/5bf2895db2229.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="https://i.loli.net/2018/11/19/5bf2895db2229.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="https://i.loli.net/2018/11/19/5bf2895db2229.png?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="翻译,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Blog | Kerminate" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="最近在使用 TypeScript 的时候，发现所有 npm 包上的类型定义都在 DefinitelyTyped 这里。看了下它的 README，感觉写的有点晦涩，又发现已经有韩语，西班牙语和俄罗斯语的 README。所有，我打算给开源社区一点帮助，就译了这篇 README，并提了 PR，目前已经被仓库合并。">
+<meta name="keywords" content="翻译">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[译] DefinitelyTyped">
+<meta property="og:url" content="http://yoursite.com/2019/06/05/译-DefinitelyTyped/index.html">
+<meta property="og:site_name" content="Blog | Kerminate">
+<meta property="og:description" content="最近在使用 TypeScript 的时候，发现所有 npm 包上的类型定义都在 DefinitelyTyped 这里。看了下它的 README，感觉写的有点晦涩，又发现已经有韩语，西班牙语和俄罗斯语的 README。所有，我打算给开源社区一点帮助，就译了这篇 README，并提了 PR，目前已经被仓库合并。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://dev.azure.com/definitelytyped/DefinitelyTyped/_apis/build/status/DefinitelyTyped.DefinitelyTyped?branchName=master">
+<meta property="og:image" content="https://dev.azure.com/definitelytyped/DefinitelyTyped/_apis/build/status/DefinitelyTyped.dtslint-runner?branchName=master">
+<meta property="og:image" content="https://typescript.visualstudio.com/TypeScript/_apis/build/status/sandersn.types-publisher-watchdog">
+<meta property="og:image" content="https://typescript.visualstudio.com/TypeScript/_apis/build/status/sandersn.typescript-bot-watchdog">
+<meta property="og:image" content="https://badges.gitter.im/Join%20Chat.svg">
+<meta property="og:updated_time" content="2020-05-18T06:20:53.034Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[译] DefinitelyTyped">
+<meta name="twitter:description" content="最近在使用 TypeScript 的时候，发现所有 npm 包上的类型定义都在 DefinitelyTyped 这里。看了下它的 README，感觉写的有点晦涩，又发现已经有韩语，西班牙语和俄罗斯语的 README。所有，我打算给开源社区一点帮助，就译了这篇 README，并提了 PR，目前已经被仓库合并。">
+<meta name="twitter:image" content="https://dev.azure.com/definitelytyped/DefinitelyTyped/_apis/build/status/DefinitelyTyped.DefinitelyTyped?branchName=master">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/06/05/译-DefinitelyTyped/">
+
+
+
+
+
+  <title>[译] DefinitelyTyped | Blog | Kerminate</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Blog | Kerminate</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/05/译-DefinitelyTyped/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kerminate">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://i.loli.net/2018/11/19/5bf2895db2229.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog | Kerminate">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">[译] DefinitelyTyped</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-05T15:27:32+08:00">
+                2019-06-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/翻译/" itemprop="url" rel="index">
+                    <span itemprop="name">翻译</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/06/05/译-DefinitelyTyped/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/06/05/译-DefinitelyTyped/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/06/05/译-DefinitelyTyped/" class="leancloud_visitors" data-flag-title="[译] DefinitelyTyped">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  5,618
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  21
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近在使用 TypeScript 的时候，发现所有 npm 包上的类型定义都在 <a href="https://github.com/DefinitelyTyped/DefinitelyTyped" target="_blank" rel="noopener">DefinitelyTyped</a> 这里。看了下它的 README，感觉写的有点晦涩，又发现已经有韩语，西班牙语和俄罗斯语的 README。所有，我打算给开源社区一点帮助，就译了这篇 README，并提了 PR，目前已经被仓库合并。</p>
+<a id="more"></a>
+<p>译文在下：</p>
+<h1 id="DefinitelyTyped"><a href="#DefinitelyTyped" class="headerlink" title="DefinitelyTyped"></a>DefinitelyTyped</h1><blockquote>
+<p>这是一个 <em>高质量</em> 的 TypeScript 类型定义的仓库。</p>
+</blockquote>
+<p>也可以去看 <a href="http://definitelytyped.org" target="_blank" rel="noopener">definitelytyped.org</a> 这个网站，尽管这个 README 里的信息更新。</p>
+<p><em>你可以去看其他语言的 README，<a href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/README.md" target="_blank" rel="noopener">英语</a>，<a href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/README.es.md" target="_blank" rel="noopener">西班牙语</a>，<a href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/README.ko.md" target="_blank" rel="noopener">韩语</a>，<a href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/README.ru.md" target="_blank" rel="noopener">俄罗斯语</a></em></p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li><a href="#当前状态">当前状态</a></li>
+<li><a href="#我该如何贡献">我该如何贡献？</a><ul>
+<li><a href="#测试">测试</a></li>
+<li><a href="#发起一个-pull-request">发起一个 pull request</a><ul>
+<li><a href="#编辑一个现有包">编辑一个现有包</a></li>
+<li><a href="#创建一个新的包">创建一个新的包</a></li>
+<li><a href="#常见错误">常见错误</a></li>
+<li><a href="#删除一个包">删除一个包</a></li>
+<li><a href="#lint">Lint</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#faq">FAQ</a></li>
+</ul>
+<h2 id="当前状态"><a href="#当前状态" class="headerlink" title="当前状态"></a>当前状态</h2><p>这个部分会跟踪仓库和发布过程的运行状况。<br>这可能会对在 PRs 和包中遇到任何问题的贡献者有所帮助。</p>
+<ul>
+<li>最近的构建都具有完善的 <a href="https://github.com/Microsoft/dtslint" target="_blank" rel="noopener">类型标注</a>：<a href="https://dev.azure.com/definitelytyped/DefinitelyTyped/_build/latest?definitionId=1&amp;branchName=master" target="_blank" rel="noopener"><img src="https://dev.azure.com/definitelytyped/DefinitelyTyped/_apis/build/status/DefinitelyTyped.DefinitelyTyped?branchName=master" alt="Build Status"></a></li>
+<li>所有的包基于 typescript@next 版本都有完善的类型标注：<a href="https://dev.azure.com/definitelytyped/DefinitelyTyped/_build/latest?definitionId=2&amp;branchName=master" target="_blank" rel="noopener"><img src="https://dev.azure.com/definitelytyped/DefinitelyTyped/_apis/build/status/DefinitelyTyped.dtslint-runner?branchName=master" alt="Build Status"></a></li>
+<li>所有的包都会在1小时内 <a href="https://github.com/Microsoft/types-publisher" target="_blank" rel="noopener">发布到 npm</a>: <a href="https://typescript.visualstudio.com/TypeScript/_build/latest?definitionId=13" target="_blank" rel="noopener"><img src="https://typescript.visualstudio.com/TypeScript/_apis/build/status/sandersn.types-publisher-watchdog" alt="Publish Status"></a></li>
+<li><a href="https://github.com/typescript-bot" target="_blank" rel="noopener">typescript-bot</a> 在 DefinitelyTyped 一直处于活跃状态 <a href="https://typescript.visualstudio.com/TypeScript/_build/latest?definitionId=14" target="_blank" rel="noopener"><img src="https://typescript.visualstudio.com/TypeScript/_apis/build/status/sandersn.typescript-bot-watchdog" alt="Activity Status"></a></li>
+</ul>
+<p>如果这里面的任何内容出现问题或者失败的情况，请在 <a href="https://gitter.im/DefinitelyTyped/DefinitelyTyped" target="_blank" rel="noopener">the DefinitelyTyped Gitter channel</a> 提出问题。</p>
+<p><a href="https://gitter.im/DefinitelyTyped/DefinitelyTyped?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge" target="_blank" rel="noopener"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Join the chat at https://gitter.im/DefinitelyTyped/DefinitelyTyped"></a></p>
+<h2 id="什么是声明文件？"><a href="#什么是声明文件？" class="headerlink" title="什么是声明文件？"></a>什么是声明文件？</h2><p>可以查看 <a href="http://www.typescriptlang.org/docs/handbook/declaration-files/introduction.html" target="_blank" rel="noopener">TypeScript 手册</a>。</p>
+<h2 id="如何去获取它？"><a href="#如何去获取它？" class="headerlink" title="如何去获取它？"></a>如何去获取它？</h2><h3 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h3><p>这是首选方法。它仅适用于 TypeScript 2.0+ 的用户。例如：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev @types/node</span><br></pre></td></tr></table></figure>
+<p>编译器中会自动包含这些类型。<br>可以在 <a href="http://www.typescriptlang.org/docs/handbook/declaration-files/consumption.html" target="_blank" rel="noopener">手册</a> 中查看更多信息。</p>
+<p>对于 NPM 包 “foo”，它的类型将是 “@types/foo”。<br>如果没有找到你的包，请在 <a href="https://microsoft.github.io/TypeSearch/" target="_blank" rel="noopener">TypeSearch</a> 查询。</p>
+<p>如果你仍然没有找到它，请检查它是否 <a href="http://www.typescriptlang.org/docs/handbook/declaration-files/publishing.html" target="_blank" rel="noopener">捆绑</a> 了自己的类型。<br>这通常会在 <code>package.json</code> 文件中的 <code>&quot;types&quot;</code> 或 <code>&quot;typings&quot;</code> 字段中提供，<br>或者可以只查找包中的任何 “.d.ts” 文件并手动将它们包含在 <code>/// &lt;reference path=&quot;&quot; /&gt;</code>.</p>
+<h3 id="其他方法"><a href="#其他方法" class="headerlink" title="其他方法"></a>其他方法</h3><p>这些可以被 TypeScript 1.0 使用。</p>
+<ul>
+<li><a href="https://github.com/typings/typings" target="_blank" rel="noopener">Typings</a></li>
+<li><del><a href="http://nuget.org/packages?q=DefinitelyTyped" target="_blank" rel="noopener">NuGet</a></del> (使用首选替代方案, nuget DT 类型发布已关闭)</li>
+<li>从这个仓库的 <code>master</code> 分支手动下载</li>
+</ul>
+<p>你可能需要手动添加 <a href="http://www.typescriptlang.org/docs/handbook/triple-slash-directives.html" target="_blank" rel="noopener">引用</a>。</p>
+<h2 id="我该如何贡献？"><a href="#我该如何贡献？" class="headerlink" title="我该如何贡献？"></a>我该如何贡献？</h2><p>只有像你一样的用户的贡献，Definitely Typed 才能发挥作用</p>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>在你分享你的成果前，请务必自己试用一下。</p>
+<h4 id="测试编辑现有的包"><a href="#测试编辑现有的包" class="headerlink" title="测试编辑现有的包"></a>测试编辑现有的包</h4><p>你可以使用 <a href="http://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation" target="_blank" rel="noopener">module augmentation</a> 添加新功能。<br>你也可以直接在 <code>node_modules/@types/foo/index.d.ts</code> 编辑类型，或者从那里复制它们并按照以下步骤操作。</p>
+<h4 id="测试新的包"><a href="#测试新的包" class="headerlink" title="测试新的包"></a>测试新的包</h4><p>添加到你的 <code>tsconfig.json</code>:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">"baseUrl": "types",</span><br><span class="line">"typeRoots": ["types"],</span><br></pre></td></tr></table></figure>
+<p>(你也可以使用 <code>src/types</code>.)<br>创建包含模块 “foo” 声明的 <code>types/foo/index.d.ts</code>.<br>你现在应该将 <code>&quot;foo&quot;</code> 导入到你的代码中，它会使用新的类型声明。<br>然后构建并运行代码确保你的类型定义与实际上发生的情况一致。<br>一旦你的真实代码中的类型定义通过测试，那么可以发起一个 <a href="#make-a-pull-request">PR</a>，<br>然后按照下面的说明去 <a href="#edit-an-existing-package">编辑一个现有包</a> 或<br><a href="#create-a-new-package">创建一个新包</a>。</p>
+<h3 id="发起一个-pull-request"><a href="#发起一个-pull-request" class="headerlink" title="发起一个 pull request"></a>发起一个 pull request</h3><p>一旦你的包测试通过，你可以在 Definitely Typed 分享它。</p>
+<p>首先，<a href="https://guides.github.com/activities/forking/" target="_blank" rel="noopener">fork</a> 这个仓库，然后安装 <a href="https://nodejs.org/" target="_blank" rel="noopener">node</a>，并运行以下命令 <code>npm install</code>.</p>
+<h4 id="编辑一个现有包"><a href="#编辑一个现有包" class="headerlink" title="编辑一个现有包"></a>编辑一个现有包</h4><ul>
+<li><code>cd types/my-package-to-edit</code></li>
+<li>作出修改之后，记得新增测试。<br>如果你进行了重大修改，不要忘记 <a href="#if-a-library-is-updated-to-a-new-major-version-with-breaking-changes-how-should-i-update-its-type-declaration-package">更新主版本</a></li>
+<li><p>你可能还想将自己添加到包头部的 “Definitions by” 部分。</p>
+<ul>
+<li>这会导致一旦有人对该包发起 PR 或者 issue，都会通知你（通过你的 GitHub 用户名）。</li>
+<li>通过将您的名字添加到行尾来执行此操作，比如 <code>// Definitions by: Alice &lt;https://github.com/alice&gt;, Bob &lt;https://github.com/bob&gt;</code>.</li>
+<li>或者如果有多人，它也可以是多行的<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Definitions by: Alice &lt;https://github.com/alice&gt;</span></span><br><span class="line"><span class="comment">//                 Bob &lt;https://github.com/bob&gt;</span></span><br><span class="line"><span class="comment">//                 Steve &lt;https://github.com/steve&gt;</span></span><br><span class="line"><span class="comment">//                 John &lt;https://github.com/john&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>如果这里有 <code>tslint.json</code> 文件，就运行 <code>npm run lint package-name</code>。否则，在包目录里运行 <code>tsc</code>.</p>
+</li>
+</ul>
+<p>当你对现有的包发起 PR 的时候，请确保 <code>dt-bot</code> 会通知以前的作者。<br>如果没有，你可以在与 PR 关联的评论中手动去 @ 他们。</p>
+<h4 id="创建一个新的包"><a href="#创建一个新的包" class="headerlink" title="创建一个新的包"></a>创建一个新的包</h4><p>如果你是库作者并且你的包是用 TypeScript 编写的，那么请在你的包里 <a href="http://www.typescriptlang.org/docs/handbook/declaration-files/publishing.html" target="_blank" rel="noopener">捆绑自动生成的声明文件</a> 而不是发布到 Definitely Typed.</p>
+<p>如果你要为 NPM 包添加类型，请创建具有相同名字的目录。<br>如果你要添加类型的包不再 NPM 上，请确保为它选择的名字不会与 NPM 上面的包名冲突。<br>(你可以使用 <code>npm info foo</code> 来检查 <code>foo</code> 包是否存在。)</p>
+<p>你的包应该具有这样的结构：</p>
+<table>
+<thead>
+<tr>
+<th>文件名</th>
+<th>目的</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>index.d.ts</td>
+<td>这里包含了包的类型声明。</td>
+</tr>
+<tr>
+<td>foo-tests.ts</td>
+<td>这里包含了测试类型的示例代码，此代码 <strong>不会</strong> 运行，但是它需要通过类型检查。</td>
+</tr>
+<tr>
+<td>tsconfig.json</td>
+<td>这里允许你在包里运行 <code>tsc</code>.</td>
+</tr>
+<tr>
+<td>tslint.json</td>
+<td>启用 linting.</td>
+</tr>
+</tbody>
+</table>
+<p>如果你的 npm ≥ 5.2.0，运行 <code>npx dts-gen --dt --name my-package-name --template module</code> 来生成这些文件，否则就运行 <code>npm install -g dts-gen</code> 和 <code>dts-gen --dt --name my-package-name --template module</code>.<br>可以在 <a href="https://github.com/Microsoft/dts-gen" target="_blank" rel="noopener">dts-gen</a> 查看所有的选项。</p>
+<p>你可以编辑 <code>tsconfig.json</code> 来增加新文件，增加 <code>&quot;target&quot;: &quot;es6&quot;</code> (异步函数需要)，去增加 <code>&quot;lib&quot;</code>，或者增加 <code>&quot;jsx&quot;</code> 编译选项。</p>
+<p>Definitely Typed 的成员会定期查看新的 PRs，但是请记住当有许多其他 PRs 的时候，检查会变慢。</p>
+<p><a href="https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/base64-js" target="_blank" rel="noopener">base64-js</a> 是个很好的示例。</p>
+<h4 id="常见错误"><a href="#常见错误" class="headerlink" title="常见错误"></a>常见错误</h4><ul>
+<li>首先，请遵循 <a href="http://www.typescriptlang.org/docs/handbook/declaration-files/do-s-and-don-ts.html" target="_blank" rel="noopener">手册</a> 的建议。</li>
+<li>格式化：使用4个空格。 对于新代码，这由 Prettier 强制执行。</li>
+<li><code>function sum(nums: number[]): number</code>: 如果函数没有写入的参数，请使用 <code>ReadonlyArray</code>.</li>
+<li><code>interface Foo { new(): Foo; }</code>:<br>  这定义了一个可实例化的类型，你可能需要的是 <code>declare class Foo { constructor(); }</code>.</li>
+<li><code>const Class: { new(): IClass; }</code>:<br>  更推荐使用类声明 <code>class Class { constructor(); }</code>，而不是生成一个可实例化的类型。</li>
+<li><code>getMeAT&lt;T&gt;(): T</code>:<br>  如果类型参数没有出现在函数的参数中，那么实际上你不需要这个泛型函数，你只是用了一个伪装的类型断言。<br>  这种情况下最好使用真实的类型断言，类似这样，<code>getMeAT() as number</code>.<br>  类型参数可接受的示例：<code>function id&lt;T&gt;(value: T): T;</code>.<br>  类型参数不可接受的示例：<code>function parseJson&lt;T&gt;(json: string): T;</code>.<br>  有一个例外：<code>new Map&lt;string, number&gt;()</code> 是 OK 的。</li>
+<li>使用 <code>Function</code> 和 <code>Object</code> 的类型基本上不是一个好方法。在 99% 的情况你可以去指定一个更具体的类型。比如，对于 <a href="http://www.typescriptlang.org/docs/handbook/functions.html#function-types" target="_blank" rel="noopener">Function</a>，可以使用 <code>(x: number) =&gt; number</code>，对于 <code>Object</code> 可以使用 <code>{ x: number, y: number }</code>. 对于不确定的类型，你需要使用 <a href="http://www.typescriptlang.org/docs/handbook/basic-types.html#any" target="_blank" rel="noopener"><code>any</code></a> 而不是 <code>Object</code>. 只有当它类型确定且是某个对象的时候，使用 <a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-2.html#object-type" target="_blank" rel="noopener"><code>object</code></a>, 而不是 <code>Object</code> 或 <code>{ [key: string]: any }</code>.</li>
+<li><code>var foo: string | any</code>:<br>  如果在联合类型中使用 <code>any</code>, 则结果始终为 <code>any</code>. 因此，即便类型中的 <code>string</code> 部分看起来很有用，但实际上在类型检查方面与 <code>any</code> 没有什么区别。根据你的意图，可以选择 <code>any</code>, <code>string</code>, 或 <code>string | object</code>.</li>
+</ul>
+<h4 id="删除一个包"><a href="#删除一个包" class="headerlink" title="删除一个包"></a>删除一个包</h4><p>当一个包 <a href="http://www.typescriptlang.org/docs/handbook/declaration-files/publishing.html" target="_blank" rel="noopener">捆绑</a> 了自己的类型时，应该从 Definitely Typed 中删除类型避免被混淆。</p>
+<p>你可以运行以下命令来删除它 <code>npm run not-needed -- typingsPackageName asOfVersion sourceRepoURL [libraryName]</code>.</p>
+<ul>
+<li><code>typingsPackageName</code>: 这是你要删除的目录名字.</li>
+<li><code>asOfVersion</code>: 将使用此版本将存根发布到 <code>@types/foo</code>. 版本号应该高于当前发布的任何版本，并且应该是 npm 上的 <code>foo</code> 版本。</li>
+<li><code>libraryName</code>: 替换 Definitely Typed 中类型的 npm 的包名。通常这与 “typingsPackageName” 相同，这种情况下你可以忽略它。</li>
+</ul>
+<p>Definitely Typed 中其他引用了删除包的任何包，都需要去更新去引用新的捆绑类型。<br>你可以查看 <code>npm run test</code> 中的错误来获得此列表。<br>添加一个带有 <code>&quot;dependencies&quot;: { &quot;foo&quot;: &quot;x.y.z&quot; }</code> 的 <code>package.json</code> 文件，去修复这些错误。<br>比如：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"private"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">"dependencies"</span>: &#123;</span><br><span class="line">    <span class="attr">"foo"</span>: <span class="string">"^2.6.0"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当你将 <code>package.json</code> 添加到 <code>foo</code> 依赖的时候，你还需要发起一个 PR, 将 <code>foo</code> 添加到 <a href="https://github.com/Microsoft/types-publisher/blob/master/dependenciesWhitelist.txt" target="_blank" rel="noopener">“types-publisher” 中的 “dependenciesWhitelist.txt”</a>.</p>
+<p>如果这个包从未发布到 Definitely Typed 过，则不需要将其添加到 <code>notNeededPackages.json</code>.</p>
+<h4 id="Lint"><a href="#Lint" class="headerlink" title="Lint"></a>Lint</h4><p>所有新的包都必须通过 lint. 需要添加 <code>tslint.json</code> 文件去 lint 这个包。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"extends"</span>: <span class="string">"dtslint/dt.json"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这应该是一个已完成项目里 <code>tslint.json</code> 文件的唯一内容。如果这个文件关闭了某些规则，是因为它还未完全修复。例如：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"extends"</span>: <span class="string">"dtslint/dt.json"</span>,</span><br><span class="line">    <span class="string">"rules"</span>: &#123;</span><br><span class="line">        <span class="comment">// This package uses the Function type, and it will take effort to fix.</span></span><br><span class="line">        <span class="string">"ban-types"</span>: <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>(若要使某个 lint 规则不生效，可以使用 <code>// tslint:disable rule-name</code>，当然使用 <code>//tslint:disable-next-line rule-name</code> 更好。)</p>
+<p>若要声明的表达式是一个给定类型，请使用 <code>$ExpectType</code>. 若要声明的表达式会导致编译错误，请使用 <code>$ExpectError</code>.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// $ExpectType void</span></span><br><span class="line">f(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// $ExpectError</span></span><br><span class="line">f(<span class="string">"one"</span>);</span><br></pre></td></tr></table></figure>
+<p>你可以查阅 <a href="https://github.com/Microsoft/dtslint#write-tests" target="_blank" rel="noopener">dtslint</a> 的 readme 去看更多详细信息。</p>
+<p>通过运行 <code>npm run lint package-name</code> 去测试，其中 <code>package-name</code> 是你的包名。<br>这个脚本使用了 <a href="https://github.com/Microsoft/dtslint" target="_blank" rel="noopener">dtslint</a>.</p>
+<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><h4 id="这个仓库和-NPM-上的-types-包究竟有什么关系？"><a href="#这个仓库和-NPM-上的-types-包究竟有什么关系？" class="headerlink" title="这个仓库和 NPM 上的 @types 包究竟有什么关系？"></a>这个仓库和 NPM 上的 <code>@types</code> 包究竟有什么关系？</h4><p><code>master</code> 分支会通过 <a href="https://github.com/Microsoft/types-publisher" target="_blank" rel="noopener">types-publisher</a> 自动发布到 NPM 上的 <code>@types</code>.</p>
+<h4 id="我已经发起了-PR-它多久会被合并？"><a href="#我已经发起了-PR-它多久会被合并？" class="headerlink" title="我已经发起了 PR, 它多久会被合并？"></a>我已经发起了 PR, 它多久会被合并？</h4><p>这得看情况，但是大多数的 PR 会在一周内被合并。已经由定义包头部中的作者同意的 PR 通常会更快被合并。新定义类型的 PR 需要更多时间，因为它们需要维护人员花更多的时间去审核。每一个 PR 在合并之前都会由 TypeScript 或 Definitely Typed 的团队成员进行审核，所以请耐心等待这些因为人为因素导致的延迟。通过查看 <a href="https://github.com/DefinitelyTyped/DefinitelyTyped/projects/3?card_filter_query=is%3Aopen" target="_blank" rel="noopener">PR Burndown Board</a>，可以看到维护人员在开放 PRs 的工作进度。</p>
+<h4 id="我的-PR-被合并了，什么时候-types-的-NPM-包会被更新？"><a href="#我的-PR-被合并了，什么时候-types-的-NPM-包会被更新？" class="headerlink" title="我的 PR 被合并了，什么时候 @types 的 NPM 包会被更新？"></a>我的 PR 被合并了，什么时候 <code>@types</code> 的 NPM 包会被更新？</h4><p>NPM 包应该会在几分钟内更新。如果已经超过了一小时，请在 <a href="https://gitter.im/DefinitelyTyped/DefinitelyTyped" target="_blank" rel="noopener">the Definitely Typed Gitter channel</a> 上提及 PR 的编号，当前维护者会让团队成员去调查。</p>
+<h4 id="我正在编写一个依赖其他类型定义的类型定义。我应该使用-lt-reference-types-quot-quot-gt-还是导入？"><a href="#我正在编写一个依赖其他类型定义的类型定义。我应该使用-lt-reference-types-quot-quot-gt-还是导入？" class="headerlink" title="我正在编写一个依赖其他类型定义的类型定义。我应该使用 &lt;reference types=&quot;&quot; /&gt; 还是导入？"></a>我正在编写一个依赖其他类型定义的类型定义。我应该使用 <code>&lt;reference types=&quot;&quot; /&gt;</code> 还是导入？</h4><p>如果你引用的外部模块（使用 <code>export</code>），那么请使用导入。<br>如果你引用的是环境模块（使用 <code>declare module</code>, 或者只声明全局变量），那么请使用 <code>&lt;reference types=&quot;&quot; /&gt;</code>.</p>
+<h4 id="我注意带这里有一些包含-package-json-的包。"><a href="#我注意带这里有一些包含-package-json-的包。" class="headerlink" title="我注意带这里有一些包含 package.json 的包。"></a>我注意带这里有一些包含 <code>package.json</code> 的包。</h4><p>通常你不需要它，当你发布包的时候会自动创建一个 <code>package.json</code> 的文件。<br>包含 <code>package.json</code> 以便解析依赖。这有个 <a href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/pikaday/package.json" target="_blank" rel="noopener">示例</a>。<br>我们不允许手动定义其他字段，比如 <code>&quot;description&quot;</code>.<br>另外，如果你需要引用旧版本的类型，你必须通过在 <code>package.json</code> 添加 <code>&quot;dependencies&quot;: { &quot;@types/foo&quot;: &quot;x.y.z&quot; }</code> 来实现。</p>
+<h4 id="有些包没有-tslint-json-文件，有些-tsconfig-json-文件缺少-quot-noImplicitAny-quot-true-quot-noImplicitThis-quot-true-或-quot-strictNullChecks-quot-true"><a href="#有些包没有-tslint-json-文件，有些-tsconfig-json-文件缺少-quot-noImplicitAny-quot-true-quot-noImplicitThis-quot-true-或-quot-strictNullChecks-quot-true" class="headerlink" title="有些包没有 tslint.json 文件，有些 tsconfig.json 文件缺少 &quot;noImplicitAny&quot;: true, &quot;noImplicitThis&quot;: true, 或 &quot;strictNullChecks&quot;: true."></a>有些包没有 <code>tslint.json</code> 文件，有些 <code>tsconfig.json</code> 文件缺少 <code>&quot;noImplicitAny&quot;: true</code>, <code>&quot;noImplicitThis&quot;: true</code>, 或 <code>&quot;strictNullChecks&quot;: true</code>.</h4><p>当然它们是错误的，你可以通过发起 PR 来修复它们。</p>
+<h4 id="我可以请求类型定义吗？"><a href="#我可以请求类型定义吗？" class="headerlink" title="我可以请求类型定义吗？"></a>我可以请求类型定义吗？</h4><p>这里是 <a href="https://github.com/DefinitelyTyped/DefinitelyTyped/labels/Definition%3ARequest" target="_blank" rel="noopener">当前在请求的类型定义</a>。</p>
+<h4 id="DOM-上的类型定义是什么？"><a href="#DOM-上的类型定义是什么？" class="headerlink" title="DOM 上的类型定义是什么？"></a>DOM 上的类型定义是什么？</h4><p>如果类型是 Web 标准的一部分，它们应该被贡献给 <a href="https://github.com/Microsoft/TSJS-lib-generator" target="_blank" rel="noopener">TSJS-lib-generator</a>, 以便它们成为默认 <code>lib.dom.d.ts</code> 的一部分。</p>
+<h4 id="如果一个包不导出模块，那么为了能使用-ES6-风格，我是否应该使用空的命名空间？"><a href="#如果一个包不导出模块，那么为了能使用-ES6-风格，我是否应该使用空的命名空间？" class="headerlink" title="如果一个包不导出模块，那么为了能使用 ES6 风格，我是否应该使用空的命名空间？"></a>如果一个包不导出模块，那么为了能使用 ES6 风格，我是否应该使用空的命名空间？</h4><p>有些包，比如 <a href="https://github.com/chaijs/chai-http" target="_blank" rel="noopener">chai-http</a>, 导出一个函数。</p>
+<p>使用 ES6 风格导入此模块的形式为 <code>import * as foo from &quot;foo&quot;;</code>, 会报下面的错误：</p>
+<blockquote>
+<p>error TS2497: Module ‘foo’ resolves to a non-module entity and cannot be imported using this construct</p>
+</blockquote>
+<p>通过将函数声明和同名的空命名空间合并可以抑制此错误，但不鼓励这种做法。<br>关于这个问题这是常被引用的 <a href="https://stackoverflow.com/questions/39415661/what-does-resolves-to-a-non-module-entity-and-cannot-be-imported-using-this" target="_blank" rel="noopener">Stack Overflow 答案</a>。</p>
+<p>使用 <code>import foo = require(&quot;foo&quot;);</code> 语法导入模块更合适。<br>不过，如果你想使用像 <code>import foo from &quot;foo&quot;;</code> 这样的默认导入，你有两个选择：</p>
+<ul>
+<li>你可以使用 <a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-1-8.html#support-for-default-import-interop-with-systemjs" target="_blank" rel="noopener"><code>--allowSyntheticDefaultImports</code> 的编译器选项</a> 取决于你的模块运行是支持 non-ECMAScript 模块的互操作方案 ，即默认导入是否适用于你的环境（例如 Webpack, SystemJS, esm）。</li>
+<li>你可以使用 <a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-7.html#support-for-import-d-from-cjs-form-commonjs-modules-with---esmoduleinterop" target="_blank" rel="noopener"><code>--esModuleInterop</code> 的编译器选项</a>，如果你想使用 TypeScript 去处理 non-ECMAScript 的操作（从 Typescript 2.7 版本开始）。</li>
+</ul>
+<h4 id="一个包使用了-export-但是我更喜欢使用默认导入。我可以将-export-改为-export-default-吗？"><a href="#一个包使用了-export-但是我更喜欢使用默认导入。我可以将-export-改为-export-default-吗？" class="headerlink" title="一个包使用了 export =, 但是我更喜欢使用默认导入。我可以将 export = 改为 export default 吗？"></a>一个包使用了 <code>export =</code>, 但是我更喜欢使用默认导入。我可以将 <code>export =</code> 改为 <code>export default</code> 吗？</h4><p>跟之前的问题一样，参考使用 <a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-1-8.html#support-for-default-import-interop-with-systemjs" target="_blank" rel="noopener"><code>--allowSyntheticDefaultImports</code></a><br>或 <a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-7.html#support-for-import-d-from-cjs-form-commonjs-modules-with---esmoduleinterop" target="_blank" rel="noopener"><code>--esModuleInterop</code></a><br>的编译器选项。</p>
+<p>请不要更改准确的类型定义。<br>对于一个 NPM 包，如果使用 <code>node -p &#39;require(&quot;foo&quot;)&#39;</code> 去导入模块，那么 <code>export =</code> 是准确的。如果使用 <code>node -p &#39;require(&quot;foo&quot;).default&#39;</code> 去导入模块，那么 <code>export default</code> 是准确的。</p>
+<h4 id="我想使用-TypeScript-2-1-或更高版本的功能。"><a href="#我想使用-TypeScript-2-1-或更高版本的功能。" class="headerlink" title="我想使用 TypeScript 2.1 或更高版本的功能。"></a>我想使用 TypeScript 2.1 或更高版本的功能。</h4><p>那么你必须在你的定义头部的最后一行添加注释（在 <code>// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped</code> 之后）：<code>// TypeScript Version: 2.1</code>.</p>
+<h4 id="我想使用-TypeScript-3-1-或更高版本的功能。"><a href="#我想使用-TypeScript-3-1-或更高版本的功能。" class="headerlink" title="我想使用 TypeScript 3.1 或更高版本的功能。"></a>我想使用 TypeScript 3.1 或更高版本的功能。</h4><p>你可以使用与上面相同的 <code>// TypeScript Version: 3.1</code> 注释。<br>但是，如果你的项目在维护类型时需要在兼容 3.1 版本及以上的同时还要兼容 3.0 及以下的版本，那么你需要使用一个只有在 TypeScript 3.1 及以上版本的新特性 <code>typesVersions</code>.<br>你可以在 <a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-1.html#version-selection-with-typesversions" target="_blank" rel="noopener">官方 TypeScript 文档</a> 中找到此功能的详细说明。</p>
+<p>这里是个简短的说明，可以帮助您入门：</p>
+<ol>
+<li>你必须在包定义中添加 <code>package.json</code> 文件，其中包含以下内容：</li>
+</ol>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"private"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"types"</span>: <span class="string">"index"</span>,</span><br><span class="line">    <span class="attr">"typesVersions"</span>: &#123;</span><br><span class="line">        <span class="attr">"&gt;=3.1.0-0"</span>: &#123; <span class="attr">"*"</span>: [<span class="string">"ts3.1/*"</span>] &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><p>在你的类型目录中创建一个在 <code>typesVersions</code> 字段中提到的子目录（在本例中为 <code>ts3.1/</code>），并为这个新版本添加特定的类型和测试。你不需要在 <code>ts3.1/</code> 目录中任何一个文件添加传统的定义头部。</p>
+</li>
+<li><p>将 <code>ts3.1/tsconfig.json</code> 中 <code>baseUrl</code> 和 <code>typeRoots</code> 选项设置成正确的路径，它们应该如下所示：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"compilerOptions"</span>: &#123;</span><br><span class="line">        <span class="attr">"baseUrl"</span>: <span class="string">"../../"</span>,</span><br><span class="line">        <span class="attr">"typeRoots"</span>: [<span class="string">"../../"</span>]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>你可以在 <a href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/debounce-promise" target="_blank" rel="noopener">这里</a> 和 <a href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/create-html-element" target="_blank" rel="noopener">这里</a> 查看示例。</p>
+<h4 id="我想去添加默认情况下不存在于-TypeScript-的-DOM-API"><a href="#我想去添加默认情况下不存在于-TypeScript-的-DOM-API" class="headerlink" title="我想去添加默认情况下不存在于 TypeScript 的 DOM API."></a>我想去添加默认情况下不存在于 TypeScript 的 DOM API.</h4><p>这属于 <a href="https://github.com/Microsoft/TSJS-lib-generator#readme" target="_blank" rel="noopener">TSJS-Lib-Generator</a>. 请阅读那里的指南。<br>如果标准仍然是草案，则它属于这里。<br>使用以 <code>dom-</code> 开头的名称，并在头部中包含指向标准的链接作为项目的链接。<br>当它结束草案模式时，我们可以将它从 Definitely Typed 删除，并弃用相关的 <code>@types</code>包。</p>
+<h4 id="Definitely-Typed-包版本号如何与对应库的版本号相关联？"><a href="#Definitely-Typed-包版本号如何与对应库的版本号相关联？" class="headerlink" title="Definitely Typed 包版本号如何与对应库的版本号相关联？"></a>Definitely Typed 包版本号如何与对应库的版本号相关联？</h4><p><em>注意：本节中的讨论假定你熟悉 <a href="https://semver.org/" target="_blank" rel="noopener">语义版本控制</a></em></p>
+<p>每个 Definitely Typed 包在发布到 NPM 时都会进行版本控制。<br><a href="https://github.com/Microsoft/types-publisher" target="_blank" rel="noopener">types-publisher</a> (将 <code>@types</code> 包发布到 npm 的工具) 会通过将 <code>major.minor</code> 版本号写在 <code>index.d.ts</code> 文件的第一行来设置定义包的版本号。<br>例如，以下是 <code>10.12.x</code> 版本的 <a href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/1253faabf5e0d2c5470db6ea87795d7f96fef7e2/types/node/index.d.ts" target="_blank" rel="noopener">Node 的类型声明</a> 的前几行：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Type definitions for Node.js 10.12</span></span><br><span class="line"><span class="comment">// Project: http://nodejs.org/</span></span><br><span class="line"><span class="comment">// Definitions by: Microsoft TypeScript &lt;https://github.com/Microsoft&gt;</span></span><br><span class="line"><span class="comment">//                 Definitely Typed &lt;https://github.com/DefinitelyTyped&gt;</span></span><br><span class="line"><span class="comment">//                 Alberto Schiabel &lt;https://github.com/jkomyno&gt;</span></span><br></pre></td></tr></table></figure>
+<p>因为 <code>10.12</code> 在第一行的末尾，所以 <code>@types/node</code> 包的版本号也是 <code>10.12.x</code>.<br>注意在 <code>index.d.ts</code> 文件的第一行注释中应该只包含 <code>major.minor</code> 的版本号（比如 <code>10.12</code>），不应该包含补丁版本（例如 <code>10.12.4</code>）。<br>这是因为只有主要版本号和次要版本号在库包和类型声明包之间相对齐。<br>类型声明包的补丁版本号（比如 <code>10.12.0</code> 中的 <code>.0</code>）是由 Definitely Typed 初始化为 0，每次将新的 <code>@types/node</code> 包发布到对应库的同一主/次版本的 NPM 是，他都会递增。</p>
+<p>有时候，类型声明包的版本号和库包的版本号可能会不同步。<br>以下是一些常见的原因，是按照给库的用户带来不便的顺序排序的。<br>只有最后一种情况通常是有问题的。</p>
+<ul>
+<li>如上所示，类型定义包的补丁版本与库包的补丁版本是无关的。这允许 Definitely Typed 安全地更新同一主/次版本的类型声明。</li>
+<li>如果要更新包去获取新的功能，请不要忘记更新版本号以与该版本的库对齐。</li>
+<li>类型定义包的更新落后于库的原因通常是因为库用户而不是维护者，他们在发布新特性从而更新了库的版本。因此，在愿意帮忙的社区成员发送 PR 去更新新的库版本对应的类型声明包之前，可能会有几天，几周甚至几个月的滞后。如果你深受此影响，你可以成为你想改变的，你可以去成为乐于助人的社区成员！</li>
+</ul>
+<p>:exclamation: 如果你想更新库的类型声明，请记住始终要在 <code>index.d.ts</code> 文件的第一行设置 <code>major.minor</code> 的版本号去匹配你正在记录的库版本！ :exclamation:</p>
+<h4 id="如果一个包做了重大的修改而更新了主要版本，我应该如何更新它的类型声明包？"><a href="#如果一个包做了重大的修改而更新了主要版本，我应该如何更新它的类型声明包？" class="headerlink" title="如果一个包做了重大的修改而更新了主要版本，我应该如何更新它的类型声明包？"></a>如果一个包做了重大的修改而更新了主要版本，我应该如何更新它的类型声明包？</h4><p><a href="https://semver.org/" target="_blank" rel="noopener">语义版本控制</a> 要求具有重大修改的版本必须增加主版本号。<br>例如，一个库在 <code>3.5.8</code> 版本之后删除了一个公有的导出函数，那么它的下一版本必须升级到 <code>4.0.0</code>.<br>此外，当该库的 <code>4.0.0</code> 版本发布时，它的类型声明包也需要更新到 <code>4.0.0</code>, 包括对该库 API 的任何重大修改。</p>
+<p>许多库都有大量的开发人员（包括使用该库作为依赖的其他包的维护者），他们不会立即迁移到具有重大改变的新版本。因为维护人员需要几个月的时间去重写代码以适应新版本。<br>与此同时，旧版本库的用户仍然想去更新旧版本的类型声明。</p>
+<p>如果你打算继续更新旧版本库的类型声明，你可以创建一个以当前版本（很快就是旧版本）命名的新的子文件夹（比如 <code>/v2/</code>），并将现有版本的文件都拷贝进去。</p>
+<p>因为根文件夹始终包含最新版本的类型声明，所以你需要对旧版本子目录中的文件进行一些修改，以确保相对路径的引用指向子目录，而不是根目录。</p>
+<ol>
+<li>更新 <code>tsconfig.json</code> 和 <code>tslint.json</code> 中的相对路径。</li>
+<li>添加路径映射规则以确保测试能够针对预期版本运行。</li>
+</ol>
+<p>例如，<a href="https://github.com/ReactTraining/history/" target="_blank" rel="noopener"><code>history</code></a> 库在 <code>2.x</code> 到 <code>3.x</code> 版本间引入了重大的修改。<br>因为许多用户仍然使用较老的 <code>2.x</code> 版本，维护人员想要将此库的类型声明更新到 <code>3.x</code>, 需要在仓库里添加 <code>v2</code> 文件夹，里面包含了旧版本的类型声明。<br>在编写时，<a href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/1253faabf5e0d2c5470db6ea87795d7f96fef7e2/types/history/v2/tsconfig.json" target="_blank" rel="noopener">history v2 <code>tsconfig.json</code></a> 大致如下：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"compilerOptions"</span>: &#123;</span><br><span class="line">        <span class="attr">"baseUrl"</span>: <span class="string">"../../"</span>,</span><br><span class="line">        <span class="attr">"typeRoots"</span>: [<span class="string">"../../"</span>],</span><br><span class="line">        <span class="attr">"paths"</span>: &#123;</span><br><span class="line">            <span class="attr">"history"</span>: [ <span class="string">"history/v2"</span> ]</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"files"</span>: [</span><br><span class="line">        <span class="string">"index.d.ts"</span>,</span><br><span class="line">        <span class="string">"history-tests.ts"</span></span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果 Definitely Typed 上的其他包与新版本不兼容，你需要将路径映射到旧版本。<br>对于依赖于旧版本的包，你还需要递归地执行此操作。</p>
+<p>例如，<code>react-router</code> 依赖 <code>history@2</code> 包，所以 <a href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react-router/v2/tsconfig.json" target="_blank" rel="noopener">react-router <code>tsconfig.json</code></a> 有一个映射到 <code>&quot;history&quot;: [ &quot;history/v2&quot; ]</code> 的路径。<br>所以，<code>react-router-bootstrap</code>（依赖 <code>react-router</code> 包）在它的依赖 <code>react-router</code> 更新到最新版本之前，也需要在它的 <code>tsconfig.json</code> 里添加相同的路径映射（<code>&quot;history&quot;: [ &quot;history/v2&quot; ]</code>）。</p>
+<p>此外，<code>/// &lt;reference types=&quot;..&quot; /&gt;</code> 不适用于路径映射，因此依赖需要使用 <code>import</code>.</p>
+<h4 id="如何为可以在全局使用的包和作为模块的包编写类型定义？"><a href="#如何为可以在全局使用的包和作为模块的包编写类型定义？" class="headerlink" title="如何为可以在全局使用的包和作为模块的包编写类型定义？"></a>如何为可以在全局使用的包和作为模块的包编写类型定义？</h4><p>TypeScript 手册包含了优秀的 <a href="https://www.typescriptlang.org/docs/handbook/declaration-files/introduction.html" target="_blank" rel="noopener">关于编写类型定义的概括信息</a>, 以及 <a href="https://www.typescriptlang.org/docs/handbook/declaration-files/templates/global-modifying-module-d-ts.html" target="_blank" rel="noopener">此示例定义文件</a>，它展示了如何使用 ES6 模块语法创建定义，同时还指定了全局范围可用的对象。这个技术在 <a href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/big.js/index.d.ts" target="_blank" rel="noopener">big.js 的定义</a> 得到了实际证明。该库可以通过网页上的脚本标记全局加载，也可以通过 require 或者 ES6 风格的风格导入。</p>
+<p>要测试你的类型定义是否能全局引用或者作为模块导入，清创建一个 <code>test</code> 文件，并在其中放置两个测试文件。一个命名为 <code>YourLibraryName-global.test.ts</code>, 另一个为 <code>YourLibraryName-module.test.ts</code>. <em>全局</em> 测试文件应该根据如何在全局范围内库可用的网页上加载的脚本中使用它来执行定义，在这种情况下，你不应该制定 import 语句。<em>模块</em> 测试文件应该根据导入时的使用方式（包括 <code>import</code> 语句）来执行定义。如果在 <code>tsconfig.json</code> 文件中指定了 <code>files</code> 属性，请确保包含了两个测试文件。big.js 定义中还提供了一个 <a href="https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/big.js/test" target="_blank" rel="noopener">实际例子</a>。</p>
+<p>请注意，不需要在每个测试文件中完全执行定义 - 只需要在全局测试文件中测试全局可访问元素并在模块测试文件中完全执行定义，反之亦然。</p>
+<h4 id="什么是作用域包？"><a href="#什么是作用域包？" class="headerlink" title="什么是作用域包？"></a>什么是作用域包？</h4><p>作用域包 <code>@foo/bar</code> 的类型应该放在 <code>types/foo__bar</code> 中。请注意使用双下划线。</p>
+<p>当使用 <code>dts-gen</code> 去构建作用域包时，必须在生成的 <code>tsconfig.json</code> 中手动调整 <code>paths</code> 属性去正确引用作用域包：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"paths"</span>:&#123;</span><br><span class="line">      <span class="attr">"@foo/bar"</span>: [<span class="string">"foo__bar"</span>]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="GitHub-中的文件记录看起来不完整。"><a href="#GitHub-中的文件记录看起来不完整。" class="headerlink" title="GitHub 中的文件记录看起来不完整。"></a>GitHub 中的文件记录看起来不完整。</h4><p>GitHub 不 <a href="http://stackoverflow.com/questions/5646174/how-to-make-github-follow-directory-history-after-renames" target="_blank" rel="noopener">支持</a> 重命名文件的历史记录。请使用 <a href="https://www.git-scm.com/docs/git-log" target="_blank" rel="noopener"><code>git log --follow</code></a> 命令代替。</p>
+<h2 id="许可证"><a href="#许可证" class="headerlink" title="许可证"></a>许可证</h2><p>该项目根据 MIT 许可证授权。</p>
+<p>定义文件的版权分别对应于每个定义文件开头列出的每个贡献者。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/翻译/" rel="tag"># 翻译</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/18/React-深度探索/" rel="next" title="React 深度探索">
+                <i class="fa fa-chevron-left"></i> React 深度探索
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/08/参加-VueConf2019/" rel="prev" title="参加 VueConf2019">
+                参加 VueConf2019 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://i.loli.net/2018/11/19/5bf2895db2229.png" alt="Kerminate">
+            
+              <p class="site-author-name" itemprop="name">Kerminate</p>
+              <p class="site-description motion-element" itemprop="description">一个喜欢篮球的程序猿.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/Kerminate" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:kepeilin@outlook.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/Kerminate" target="_blank" title="Twitter">
+                    
+                      <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://weibo.com/5955228776/profile" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lazzzis.github.io/" title="lazzzis" target="_blank">lazzzis</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://mengrenzi.com/" title="MRZ's Blog" target="_blank">MRZ's Blog</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://happycloud.coding.me/" title="Happy Cloud" target="_blank">Happy Cloud</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lfhacks.com" title="LFhacks.com" target="_blank">LFhacks.com</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://kalacloud.com" title="kalacloud" target="_blank">kalacloud</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#DefinitelyTyped"><span class="nav-number">1.</span> <span class="nav-text">DefinitelyTyped</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#目录"><span class="nav-number">1.1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#当前状态"><span class="nav-number">1.2.</span> <span class="nav-text">当前状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是声明文件？"><span class="nav-number">1.3.</span> <span class="nav-text">什么是声明文件？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何去获取它？"><span class="nav-number">1.4.</span> <span class="nav-text">如何去获取它？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#npm"><span class="nav-number">1.4.1.</span> <span class="nav-text">npm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他方法"><span class="nav-number">1.4.2.</span> <span class="nav-text">其他方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我该如何贡献？"><span class="nav-number">1.5.</span> <span class="nav-text">我该如何贡献？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#测试"><span class="nav-number">1.5.1.</span> <span class="nav-text">测试</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#测试编辑现有的包"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">测试编辑现有的包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试新的包"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">测试新的包</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发起一个-pull-request"><span class="nav-number">1.5.2.</span> <span class="nav-text">发起一个 pull request</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#编辑一个现有包"><span class="nav-number">1.5.2.1.</span> <span class="nav-text">编辑一个现有包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建一个新的包"><span class="nav-number">1.5.2.2.</span> <span class="nav-text">创建一个新的包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见错误"><span class="nav-number">1.5.2.3.</span> <span class="nav-text">常见错误</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除一个包"><span class="nav-number">1.5.2.4.</span> <span class="nav-text">删除一个包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Lint"><span class="nav-number">1.5.2.5.</span> <span class="nav-text">Lint</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FAQ"><span class="nav-number">1.6.</span> <span class="nav-text">FAQ</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#这个仓库和-NPM-上的-types-包究竟有什么关系？"><span class="nav-number">1.6.0.1.</span> <span class="nav-text">这个仓库和 NPM 上的 @types 包究竟有什么关系？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#我已经发起了-PR-它多久会被合并？"><span class="nav-number">1.6.0.2.</span> <span class="nav-text">我已经发起了 PR, 它多久会被合并？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#我的-PR-被合并了，什么时候-types-的-NPM-包会被更新？"><span class="nav-number">1.6.0.3.</span> <span class="nav-text">我的 PR 被合并了，什么时候 @types 的 NPM 包会被更新？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#我正在编写一个依赖其他类型定义的类型定义。我应该使用-lt-reference-types-quot-quot-gt-还是导入？"><span class="nav-number">1.6.0.4.</span> <span class="nav-text">我正在编写一个依赖其他类型定义的类型定义。我应该使用 &lt;reference types=&quot;&quot; /&gt; 还是导入？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#我注意带这里有一些包含-package-json-的包。"><span class="nav-number">1.6.0.5.</span> <span class="nav-text">我注意带这里有一些包含 package.json 的包。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#有些包没有-tslint-json-文件，有些-tsconfig-json-文件缺少-quot-noImplicitAny-quot-true-quot-noImplicitThis-quot-true-或-quot-strictNullChecks-quot-true"><span class="nav-number">1.6.0.6.</span> <span class="nav-text">有些包没有 tslint.json 文件，有些 tsconfig.json 文件缺少 &quot;noImplicitAny&quot;: true, &quot;noImplicitThis&quot;: true, 或 &quot;strictNullChecks&quot;: true.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#我可以请求类型定义吗？"><span class="nav-number">1.6.0.7.</span> <span class="nav-text">我可以请求类型定义吗？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DOM-上的类型定义是什么？"><span class="nav-number">1.6.0.8.</span> <span class="nav-text">DOM 上的类型定义是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如果一个包不导出模块，那么为了能使用-ES6-风格，我是否应该使用空的命名空间？"><span class="nav-number">1.6.0.9.</span> <span class="nav-text">如果一个包不导出模块，那么为了能使用 ES6 风格，我是否应该使用空的命名空间？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一个包使用了-export-但是我更喜欢使用默认导入。我可以将-export-改为-export-default-吗？"><span class="nav-number">1.6.0.10.</span> <span class="nav-text">一个包使用了 export =, 但是我更喜欢使用默认导入。我可以将 export = 改为 export default 吗？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#我想使用-TypeScript-2-1-或更高版本的功能。"><span class="nav-number">1.6.0.11.</span> <span class="nav-text">我想使用 TypeScript 2.1 或更高版本的功能。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#我想使用-TypeScript-3-1-或更高版本的功能。"><span class="nav-number">1.6.0.12.</span> <span class="nav-text">我想使用 TypeScript 3.1 或更高版本的功能。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#我想去添加默认情况下不存在于-TypeScript-的-DOM-API"><span class="nav-number">1.6.0.13.</span> <span class="nav-text">我想去添加默认情况下不存在于 TypeScript 的 DOM API.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Definitely-Typed-包版本号如何与对应库的版本号相关联？"><span class="nav-number">1.6.0.14.</span> <span class="nav-text">Definitely Typed 包版本号如何与对应库的版本号相关联？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如果一个包做了重大的修改而更新了主要版本，我应该如何更新它的类型声明包？"><span class="nav-number">1.6.0.15.</span> <span class="nav-text">如果一个包做了重大的修改而更新了主要版本，我应该如何更新它的类型声明包？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何为可以在全局使用的包和作为模块的包编写类型定义？"><span class="nav-number">1.6.0.16.</span> <span class="nav-text">如何为可以在全局使用的包和作为模块的包编写类型定义？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是作用域包？"><span class="nav-number">1.6.0.17.</span> <span class="nav-text">什么是作用域包？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GitHub-中的文件记录看起来不完整。"><span class="nav-number">1.6.0.18.</span> <span class="nav-text">GitHub 中的文件记录看起来不完整。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#许可证"><span class="nav-number">1.7.</span> <span class="nav-text">许可证</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kerminate</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+    <i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+      本站总访问量 <span id="busuanzi_value_site_pv"></span>次  </span>由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://Kerminate.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2019/06/05/译-DefinitelyTyped/';
+          this.page.identifier = '2019/06/05/译-DefinitelyTyped/';
+          this.page.title = '[译] DefinitelyTyped';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://Kerminate.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("sL0C4Wm24YmFljxp9tAdcUmg-gzGzoHsz", "n57GxQF4055NmnaWWlGEaIvo");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  
+  <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("sL0C4Wm24YmFljxp9tAdcUmg-gzGzoHsz", "n57GxQF4055NmnaWWlGEaIvo");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = '0 ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+});
+</script>
+
+  
+
+</body>
+</html>

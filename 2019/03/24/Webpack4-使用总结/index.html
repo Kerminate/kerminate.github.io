@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://i.loli.net/2018/11/19/5bf2895db2229.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="https://i.loli.net/2018/11/19/5bf2895db2229.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="https://i.loli.net/2018/11/19/5bf2895db2229.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="https://i.loli.net/2018/11/19/5bf2895db2229.png?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="技术帖,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Blog | Kerminate" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="最近对公司的一个项目进行了 webpack4 的升级，这边简要概述下对 webpack4 的理解和总结。 升级依赖包首先需要升级一些依赖包12345678910webpack 升级到 4.xwebpack-cli 升级到 3.xwebpack-dev-server 升级到 3.xurl-loader 升级到 1.xfile-loader 升级到 3.xhappypack 升级到 5.xpostcs">
+<meta name="keywords" content="技术帖">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Webpack4 使用总结">
+<meta property="og:url" content="http://yoursite.com/2019/03/24/Webpack4-使用总结/index.html">
+<meta property="og:site_name" content="Blog | Kerminate">
+<meta property="og:description" content="最近对公司的一个项目进行了 webpack4 的升级，这边简要概述下对 webpack4 的理解和总结。 升级依赖包首先需要升级一些依赖包12345678910webpack 升级到 4.xwebpack-cli 升级到 3.xwebpack-dev-server 升级到 3.xurl-loader 升级到 1.xfile-loader 升级到 3.xhappypack 升级到 5.xpostcs">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.loli.net/2019/03/23/5c962e1314337.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/23/5c962e14c2987.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/24/5c96f8008844b.png">
+<meta property="og:updated_time" content="2020-05-18T06:20:53.024Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Webpack4 使用总结">
+<meta name="twitter:description" content="最近对公司的一个项目进行了 webpack4 的升级，这边简要概述下对 webpack4 的理解和总结。 升级依赖包首先需要升级一些依赖包12345678910webpack 升级到 4.xwebpack-cli 升级到 3.xwebpack-dev-server 升级到 3.xurl-loader 升级到 1.xfile-loader 升级到 3.xhappypack 升级到 5.xpostcs">
+<meta name="twitter:image" content="https://i.loli.net/2019/03/23/5c962e1314337.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/24/Webpack4-使用总结/">
+
+
+
+
+
+  <title>Webpack4 使用总结 | Blog | Kerminate</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Blog | Kerminate</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/24/Webpack4-使用总结/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kerminate">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://i.loli.net/2018/11/19/5bf2895db2229.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog | Kerminate">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Webpack4 使用总结</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-24T09:41:36+08:00">
+                2019-03-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术帖/" itemprop="url" rel="index">
+                    <span itemprop="name">技术帖</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/03/24/Webpack4-使用总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/24/Webpack4-使用总结/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/03/24/Webpack4-使用总结/" class="leancloud_visitors" data-flag-title="Webpack4 使用总结">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,356
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近对公司的一个项目进行了 webpack4 的升级，这边简要概述下对 webpack4 的理解和总结。</p>
+<h2 id="升级依赖包"><a href="#升级依赖包" class="headerlink" title="升级依赖包"></a>升级依赖包</h2><p>首先需要升级一些依赖包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">webpack 升级到 4.x</span><br><span class="line">webpack-cli 升级到 3.x</span><br><span class="line">webpack-dev-server 升级到 3.x</span><br><span class="line">url-loader 升级到 1.x</span><br><span class="line">file-loader 升级到 3.x</span><br><span class="line">happypack 升级到 5.x</span><br><span class="line">postcss-loader 升级到 3.x</span><br><span class="line">less 升级到 2.x</span><br><span class="line">less-loader 升级到 3.x</span><br><span class="line">css-loader 升级到 2.x</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<h2 id="新特性与使用"><a href="#新特性与使用" class="headerlink" title="新特性与使用"></a>新特性与使用</h2><ul>
+<li>已经配置了初始化的一些配置，比如入口文件默认为 ‘./src’</li>
+<li>新增了构建模式的 mode，开发环境使用 development，生产环境使用 production</li>
+<li>新增 WebAssembly 构建支持</li>
+<li>使用 ES6 语法，比如 Map, Set, includes</li>
+<li>CommonsChunk 和 uglify 配置简化，使用 optimization 来进行配置<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">optimization: &#123;</span><br><span class="line">  minimize: <span class="literal">true</span>, <span class="comment">// 是否开启 uglify</span></span><br><span class="line">  splitChunks: &#123;</span><br><span class="line">    chunks: <span class="string">'async'</span>, <span class="comment">// 要优化的 chunk，Function | String</span></span><br><span class="line">    minSize: <span class="number">30000</span>, <span class="comment">// 新 chunk 的最小体积， Number</span></span><br><span class="line">    maxSize: <span class="number">0</span>, <span class="comment">// 如果 chunkSize 大于该值，split it。与 minSize 冲突</span></span><br><span class="line">    minChunks: <span class="number">2</span>, <span class="comment">// 至少复用此处才会 split</span></span><br><span class="line">    maxAsyncRequests: <span class="number">5</span>, <span class="comment">// 异步模块，一次最多只能被加载5个</span></span><br><span class="line">    maxInitialRequests: <span class="number">3</span>, <span class="comment">// 入口模块最多只能加载3个</span></span><br><span class="line">    automaticNameDelimiter: <span class="string">'~'</span>, <span class="comment">// vendors~chunk1~...chunkN.js</span></span><br><span class="line">    name: <span class="literal">true</span>, <span class="comment">// Boolean | Function | String</span></span><br><span class="line">    cacheGroups: &#123;</span><br><span class="line">      <span class="keyword">default</span>: &#123;</span><br><span class="line">        minChunks: <span class="number">2</span>,</span><br><span class="line">        <span class="comment">// 下面四个是 cacheGroups 特有的</span></span><br><span class="line">        priority: <span class="number">-20</span>, <span class="comment">// split 的优先级</span></span><br><span class="line">        reuseExistingChunk: <span class="literal">true</span>, <span class="comment">// 是否重用 chunk</span></span><br><span class="line">        test: <span class="regexp">/[\\/]node_modules[\\/]/</span>, <span class="comment">// 匹配规则，Function | RegExp | String</span></span><br><span class="line">        enforce: <span class="literal">true</span> <span class="comment">// 不继承外层的几个属性，用更强制的默认值代替</span></span><br><span class="line">      &#125;,</span><br><span class="line">      vendors: &#123;</span><br><span class="line">        test: <span class="regexp">/[\\/]node_modules[\\/]/</span>,</span><br><span class="line">        priority: <span class="number">-10</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><ul>
+<li><strong><a href="https://github.com/webpack-contrib/mini-css-extract-plugin" target="_blank" rel="noopener">mini-css-extract-plugin</a></strong>: webpack4 使用该插件抽出样式文件，取代袁磊的 <code>extract-text-webpack-plugin</code> 插件</li>
+<li><strong><a href="https://github.com/NMFR/optimize-css-assets-webpack-plugin" target="_blank" rel="noopener">optimize-css-assets-webpack-plugin</a></strong>: 用来压缩 css 代码</li>
+<li><strong><a href="https://github.com/clessg/progress-bar-webpack-plugin" target="_blank" rel="noopener">progress-bar-webpack-plugin</a></strong>: 用来显示打包的进度和最后打包的时间</li>
+</ul>
+<h2 id="分析打包结果"><a href="#分析打包结果" class="headerlink" title="分析打包结果"></a>分析打包结果</h2><p>使用 <code>speed-measure-webpack-plugin</code> 插件分析构建速度<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> SpeedMeasurePlugin = <span class="built_in">require</span>(<span class="string">'speed-measure-webpack-plugin'</span>);</span><br><span class="line"><span class="keyword">const</span> config = <span class="built_in">require</span>(<span class="string">'./webpack.dev.config.js'</span>); <span class="comment">// 更换配置文件达到分析不同环境的打包时间</span></span><br><span class="line"><span class="keyword">const</span> smp = <span class="keyword">new</span> SpeedMeasurePlugin();</span><br><span class="line"><span class="built_in">module</span>.exports = smp.wrap(config);</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://i.loli.net/2019/03/23/5c962e1314337.png" alt=""></p>
+<p>使用 <code>webpack-bundle-analyzer</code> 分析打包后的代码大小和内容<br>在 webpack 的配置文件加上以下内容<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (process.env.npm_config_report) &#123;</span><br><span class="line">  <span class="keyword">const</span> BundleAnalyzerPlugin = <span class="built_in">require</span>(<span class="string">'webpack-bundle-analyzer'</span>).BundleAnalyzerPlugin;</span><br><span class="line">  webpackBaseConfig.plugins.push(<span class="keyword">new</span> BundleAnalyzerPlugin(&#123;</span><br><span class="line">    generateStatsFile: <span class="literal">true</span>,</span><br><span class="line">  &#125;));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在 package.json 里的 scripts 作如下配置，可以手动改变 analyze 的环境<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">"scripts": &#123;</span><br><span class="line">  "build": "NODE_ENV=dev node build/build.js",</span><br><span class="line">  "prod": "NODE_ENV=production node build/build.js",</span><br><span class="line">  "analyze": "npm_config_report=true npm run prod",</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://i.loli.net/2019/03/23/5c962e14c2987.png" alt=""></p>
+<p>有些情况会看不到打包后 Parsed 和 Gzipped 模式的大小，需要在运行完 <code>npm run analyze</code> 命令之后，执行以下命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">webpack-bundle-analyzer dist/stats.json</span><br></pre></td></tr></table></figure></p>
+<p>生成的文件上传到 <a href="http://webpack.github.io/analyse/" target="_blank" rel="noopener">analyse</a>，可以分析打包后的文件，module 数量， chunk 数量以及依赖关系等等</p>
+<h2 id="其他优化"><a href="#其他优化" class="headerlink" title="其他优化"></a>其他优化</h2><h3 id="lodash-按需打包"><a href="#lodash-按需打包" class="headerlink" title="lodash 按需打包"></a>lodash 按需打包</h3><p>lodash 的包特别大，当你只使用了它的某写函数，而将整个包打进去，会导致打进去很多无用的代码</p>
+<h4 id="使用子包"><a href="#使用子包" class="headerlink" title="使用子包"></a>使用子包</h4><p>lodash 中的每个函数在 NPM 中都有一个单独的发布模块<br>如果你只需要使用 <code>cloneDeep</code> 方法, 那么只需安装 <code>lodash.cloneDeep</code> 模块，然后引入<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cloneDeep = <span class="built_in">require</span>(lodash.cloneDeep)</span><br><span class="line"><span class="keyword">const</span> copyObj = cloneDeep(obj)</span><br></pre></td></tr></table></figure></p>
+<p>但是其实这不是一个很好的办法，我们可以看下 lodash 和 它子包的大小</p>
+<p><img src="https://i.loli.net/2019/03/24/5c96f8008844b.png" alt=""></p>
+<p>可以发现，当你的用的函数稍微多一点之后，其实加起来的大小也会跟整个包的大小差不多，所以不推荐使用这种方法</p>
+<h4 id="使用插件"><a href="#使用插件" class="headerlink" title="使用插件"></a>使用插件</h4><p>还是安装 lodash 整个包，但是需要配置<br>安装 <code>babel-plugin-lodash</code> 插件<br>在 bebel 的 plugin 里添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;plugins&quot;: [&quot;lodash&quot;]</span><br></pre></td></tr></table></figure></p>
+<p>安装 <code>lodash-webpack-plugin</code> 插件<br>在 webpack 作如下配置<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> LodashModuleReplacementPlugin = <span class="built_in">require</span>(<span class="string">'lodash-webpack-plugin'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  mode: <span class="string">'production'</span>,</span><br><span class="line">  ...</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> LodashModuleReplacementPlugin(&#123;</span><br><span class="line">      shorthands: <span class="literal">true</span>,</span><br><span class="line">    &#125;),</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样最后打出来的 Gzipped 包只会有几 KB 的大小</p>
+<h3 id="升级babel7"><a href="#升级babel7" class="headerlink" title="升级babel7"></a>升级babel7</h3><p>使用了babel7.0以上的版本，依赖不再是安装 babel-core 这种，命名空间改为了 @babel-core<br>所有原来的依赖都要更改为新的命名空间<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&quot;@babel/core&quot;: &quot;^7.1.2&quot;,</span><br><span class="line">&quot;@babel/preset-env&quot;: &quot;^7.1.5&quot;,</span><br></pre></td></tr></table></figure></p>
+<p>如果是在已有项目对 babel6 进行升级的话，就不需要一个个包去重新安装，使用以下命令即可<br>babel 升级工具修改配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npx babel-upgrade --write</span><br><span class="line"></span><br><span class="line"># 或是安装 babel-upgrade -g</span><br><span class="line">npm install babel-upgrade -g</span><br><span class="line">babel-upgrade --write</span><br></pre></td></tr></table></figure></p>
+<h3 id="Tree-Shaking-优化"><a href="#Tree-Shaking-优化" class="headerlink" title="Tree Shaking 优化"></a>Tree Shaking 优化</h3><p>为了让 Tree Shaking 对第三方 npm 包生效，需要通过 mainFields 配置模块的入口描述<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  resolve: &#123;</span><br><span class="line">    <span class="comment">// 针对 Npm 中的第三方模块优先采用 jsnext:main 中指向的 ES6 模块化语法的文件</span></span><br><span class="line">    mainFields: [<span class="string">'jsnext:main'</span>, <span class="string">'browser'</span>, <span class="string">'main'</span>]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>以上配置的含义是优先使用 jsnext:main 作为入口，如果不存在 jsnext:main 就采用 browser 或者 main 作为入口。 虽然并不是每个 Npm 中的第三方模块都会提供 ES6 模块化语法的代码，但对于提供了的不能放过，能优化的就优化。</p>
+<h3 id="排查报错信息"><a href="#排查报错信息" class="headerlink" title="排查报错信息"></a>排查报错信息</h3><p>有时候打包是成功的，但是代码运行有问题，这时候我们需要在打包后的代码里排查问题<br>为了识别哪块代码属于哪一个模块，可以通过设置 <code>pathinfo</code> 打印出来<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.config.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">  output: &#123;</span><br><span class="line">    pathinfo: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/技术帖/" rel="tag"># 技术帖</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/12/Koa-使用-Decorator-装饰路由/" rel="next" title="Koa 使用 Decorator 装饰路由">
+                <i class="fa fa-chevron-left"></i> Koa 使用 Decorator 装饰路由
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/18/React-深度探索/" rel="prev" title="React 深度探索">
+                React 深度探索 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://i.loli.net/2018/11/19/5bf2895db2229.png" alt="Kerminate">
+            
+              <p class="site-author-name" itemprop="name">Kerminate</p>
+              <p class="site-description motion-element" itemprop="description">一个喜欢篮球的程序猿.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/Kerminate" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:kepeilin@outlook.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/Kerminate" target="_blank" title="Twitter">
+                    
+                      <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://weibo.com/5955228776/profile" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lazzzis.github.io/" title="lazzzis" target="_blank">lazzzis</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://mengrenzi.com/" title="MRZ's Blog" target="_blank">MRZ's Blog</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://happycloud.coding.me/" title="Happy Cloud" target="_blank">Happy Cloud</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lfhacks.com" title="LFhacks.com" target="_blank">LFhacks.com</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://kalacloud.com" title="kalacloud" target="_blank">kalacloud</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#升级依赖包"><span class="nav-number">1.</span> <span class="nav-text">升级依赖包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新特性与使用"><span class="nav-number">2.</span> <span class="nav-text">新特性与使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件"><span class="nav-number">3.</span> <span class="nav-text">插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析打包结果"><span class="nav-number">4.</span> <span class="nav-text">分析打包结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他优化"><span class="nav-number">5.</span> <span class="nav-text">其他优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#lodash-按需打包"><span class="nav-number">5.1.</span> <span class="nav-text">lodash 按需打包</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用子包"><span class="nav-number">5.1.1.</span> <span class="nav-text">使用子包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用插件"><span class="nav-number">5.1.2.</span> <span class="nav-text">使用插件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#升级babel7"><span class="nav-number">5.2.</span> <span class="nav-text">升级babel7</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tree-Shaking-优化"><span class="nav-number">5.3.</span> <span class="nav-text">Tree Shaking 优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排查报错信息"><span class="nav-number">5.4.</span> <span class="nav-text">排查报错信息</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kerminate</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+    <i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+      本站总访问量 <span id="busuanzi_value_site_pv"></span>次  </span>由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://Kerminate.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2019/03/24/Webpack4-使用总结/';
+          this.page.identifier = '2019/03/24/Webpack4-使用总结/';
+          this.page.title = 'Webpack4 使用总结';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://Kerminate.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("sL0C4Wm24YmFljxp9tAdcUmg-gzGzoHsz", "n57GxQF4055NmnaWWlGEaIvo");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  
+  <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("sL0C4Wm24YmFljxp9tAdcUmg-gzGzoHsz", "n57GxQF4055NmnaWWlGEaIvo");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = '0 ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+});
+</script>
+
+  
+
+</body>
+</html>
