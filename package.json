@@ -9,7 +9,7 @@
     "freshtall": "npm cache clean --force && rm -rf node_modules && rm -f package-lock.json && npm install"
   },
   "dependencies": {
-    "hexo": "^3.8.0",
+    "hexo": "^6.3.0",
     "hexo-deployer-git": "git+ssh://git@github.com/hexojs/hexo-deployer-git.git",
     "hexo-generator-archive": "^0.1.4",
     "hexo-generator-category": "^0.1.3",
@@ -20,6 +20,6 @@
     "hexo-renderer-marked": "^0.3.2",
     "hexo-renderer-stylus": "^0.3.1",
     "hexo-server": "^0.2.0",
-    "hexo-wordcount": "^3.0.2"
+    "hexo-wordcount": "^6.0.1"
   }
 }
