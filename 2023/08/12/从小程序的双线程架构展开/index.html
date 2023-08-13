@@ -89,11 +89,11 @@
 <meta property="og:description" content="浏览器中 GUI 渲染线程和 JavaScript 引擎线程是互斥的，JavaScript 在执行过程中会阻塞 UI 渲染。即使脚本执行时间过长，页面也会长时间无响应，然后崩溃。正是这种 GUI 渲染线程和 JavaScript 引擎线程之间互斥、阻塞的线程管理，让一些前端开发者认为浏览器是单线程的。 小程序双线程模型 逻辑层和渲染层拆分，每个 page 页面使用一个 webview 线程，逻辑层">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://p0.meituan.net/travelcube/afb7efe411da8db20e9f2e0844c5793d107067.png">
-<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2acf86440fd54ff8b126ed45535d2e5e~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.png">
+<meta property="og:image" content="https://p0.meituan.net/travelcube/75f92061d720fefbdcad906eb03ba297154281.png">
 <meta property="og:image" content="https://p0.meituan.net/travelcube/fd27e8070862afc72ee6cf2a92280a6862233.png">
 <meta property="og:image" content="https://p0.meituan.net/travelcube/67d0f51a26878b9a707c648995b6786b79133.png">
-<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/QRibyjewM1IDoxFk7VMTIll0XyibBI9UOa4wCbCfgiccN3nfOAVBQ1jLapj6t2Sjibz3ibOLHhlibUtoestA3uicd02XQ/640">
-<meta property="og:updated_time" content="2023-08-13T05:23:32.782Z">
+<meta property="og:image" content="https://p0.meituan.net/travelcube/9606e5a5cd2b605cf5529a5eb7cfb1a0295234.png">
+<meta property="og:updated_time" content="2023-08-13T07:28:08.109Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从小程序的双线程架构展开">
 <meta name="twitter:description" content="浏览器中 GUI 渲染线程和 JavaScript 引擎线程是互斥的，JavaScript 在执行过程中会阻塞 UI 渲染。即使脚本执行时间过长，页面也会长时间无响应，然后崩溃。正是这种 GUI 渲染线程和 JavaScript 引擎线程之间互斥、阻塞的线程管理，让一些前端开发者认为浏览器是单线程的。 小程序双线程模型 逻辑层和渲染层拆分，每个 page 页面使用一个 webview 线程，逻辑层">
@@ -382,6 +382,7 @@
         <p>浏览器中 GUI 渲染线程和 JavaScript 引擎线程是互斥的，JavaScript 在执行过程中会阻塞 UI 渲染。即使脚本执行时间过长，页面也会长时间无响应，然后崩溃。正是这种 GUI 渲染线程和 JavaScript 引擎线程之间互斥、阻塞的线程管理，让一些前端开发者认为浏览器是单线程的。</p>
 <h2 id="小程序双线程模型"><a href="#小程序双线程模型" class="headerlink" title="小程序双线程模型"></a>小程序双线程模型</h2><p><img src="https://p0.meituan.net/travelcube/afb7efe411da8db20e9f2e0844c5793d107067.png" alt=""></p>
 <p>逻辑层和渲染层拆分，每个 page 页面使用一个 webview 线程，逻辑层的 JsCore 是共享的。</p>
+<a id="more"></a>
 <h3 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h3><ul>
 <li>在 iOS、iPadOS 和 Mac OS 上，小程序逻辑层的 JavaScript 代码运行在 JavaScriptCore 中，视图层是由 WKWebView 来渲染的，环境有 iOS 14、iPad OS 14、Mac OS 11.4 等；</li>
 <li>在 Android 上，小程序逻辑层的 JavaScript 代码运行在 V8 中，视图层是由基于 Mobile Chromium 内核的微信自研 XWeb 引擎来渲染的；</li>
@@ -408,7 +409,7 @@
 <li><p>Flutter的渲染是自己控制的，不是由客户端去渲染。布局的数据直接由Dart去控制，不需要像RN那样因为一些场景导致页面发生变化而需要JavaScript和Native去做一些数据同步，并且频繁的改变DOM。进而节省一些不必要的性能开销。</p>
 </li>
 </ul>
-<h3 id="架构图"><a href="#架构图" class="headerlink" title="架构图"></a>架构图</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2acf86440fd54ff8b126ed45535d2e5e~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.png" alt=""></p>
+<h3 id="架构图"><a href="#架构图" class="headerlink" title="架构图"></a>架构图</h3><p><img src="https://p0.meituan.net/travelcube/75f92061d720fefbdcad906eb03ba297154281.png" alt=""></p>
 <h3 id="框架层"><a href="#框架层" class="headerlink" title="框架层"></a>框架层</h3><p>Flutter Framework，即框架层。这是一个纯 Dart实现的 SDK，它实现了一套基础库，自底向上</p>
 <ul>
 <li>底下两层（Foundation 和 Animation、Painting、Gestures）在 Google 的一些视频中被合并为一个dart UI层，对应的是Flutter中的dart:ui包，它是 Flutter Engine 暴露的底层UI库，提供动画、手势及绘制能力。</li>
@@ -448,7 +449,7 @@
 <li>框架失控风险</li>
 </ul>
 <h2 id="Weex2-0"><a href="#Weex2-0" class="headerlink" title="Weex2.0"></a>Weex2.0</h2><p>Weex 2.0 是在 Weex 1.0 基础上做了大幅架构升级的新版本，定位依然是面向 Web 标准和前端生态，通过自绘渲染引擎、高效字节码引擎等核心升级，在标准化程度、性能、开发体验方面相比 1.0 版本都有大幅提升</p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/QRibyjewM1IDoxFk7VMTIll0XyibBI9UOa4wCbCfgiccN3nfOAVBQ1jLapj6t2Sjibz3ibOLHhlibUtoestA3uicd02XQ/640" alt=""></p>
+<p><img src="https://p0.meituan.net/travelcube/9606e5a5cd2b605cf5529a5eb7cfb1a0295234.png" alt=""></p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li><a href="https://developers.weixin.qq.com/miniprogram/dev/framework/runtime/skyline/introduction.html" target="_blank" rel="noopener">小程序微信官方文档</a></li>
 <li><a href="https://www.zhihu.com/question/446103629/answer/1801961702" target="_blank" rel="noopener">微信小程序的双线程设计有何创新之处</a></li>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2023-08-13T05:23:32.782Z</updated>
+  <updated>2023-08-13T07:28:08.109Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,17 +21,13 @@
     <link href="http://yoursite.com/2023/08/12/%E4%BB%8E%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%8F%8C%E7%BA%BF%E7%A8%8B%E6%9E%B6%E6%9E%84%E5%B1%95%E5%BC%80/"/>
     <id>http://yoursite.com/2023/08/12/%E4%BB%8E%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%8F%8C%E7%BA%BF%E7%A8%8B%E6%9E%B6%E6%9E%84%E5%B1%95%E5%BC%80/</id>
     <published>2023-08-12T07:07:24.000Z</published>
-    <updated>2023-08-13T05:23:32.782Z</updated>
+    <updated>2023-08-13T07:28:08.109Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          
-        
-      
+      &lt;p&gt;浏览器中 GUI 渲染线程和 JavaScript 引擎线程是互斥的，JavaScript 在执行过程中会阻塞 UI 渲染。即使脚本执行时间过长，页面也会长时间无响应，然后崩溃。正是这种 GUI 渲染线程和 JavaScript 引擎线程之间互斥、阻塞的线程管理，让一些前端开发者认为浏览器是单线程的。&lt;/p&gt;
+&lt;h2 id=&quot;小程序双线程模型&quot;&gt;&lt;a href=&quot;#小程序双线程模型&quot; class=&quot;headerlink&quot; title=&quot;小程序双线程模型&quot;&gt;&lt;/a&gt;小程序双线程模型&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;https://p0.meituan.net/travelcube/afb7efe411da8db20e9f2e0844c5793d107067.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;逻辑层和渲染层拆分，每个 page 页面使用一个 webview 线程，逻辑层的 JsCore 是共享的。&lt;/p&gt;
     
     </summary>
     
